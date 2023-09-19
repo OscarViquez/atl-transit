@@ -41,7 +41,6 @@ Similarly to Monorepos, this would make it easier to scale if need to add additi
         - effects
         - reducer
         - selectors  
-         <br>
 
     + adapters ( where we transform data from 
           api to the way we would like it be )
@@ -55,7 +54,7 @@ Similarly to Monorepos, this would make it easier to scale if need to add additi
     + view ( Different Screen and Pages )
         - `<train-arrivals-page/>`
         - `<train-station--page/>`  
-           <br>
+
     + ui ( ui components for those views and screen )
         - storybook
         - src
