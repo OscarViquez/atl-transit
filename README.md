@@ -12,7 +12,7 @@ To start the development server run `npx nx serve atl-transit`. Open your browse
 
 ### Start Storybook Showcase
 
-To start the development server run `npx nx run storybook <project-name>`. Open your browser and navigate to http://localhost:4200/.
+To start the development server run `npx nx run shared:storybook`. Open your browser and navigate to http://localhost:4200/.
 
 <br/>
 
