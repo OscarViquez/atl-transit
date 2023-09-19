@@ -1,0 +1,7 @@
+## Atoms
+Atoms are our basic building block components. They are the most granular, low-level visuals in our system.
+
+Atoms are the basic building blocks of matter. Applied to web interfaces, atoms are our HTML tags, such as a form label, an input or a button. Atoms can also include more abstract elements like color palettes, fonts and even more invisible aspects of an interface like animations.
+
+Link to Ref: https://gamut.codecademy.com/?path=/docs/atoms-about--page
+Credit to Reference and info goes to CodeAcademy

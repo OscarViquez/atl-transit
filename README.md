@@ -30,7 +30,7 @@ Similarly to Monorepos, this would make it easier to scale if need to add additi
   - Train Arrivals and Train Station Pages.
 
 - <strong> Buses </strong> :
-  - Train Arrivals and Train Station Pages
+  - Bus Routes and the Route Arrivals
 
 ### Inside a Library Folder Structure:
 
@@ -63,3 +63,4 @@ Similarly to Monorepos, this would make it easier to scale if need to add additi
 
 ✨ **⬆⬆ Will update this section above with more detailed explanation ⬆⬆** ✨
 
+## Components and Storybook Folder Structure 

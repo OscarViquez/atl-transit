@@ -1,4 +1,4 @@
-import { Route } from '@angular/router';
-import { UiComponent } from './ui/ui.component';
+// import { Route } from '@angular/router';
+// import { UiComponent } from './ui/ui.component';
 
-export const uiRoutes: Route[] = [{ path: '', component: UiComponent }];
+// export const uiRoutes: Route[] = [{ path: '', component: UiComponent }];
