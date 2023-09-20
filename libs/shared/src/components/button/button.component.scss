@@ -1,0 +1,60 @@
+//* Component Variables */
+@import '../../styles/global.scss';
+
+//* Component Variables */
+$button-font: 'General Sans', sans-serif;
+$button-width: 327px;
+$button-hieght: 41px;
+$button-border-radius: 3px;
+$button-cursor: pointer;
+$button-text-size: 12px;
+$button-text-weight: 500;
+
+$button-icon-width: 20px;
+$button-icon-height: 20px;
+
+$button-dark-md-bg: #2c2b36;
+$button-dark-md-border: 1px solid #333;
+$button-dark-md-text: #c5c5c7;
+$button-dark-md-text-active: #b0b0b0;
+
+$button-light-md-bg: #ffffff;
+$button-light-md-border: 1px solid #e4e3e3;
+$button-light-md-text: #5b5f67;
+$button-light-md-text-active: #c65854;
+
+//* Component Styling */
+.button {
+   max-width: $button-width;
+   height: $button-hieght;
+   border-radius: $button-border-radius;
+   cursor: $button-cursor;
+
+   // * Layout
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   &__icon {
+      width: $button-icon-width;
+      height: $button-icon-height;
+   }
+
+   &__text {
+      font-family: $button-font;
+      font-size: $button-text-size;
+      font-weight: $button-text-weight;
+   }
+
+   &--light-mode {
+      color: $button-light-md-text;
+      background-color: $button-light-md-bg;
+      border: $button-light-md-border;
+   }
+
+   &--dark-mode {
+      color: $button-dark-md-text;
+      background-color: $button-dark-md-bg;
+      border: $button-dark-md-border;
+   }
+}

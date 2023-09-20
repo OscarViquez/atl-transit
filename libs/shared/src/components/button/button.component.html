@@ -1,0 +1,11 @@
+<ng-container *ngIf="content.text">
+   <div class="button button--{{ content.mode }}-mode">
+      <div *ngIf="content.icon" class="button__icon">
+         <img src="{{ content.icon }}" alt="{{ content.icon }}" />
+      </div>
+
+      <p class="button__text">
+         {{ content.text }}
+      </p>
+   </div>
+</ng-container>
