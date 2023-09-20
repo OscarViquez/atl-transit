@@ -1,3 +1,1 @@
-export * from './lib/lib.routes';
-
-export * from './lib/ui/ui.component';
+export * from './lib/components/train-station-card/train-station-card.component'

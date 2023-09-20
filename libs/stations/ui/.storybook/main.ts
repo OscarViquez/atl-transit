@@ -3,6 +3,7 @@ import type { StorybookConfig } from '@storybook/angular';
 const config: StorybookConfig = {
   stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   addons: ['@storybook/addon-essentials'],
+  staticDirs: ['../../assets/images','../../assets/styles'],
   framework: {
     name: '@storybook/angular',
     options: {},
