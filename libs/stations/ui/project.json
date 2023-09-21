@@ -1,8 +1,8 @@
 {
-  "name": "ui",
+  "name": "station-ui",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/stations/ui/src",
-  "prefix": "lib",
+  "prefix": "station-ui",
   "tags": [],
   "projectType": "library",
   "targets": {
@@ -35,7 +35,7 @@
       "options": {
         "port": 4400,
         "configDir": "libs/stations/ui/.storybook",
-        "browserTarget": "ui:build-storybook",
+        "browserTarget": "station-ui:build-storybook",
         "compodoc": false
       },
       "configurations": {
@@ -50,7 +50,7 @@
       "options": {
         "outputDir": "dist/storybook/ui",
         "configDir": "libs/stations/ui/.storybook",
-        "browserTarget": "ui:build-storybook",
+        "browserTarget": "station-ui:build-storybook",
         "compodoc": false
       },
       "configurations": {
@@ -62,12 +62,12 @@
     "static-storybook": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "ui:build-storybook",
+        "buildTarget": "station-ui:build-storybook",
         "staticFilePath": "dist/storybook/ui"
       },
       "configurations": {
         "ci": {
-          "buildTarget": "ui:build-storybook:ci"
+          "buildTarget": "station-ui:build-storybook:ci"
         }
       }
     }
