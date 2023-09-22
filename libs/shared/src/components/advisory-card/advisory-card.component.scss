@@ -5,6 +5,7 @@
    flex-direction: column;
    max-width: 327px;
    background: white;
+   border-radius: 5px;
 
    &__container {
       &__title {
@@ -23,7 +24,7 @@
          &--sub {
             color: #c65854;
             font-family: General Sans;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             letter-spacing: 0.18px;
          }
@@ -71,19 +72,6 @@
                font-weight: 500;
                letter-spacing: 0.028px;
             }
-         }
-      }
-
-      &__footer {
-         display: flex;
-         justify-content: center;
-
-         &--text {
-            color: #7c828d;
-            font-family: General Sans;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.24px;
          }
       }
    }

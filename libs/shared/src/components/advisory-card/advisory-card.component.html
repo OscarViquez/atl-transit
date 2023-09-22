@@ -13,9 +13,15 @@
             [title]="x.title"
          ></lib-drop-down-advisory>
       </div>
-      <div class="advisory__container__footer">
-         <a href=""><span class="advisory__container__footer--text">Go to Advisories</span></a>
-      </div>
+      <!-- <div class="advisory__container__footer"> -->
+      <!-- <a href=""><span class="advisory__container__footer--text">Go to Advisories</span></a> -->
+      <lib-button
+         [content]="{
+            text: 'More Details',
+            mode: 'light'
+         }"
+      ></lib-button>
+      <!-- </div> -->
    </div>
 
    <div *ngIf="alerts.length === 0">
