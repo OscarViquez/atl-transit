@@ -9,6 +9,7 @@ $button-border-radius: 3px;
 $button-cursor: pointer;
 $button-text-size: 12px;
 $button-text-weight: 500;
+$button-gap: 1rem;
 
 $button-icon-width: 20px;
 $button-icon-height: 20px;
@@ -35,11 +36,7 @@ $button-light-md-text-active: #c65854;
    display: flex;
    align-items: center;
    justify-content: center;
-
-   &__icon {
-      width: $button-icon-width;
-      height: $button-icon-height;
-   }
+   gap: $button-gap;
 
    &__text {
       font-family: $button-font;
