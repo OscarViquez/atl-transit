@@ -1,16 +1,17 @@
 import type { StorybookConfig } from '@storybook/angular';
 
 const config: StorybookConfig = {
-  stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: ['@storybook/addon-essentials'],
-  staticDirs: ['../../../assets/images','../../../assets/styles'],
-  framework: {
-    name: '@storybook/angular',
-    options: {},
-  },
+   stories: ['../**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+   addons: ['@storybook/addon-essentials',"@storybook/addon-styling"],
+   staticDirs: ['../../../assets/images'],
+   framework: {
+      name: '@storybook/angular',
+      options: {}
+   }
 };
 
 export default config;
+
 
 // To customize your webpack configuration you can use the webpackFinal field.
 // Check https://storybook.js.org/docs/react/builders/webpack#extending-storybooks-webpack-config
