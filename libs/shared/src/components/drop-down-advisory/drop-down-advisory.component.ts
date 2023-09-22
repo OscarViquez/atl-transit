@@ -10,10 +10,8 @@ import { AdvisoryCard } from '../../models/advisorycard';
    styleUrls: ['./drop-down-advisory.component.scss']
 })
 export class DropDownAdvisoryComponent {
-@Input() imgPath!: string
-@Input() imgAlt!: string
-@Input() title!: string
-@Input()  sub!: string
-
+   @Input() imgPath!: string;
+   @Input() imgAlt!: string;
+   @Input() title!: string;
+   @Input() sub!: string;
 }
-

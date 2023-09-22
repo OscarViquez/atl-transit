@@ -1,27 +1,32 @@
 <section class="advisory">
+   <div class="advisory__container__title">
+      <h2 class="advisory__container__title--head">Advisories</h2>
+      <div class="advisory__container__title--sub">and Alerts Notifications</div>
+   </div>
 
-    <div class="advisory__container__title">
-        <h2 class="advisory__container__title--head">Advisories</h2>
-        <div class="advisory__container__title--sub">and Alerts Notifications</div>
-    </div>
+   <div *ngIf="alerts.length !== 0">
+      <div class="advisory__container__alerts" *ngFor="let x of alerts">
+         <lib-drop-down-advisory
+            [imgPath]="x.imgPath"
+            [imgAlt]="x.imgAlt"
+            [sub]="x.sub"
+            [title]="x.title"
+         ></lib-drop-down-advisory>
+      </div>
+      <div class="advisory__container__footer">
+         <a href=""><span class="advisory__container__footer--text">Go to Advisories</span></a>
+      </div>
+   </div>
 
-    <div *ngIf="alerts.length !== 0">
-    <div class="advisory__container__alerts" *ngFor="let x of alerts">
-        <lib-drop-down-advisory [imgPath]="x.imgPath" [imgAlt]="x.imgAlt" [sub]="x.sub" [title]="x.title"></lib-drop-down-advisory>
-    </div>
-    <div class="advisory__container__footer">
-        <a href=""><span class="advisory__container__footer--text">Go to Advisories</span></a>
-     </div>
-    </div>
-
-
-    <div *ngIf="alerts.length === 0">
-        <div class="advisory__container__alerts__null">
-            <img src="./location.svg" alt="Location icon" class="avisory__container__alerts__null--img">
-            <h3 class="advisory__container__alerts__null--title">An <span class="advisory__container__alerts__null--sub">ERROR</span> has occured</h3>
-            <p class="advisory__container__alerts__null--p">Please enable location in order us to be able to find the nearest station.</p>
-        </div>
-        </div>
-
-
+   <div *ngIf="alerts.length === 0">
+      <div class="advisory__container__alerts__null">
+         <img src="./location.svg" alt="Location icon" class="avisory__container__alerts__null--img" />
+         <h3 class="advisory__container__alerts__null--title">
+            An <span class="advisory__container__alerts__null--sub">Error</span> has occured
+         </h3>
+         <p class="advisory__container__alerts__null--p">
+            Please enable location in order us to be able to find the nearest station.
+         </p>
+      </div>
+   </div>
 </section>

@@ -10,8 +10,6 @@ export class AlertService {
         new AdvisoryCard("/alert.svg", 'Red alert', "Five Points Station", 'North Springs Trains Delay')
      ]
      
-  constructor() {}
-
   // get advisory here
 
 }
