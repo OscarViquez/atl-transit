@@ -12,7 +12,12 @@ To start the development server run `npx nx serve atl-transit`. Open your browse
 
 ### Start Storybook Showcase
 
-To start the development server run `npx nx run shared:storybook`. Open your browser and navigate to http://localhost:4200/.
+To run your local storybook, use one of these commands, depending on the library: 
+  
+`npx nx run shared:storybook`  
+`npx nx run station-ui:storybook`   
+
+Open your browser and navigate to http://localhost:4400/.
 
 <br/>
 
@@ -23,26 +28,27 @@ Similarly to Monorepos, this would make it easier to scale if need to add additi
 
 ### Libraries :
 
-- <strong> Shared </strong> :
-  - Where we will keep out core UI Components, Types, Services, and Layouts.
-- <strong> Stations </strong> :
+-  <strong> Shared </strong> :
+   -  Where we will keep out core UI Components, Types, Services, and Layouts.
+-  <strong> Stations </strong> :
 
-  - Train Arrivals and Train Station Pages.
+   -  Train Arrivals and Train Station Pages.
 
-- <strong> Buses </strong> :
-  - Bus Routes and the Route Arrivals
+-  <strong> Buses </strong> :
+   -  Bus Routes and the Route Arrivals
 
 ### Inside a Library Folder Structure:
 
 ### data folder
+
     + data-services ( ... )
         - state (where we manage state)
         - actions
         - effects
         - reducer
-        - selectors  
+        - selectors
 
-    + adapters ( where we transform data from 
+    + adapters ( where we transform data from
           api to the way we would like it be )
     + facades
     + mocks (mock data)
@@ -51,16 +57,37 @@ Similarly to Monorepos, this would make it easier to scale if need to add additi
     + utils
 
 ### ui folder
+
     + view ( Different Screen and Pages )
         - `<train-arrivals-page/>`
-        - `<train-station--page/>`  
+        - `<train-station--page/>`
 
     + ui ( ui components for those views and screen )
         - storybook
         - src
         - libs
-            - features (components go here)
+            - components (components go here)
 
 ✨ **⬆⬆ Will update this section above with more detailed explanation ⬆⬆** ✨
 
-## Components and Storybook Folder Structure 
+## API USED
+
+-  Rail Arrival Data:     
+   https://www.itsmarta.com/arrivals.aspx
+
+-  20230504221309  
+   http://labs.itsmarta.com/signpost/predictions
+
+-  20230504221351  
+   http://labs.itsmarta.com/signpost/trains
+
+-  20230504221132  
+   http://labs.itsmarta.com/signpost/trains
+
+-  Trip Updates:  
+   https://gtfs-rt.itsmarta.com/TMGTFSRealTimeWebService/tripupdate/tripupdates.pb
+
+-  Vehicle Positions:  
+   https://gtfs-rt.itsmarta.com/TMGTFSRealTimeWebService/vehicle/vehiclepositions.pb
+
+## Components and Storybook Folder Structure

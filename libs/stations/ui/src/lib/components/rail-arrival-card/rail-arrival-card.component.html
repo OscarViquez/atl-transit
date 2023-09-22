@@ -1,1 +1,26 @@
-<p>rail-arrival-card works!</p>
+<ng-container *ngIf="railArrival">
+   <div *ngFor="let rail of railArrival">
+      <div class="rail-arrival rail-arrival--{{ systemMode }}">
+         <div class="rail-arrival-direction">
+            <span class="rail-arrival-direction__text  rail-arrival-direction__text--{{ rail.color }}">
+               {{ rail.direction }}
+            </span>
+         </div>
+         <div class="rail-arrival-info">
+            <div class="rail-arrival-info-content">
+               <h3 class="rail-arrival-info-content__destination">
+                  {{ rail.destination }}
+               </h3>
+               <p class="rail-arrival-info-content__rail-description">
+                  {{ rail.description }}
+               </p>
+            </div>
+            <div class="rail-arrival-info-time">
+               <span class="rail-arrival-info-time__text">
+                  {{ rail.arrivalTime }}
+               </span>
+            </div>
+         </div>
+      </div>
+   </div>
+</ng-container>
