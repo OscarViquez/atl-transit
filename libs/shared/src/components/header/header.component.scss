@@ -1,0 +1,61 @@
+.header {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+
+    &--nav {
+        padding: .7rem;
+        height: 1.5rem;
+        width: 1.4rem;
+        color: white;
+    }
+
+    &--search {
+        margin-top: .45rem;
+        height: 2rem;
+        width: 2rem;
+    }
+
+    &__main {
+        display: flex;
+        justify-content: center;
+        gap: .5rem;
+        align-items: center;
+
+        &--logo {
+           margin-top: .2rem;
+            height: 1.6rem;
+          align-self: stretch;
+
+        }
+        &--text {
+            padding-bottom: .5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            &--h {
+                color: #E2E2E3;
+                font-family: General Sans;
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 0%; /* 0px */
+                letter-spacing: 0.24px;
+            }
+
+            &--sub {
+                color: #B0B0B0;
+                font-family: General Sans;
+                font-size: .8rem;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 0%; /* 0px */
+                letter-spacing: 0.15px;
+            }
+        }
+
+    }
+
+}
