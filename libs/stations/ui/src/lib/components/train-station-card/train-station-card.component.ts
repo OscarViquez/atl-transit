@@ -8,4 +8,6 @@ import { CommonModule } from '@angular/common';
    templateUrl: './train-station-card.component.html',
    styleUrls: ['./train-station-card.component.scss']
 })
-export class TrainStationCardComponent {}
+export class TrainStationCardComponent {
+   // TrainStaion
+}
