@@ -13,5 +13,15 @@ export const ButtonDarkModeMock: Button = {
 export const ButtonWithIconMock: Button = {
    text: 'More Details',
    mode: 'light',
-   icon: '/assets/warning.png'
+   icon: '/warning.png'
+};
+
+export const ButtonActiveMockLight: Button = {
+   ...ButtonLightModeMock,
+   active: true
+};
+
+export const ButtonActiveMockDark: Button = {
+   ...ButtonDarkModeMock,
+   active: true
 };

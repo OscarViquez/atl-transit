@@ -12,4 +12,5 @@ import { Button } from '../../models';
 })
 export class ButtonComponent {
   @Input() content!: Button
+  @Input() isLoading!: boolean;
 }
