@@ -18,8 +18,6 @@ const Template: Story<TrainStationCardComponent> = (args: TrainStationCardCompon
    props: args
 });
 
-export const Default = () => Template.bind({});
-
 export const FivePointsStation = Template.bind({});
 FivePointsStation.args = {
    content: TrainStationMock
