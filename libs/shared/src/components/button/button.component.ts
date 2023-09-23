@@ -11,8 +11,6 @@ import { Button } from '../../models';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input() content: Button = {
-    text: 'More Details',
-    mode: 'light'
-  }
+  @Input() content!: Button
+  @Input() isLoading!: boolean;
 }

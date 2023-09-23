@@ -5,10 +5,11 @@
 $button-font: 'General Sans', sans-serif;
 $button-width: 327px;
 $button-hieght: 41px;
-$button-border-radius: 3px;
+$button-border-radius: 0 0 5px 5px;
 $button-cursor: pointer;
 $button-text-size: 12px;
 $button-text-weight: 500;
+$button-gap: 1rem;
 
 $button-icon-width: 20px;
 $button-icon-height: 20px;
@@ -23,22 +24,49 @@ $button-light-md-border: 1px solid #e4e3e3;
 $button-light-md-text: #5b5f67;
 $button-light-md-text-active: #c65854;
 
+@mixin background-gradient-light {
+   background-image: linear-gradient(90deg, #e5e5e2 0px, #f5f5f5 40px, #e5e5e2 80px);
+   background-size: 600px;
+}
+
+@mixin background-gradient-dark {
+   background-image: linear-gradient(90deg, #43414b 0px, #514e5b 40px, #43414b 80px);
+   background-size: 600px;
+}
+
+@keyframes shine-avatar {
+   0% {
+      background-position: -100px + 52 + 16;
+   }
+
+   40%,
+   100% {
+      background-position: 140px + 52 + 16;
+   }
+}
+
 //* Component Styling */
 
 .button {
    max-width: $button-width;
    height: $button-hieght;
-   border-radius: $button-border-radius;
    cursor: $button-cursor;
 
    // * Layout
    display: flex;
    align-items: center;
    justify-content: center;
+   gap: $button-gap;
 
    &__icon {
-      width: $button-icon-width;
-      height: $button-icon-height;
+      // * Layout
+      display: flex;
+      align-items: center;
+
+      & > img {
+         width: 20px;
+         height: 20px;
+      }
    }
 
    &__text {
@@ -50,12 +78,54 @@ $button-light-md-text-active: #c65854;
    &--light-mode {
       color: $button-light-md-text;
       background-color: $button-light-md-bg;
-      border: $button-light-md-border;
+      border-top: $button-light-md-border;
+
+      &.button--active {
+         background-color: #ffffff;
+         color: #C65854;
+      }
+
+      .button-skeleton {
+         background-color: #e5e5e2;
+         width: 35%;
+         height: 14px;
+         @include background-gradient-light;
+         animation: shine-avatar 1.5s infinite linear;
+      }
    }
 
    &--dark-mode {
-      color: $button-dark-md-text;
-      background-color: $button-dark-md-bg;
+      color: #B0B0B0;
+      background-color: #17171D;
       border: $button-dark-md-border;
+
+      &.button--active {
+         background-color: #2c2b36;
+         color: #C5C5C7;
+      }
+
+      .button-skeleton {
+         background-color: #e5e5e2;
+         width: 35%;
+         height: 14px;
+         @include background-gradient-dark;
+         animation: shine-avatar 1.5s infinite linear;
+      }
+   }
+
+   &--icon-padding {
+      padding-right: 4px;
+   }
+
+   &--size-small {
+      max-width: 50px;
+   }
+
+   &--size-medium {
+      max-width: 120px;
+   }
+
+   &--size-large {
+      max-width: $button-width;
    }
 }
