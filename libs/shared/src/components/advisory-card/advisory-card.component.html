@@ -1,9 +1,4 @@
 <section class="advisory">
-   <div class="advisory__container__title">
-      <h2 class="advisory__container__title--head">Advisories</h2>
-      <div class="advisory__container__title--sub">and Alerts Notifications</div>
-   </div>
-
    <div *ngIf="alerts.length !== 0">
       <div class="advisory__container__alerts" *ngFor="let x of alerts">
          <lib-drop-down-advisory

@@ -1,0 +1,25 @@
+@import '../../styles/global.scss';
+
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    &__row {
+        padding: 10px 8px;
+        display: flex;
+        width: 100%;
+        background-color: white;
+    }
+    
+}
+
+.btn {
+    width: 50%;
+    
+}
+
+.btn:active, .btn:visited {
+    background-color: #5B5F67;
+}
