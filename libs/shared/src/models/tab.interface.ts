@@ -5,4 +5,5 @@ export interface Tab {
    button: Button;
    width?: string;
    height?: string;
+   active: boolean;
 }
