@@ -51,6 +51,7 @@ $button-light-md-text-active: #c65854;
    max-width: $button-width;
    height: $button-hieght;
    cursor: $button-cursor;
+   border-radius: inherit;
 
    // * Layout
    display: flex;
