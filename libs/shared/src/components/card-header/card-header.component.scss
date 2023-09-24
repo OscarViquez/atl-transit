@@ -1,0 +1,32 @@
+@import '../../styles/global.scss';
+
+.card-header {
+   display: flex;
+   flex-direction: column;
+   background: white;
+   border-radius: 5px;
+
+   &__container {
+      &__title {
+         display: flex;
+         flex-direction: column;
+         padding: 1.15rem 1rem;
+
+         &--head {
+            color: var(--Base-Black, #1f1f1f);
+            font-family: General Sans;
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+         }
+
+         &--sub {
+            color: #c65854;
+            font-family: General Sans;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.18px;
+         }
+      }
+   }
+}
