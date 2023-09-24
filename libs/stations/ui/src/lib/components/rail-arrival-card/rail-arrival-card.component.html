@@ -1,6 +1,6 @@
 <ng-container *ngIf="railArrival">
-   <div *ngFor="let rail of railArrival">
-      <div class="rail-arrival rail-arrival--{{ systemMode }}">
+   <div class="rail-arrival rail-arrival--{{ systemMode }}">
+      <div *ngFor="let rail of railArrival">
          <div class="rail-arrival-direction">
             <span class="rail-arrival-direction__text  rail-arrival-direction__text--{{ rail.color }}">
                {{ rail.direction }}
