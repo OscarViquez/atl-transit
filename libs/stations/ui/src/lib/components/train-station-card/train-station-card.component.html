@@ -1,6 +1,6 @@
 <ng-container *ngIf="content">
    <div class="train-station">
-      <!-- TODO: Add header component here -->
+      <lib-card-header [content]="content.header"></lib-card-header>
       <lib-rail-arrival-card [railArrival]="content.railArrivals"></lib-rail-arrival-card>
       <lib-button [content]="content.button"></lib-button>
    </div>
