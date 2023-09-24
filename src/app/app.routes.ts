@@ -1,10 +1,10 @@
 import { Route } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { AppComponent } from './app.component';
 
 export const appRoutes: Route[] = [
     {
       path: 'welcome',
-      component: NxWelcomeComponent,
+      component: AppComponent,
       pathMatch: 'full',
     },
   ];

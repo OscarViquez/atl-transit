@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "libs/stations/data/src/app.module.ts"],
   "compilerOptions": {
     "types": ["jest", "node"]
   }
