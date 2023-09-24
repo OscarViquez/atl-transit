@@ -1,11 +1,8 @@
-import { Button } from 'shared';
+import { Button, Header } from 'shared';
 import { RailDirection, RailMainDestination } from '../types';
 
 export interface TrainStaion {
-   /* station name */
-   name: string;
-   /* message text */
-   description: string;
+   header: Header
    /* Rail Arrivals */
    railArrivals: RailArrival[];
    /* Button Content and Data */
