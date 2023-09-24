@@ -1,6 +1,6 @@
 @import '../../styles/global.scss';
 
-.advisory {
+.card-header {
    display: flex;
    flex-direction: column;
    background: white;
@@ -28,7 +28,5 @@
             letter-spacing: 0.18px;
          }
       }
-
-      
    }
 }

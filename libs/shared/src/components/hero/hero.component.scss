@@ -3,31 +3,31 @@
 .container {
     display: flex;
     background-color: #ffff;
-    //width: 375px;
+    // max-width: 375px;
     border-radius: 5px;
-    padding: 1.1rem 1.1rem;
+    padding: 44px 24px 24px 24px;
 
     &__hero {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 60px;
         font-family: General Sans;
         
 
         &--h {
-            font-size: 1rem;
-            font-weight: 400;
+            font-size: 20px;
+            font-weight: 500;
             letter-spacing: 0.3px;
             font-family: inherit;
         }
 
         &--s {
             color: #787878;
-            font-size: 1rem;
-            font-weight: 100;
+            font-size: 14px;
+            font-weight: 500;
             letter-spacing: 0.21px;
             font-family: inherit;
+            margin-bottom: 1rem;
         }
 
         &--border {

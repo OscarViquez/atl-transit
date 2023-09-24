@@ -1,33 +1,27 @@
 <section class="advisory">
-   <div *ngIf="alerts.length !== 0">
-      <div class="advisory__container__alerts" *ngFor="let x of alerts">
-         <lib-drop-down-advisory
-            [imgPath]="x.imgPath"
-            [imgAlt]="x.imgAlt"
-            [sub]="x.sub"
-            [title]="x.title"
-         ></lib-drop-down-advisory>
-      </div>
-      <!-- <div class="advisory__container__footer"> -->
-      <!-- <a href=""><span class="advisory__container__footer--text">Go to Advisories</span></a> -->
-      <lib-button
-         [content]="{
-            text: 'More Details',
-            mode: 'light'
-         }"
-      ></lib-button>
-      <!-- </div> -->
+   <lib-card-header [content]="alerts.header"></lib-card-header>
+   <div class="advisory__container__alerts" *ngFor="let alert of alerts.dropdown">
+      <ng-container *ngIf="alerts.dropdown.length !== 0; else ErrorAlertCard">
+         <lib-dropdown [content]="alert"></lib-dropdown>
+      </ng-container>
    </div>
 
-   <div *ngIf="alerts.length === 0">
+   <lib-button [content]="alerts.button"></lib-button>
+
+   <ng-template #ErrorAlertCard>
       <div class="advisory__container__alerts__null">
-         <img src="./location.svg" alt="Location icon" class="avisory__container__alerts__null--img" />
+         <img
+            src="./location.svg"
+            alt="Location icon"
+            class="avisory__container__alerts__null--img"
+         />
          <h3 class="advisory__container__alerts__null--title">
-            An <span class="advisory__container__alerts__null--sub">Error</span> has occured
+            An <span class="advisory__container__alerts__null--sub">Error</span> has
+            occured
          </h3>
          <p class="advisory__container__alerts__null--p">
             Please enable location in order us to be able to find the nearest station.
          </p>
       </div>
-   </div>
+   </ng-template>
 </section>

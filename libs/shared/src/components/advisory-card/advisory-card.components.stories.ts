@@ -1,5 +1,6 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
 import {AdvisoryCardComponent} from './advisory-card.component'
+import { AdvisoryAlertMock } from '../../mocks';
 
 export default {
   title: 'shared/AdvisoryCardComponent',
@@ -17,4 +18,7 @@ const Template: Story<AdvisoryCardComponent> = (args: AdvisoryCardComponent) => 
     props: args
 })
 
-export const Default = () => Template.bind({})
+export const Default = Template.bind({})
+Default.args = {
+  alerts: AdvisoryAlertMock
+}
