@@ -1,28 +1,17 @@
-import {  NgModule } from '@angular/core';
-import {StoreModule} from '@ngrx/store'
-import {StoreDevtoolsModule} from '@ngrx/store-devtools'
+import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
-
-import { reducers } from './+state/reducers/user.reducer'; 
-import { RailArrivalTimesService } from './services/railroad.times.service';
-import { RailPredictionService } from './services/railroad.predictions.service';
-import { RailSignPostService } from './services/railroad.signpost.service';
+import { reducers } from './+state/reducers/user.reducer';
+import { DataService } from './services/data.service';
 @NgModule({
-  declarations: [
-
-    
-  ],
-  imports: [
-    HttpClientModule,
-    StoreModule.forRoot({}), 
-    StoreDevtoolsModule.instrument({
-      maxAge: 25
-    }),
-    StoreModule.forFeature('user', reducers)
-  ],
-  providers: [RailArrivalTimesService,
-  RailPredictionService,
-  RailSignPostService],
-  bootstrap: []
+   declarations: [],
+   imports: [HttpClientModule, StoreModule.forRoot({}), StoreModule.forFeature('user', reducers)],
+   providers: [DataService],
+   bootstrap: []
 })
-export class AppModule { }
+export class AppModule {
+   //   StoreDevtoolsModule.instrument({
+   //     maxAge: 25
+   //  })
+}

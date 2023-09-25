@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-   selector: 'station-ui-station-page',
+   selector: 'lib-station-page',
    standalone: true,
    imports: [CommonModule],
    templateUrl: './station-page.component.html',

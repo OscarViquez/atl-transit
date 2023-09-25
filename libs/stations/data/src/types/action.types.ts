@@ -6,4 +6,3 @@ export enum ActionTypes {
    LocateUserFailure = '[Location] Locate User Failure',
    LocateUser = '[Location] Locate User'
 }
-
