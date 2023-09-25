@@ -10,7 +10,7 @@ import { DataService } from './services/data.service';
    providers: [DataService],
    bootstrap: []
 })
-export class AppModule {
+export class DataModule {
    //   StoreDevtoolsModule.instrument({
    //     maxAge: 25
    //  })
