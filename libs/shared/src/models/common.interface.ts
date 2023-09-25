@@ -5,6 +5,11 @@ export interface IconComponent {
    className?: string;
 }
 
+export interface Header {
+   title: string;
+   subtitle?: string;
+}
+
 export interface UserInterface {
    name?: string;
    longitude: number;

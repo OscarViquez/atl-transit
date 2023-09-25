@@ -11,5 +11,6 @@ import { Button } from '../../models';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input() content!: Button;
+  @Input() content!: Button
+  @Input() isLoading!: boolean;
 }

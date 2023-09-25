@@ -1,11 +1,23 @@
-<ng-container *ngIf="content.text">
-   <div class="button button--{{ content.mode }}-mode">
+<ng-container *ngIf="content && !isLoading">
+   <a
+      class="button button--size-{{ content.size }} button--{{ content.mode }}-mode"
+      [ngClass]="{
+         'button--icon-padding': content.icon,
+         'button--active': content.active
+      }"
+      href="{{ content.hyperLink }}"
+   >
       <div *ngIf="content.icon" class="button__icon">
-         <img src="/warning.svg" alt="assets/warning.png" />
+         <img src="{{ content.icon }}" alt="{{ content.icon }}" />
       </div>
-
       <p class="button__text">
          {{ content.text }}
       </p>
+   </a>
+</ng-container>
+
+<ng-container *ngIf="isLoading">
+   <div class="button button--{{ content.mode }}-mode">
+      <div class="button-skeleton"></div>
    </div>
 </ng-container>

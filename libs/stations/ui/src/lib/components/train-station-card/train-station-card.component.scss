@@ -1,1 +1,10 @@
-@import url('/src/styles.scss');
+//* Component Variables */
+@import '../../styles/global.scss';
+
+.train-station {
+   max-width: 327px;
+}
+
+lib-button {
+   border-radius: 0 0 5px 5px;
+}
