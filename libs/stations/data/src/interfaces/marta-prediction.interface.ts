@@ -1,4 +1,4 @@
-export interface MartaRailPredictionsInterface {
+export interface MartaRailPredictionsResponse {
    internalId: string;
    iocId: string;
    direction: string;
