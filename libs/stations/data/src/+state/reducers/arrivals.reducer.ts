@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { MartaArrivalWithLoaded } from '../../models';
+import { MartaArrivalWithLoaded } from '../../interfaces';
 import * as ArrivalActions from '../actions/arrivals.action';
 
 export const initialState: MartaArrivalWithLoaded = {

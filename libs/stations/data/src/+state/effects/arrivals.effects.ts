@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { DataService } from '../../services/data.service';
-import { MartaArrivalResponse } from '../../models';
+import { MartaArrivalResponse } from '../../interfaces';
 @Injectable({
    providedIn: 'root'
 })

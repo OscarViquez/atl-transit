@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { MartaArrivalWithLoaded } from '../../models';
+import { MartaArrivalWithLoaded } from '../../interfaces';
 
 export const selectArrivalState =
    createFeatureSelector<MartaArrivalWithLoaded>('arrivals');
