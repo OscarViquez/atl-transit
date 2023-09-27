@@ -1,4 +1,5 @@
-export interface MartaArrivalInterface {
+/* NGRX Interface: Response Interface */
+export type MartaArrivalResponse = {
    destination: string;
    direction: string;
    event_time: Date;
@@ -6,6 +7,12 @@ export interface MartaArrivalInterface {
    next_arr: Date;
    station: string;
    train_id: number;
-   waiting_seconds: number;
-   waiting_time: string;
-}
+   waiting_seconds?: number;
+   waiting_time?: string;
+};
+
+/* NGRX Interface: State Interface  */
+export type MartaArrivalWithLoaded = {
+   arrivals: MartaArrivalResponse[];
+   isLoaded: boolean;
+};

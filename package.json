@@ -17,6 +17,8 @@
     "@angular/platform-browser": "~16.2.0",
     "@angular/platform-browser-dynamic": "~16.2.0",
     "@angular/router": "~16.2.0",
+    "@ngrx/effects": "^16.2.0",
+    "@ngrx/entity": "^16.2.0",
     "@ngrx/store": "^16.2.0",
     "@nx/angular": "16.8.1",
     "react": "^18.2.0",

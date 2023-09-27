@@ -1,4 +1,4 @@
-export interface MartaSignPostInterface {
+export interface MartaSignPostResponse {
    lineCode: number;
    direction: string;
    destination: string;
