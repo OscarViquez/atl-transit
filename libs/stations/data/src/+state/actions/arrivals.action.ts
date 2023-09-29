@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { ActionTypes } from '../../types';
-import { MartaArrivalResponse } from '../../interfaces';
+import { MartaArrivalResponse } from '../../models';
 
 export const loadRailArrival = createAction(ActionTypes.GET_RAIL_ARRIVALS);
 

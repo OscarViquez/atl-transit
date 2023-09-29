@@ -1,6 +1,5 @@
-import { Button } from "../../../../../shared/src/models";
+import { Button } from "shared";
 import { RailArrivalInterface } from "./railarrival.types";
-import { RailArrival } from "stations-ui";
 
 export interface TrainStationInterface {
     name: string;
