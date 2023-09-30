@@ -20,4 +20,6 @@ export interface RailArrival {
    color: string;
    /* time of arrival to current station */
    arrivalTime: string;
+
+   station: string;
 }

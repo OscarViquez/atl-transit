@@ -1,5 +1,5 @@
-{
-        "Airport": {
+ [
+          {
           "name": "Airport",
           "longitude": "-84.448631",
           "latitude": "33.639809",
@@ -7,12 +7,10 @@
           "amenities2": "Free International Airport Terminal shuttle",
           "amenities3": "SkyTrain",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "routeID": ""
-          }
+          "connectingbusroutes": []
         },
 
-        "ArtsCenter": {
+        {
           "name": "Arts Center",
           "longitude": "-84.387039",
           "latitude": "33.789749",
@@ -20,15 +18,15 @@
           "amenities2": "Zipcar",
           "amenities3": "RideStore",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "27": "Cheshire Bridge Road",
-            "37": "Defoors Ferry Road",
-            "40": "Peachtree Street / Downtown",
-            "94": "Northside Drive",
-            "110": "Peachtree Road / Buckhead"
-          }
+          "connectingbusroutes": [{
+            "27": "Cheshire Bridge Road"},
+            {"37": "Defoors Ferry Road"},
+            {"40": "Peachtree Street / Downtown"},
+            {"94": "Northside Drive"},
+            {"110": "Peachtree Road / Buckhead"
+          }]
         },
-        "Ashby": {
+        {
           "name": "Ashby",
           "longitude": "-84.417587",
           "latitude": "33.752991",
@@ -36,12 +34,12 @@
           "amenities2": "RideStore",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "1": "Marietta Blvd/Joseph E Lowery Blvd",
-            "68": "Benjamin E Mays Drive"
-          }
+          "connectingbusroutes": [{
+            "1": "Marietta Blvd/Joseph E Lowery Blvd"},
+            {"68": "Benjamin E Mays Drive"
+          }]
         },
-        "Avondale": {
+         {
           "name": "Avondale",
           "longitude": "-84.281880",
           "latitude": "33.776090",
@@ -49,14 +47,14 @@
           "amenities2": "ZipCar",
           "amenities3": "RideStore",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "75": "Lawrenceville Highway",
-            "114": "Columbia Drive",
-            "117": "Rockbridge Road / Panola Road",
-            "120": "East Ponce De Leon Avenue"
-          }
+          "connectingbusroutes": [{
+            "75": "Lawrenceville Highway"},
+            {"114": "Columbia Drive"},
+            {"117": "Rockbridge Road / Panola Road"},
+            {"120": "East Ponce De Leon Avenue"
+          }]
         },
-        "Bankhead": {
+        {
           "name": "Bankhead",
           "longitude": "-84.427116",
           "latitude": "33.771858",
@@ -64,12 +62,12 @@
           "amenities2": "RideStore",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "26": "Marietta Street / Perry Boulevard",
-            "50": "Donald Lee Hollowell Parkway"
-          }
+          "connectingbusroutes": [{
+            "26": "Marietta Street / Perry Boulevard"},
+            {"50": "Donald Lee Hollowell Parkway"
+          }]
         },
-        "Brookhaven": {
+        {
           "name": "Brookhaven",
           "longitude": "-84.322430",
           "latitude": "33.878920",
@@ -77,14 +75,14 @@
           "amenities2": "ZipCar",
           "amenities3": "RideStore",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "8": "North Druid Hills Road",
-            "25": "Peachtree Boulevard",
-            "47": "I-85 Access Road",
-            "110": "Peachtree Road / Buckhead"
-          }
+          "connectingbusroutes": [{
+            "8": "North Druid Hills Road"},
+            {"25": "Peachtree Boulevard"},
+            {"47": "I-85 Access Road"},
+            {"110": "Peachtree Road / Buckhead"
+          }]
         },
-        "Buckhead": {
+        {
           "name": "Buckhead",
           "longitude": "-84.367737",
           "latitude": "33.847462",
@@ -92,11 +90,11 @@
           "amenities2": "RideStore",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "110": "Peachtree Road / Buckhead"
-          }
+          }]
         },
-        "Chamblee": {
+        {
           "name": "Chamblee",
           "longitude": "-84.305540",
           "latitude": "33.886770",
@@ -105,16 +103,16 @@
           "amenities3": "Bike Repair",
           "amenities4": "RideStore",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "19": "Clairmont Road / Howard Avenue",
-            "47": "I-85 Access Road",
-            "103": "Peeler Road",
-            "126": "Embry Hills",
-            "132": "Tilly Mill Road",
-            "825": "Johnson Ferry Road"
-          }
+          "connectingbusroutes": [{
+            "19": "Clairmont Road / Howard Avenue"},
+            {"47": "I-85 Access Road"},
+            {"103": "Peeler Road"},
+            {"126": "Embry Hills"},
+            {"132": "Tilly Mill Road"},
+           { "825": "Johnson Ferry Road"}
+          ]
         },
-        "CivicCenter": {
+        {
           "name": "Civic Center",
           "longitude": "-84.387459",
           "latitude": "33.767078",
@@ -122,11 +120,9 @@
           "amenities2": "RideStore",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "": ""
-          }
+          "connectingbusroutes": []
         },
-        "CollegePark": {
+         {
           "name": "College Park",
           "longitude": "-84.449010",
           "latitude": "33.652800",
@@ -134,19 +130,19 @@
           "amenities2": "ZipCar",
           "amenities3": "RideStore",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "82": "Camp Creek / South Fulton Parkway",
-            "89": "Old National Highway",
-            "93": "Headland Drive / Main Street",
-            "172": "Sylvan Road / Virginia Avenue",
-            "180": "Roosevelt Highway",
-            "188": "Oakley Industrial",
-            "189": "Flat Shoals Road / Scofield Road",
-            "195": "Forest Parkway",
-            "196": "Upper Riverdale"
-          }
+          "connectingbusroutes": [
+            {"82": "Camp Creek / South Fulton Parkway"},
+            {"89": "Old National Highway"},
+            {"93": "Headland Drive / Main Street"},
+            {"172": "Sylvan Road / Virginia Avenue"},
+            {"180": "Roosevelt Highway"},
+            {"188": "Oakley Industrial"},
+            {"189": "Flat Shoals Road / Scofield Road"},
+            {"195": "Forest Parkway"},
+            {"196": "Upper Riverdale"}
+          ]
         },
-        "Decatur": {
+         {
           "name": "Decatur",
           "longitude": "-84.295158",
           "latitude": "33.774841",
@@ -154,15 +150,15 @@
           "amenities2": "RideStore",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "15": "Candler Road",
-            "19": "Clairmont Road / Howard Avenue",
-            "36": "N Decatur Road / Virginia Highland",
-            "123": "Church Street",
-            "823": "Belvedere"
-          }
+          "connectingbusroutes": [
+            {"15": "Candler Road"},
+            {"19": "Clairmont Road / Howard Avenue"},
+            {"36": "N Decatur Road / Virginia Highland"},
+            {"123": "Church Street"},
+            {"823": "Belvedere"}
+          ]
         },
-        "GWCC": {
+       {
           "name": "GWCC Center",
           "longitude": "-84.396568",
           "latitude": "33.756889",
@@ -171,11 +167,9 @@
           "amenities3": "Bike Repair",
           "amenities4": "RideStore",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "": ""
-          }
+          "connectingbusroutes": []
         },
-        "CNNCenter": {
+        {
             "name": "CNN Center",
             "longitude": "-84.396568",
             "latitude": "33.756889",
@@ -183,11 +177,9 @@
             "amenities2": "ZipCar",
             "amenities3": "Bike Repair",
             "contactnumber": "404-848-5000",
-            "connectingbusroutes": {
-              "": ""
-            }
+            "connectingbusroutes": []
           },
-        "Doraville": {
+        {
           "name": "Doraville",
           "longitude": "-84.280190",
           "latitude": "33.902300",
@@ -195,15 +187,15 @@
           "amenities2": "ZipCar",
           "amenities3": "RideStore",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "25": "Peachtree Boulevard",
-            "39": "Buford Highway",
-            "104": "Winters Chapel Road",
-            "124": "Pleasantdale Road",
-            "133": "Shallowford Road"
-          }
+          "connectingbusroutes": [{
+            "25": "Peachtree Boulevard"},
+            {"39": "Buford Highway"},
+            {"104": "Winters Chapel Road"},
+            {"124": "Pleasantdale Road"},
+            {"133": "Shallowford Road"
+          }]
         },
-        "Dunwoody": {
+        {
           "name": "Dunwoody",
           "longitude": "-84.350290",
           "latitude": "33.919020",
@@ -211,13 +203,13 @@
           "amenities2": "ZipCar",
           "amenities3": "RideStore",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "5": "Piedmont Road / Sandy Springs",
-            "87": "Roswell Road / Sandy Springs",
-            "150": "Dunwoody Village"
-          }
+          "connectingbusroutes": [{
+            "5": "Piedmont Road / Sandy Springs"},
+            {"87": "Roswell Road / Sandy Springs"},
+            {"150": "Dunwoody Village"
+          }]
         },
-        "EastLake": {
+         {
           "name": "East Lake",
           "longitude": "-84.313870",
           "latitude": "33.764840",
@@ -225,13 +217,13 @@
           "amenities2": "ZipCar",
           "amenities3": "RideStore",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "2": "Ponce de Leon Avenue / Druid Hills",
-            "19": "Clairmont Road / Howard Avenue",
-            "34": "Gresham Road"
-          }
+          "connectingbusroutes": [
+            {"2": "Ponce de Leon Avenue / Druid Hills"},
+            {"19": "Clairmont Road / Howard Avenue"},
+            {"34": "Gresham Road"
+          }]
         },
-        "EastPoint": {
+         {
           "name": "East Point",
           "longitude": "-84.429512",
           "latitude": "33.697979",
@@ -240,18 +232,18 @@
           "amenities3": "Bike Repair",
           "amenities4": "RideStore",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "78": "Cleveland Avenue",
-            "79": "Sylvan Hills",
-            "81": "Venetian Hills / Delowe Drive",
-            "84": "Washington Rd/Camp Crk Marketplace",
-            "93": "Headland Drive / Main Street",
-            "181": "Washington Road / Fairburn",
-            "192": "Old Dixie / Tara Boulevard",
-            "193": "Morrow / Jonesboro"
-          }
+          "connectingbusroutes": [
+            {"78": "Cleveland Avenue"},
+            {"79": "Sylvan Hills"},
+            {"81": "Venetian Hills / Delowe Drive"},
+            {"84": "Washington Rd/Camp Crk Marketplace"},
+            {"93": "Headland Drive / Main Street"},
+            {"181": "Washington Road / Fairburn"},
+            {"192": "Old Dixie / Tara Boulevard"},
+            {"193": "Morrow / Jonesboro"}
+            ]
         },
-        "Edgewood/CandlerPark": {
+        {
           "name": "Edgewood/Candler Park",
           "longitude": "-84.339120",
           "latitude": "33.762140",
@@ -260,12 +252,12 @@
           "amenities3": "RideStore",
           "amenities4": "Bike Repair",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "24": "McAfee / Hosea Williams",
-            "102": "North Avenue / Little Five Points"
-          }
+          "connectingbusroutes": [
+            {"24": "McAfee / Hosea Williams"},
+            {"102": "North Avenue / Little Five Points"
+          }]
         },
-        "CandlerPark": {
+       {
             "name": "Edgewood/Candler Park",
             "longitude": "-84.339120",
             "latitude": "33.762140",
@@ -274,12 +266,12 @@
             "amenities3": "RideStore",
             "amenities4": "Bike Repair",
             "contactnumber": "404-848-5000",
-            "connectingbusroutes": {
-              "24": "McAfee / Hosea Williams",
-              "102": "North Avenue / Little Five Points"
-            }
+            "connectingbusroutes": [{
+              "24": "McAfee / Hosea Williams"},
+              {"102": "North Avenue / Little Five Points"
+            }]
           },
-        "FivePoints": {
+        {
           "name": "Five Points",
           "longitude": "",
           "latitude": "",
@@ -287,11 +279,9 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "routeID": ""
-          }
+          "connectingbusroutes": []
         },
-        "Garnett": {
+        {
           "name": "Garnett",
           "longitude": "-84.390991",
           "latitude": "33.752998",
@@ -299,20 +289,20 @@
           "amenities2": "RideStore",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "2": "Martin Luther King Jr Dr/Auburn Ave",
-            "31": "Memorial Drive",
-            "26": "Marietta Street / Perry Boulevard",
-            "40": "Peachtree Street / Downtown",
-            "42": "Pryor Road",
-            "49": "McDonough Boulevard",
-            "55": "Jonesboro Road",
-            "186": "Rainbow Drive / South DeKalb",
-            "813": "Atlanta University Center",
-            "816": "North Highland Avenue"
-          }
+          "connectingbusroutes": [
+            {"2": "Martin Luther King Jr Dr/Auburn Ave"},
+            {"31": "Memorial Drive"},
+            {"26": "Marietta Street / Perry Boulevard"},
+            {"40": "Peachtree Street / Downtown"},
+            {"42": "Pryor Road"},
+            {"49": "McDonough Boulevard"},
+            {"55": "Jonesboro Road"},
+            {"186": "Rainbow Drive / South DeKalb"},
+            {"813": "Atlanta University Center"},
+            {"816": "North Highland Avenue"}
+          ]
         },
-        "GeorgiaState": {
+        {
           "name": "Georgia State",
           "longitude": "-84.386070",
           "latitude": "33.750229",
@@ -320,13 +310,13 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "107": "Glenwood",
-            "813": "Atlanta University Center",
-            "899": "Old Fourth Ward"
-          }
+          "connectingbusroutes": [
+            {"107": "Glenwood"},
+            {"813": "Atlanta University Center"},
+            {"899": "Old Fourth Ward"}
+          ]
         },
-        "HamiltonEHolmes": {
+        {
           "name": "Hamilton E. Holmes",
           "longitude": "-84.468643",
           "latitude": "33.753899",
@@ -334,23 +324,23 @@
           "amenities2": "RideStore",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "3": "Martin Luther King Jr Dr/Auburn Ave",
-            "51": "Joseph E Boone Boulevard",
-            "60": "Hightower Road",
-            "66": "Lynhurst Drive / Princeton Lakes",
-            "68": "Benjamin E Mays Drive",
-            "73": "Fulton Industrial",
-            "153": "James Jackson Parkway",
-            "165": "Fairburn Road",
-            "201": "Six Flags Over Georgia",
-            "850": "Carroll Heights / Fairburn Heights",
-            "856": "Baker Hills / Wilson Mill Meadows",
-            "865": "Boulder Park Drive",
-            "867": "Peyton Forest / Dixie Hills"
-          }
+          "connectingbusroutes": [
+            {"3": "Martin Luther King Jr Dr/Auburn Ave"},
+            {"51": "Joseph E Boone Boulevard"},
+            {"60": "Hightower Road"},
+            {"66": "Lynhurst Drive / Princeton Lakes"},
+            {"68": "Benjamin E Mays Drive"},
+            {"73": "Fulton Industrial"},
+            {"153": "James Jackson Parkway"},
+            {"165": "Fairburn Road"},
+            {"201": "Six Flags Over Georgia"},
+            {"850": "Carroll Heights / Fairburn Heights"},
+            {"856": "Baker Hills / Wilson Mill Meadows"},
+            {"865": "Boulder Park Drive"},
+            {"867": "Peyton Forest / Dixie Hills"}
+          ]
         },
-        "IndianCreek": {
+        {
           "name": "Indian Creek",
           "longitude": "",
           "latitude": "",
@@ -358,11 +348,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "InmanPark/Reynoldstown": {
+        {
           "name": "Inman Park/Reynoldstown",
           "longitude": "",
           "latitude": "",
@@ -370,11 +360,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "Kensington": {
+         {
           "name": "Kensington",
           "longitude": "",
           "latitude": "",
@@ -382,11 +372,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "KingMemorial": {
+        {
           "name": "King Memorial",
           "longitude": "",
           "latitude": "",
@@ -394,11 +384,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "Lakewood/FtMcPherson": {
+         {
           "name": "Lakewood/Ft. McPherson",
           "longitude": "",
           "latitude": "",
@@ -406,11 +396,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "Lenox": {
+        {
           "name": "Lenox",
           "longitude": "",
           "latitude": "",
@@ -418,11 +408,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "LindberghCenter": {
+        {
           "name": "Lindbergh Center",
           "longitude": "",
           "latitude": "",
@@ -430,11 +420,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "MedicalCenter": {
+        {
           "name": "Medical Center",
           "longitude": "",
           "latitude": "",
@@ -442,11 +432,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "Midtown": {
+       {
           "name": "Midtown",
           "longitude": "",
           "latitude": "",
@@ -454,11 +444,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "NorthAve": {
+        {
           "name": "North Ave",
           "longitude": "",
           "latitude": "",
@@ -466,11 +456,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "NorthSprings": {
+        {
           "name": "North Springs",
           "longitude": "",
           "latitude": "",
@@ -478,11 +468,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "OaklandCity": {
+        {
           "name": "Oakland City",
           "longitude": "",
           "latitude": "",
@@ -490,11 +480,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "routeID": ""
-          }
+          "connectingbusroutes": [
+            {"routeID": ""}
+          ]
         },
-        "PeachtreeCenter": {
+         {
           "name": "Peachtree Center",
           "longitude": "",
           "latitude": "",
@@ -502,11 +492,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "routeID": ""
-          }
+          "connectingbusroutes": [
+            {"routes": ""}
+          ]
         },
-        "SandySprings": {
+         {
           "name": "Sandy Springs",
           "longitude": "",
           "latitude": "",
@@ -514,11 +504,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
-            "routeID": ""
-          }
+          "connectingbusroutes": [
+            {"routeID": ""}
+          ]
         },
-        "VineCity": {
+        {
           "name": "Vine City",
           "longitude": "",
           "latitude": "",
@@ -526,11 +516,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes":[ {
             "routeID": ""
-          }
+          }]
         },
-        "WestEnd": {
+       {
           "name": "West End",
           "longitude": "",
           "latitude": "",
@@ -538,11 +528,11 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         },
-        "WestLake": {
+         {
           "name": "West Lake",
           "longitude": "",
           "latitude": "",
@@ -550,8 +540,9 @@
           "amenities2": "",
           "amenities3": "",
           "contactnumber": "404-848-5000",
-          "connectingbusroutes": {
+          "connectingbusroutes": [{
             "routeID": ""
-          }
+          }]
         }
- }      
+]
+     
