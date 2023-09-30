@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EndpointResponse } from '../types';
+import { MartaArrivalResponse } from '../models';
 
 @Injectable({
    providedIn: 'root'
@@ -23,7 +24,7 @@ export class DataService {
       return this.http.get<object[]>(EndpointResponse.SIGNPOST_TRAIN_RESPONSE);
    }
 
-   getArrivalTimes(): Observable<object[]> {
-      return this.http.get<object[]>(EndpointResponse.RAIL_ARRIVAL_TIMES_RESPONSE);
+   getArrivalTimes(): Observable<MartaArrivalResponse[]> {
+      return this.http.get<MartaArrivalResponse[]>(EndpointResponse.RAIL_ARRIVAL_TIMES_RESPONSE);
    }
 }

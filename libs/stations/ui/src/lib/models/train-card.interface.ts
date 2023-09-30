@@ -11,9 +11,9 @@ export interface TrainStaion {
 
 export interface RailArrival {
    /* Direction of Rail Cart */
-   direction: RailDirection;
+   direction: string;
    /* Very Final Station of Rail Line */
-   destination: RailMainDestination;
+   destination: string;
    /* text of rail line  (e.g: Northbound, Southbound, etc)  */
    description: string;
    /* text of rail color line (e.g: Red, Gold, etc)  */

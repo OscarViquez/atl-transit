@@ -1,10 +1,4 @@
-<p>train-arrival-page works!</p>
 
-<ng-container *ngIf="facade.arrivalData$ | async as arrivalData">
-   <h1>test</h1>
-   <ul>
-      <li *ngFor="let arrival of arrivalData">
-         {{ arrival.station }}
-      </li>
-   </ul>
-</ng-container>
+<lib-rail-arrival-card [railArrival]="arrivalData"></lib-rail-arrival-card>
+
+
