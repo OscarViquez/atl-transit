@@ -1,6 +1,7 @@
 import { Button } from "shared";
 import { RailArrival } from "../models";
 
+
 export interface StationInterface {
     name: string;
     description?: string;
