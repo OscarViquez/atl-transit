@@ -32,35 +32,7 @@ export class Facade {
          );
 
          stationResponse.subscribe((data) => {
-            data.forEach((res) => {
-               // define bus routes
-               const routes: BusRoutes[] = [];
-               res.connectingbusroutes.forEach((x) => {
-                  const busRoute: BusRoutes = {
-                     routeID: x.routeID,
-                     name: x.name
-                  };
-
-                  routes.push(busRoute);
-               });
-
-               // map the response to the interface
-               const mappedResponse: StationInterface = {
-                  name: res.name,
-                  description: 'fill here',
-                  latitude: parseFloat(res.latitude),
-                  longitude: parseFloat(res.longitude),
-                  contactnumber: res.contactnumber,
-                  connectingbusroutes: routes,
-                  ammenities1: res.amenities1,
-                  ammenities2: res.amenities2,
-                  ammenities3: res.amenities3,
-                  ammenities4: res.amenities4,
-                  arrivals: []
-               };
-
-               this.allStations.push(mappedResponse);
-            });
+            this.allStations = AdapterService.MapJsonToStationInterface(data)
          });
 
          await this.dataService.getArrivalTimes().subscribe((item) => {
@@ -72,6 +44,10 @@ export class Facade {
             });
 
             if (this.railArrivalData.length > 0) {
+              this.allStations = AdapterService.MapRailArrivalGroups(this.railArrivalData, this.allStations)
+              this.allStations.forEach((x) => {
+                console.log(x)
+              })
                return true;
             } else {
                return false;
