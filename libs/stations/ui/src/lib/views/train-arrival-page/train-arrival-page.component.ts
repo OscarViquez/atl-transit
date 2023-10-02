@@ -25,7 +25,7 @@ export class TrainArrivalPageComponent implements OnInit {
 
          if (result == true) {
             this.trainData = this.facade.uiStations;
-            console.log("also here")
+            console.log("ahhhh WE DONT HAVE THE DATA")
          }
       } catch (error) {
          console.log(error);

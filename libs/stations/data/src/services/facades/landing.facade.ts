@@ -44,16 +44,18 @@ export class Facade {
                this.railArrivalData.push(mappedObject);
             });
 
-            if (this.railArrivalData.length > 0) {
-              this.allStations = TrainArrivalAdapter.MapRailArrivalGroups(this.railArrivalData, this.allStations)
-              this.uiStations = TrainUiAdapter.MapStationsToUi(this.allStations)
-              console.log("here")
+            this.allStations = TrainArrivalAdapter.MapRailArrivalGroups(this.railArrivalData, this.allStations)
+            this.uiStations = TrainUiAdapter.MapStationsToUi(this.allStations)
+
+            if (this.uiStations.length > 0) {
+              console.log('oscar we are here last but we need to be here first')
                return true;
             } else {
                return false;
             }
          });
 
+         console.log('returning true already??')
 
          return true; // this logic dont make sense help me,(o) Of Course :)
       } catch (error) {
