@@ -1,10 +1,11 @@
 import { Button, Header } from "shared";
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import { StationInterface, TrainStaion } from "stations-ui";
 
 export class TrainUiAdapter{
    
     static MapStationsToUi(stations: StationInterface[] ): TrainStaion[] {
-        let uiStations: TrainStaion[] =[]
+        const uiStations: TrainStaion[] =[]
         stations.forEach((station) => {
             const header = this.MapStationToHeader(station)
             const button: Button = {
@@ -24,7 +25,7 @@ export class TrainUiAdapter{
     }
 
     static MapStationToHeader(station: StationInterface) : Header {
-        let linesCount: string[] = []
+        const linesCount: string[] = []
 
         station.arrivals.forEach((arrival) => {
             if(!linesCount.includes(arrival.color))
@@ -33,7 +34,7 @@ export class TrainUiAdapter{
             }
         })
 
-        let subtitle: string = ''
+        let subtitle = ''
 
         switch(linesCount.length)
         {
@@ -54,7 +55,7 @@ export class TrainUiAdapter{
                 break;
         }
 
-        let header: Header = {
+        const header: Header = {
             title: station.name,
             subtitle: subtitle 
         }

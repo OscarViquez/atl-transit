@@ -37,9 +37,9 @@ export class TrainArrivalAdapter{
       allStations: JsonStationInterface[]
    ): StationInterface[] {
 
-    let stations: StationInterface[] = []
+    const stations: StationInterface[] = []
     allStations.forEach((station) => {
-        let routes: BusRoutes[] = [];
+        const routes: BusRoutes[] = [];
         station.connectingbusroutes.forEach((x) => {
         if(x !== null)
         {
@@ -91,12 +91,12 @@ export class TrainArrivalAdapter{
 
    static MapObjectToBusRoute(item: any): BusRoutes {
 
-    let mappedBus = {
+    const mappedBus = {
         key: Object.keys(item)[0],
         value: Object.values(item)[0]
     }
 
-    let busRoute: BusRoutes = {
+    const busRoute: BusRoutes = {
         routeID: parseInt(mappedBus.key),
         name: mappedBus.value as string
     }

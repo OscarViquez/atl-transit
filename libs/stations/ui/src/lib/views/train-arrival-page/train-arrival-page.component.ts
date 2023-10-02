@@ -23,7 +23,7 @@ export class TrainArrivalPageComponent implements OnInit {
       try {
          const result = await this.facade.initializePageRender();
 
-         if (result == true) {
+         if (result) {
             this.trainData = this.facade.uiStations;
             console.log("ahhhh WE DONT HAVE THE DATA")
          }

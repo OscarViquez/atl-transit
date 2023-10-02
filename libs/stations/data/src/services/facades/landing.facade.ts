@@ -12,16 +12,17 @@ import { JsonStationInterface, BusRoutes } from 'libs/stations/ui/src/lib/types'
    providedIn: 'root'
 })
 export class Facade {
-   arrivalData!: MartaArrivalResponse[];
-   railArrivalData: RailArrival[] = [];
-   allStations: StationInterface[] = [];
-   uiStations: TrainStaion[] = []
    constructor(
       private readonly store: Store,
       private dataService: DataService,
       private httpClient: HttpClient
    ) {}
-
+   
+   arrivalData!: MartaArrivalResponse[];
+   railArrivalData: RailArrival[] = [];
+   allStations: StationInterface[] = [];
+   uiStations: TrainStaion[] = []
+   
    //arrivalData$ = this.store.pipe(select(selectArrivalsResponse))
 
    async initializePageRender(): Promise<boolean> {
