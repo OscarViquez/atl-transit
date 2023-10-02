@@ -1,3 +1,4 @@
-<ng-container>
-   <lib-rail-arrival-card [railArrival]="arrivalData"></lib-rail-arrival-card>
+<ng-container *ngFor="let train of trainData">
+   <lib-train-station-card [content]="train"></lib-train-station-card>
 </ng-container>
+

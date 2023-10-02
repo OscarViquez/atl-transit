@@ -1,11 +1,11 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { RailArrival } from 'libs/stations/ui/src/lib/models';
+import { RailArrival, TrainStaion } from 'libs/stations/ui/src/lib/models';
 import { MartaArrivalResponse } from '../../models';
 import { DataService } from '../data.service';
 import { StationInterface } from 'stations-ui';
-import { AdapterService } from '../adapters/train-arrivals.adapter';
+import { TrainArrivalAdapter, TrainUiAdapter } from '../adapters/';
 import { HttpClient } from '@angular/common/http';
 import { JsonStationInterface, BusRoutes } from 'libs/stations/ui/src/lib/types';
 @Injectable({
@@ -15,6 +15,7 @@ export class Facade {
    arrivalData!: MartaArrivalResponse[];
    railArrivalData: RailArrival[] = [];
    allStations: StationInterface[] = [];
+   uiStations: TrainStaion[] = []
    constructor(
       private readonly store: Store,
       private dataService: DataService,
@@ -32,27 +33,27 @@ export class Facade {
          );
 
          stationResponse.subscribe((data) => {
-            this.allStations = AdapterService.MapJsonToStationInterface(data)
+            this.allStations = TrainArrivalAdapter.MapJsonToStationInterface(data)
          });
 
          await this.dataService.getArrivalTimes().subscribe((item) => {
             this.arrivalData = item;
 
             this.arrivalData.forEach((arrival) => {
-               const mappedObject = AdapterService.MapToRailArrival(arrival);
+               const mappedObject = TrainArrivalAdapter.MapToRailArrival(arrival);
                this.railArrivalData.push(mappedObject);
             });
 
             if (this.railArrivalData.length > 0) {
-              this.allStations = AdapterService.MapRailArrivalGroups(this.railArrivalData, this.allStations)
-              this.allStations.forEach((x) => {
-                console.log(x)
-              })
+              this.allStations = TrainArrivalAdapter.MapRailArrivalGroups(this.railArrivalData, this.allStations)
+              this.uiStations = TrainUiAdapter.MapStationsToUi(this.allStations)
+              console.log("here")
                return true;
             } else {
                return false;
             }
          });
+
 
          return true; // this logic dont make sense help me,(o) Of Course :)
       } catch (error) {

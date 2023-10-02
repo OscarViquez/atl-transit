@@ -3,30 +3,29 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Facade } from 'stations-data';
 import { OnInit } from '@angular/core';
-import { RailArrival } from '../../models';
-
 //component import
-import { RailArrivalCardComponent } from '../../components/rail-arrival-card/rail-arrival-card.component';
+import { TrainStaion } from '../../models';
+import { TrainStationCardComponent } from '../../components/train-station-card/train-station-card.component';
 import { CardComponent } from 'shared';
 
 @Component({
    selector: 'lib-train-arrival-page',
    standalone: true,
-   imports: [CommonModule, CardComponent, RailArrivalCardComponent],
+   imports: [CommonModule, CardComponent, TrainStationCardComponent],
    templateUrl: './train-arrival-page.component.html',
    styleUrls: ['./train-arrival-page.component.scss']
 })
 export class TrainArrivalPageComponent implements OnInit {
-   arrivalData!: RailArrival[];
+   trainData!: TrainStaion[] 
    constructor(public facade: Facade) {}
 
    async ngOnInit(): Promise<void> {
       try {
          const result = await this.facade.initializePageRender();
-         console.log(result);
 
          if (result == true) {
-            this.arrivalData = this.facade.railArrivalData;
+            this.trainData = this.facade.uiStations;
+            console.log("also here")
          }
       } catch (error) {
          console.log(error);

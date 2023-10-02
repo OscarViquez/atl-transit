@@ -5,7 +5,7 @@ import { StationInterface } from 'libs/stations/ui/src/lib/types';
 import { BusRoutes } from 'libs/stations/ui/src/lib/types';
 import { MartaArrivalResponse } from '../../models';
 
-export class AdapterService {
+export class TrainArrivalAdapter{
    static MapToRailArrival(item: MartaArrivalResponse): RailArrival {
       let direction: RailDirection = 'North';
 
@@ -40,14 +40,14 @@ export class AdapterService {
     let stations: StationInterface[] = []
     allStations.forEach((station) => {
         let routes: BusRoutes[] = [];
-        // station.connectingbusroutes.forEach((x) => {
-        //    const busRoute: BusRoutes = {
-        //       routeID: x[0],
-        //       name: x[1]
-        //    };
+        station.connectingbusroutes.forEach((x) => {
+        if(x !== null)
+        {
+         const busRoute = this.MapObjectToBusRoute(x) 
 
-        //    routes.push(busRoute);
-        //});
+          routes.push(busRoute);
+        }
+        });
 
         // map the stationponse to the interface
         const mappedResponse: StationInterface = {
@@ -77,11 +77,9 @@ export class AdapterService {
       arrival.forEach((trainArrival) => {
          // step one: define the looking we are looking for
          const locationToFind = trainArrival.station;
-         console.log(locationToFind)
          //step two: loop through the stations and find the station we want
          currentStations.forEach((station, index) => {
             if (station.name.toUpperCase() === locationToFind.toUpperCase()) {
-                console.log(station.name)
                //step three: set the arrivals to that station
                currentStations[index].arrivals.push(trainArrival);
             }
@@ -89,5 +87,20 @@ export class AdapterService {
       });
 
       return currentStations;
+   }
+
+   static MapObjectToBusRoute(item: any): BusRoutes {
+
+    let mappedBus = {
+        key: Object.keys(item)[0],
+        value: Object.values(item)[0]
+    }
+
+    let busRoute: BusRoutes = {
+        routeID: parseInt(mappedBus.key),
+        name: mappedBus.value as string
+    }
+
+    return busRoute;
    }
 }
