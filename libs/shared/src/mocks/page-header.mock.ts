@@ -8,38 +8,32 @@ export const pageHeaderMock: PageHeader = {
          active: true,
          icon: 'path to icon here',
          name: 'Trains',
-         url: '/trains'
+         url: '/arrivals'
       },
       {
          active: false,
          icon: 'path to icon here',
          name: 'Buses',
-         url: '#'
+         url: '/'
       },
       {
          active: false,
          icon: 'path to icon here',
          name: 'Steet Car',
-         url: '#'
+         url: '/'
       },
       {
          active: false,
          icon: 'path to icon here',
          name: 'Advisories',
-         url: '#'
+         url: '/'
       },
 
       {
          active: false,
          icon: 'path to icon here',
          name: 'Breeze Card',
-         url: '#'
-      },
-      {
-         active: false,
-         icon: 'path to icon here',
-         name: 'More',
-         url: '#'
+         url: '/'
       }
    ]
 };

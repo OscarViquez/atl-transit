@@ -1,19 +1,26 @@
 <header class="pageHeader light">
    <div class="pageHeader-wrapper">
-      <button class="pageHeader-btn">
-         <img
-            class="pageHeader-btn_icon"
-            src="./menu-icon-light.svg"
-            alt="Navigation tab"
-         />
-      </button>
+      <ng-container *ngIf="!menuIsOpen; else closeBtn">
+         <button class="pageHeader-btn" (click)="toggleMenu()">
+            <img
+               class="pageHeader-btn_icon"
+               src="./menu-icon-light.svg"
+               alt="Navigation menu button"
+            />
+         </button>
+      </ng-container>
       <div class="pageHeader-logo">
          <img
-            src="https://atl-railmap-assets.netlify.app/images/logo-light.svg"
+            src="./logo.svg"
             alt="app logo"
          />
       </div>
-      <button class="pageHeader-btn">
+      <button
+         class="pageHeader-btn"
+         [ngClass]="{
+            'pageHeader-btn--hide': menuIsOpen
+         }"
+      >
          <img
             class="pageHeader-btn_icon"
             src="./search-icon-light.svg"
@@ -21,7 +28,7 @@
          />
       </button>
    </div>
-   <nav class="mobile-menu">
+   <nav class="mobile-menu" *ngIf="menuIsOpen">
       <ul class="mobile-menu-list">
          <ng-container *ngFor="let link of content.pages">
             <li
@@ -38,3 +45,9 @@
       </ul>
    </nav>
 </header>
+
+<ng-template #closeBtn>
+   <button class="pageHeader-btn" (click)="toggleMenu()">
+      <img src="./close-icon-light.svg" alt="button to close menu" />
+   </button>
+</ng-template>

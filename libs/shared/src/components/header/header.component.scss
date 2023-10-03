@@ -2,6 +2,7 @@
 
 .pageHeader {
    position: relative;
+   background: #fff;
 
    &-btn {
       display: grid;
@@ -12,18 +13,30 @@
       cursor: pointer;
       border: none;
       background: none;
+
+      &--hide {
+         visibility: hidden;
+      }
    }
 
    .mobile-menu {
-      // TODO: Remove this after adding toggle feature
-      display: none;
       padding: 24px;
       height: 90vh;
+      transition: opacity 0.5s ease-in-out;
 
       &-list {
          display: flex;
          flex-direction: column;
          gap: 2rem;
+      }
+
+      &-item {
+         &--active {
+            color: #c65854;
+         }
+         &:hover {
+            color: #c65854;
+         }
       }
 
       &-link {
@@ -39,5 +52,4 @@
    justify-content: space-between;
    align-items: center;
    padding: 12px 24px;
-   max-width: 375px;
 }
