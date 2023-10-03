@@ -1,15 +1,40 @@
-<header class="header">
-
-    <a href=""><img src="./hamburger-menu-icon.svg" alt="Navigation tab" class="header--nav"></a>
-
-    <div class="header__main">
-        <a href=""><img src="./logo.svg" alt="Orange diamond logo" class="header__main--logo"></a>
-
-        <div class="header__main--text">
-            <h2 class="header__main--text--h">BeltLine</h2>
-            <span class="header__main--text--sub">App for Atlanta</span>
-        </div>
-    </div>
-
-    <a href=""><img src="./question.svg" alt="Search buttom image" class="header--search"></a>
+<header class="pageHeader light">
+   <div class="pageHeader-wrapper">
+      <button class="pageHeader-btn">
+         <img
+            class="pageHeader-btn_icon"
+            src="./menu-icon-light.svg"
+            alt="Navigation tab"
+         />
+      </button>
+      <div class="pageHeader-logo">
+         <img
+            src="https://atl-railmap-assets.netlify.app/images/logo-light.svg"
+            alt="app logo"
+         />
+      </div>
+      <button class="pageHeader-btn">
+         <img
+            class="pageHeader-btn_icon"
+            src="./search-icon-light.svg"
+            alt="Search buttom image"
+         />
+      </button>
+   </div>
+   <nav class="mobile-menu">
+      <ul class="mobile-menu-list">
+         <ng-container *ngFor="let link of content.pages">
+            <li
+               class="mobile-menu-item"
+               [ngClass]="{
+                  'mobile-menu-item--active': link.active
+               }"
+            >
+               <a href="{{ link.url }}" class="mobile-menu-link">
+                  <span class="mobile-menu-link__text">{{ link.name }}</span>
+               </a>
+            </li></ng-container
+         >
+      </ul>
+   </nav>
 </header>

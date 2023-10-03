@@ -1,59 +1,43 @@
-.header {
-   background-color: #17171D;
-   color: white;
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-   max-width: 375px;
+@import '../../styles/global.scss';
 
-   &--nav {
-      padding: 0.7rem;
-      height: 1.5rem;
-      width: 1.4rem;
-      color: white;
+.pageHeader {
+   position: relative;
+
+   &-btn {
+      display: grid;
+      place-content: center;
+      width: 32px;
+      height: 32px;
+
+      cursor: pointer;
+      border: none;
+      background: none;
    }
 
-   &--search {
-      margin-top: 0.45rem;
-      height: 2rem;
-      width: 2rem;
-   }
+   .mobile-menu {
+      // TODO: Remove this after adding toggle feature
+      display: none;
+      padding: 24px;
+      height: 90vh;
 
-   &__main {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      align-items: center;
-
-      &--logo {
-         margin-top: 0.2rem;
-         height: 1.6rem;
-         align-self: stretch;
-      }
-      &--text {
-         padding-bottom: 0.5rem;
+      &-list {
          display: flex;
          flex-direction: column;
-         justify-content: center;
+         gap: 2rem;
+      }
 
-         &--h {
-            color: #e2e2e3;
-            font-family: General Sans;
-            font-size: 1rem;
-            line-height: 0%; /* 0px */
-            font-weight: 800;
-            letter-spacing: 0.39px;
-         }
-
-         &--sub {
-            color: #b0b0b0;
-            font-family: General Sans;
-            font-size: 0.8rem;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 0%; /* 0px */
-            letter-spacing: 0.35px;
-         }
+      &-link {
+         font-family: 'General Sans', sans-serif;
+         font-size: 1rem;
+         font-weight: 400;
       }
    }
+}
+
+.pageHeader-wrapper {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 12px 24px;
+   max-width: 375px;
 }
