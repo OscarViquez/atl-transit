@@ -8,6 +8,7 @@ import { StationInterface } from 'stations-ui';
 import { TrainArrivalAdapter, TrainUiAdapter } from '../adapters/';
 import { HttpClient } from '@angular/common/http';
 import { JsonStationInterface, BusRoutes } from 'libs/stations/ui/src/lib/types';
+import { lastValueFrom } from 'rxjs';
 @Injectable({
    providedIn: 'root'
 })
@@ -29,36 +30,32 @@ export class Facade {
       //this.store.dispatch(actions.loadRailArrival());
 
       try {
-         const stationResponse = await this.httpClient.get<JsonStationInterface[]>(
+         const stationResponse = lastValueFrom(await this.httpClient.get<JsonStationInterface[]>(
             '/assets/json/marta.trains.json'
-         );
+         ))
 
-         stationResponse.subscribe((data) => {
-            this.allStations = TrainArrivalAdapter.MapJsonToStationInterface(data)
-         });
 
-         await this.dataService.getArrivalTimes().subscribe((item) => {
-            this.arrivalData = item;
+         
+         this.allStations = TrainArrivalAdapter.MapJsonToStationInterface(await stationResponse)
+         
 
-            this.arrivalData.forEach((arrival) => {
+         const arrivalResponse = lastValueFrom(await this.dataService.getArrivalTimes())
+         this.arrivalData = await arrivalResponse
+         
+         this.arrivalData.forEach((arrival) => {
                const mappedObject = TrainArrivalAdapter.MapToRailArrival(arrival);
                this.railArrivalData.push(mappedObject);
-            });
+        });
 
-            this.allStations = TrainArrivalAdapter.MapRailArrivalGroups(this.railArrivalData, this.allStations)
-            this.uiStations = TrainUiAdapter.MapStationsToUi(this.allStations)
+         this.allStations = TrainArrivalAdapter.MapRailArrivalGroups(this.railArrivalData, this.allStations)
+        this.uiStations = TrainUiAdapter.MapStationsToUi(this.allStations)
 
             if (this.uiStations.length > 0) {
-              console.log('oscar we are here last but we need to be here first')
                return true;
             } else {
                return false;
             }
-         });
-
-         console.log('returning true already??')
-
-         return true; // this logic dont make sense help me,(o) Of Course :)
+         
       } catch (error) {
          console.log('Eror' + error);
          return false;

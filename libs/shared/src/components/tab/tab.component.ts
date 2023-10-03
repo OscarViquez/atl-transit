@@ -12,23 +12,7 @@ import { Button } from '../../models/button.interface';
    styleUrls: ['./tab.component.scss']
 })
 export class TabComponent {
-   @Input() tabs: Tab[] = [
-      {
-        button: {
-          text: 'Nearest Stations',
-          mode: 'light',
-          icon: '/assets/warning.png'
-        },
-        active: true
-      },
-      {
-        button: {
-          text: 'Saved Stations',
-          mode: 'dark'
-        },
-        active: false
-      }
-    ];
+   @Input() tabs!: Tab[] 
 
 
     toggleActiveState() : void {

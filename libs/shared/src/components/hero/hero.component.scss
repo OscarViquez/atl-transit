@@ -2,7 +2,7 @@
 
 .container {
     display: flex;
-    background-color: #ffff;
+   
     // max-width: 375px;
     border-radius: 5px;
     padding: 44px 24px 24px 24px;
@@ -12,6 +12,7 @@
         flex-direction: column;
         justify-content: space-between;
         font-family: General Sans;
+        
         
 
         &--h {
@@ -35,6 +36,13 @@
             width: 1.8rem;
             border-radius: 5px;
             background: linear-gradient(131deg, #F28548 30.12%, #F0636F 85.93%);
+        }
+
+        &--img {
+            height: 2.5rem;
+            align-self: center;
+            margin-top: .4rem;
+            
         }
     }
 

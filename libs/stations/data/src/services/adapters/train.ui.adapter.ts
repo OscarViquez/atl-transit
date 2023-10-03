@@ -20,7 +20,7 @@ export class TrainUiAdapter{
 
             uiStations.push(trainUiStationIndividual)
         })
-        
+
         return uiStations
     }
 
@@ -39,19 +39,19 @@ export class TrainUiAdapter{
         switch(linesCount.length)
         {
             case 4: 
-                subtitle = 'All lines available'
+                subtitle = 'All lines currently available'
                 break;
             case 3:
-                subtitle = 'Three lines available'
+                subtitle = 'Three lines currently available'
                 break;
             case 2: 
-                subtitle = 'Two lines available'
+                subtitle = 'Two lines currently available'
                 break;
             case 1: 
-                subtitle = 'One line available'
+                subtitle = 'One line currently available'
                 break;
             default: 
-                subtitle = 'One line available'
+                subtitle = 'No lines currently available'
                 break;
         }
 
