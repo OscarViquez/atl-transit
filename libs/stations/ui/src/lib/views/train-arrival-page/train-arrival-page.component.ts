@@ -31,6 +31,7 @@ export class TrainArrivalPageComponent implements OnInit {
    constructor(public facade: Facade) {}
 
    async ngOnInit(): Promise<void> {
+      console.log('test')
       try {
          const result = await this.facade.initializePageRender();
          if (result === true) {
