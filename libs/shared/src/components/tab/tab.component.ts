@@ -12,11 +12,11 @@ import { Button } from '../../models/button.interface';
    styleUrls: ['./tab.component.scss']
 })
 export class TabComponent {
-   @Input() tabs!: Tab[] 
+   @Input() content!: Tab[] 
 
 
     toggleActiveState() : void {
-      this.tabs.forEach(tab => {
+      this.content.forEach(tab => {
          tab.active = !tab.active
       });
     }

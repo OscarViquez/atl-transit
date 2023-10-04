@@ -2,9 +2,18 @@
 @import '../../styles/global.scss';
 
 .train-station {
-  // max-width: 327px;
+   min-width: 327px;
+   max-width: 992px;
+   background: #ffffff;
+   margin: 32px 24px;
 }
 
 lib-button {
    border-radius: 0 0 5px 5px;
+}
+
+@media (min-width: 1040px) {
+   .train-station {
+      margin: 32px auto;
+   }
 }

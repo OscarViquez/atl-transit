@@ -6,7 +6,7 @@ export const pageHeaderStoryMock: PageHeader = {
    logo: {
       name: 'logo',
       alt: 'image of logo',
-      path: '/assets/images/logo.svg'
+      path: './logo.svg'
    },
    pages: [
       {
@@ -45,17 +45,17 @@ export const pageHeaderStoryMock: PageHeader = {
       {
          name: 'hamburgerIcon',
          alt: 'icon of menu',
-         path: '/assets/images/menu-icon-light.svg'
+         path: './menu-icon-light.svg'
       },
       {
          name: 'searchIcon',
          alt: 'icon of search',
-         path: '/assets/images/search-icon-light.svg'
+         path: './search-icon-light.svg'
       },
       {
          name: 'closeIcon',
          alt: 'icon of search',
-         path: '/assets/images/close-icon-light.svg'
+         path: './close-icon-light.svg'
       }
    ]
 };

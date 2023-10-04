@@ -10,5 +10,5 @@ import { Header } from '../../models';
    styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent {
-   @Input() hero!: Header;
+   @Input() content!: Header;
 }

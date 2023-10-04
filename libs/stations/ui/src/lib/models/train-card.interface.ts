@@ -2,7 +2,7 @@ import { Button, Header } from 'shared';
 import { RailDirection, RailMainDestination } from '../types';
 
 export interface TrainStaion {
-   header: Header
+   header: Header;
    /* Rail Arrivals */
    railArrivals: RailArrival[];
    /* Button Content and Data */
@@ -20,6 +20,6 @@ export interface RailArrival {
    color: string;
    /* time of arrival to current station */
    arrivalTime: string;
-
+   /* current station */
    station: string;
 }

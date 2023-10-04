@@ -50,11 +50,7 @@ export class Facade {
          this.allStations = TrainArrivalAdapter.MapRailArrivalGroups(this.railArrivalData, this.allStations)
         this.uiStations = TrainUiAdapter.MapStationsToUi(this.allStations)
 
-            if (this.uiStations.length > 0) {
-               return true;
-            } else {
-               return false;
-            }
+       return this.uiStations.length > 0 
          
       } catch (error) {
          console.log('Eror' + error);

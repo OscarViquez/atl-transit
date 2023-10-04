@@ -1,5 +1,9 @@
-<lib-hero [hero]="header"></lib-hero>
-<lib-tab [tabs]="tab"></lib-tab>
-<ng-container *ngFor="let train of trainData">
-   <lib-train-station-card [content]="train"></lib-train-station-card>
-</ng-container>
+<section class="hero-wrapper">
+   <lib-hero [content]="header"></lib-hero>
+</section>
+<lib-tab [content]="tab"></lib-tab>
+<section class="train-card-wrapper">
+   <ng-container *ngFor="let train of trainData">
+      <lib-train-station-card [content]="train"></lib-train-station-card>
+   </ng-container>
+</section>

@@ -19,5 +19,5 @@ const Template: Story<HeroComponent> = (args: HeroComponent) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-   hero: HeroMock
+   content: HeroMock
 };

@@ -40,9 +40,10 @@ $rail-arrival-border-dark: #333;
    font-family: $font-family;
    background: $light-md-bg;
    border-top: $rail-arrival-border;
+   background-color: #fff;
 
    //* Layout */
-   max-width: $rail-arrival-width;
+   // max-width: $rail-arrival-width;
    padding: $rail-arrival-padding;
 
    &-direction {
