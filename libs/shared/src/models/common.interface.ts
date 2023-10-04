@@ -1,4 +1,4 @@
-import { Icon } from "../types";
+import { Icon } from '../types';
 
 export interface IconComponent {
    ref?: HTMLElement;
@@ -19,15 +19,15 @@ export interface UserInterface {
 }
 
 export interface PageHeader {
-   mode:  string; 
+   mode: string;
    logo: Icon;
-   headerIcons?: Icon[];
    pages: PageHyperlink[];
+   icons: Icon[];
 }
 
 export interface PageHyperlink {
    active: boolean;
-   icon: Icon;
+   icon: string;
    name: string;
    url: string;
 }

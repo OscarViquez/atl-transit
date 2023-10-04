@@ -2,4 +2,9 @@
 export type UiModes = 'light' | 'dark';
 
 /** For When passing icons to components */
-export type Icon = string | null;
+export type Icon = {
+   name: string;
+   alt: string;
+   path: string;
+   url?: string;
+};

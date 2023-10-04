@@ -1,6 +1,6 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
 import { HeaderComponent } from './header.component';
-import { pageHeaderMock } from '../../mocks';
+import { pageHeaderStoryMock } from '../../mocks';
 
 export default {
   title: 'shared/Header',
@@ -20,6 +20,6 @@ const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-   content: pageHeaderMock
+   content: pageHeaderStoryMock
 };
 

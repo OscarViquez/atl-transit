@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageHeader } from '../../models';
-import { pageHeaderMock } from '../../mocks';
+import { pageHeaderContent } from '../../mocks';
+import { Icon } from '../../types';
 
 @Component({
    selector: 'lib-header',
@@ -11,9 +12,15 @@ import { pageHeaderMock } from '../../mocks';
    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-   @Input() content = pageHeaderMock;
+   @Input() content = pageHeaderContent;
    menuIsOpen = false;
 
+   setIcon(name: string): Icon | undefined {
+      return this.content.icons.find((icon) => {
+         if (icon.name === name) return icon;
+         return undefined;
+      });
+   }
 
    toggleMenu() {
       this.menuIsOpen = !this.menuIsOpen;
