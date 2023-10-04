@@ -1,7 +1,7 @@
 // import { state } from '@angular/animations';
 import { createReducer, on, Action } from '@ngrx/store';
 import { locateUser } from '../actions/user.action';
-import { UserStateInterface } from '../../interfaces';
+import { UserStateInterface } from '../../models';
 
 const initalState: UserStateInterface = {
    locationFound: false

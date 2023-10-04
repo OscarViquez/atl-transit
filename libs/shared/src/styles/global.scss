@@ -6,6 +6,10 @@
   margin: 0;
 }
 
+html {
+  background-color: #f3f3f3;
+}
+
 // * Default Styling Properties for Anchor Tags <a> </a> * /
 a {
   color: inherit;
@@ -16,3 +20,31 @@ a {
 li {
   list-style: none;
 }
+
+ul {
+  padding: 0;
+}
+
+// * Global Animations * /
+
+@mixin background-gradient-light {
+  background-image: linear-gradient(90deg, #e5e5e2 0px, #f5f5f5 40px, #e5e5e2 80px);
+  background-size: 600px;
+}
+
+@mixin background-gradient-dark {
+  background-image: linear-gradient(90deg, #43414b 0px, #514e5b 40px, #43414b 80px);
+  background-size: 600px;
+}
+
+@keyframes shine-avatar {
+  0% {
+     background-position: -100px + 52 + 16;
+  }
+
+  40%,
+  100% {
+     background-position: 140px + 52 + 16;
+  }
+}
+

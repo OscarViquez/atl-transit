@@ -2,6 +2,7 @@ import { RailArrival } from '../models';
 
 export const RailArrivalMock: RailArrival[] = [
    {
+      station: 'Random',
       direction: 'North',
       destination: 'Doraville',
       color: 'gold',
@@ -9,6 +10,7 @@ export const RailArrivalMock: RailArrival[] = [
       arrivalTime: 'Arriving'
    },
    {
+      station: 'Random',
       direction: 'South',
       destination: 'Airport',
       color: 'red',
@@ -16,6 +18,7 @@ export const RailArrivalMock: RailArrival[] = [
       arrivalTime: '1 min'
    },
    {
+      station: 'Random',
       direction: 'East',
       destination: 'Indian Creek',
       color: 'green',
@@ -23,6 +26,7 @@ export const RailArrivalMock: RailArrival[] = [
       arrivalTime: '3 min'
    },
    {
+      station: 'Random',
       direction: 'West',
       destination: 'Hamilton E Holmes',
       color: 'blue',

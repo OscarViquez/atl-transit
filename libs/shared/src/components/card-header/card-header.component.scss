@@ -14,10 +14,11 @@
 
          &--head {
             color: var(--Base-Black, #1f1f1f);
-            font-family: General Sans;
+            font-family: 'General Sans', sans-serif;
             font-size: 1.25rem;
             font-weight: 500;
             letter-spacing: 0.3px;
+            text-transform: capitalize;
          }
 
          &--sub {

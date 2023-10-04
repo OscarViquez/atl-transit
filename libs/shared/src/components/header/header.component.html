@@ -1,15 +1,74 @@
-<header class="header">
+<header class="pageHeader light">
+   <!-- === Navigation Bar ============================ -->
+   <div class="pageHeader-wrapper">
+      <!-- Menu Button  -->
+      <ng-container *ngIf="!menuIsOpen; else closeBtn">
+         <button class="pageHeader-btn pageHeader-btn--menu" (click)="toggleMenu()">
+            <img
+               class="pageHeader-btn_icon"
+               [src]="setIcon('hamburgerIcon')?.path"
+               [alt]="setIcon('hamburgerIcon')?.alt"
+            />
+         </button>
+      </ng-container>
+      <div class="pageHeader-logo">
+         <img [src]="content.logo.path" [alt]="content.logo.alt" />
+      </div>
+      <!-- Search Button  -->
+      <button
+         class="pageHeader-btn pageHeader-btn--search"
+         [ngClass]="{
+            'pageHeader-btn--hide': menuIsOpen
+         }"
+      >
+         <img
+            class="pageHeader-btn_icon"
+            [src]="setIcon('searchIcon')?.path"
+            [alt]="setIcon('searchIcon')?.alt"
+         />
+      </button>
+   </div>
+   <!-- === Mobile Pop-Up Menu ============================ -->
+   <nav class="mobile-menu" *ngIf="menuIsOpen">
+      <ul class="mobile-menu-list">
+         <ng-container *ngFor="let link of content.pages">
+            <li class="mobile-menu-item">
+               <a
+                  href="{{ link.url }}"
+                  class="menu-link"
+                  [ngClass]="{ 'menu-link--active': link.active }"
+               >
+                  <span>{{ link.name }}</span>
+               </a>
+            </li>
+         </ng-container>
+      </ul>
+   </nav>
 
-    <a href=""><img src="./hamburger-menu-icon.svg" alt="Navigation tab" class="header--nav"></a>
-
-    <div class="header__main">
-        <a href=""><img src="./logo.svg" alt="Orange diamond logo" class="header__main--logo"></a>
-
-        <div class="header__main--text">
-            <h2 class="header__main--text--h">BeltLine</h2>
-            <span class="header__main--text--sub">App for Atlanta</span>
-        </div>
-    </div>
-
-    <a href=""><img src="./question.svg" alt="Search buttom image" class="header--search"></a>
+   <!-- === Desktop Menu  ============================ -->
+   <nav class="desktop-menu">
+      <ul class="desktop-menu-list">
+         <ng-container *ngFor="let link of content.pages">
+            <li class="desktop-menu-item">
+               <a
+                  href="{{ link.url }}"
+                  class="menu-link"
+                  [ngClass]="{ 'menu-link--active': link.active }"
+               >
+                  <span>{{ link.name }}</span>
+               </a>
+            </li>
+         </ng-container>
+      </ul>
+   </nav>
 </header>
+
+<ng-template #closeBtn>
+   <button class="pageHeader-btn pageHeader-btn--close" (click)="toggleMenu()">
+      <img
+         class="pageHeader-btn_icon"
+         [src]="setIcon('closeIcon')?.path"
+         [alt]="setIcon('closeIcon')?.alt"
+      />
+   </button>
+</ng-template>

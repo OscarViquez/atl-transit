@@ -11,7 +11,4 @@ import { Header } from '../../models';
 })
 export class CardHeaderComponent {
    @Input() content!: Header;
-   constructor() {
-      console.log(this.content)
-   }
 }

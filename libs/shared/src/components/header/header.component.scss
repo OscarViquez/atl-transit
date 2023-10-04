@@ -1,59 +1,98 @@
-.header {
-   background-color: #17171D;
-   color: white;
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-   max-width: 375px;
+@import '../../styles/global.scss';
 
-   &--nav {
-      padding: 0.7rem;
-      height: 1.5rem;
-      width: 1.4rem;
-      color: white;
-   }
+.pageHeader {
+   position: relative;
+   background: #f5f6f9;
+   font-family: 'General Sans', sans-serif;
 
-   &--search {
-      margin-top: 0.45rem;
-      height: 2rem;
-      width: 2rem;
-   }
-
-   &__main {
+   &-wrapper {
       display: flex;
-      justify-content: center;
-      gap: 0.5rem;
+      justify-content: space-between;
       align-items: center;
 
-      &--logo {
-         margin-top: 0.2rem;
-         height: 1.6rem;
-         align-self: stretch;
+      max-width: 992px;
+      padding: 24px;
+      margin: 0 auto;
+   }
+
+   &-btn {
+      display: grid;
+      place-content: center;
+      width: 32px;
+      height: 32px;
+
+      cursor: pointer;
+      border: none;
+      background: none;
+
+      &--hide {
+         visibility: hidden;
       }
-      &--text {
-         padding-bottom: 0.5rem;
+   }
+
+   .mobile-menu {
+      padding: 24px;
+      height: 90vh;
+      transition: opacity 0.5s ease-in-out;
+
+      &-list {
          display: flex;
          flex-direction: column;
-         justify-content: center;
+         gap: 2rem;
+      }
+   }
 
-         &--h {
-            color: #e2e2e3;
-            font-family: General Sans;
-            font-size: 1rem;
-            line-height: 0%; /* 0px */
-            font-weight: 800;
-            letter-spacing: 0.39px;
+   .desktop-menu {
+      display: none;
+      border-top: 2px solid #f3f3f3;
+      max-width: 992px;
+      padding: 16px 24px 24px 24px;
+      margin: 0 auto;
+
+      &-list {
+         display: flex;
+         justify-content: space-between;
+      }
+   }
+
+   .menu-link {
+      color: #5b5f67;
+      font-size: 1rem;
+      font-weight: 400;
+   }
+
+   .menu-link--active {
+      color: #c65854;
+   }
+   .menu-link:hover {
+      color: #c65854;
+   }
+}
+
+@media (min-width: 768px) {
+   .pageHeader {
+      background: #ffffff;
+
+      &-btn {
+         &--menu {
+            display: none;
          }
 
-         &--sub {
-            color: #b0b0b0;
-            font-family: General Sans;
-            font-size: 0.8rem;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 0%; /* 0px */
-            letter-spacing: 0.35px;
+         &--close {
+            display: none;
          }
+      }
+
+      .mobile-menu {
+         display: none;
+      }
+
+      .desktop-menu {
+         display: block;
+      }
+
+      .menu-link {
+         font-size: 14px;
       }
    }
 }

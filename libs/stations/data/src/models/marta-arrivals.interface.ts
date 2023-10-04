@@ -1,14 +1,14 @@
 /* NGRX Interface: Response Interface */
 export type MartaArrivalResponse = {
-   destination: string;
-   direction: string;
-   event_time: Date;
-   line: string;
-   next_arr: Date;
-   station: string;
-   train_id: number;
-   waiting_seconds?: number;
-   waiting_time?: string;
+   DESTINATION: string;
+   DIRECTION: string;
+   EVENT_TIME: Date;
+   LINE: string;
+   NEXT_ARR: string;
+   STATION: string;
+   TRAIN_ID: number;
+   WAITING_SECONDS?: number;
+   WAITING_TIME: string;
 };
 
 /* NGRX Interface: State Interface  */

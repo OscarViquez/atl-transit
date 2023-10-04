@@ -4,14 +4,14 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { DataService } from '../../services/data.service';
-import { MartaArrivalResponse } from '../../interfaces';
+import { MartaArrivalResponse } from '../../models';
 @Injectable({
    providedIn: 'root'
 })
 export class ArrivalsEffects {
    constructor(
       private readonly action$: Actions,
-      private readonly dataService: DataService
+      private readonly dataService: DataService,
    ) {}
 
    loadTrainArrival$ = createEffect(() =>

@@ -1,4 +1,4 @@
-import { Button } from '../models';
+import { Button, Tab } from '../models';
 
 export const ButtonLightModeMock: Button = {
    text: 'More Details',
@@ -25,3 +25,14 @@ export const ButtonActiveMockDark: Button = {
    ...ButtonDarkModeMock,
    active: true
 };
+
+export const NearestStationMock: Button = {
+   text: 'Nearest Stations',
+   mode: 'light'
+};
+
+export const SavedStationMock: Button = {
+   text: 'Saved Stations',
+   mode: 'light'
+};
+

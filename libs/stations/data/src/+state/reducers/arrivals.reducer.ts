@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { MartaArrivalWithLoaded } from '../../interfaces';
+import { MartaArrivalWithLoaded } from '../../models';
 import * as ArrivalActions from '../actions/arrivals.action';
 
 export const initialState: MartaArrivalWithLoaded = {
@@ -32,6 +32,6 @@ export const arrivalsReducer = createReducer(
    })
 );
 
-export function reducer(state = initialState, action: Action) {
+export function arrivalReducer(state = initialState, action: Action) {
    return arrivalsReducer(state, action);
 }

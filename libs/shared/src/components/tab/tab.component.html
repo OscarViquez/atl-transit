@@ -1,6 +1,18 @@
 <div class="tab">
-<div class="tab__row">
-    <button class="tab__row--btn" [ngClass]="{'active': tabs[0].active}" (click)="toggleActiveState()">{{tabs[0].button.text}}</button>
-    <button class="tab__row--btn" [ngClass]="{'active': tabs[1].active}" (click)="toggleActiveState()">{{tabs[1].button.text}}</button>
-</div>
+   <div class="tab__row">
+      <button
+         class="tab__row--btn"
+         [ngClass]="{ active: content[0].active }"
+         (click)="toggleActiveState()"
+      >
+         {{ content[0].button.text }}
+      </button>
+      <button
+         class="tab__row--btn"
+         [ngClass]="{ active: content[1].active }"
+         (click)="toggleActiveState()"
+      >
+         {{ content[1].button.text }}
+      </button>
+   </div>
 </div>

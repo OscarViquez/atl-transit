@@ -6,9 +6,9 @@ import { Dropdown } from '../../models';
    selector: 'lib-dropdown',
    standalone: true,
    imports: [CommonModule],
-   templateUrl: './drop-down-advisory.component.html',
-   styleUrls: ['./drop-down-advisory.component.scss']
+   templateUrl: './dropdown.component.html',
+   styleUrls: ['./dropdown.component.scss']
 })
-export class DropDownAdvisoryComponent {
+export class DropdownComponent {
    @Input() content!: Dropdown
 }
