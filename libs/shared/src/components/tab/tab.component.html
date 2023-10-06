@@ -1,18 +1,13 @@
 <div class="tab">
-   <div class="tab__row">
-      <button
-         class="tab__row--btn"
-         [ngClass]="{ active: content[0].active }"
-         (click)="toggleActiveState()"
-      >
-         {{ content[0].button.text }}
-      </button>
-      <button
-         class="tab__row--btn"
-         [ngClass]="{ active: content[1].active }"
-         (click)="toggleActiveState()"
-      >
-         {{ content[1].button.text }}
-      </button>
+   <div class="tab-row">
+      <ng-container *ngFor="let tab of content">
+         <button
+            class="tab-row__btn"
+            [ngClass]="{ active: tab.active }"
+            (click)="toggleTabActiveState(tab)"
+         >
+            {{ tab.button.text }}
+         </button>
+      </ng-container>
    </div>
 </div>

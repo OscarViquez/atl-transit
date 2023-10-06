@@ -17,7 +17,7 @@ const Template: Story<TabComponent> = (args: TabComponent) => ({
    props: args
 });
 
-export const Default = () => Template.bind({});
+export const Default = Template.bind({});
 Default.args = {
    content: TabMock
 };

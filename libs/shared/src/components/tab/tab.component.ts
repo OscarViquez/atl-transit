@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Tab } from '../../models/tab.interface';
-import {ButtonComponent} from './../button/button.component'
+import { ButtonComponent } from './../button/button.component';
 import { Button } from '../../models/button.interface';
 
 @Component({
@@ -12,12 +12,13 @@ import { Button } from '../../models/button.interface';
    styleUrls: ['./tab.component.scss']
 })
 export class TabComponent {
-   @Input() content!: Tab[] 
+   @Input() content!: Tab[];
 
-
-    toggleActiveState() : void {
-      this.content.forEach(tab => {
-         tab.active = !tab.active
-      });
-    }
+   toggleTabActiveState(tab: Tab): void {
+      if (!tab.active) {
+         this.content.forEach((button) => {
+            button.active = button === tab;
+         });
+      }
+   }
 }
