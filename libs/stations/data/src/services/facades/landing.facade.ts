@@ -3,13 +3,17 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { RailArrival, TrainStaion } from 'libs/stations/ui/src/lib/models';
 import { MartaArrivalResponse } from '../../models';
+
 import { DataService } from '../data.service';
 import { StationInterface } from 'stations-ui';
-import { TrainArrivalAdapter, TrainUiAdapter, UserAdapter } from '../adapters/';
-import { HttpClient } from '@angular/common/http';
-import { JsonStationInterface, BusRoutes } from 'libs/stations/ui/src/lib/types';
-import { lastValueFrom } from 'rxjs';
 import { UserService } from '../user.service';
+import { HttpClient } from '@angular/common/http';
+import { lastValueFrom } from 'rxjs';
+
+import { TrainArrivalAdapter, TrainUiAdapter, UserAdapter } from '../adapters/';
+import { JsonStationInterface, BusRoutes } from 'libs/stations/ui/src/lib/types';
+
+
 @Injectable({
    providedIn: 'root'
 })
@@ -40,7 +44,7 @@ export class Facade {
 
          
          this.allStations = TrainArrivalAdapter.MapJsonToStationInterface(await stationResponse)
-         
+         UserAdapter.MapClosestStationToUser(this.user.currentUser, this.allStations);
 
          const arrivalResponse = lastValueFrom(await this.dataService.getArrivalTimes())
          this.arrivalData = await arrivalResponse
@@ -67,9 +71,7 @@ export class Facade {
     {
       navigator.geolocation.getCurrentPosition((pos) => {
         this.user.currentUser.latitude = pos.coords.latitude
-        this.user.currentUser.longitutde = pos.coords.longitude
-       
-        
+        this.user.currentUser.longitude = pos.coords.longitude
       }, (error) => {
         switch (error.code) {
           case error.PERMISSION_DENIED:
@@ -85,6 +87,8 @@ export class Facade {
             console.error("An unknown error occurred.");
         }
       })
+
+
      
     }
    }

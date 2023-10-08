@@ -2,6 +2,6 @@ import { TrainStaion } from "stations-ui";
 
 export interface User {
  latitude: number;
- longitutde: number;
+ longitude: number;
  closestStation?: TrainStaion
 }
