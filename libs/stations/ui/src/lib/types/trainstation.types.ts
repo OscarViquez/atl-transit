@@ -5,8 +5,8 @@ import { RailArrival } from "../models";
 export interface StationInterface {
     name: string;
     description?: string;
-    latitude?: number;
-    longitude?: number;
+    latitude: number;
+    longitude: number;
     contactnumber?: string;
     connectingbusroutes?: BusRoutes[];
     ammenities1?: string;

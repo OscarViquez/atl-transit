@@ -24,6 +24,32 @@ export class TrainUiAdapter{
         return uiStations
     }
 
+    static MapHeaderToUiView(name: string): string {
+        const reducedName = name.replace('STATION', '').trim();
+        let lowerCasedName = reducedName.toLowerCase();
+        const spaceLocations = this.findSpacesIndices(lowerCasedName);
+    
+        lowerCasedName = lowerCasedName.charAt(0).toUpperCase() + lowerCasedName.slice(1);
+    
+        spaceLocations.forEach((index) => {
+            lowerCasedName = lowerCasedName.substring(0, index + 1) +
+                             lowerCasedName.charAt(index + 1).toUpperCase() +
+                             lowerCasedName.substring(index + 2);
+        });
+    
+        return lowerCasedName;
+    }
+    
+
+    static findSpacesIndices(inputString: string): number[] {
+        const spaceIndices: number[] = [];
+        for (let i = 0; i < inputString.length; i++) {
+            if (inputString[i] === ' ') {
+                spaceIndices.push(i);
+            }
+        }
+        return spaceIndices;
+    }
     static MapStationToHeader(station: StationInterface) : Header {
         const linesCount: string[] = []
 
@@ -56,7 +82,7 @@ export class TrainUiAdapter{
         }
 
         const header: Header = {
-            title: station.name,
+            title: this.MapHeaderToUiView(station.name),
             subtitle: subtitle 
         }
 
