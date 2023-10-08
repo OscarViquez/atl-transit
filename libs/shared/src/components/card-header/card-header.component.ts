@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Header } from '../../models';
+import { ComponentState, Header } from '../../models';
 
 @Component({
    selector: 'lib-card-header',
@@ -11,4 +11,6 @@ import { Header } from '../../models';
 })
 export class CardHeaderComponent {
    @Input() content!: Header;
+   @Input() state!: ComponentState;
+
 }

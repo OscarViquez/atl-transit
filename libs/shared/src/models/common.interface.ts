@@ -1,4 +1,4 @@
-import { Icon } from '../types';
+import { Icon, UiModes } from '../types';
 
 export interface IconComponent {
    ref?: HTMLElement;
@@ -30,4 +30,10 @@ export interface PageHyperlink {
    icon: string;
    name: string;
    url: string;
+}
+
+export interface ComponentState {
+   isLoading: boolean; // loading state for the component
+   systemMode: UiModes; // system mode for the component
+   error?: boolean; // error state for the component
 }

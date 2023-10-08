@@ -8,5 +8,10 @@ export const TrainStationMock: TrainStaion = {
       subtitle: 'All Rail Lines Available'
    },
    railArrivals: RailArrivalMock,
-   button: ButtonLightModeMock
+   button: ButtonLightModeMock,
+   state: {
+      isLoading: false,
+      systemMode: 'light',
+      error: true
+   }
 };
