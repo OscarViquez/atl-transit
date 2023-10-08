@@ -31,7 +31,7 @@ export class UserAdapter {
 
         
 
-        return []
+        return this.MappingStationsLocation(stationDistances, stations)
 
     }
 
@@ -67,7 +67,17 @@ export class UserAdapter {
     }
 
 
-    static MappingStationsLocation(){
-        
+    static MappingStationsLocation(distancesStations: {name: string, distance: number}[], stations: StationInterface[]) : StationInterface[] {
+        distancesStations.sort((a, b) => a.distance - b.distance)
+
+        let allStations: StationInterface[] = []
+
+        distancesStations.forEach((item)=> {
+            let index = stations.findIndex((station) => station.name === item.name)
+            
+            allStations.push(stations[index])
+        })
+
+        return allStations
     }
 }

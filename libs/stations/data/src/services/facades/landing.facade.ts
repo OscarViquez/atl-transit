@@ -43,8 +43,8 @@ export class Facade {
 
 
          
-         this.allStations = TrainArrivalAdapter.MapJsonToStationInterface(await stationResponse)
-         UserAdapter.MapClosestStationToUser(this.user.currentUser, this.allStations);
+         const currentStations = TrainArrivalAdapter.MapJsonToStationInterface(await stationResponse)
+         this.allStations = UserAdapter.MapClosestStationToUser(this.user.currentUser, currentStations);
 
          const arrivalResponse = lastValueFrom(await this.dataService.getArrivalTimes())
          this.arrivalData = await arrivalResponse
