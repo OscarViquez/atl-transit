@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Tab } from '../../models/tab.interface';
 import { ButtonComponent } from './../button/button.component';
-import { Button } from '../../models/button.interface';
-import {ViewService} from 'libs/stations/data/src/services/'
+// TODO: Have this method moved to the view components
+// import {ViewService} from 'libs/stations/data/src/services/'
+
 @Component({
    selector: 'lib-tab',
    standalone: true,

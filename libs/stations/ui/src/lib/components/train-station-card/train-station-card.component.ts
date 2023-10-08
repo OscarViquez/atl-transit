@@ -20,6 +20,24 @@ export class TrainStationCardComponent implements OnInit {
    @Input() content!: TrainStaion;
 
    ngOnInit(): void {
+      this.setComponentState();
       this.content.button.mode = 'light';
+   }
+
+   // TODO: Have this method moved to the adapter
+   public setComponentState(): void {
+      if (this.content.railArrivals.length > 0) {
+         this.content.state = {
+            isLoading: true,
+            systemMode: 'light',
+            error: false
+         };
+      } else {
+         this.content.state = {
+            isLoading: false,
+            systemMode: 'light',
+            error: true
+         };
+      }
    }
 }

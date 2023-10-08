@@ -1,4 +1,4 @@
-import { Button, Header } from 'shared';
+import { Button, ComponentState, Header } from 'shared';
 import { RailDirection, RailMainDestination } from '../types';
 
 export interface TrainStaion {
@@ -7,6 +7,8 @@ export interface TrainStaion {
    railArrivals: RailArrival[];
    /* Button Content and Data */
    button: Button;
+   /* Component State */
+   state?: ComponentState;
 }
 
 export interface RailArrival {
