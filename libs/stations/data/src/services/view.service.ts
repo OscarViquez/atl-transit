@@ -6,7 +6,7 @@
    providedIn: 'root'
  })
  export class ViewService {
- currentView!: string
+ currentTabIndex: number = 0
    
   
  }

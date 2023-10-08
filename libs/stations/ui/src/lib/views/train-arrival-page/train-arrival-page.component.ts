@@ -28,7 +28,7 @@ export class TrainArrivalPageComponent implements OnInit {
    header: Header = HeroMock;
    trainData!: TrainStaion[];
 
-   constructor(public facade: Facade) {}
+   constructor(public facade: Facade, public view: ViewService) {}
 
    async ngOnInit(): Promise<void> {
       console.log('test')

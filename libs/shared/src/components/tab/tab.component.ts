@@ -15,11 +15,16 @@ import { ButtonComponent } from './../button/button.component';
 export class TabComponent {
    @Input() content!: Tab[];
 
+   constructor(private view: ViewService){}
+
    toggleTabActiveState(tab: Tab): void {
       if (!tab.active) {
          this.content.forEach((button) => {
             button.active = button === tab;
          });
       }
+
+      this.view.currentTabIndex = this.content.findIndex((tab) => tab.active === true)
+   
    }
 }
