@@ -37,3 +37,8 @@ lib-button {
       color: #787878;
    }
 }
+@media (max-width: 374px) {
+   .train-station {
+      margin: 32px auto;
+   }
+}
