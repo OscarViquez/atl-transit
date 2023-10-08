@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Tab } from '../../models/tab.interface';
 import { ButtonComponent } from './../button/button.component';
-// TODO: Have this method moved to the view components
-// import {ViewService} from 'libs/stations/data/src/services/'
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { ViewService } from 'stations-data';
 
 @Component({
    selector: 'lib-tab',
@@ -15,7 +15,7 @@ import { ButtonComponent } from './../button/button.component';
 export class TabComponent {
    @Input() content!: Tab[];
 
-   constructor(private view: ViewService){}
+   constructor(private view: ViewService) {}
 
    toggleTabActiveState(tab: Tab): void {
       if (!tab.active) {
@@ -24,7 +24,6 @@ export class TabComponent {
          });
       }
 
-      this.view.currentTabIndex = this.content.findIndex((tab) => tab.active === true)
-   
+      this.view.currentTabIndex = this.content.findIndex((tab) => tab.active === true);
    }
 }

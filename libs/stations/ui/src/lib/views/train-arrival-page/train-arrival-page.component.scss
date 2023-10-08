@@ -10,6 +10,12 @@
    }
 }
 
+@media (min-width: 468px) {
+   .tab-wrapper {
+      padding: 0 24px;
+   }
+}
+
 @media (min-width: 1040px) {
    .tab-wrapper,
    .train-arrivals-wrapper {
