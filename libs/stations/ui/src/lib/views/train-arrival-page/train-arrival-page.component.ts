@@ -1,7 +1,7 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Facade } from 'stations-data';
+import { Facade, ViewService } from 'stations-data';
 import { OnInit } from '@angular/core';
 //component import
 import { TrainStaion } from '../../models';
