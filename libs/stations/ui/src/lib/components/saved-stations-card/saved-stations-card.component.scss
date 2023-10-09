@@ -1,26 +1,17 @@
 //* Component Variables */
 @import '../../styles/global.scss';
 
-.train-station {
-   min-width: 327px;
-   max-width: 992px;
-   background: #ffffff;
-   margin: 32px 24px;
-   font-family: 'General Sans', sans-serif;
-   border-radius: 5px;
-}
-
-lib-button {
-   border-radius: 0 0 5px 5px;
-}
-
-.train-station__no-arrival {
+.saved-stations-error {
    display: grid;
    place-content: center;
    text-align: center;
    padding: 1rem;
    height: 328px;
    gap: 8px;
+   font-family: 'General Sans', sans-serif;
+   margin: 24px;
+   background-color: #ffffff;
+   border-radius: 5px;
 
    &-title {
       font-size: 1.25rem;
@@ -39,8 +30,6 @@ lib-button {
    }
 }
 
-@media (max-width: 374px) {
-   .train-station {
-      margin: 32px auto;
-   }
+.saved-stations-error-title--highlight {
+   color: #c65854;
 }

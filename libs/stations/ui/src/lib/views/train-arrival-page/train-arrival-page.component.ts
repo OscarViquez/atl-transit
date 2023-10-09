@@ -1,5 +1,5 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Facade, ViewService } from 'stations-data';
 import { OnInit } from '@angular/core';
@@ -9,6 +9,7 @@ import { TrainStationCardComponent } from '../../components/train-station-card/t
 import { CardComponent, Header, HeroMock, Tab, TabMock } from 'shared';
 import { HeroComponent } from 'shared';
 import { TabComponent } from 'shared';
+import { SavedStationsCardComponent } from '../../components/saved-stations-card/saved-stations-card.component';
 
 @Component({
    selector: 'lib-train-arrival-page',
@@ -18,7 +19,8 @@ import { TabComponent } from 'shared';
       CardComponent,
       TrainStationCardComponent,
       HeroComponent,
-      TabComponent
+      TabComponent,
+      SavedStationsCardComponent
    ],
    templateUrl: './train-arrival-page.component.html',
    styleUrls: ['./train-arrival-page.component.scss']
