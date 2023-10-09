@@ -30,15 +30,18 @@ export class TrainArrivalPageComponent implements OnInit {
    header: Header = HeroMock;
    trainData!: TrainStaion[];
 
-   constructor(public facade: Facade, public view: ViewService) {}
+   constructor(private facade: Facade, public view: ViewService) {}
 
    async ngOnInit(): Promise<void> {
       console.log('test')
       try {
-         const result = await this.facade.initializePageRender();
-         if (result === true) {
+         this.facade.userLocation().then((res) => {
+            if (res === true) {
             this.trainData = this.facade.uiStations;
-         }
+            }
+             })
+         
+         
       } catch (error) {
          console.log(error);
       }

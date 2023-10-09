@@ -74,7 +74,6 @@ export class UserAdapter {
 
         distancesStations.forEach((item)=> {
             let index = stations.findIndex((station) => station.name === item.name)
-            
             allStations.push(stations[index])
         })
 

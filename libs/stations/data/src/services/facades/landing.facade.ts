@@ -35,8 +35,6 @@ export class Facade {
       //this.store.dispatch(actions.loadRailArrival());
 
       try {
-        this.userLocation()
-
          const stationResponse = lastValueFrom(await this.httpClient.get<JsonStationInterface[]>(
             '/assets/json/marta.trains.json'
          ))
@@ -66,12 +64,16 @@ export class Facade {
    }
 
 
-   userLocation() {
-    if('geolocation' in navigator)
+    async userLocation() : Promise<any>{
+    return new Promise((resolve, reject) => {
+      if('geolocation' in navigator)
     {
-      navigator.geolocation.getCurrentPosition((pos) => {
+       navigator.geolocation.getCurrentPosition((pos) => {
         this.user.currentUser.latitude = pos.coords.latitude
         this.user.currentUser.longitude = pos.coords.longitude
+        console.log(`"Latitude: ${this.user.currentUser.latitude}. Longitude: ${this.user.currentUser.longitude}"`)
+        const result = this.initializePageRender()
+        resolve(result)
       }, (error) => {
         switch (error.code) {
           case error.PERMISSION_DENIED:
@@ -91,5 +93,7 @@ export class Facade {
 
      
     }
-   }
+    })
+    }
 }
+
