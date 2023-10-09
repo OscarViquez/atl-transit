@@ -7,6 +7,7 @@
    background: #ffffff;
    margin: 32px 24px;
    font-family: 'General Sans', sans-serif;
+   border-radius: 5px;
 }
 
 lib-button {
@@ -37,6 +38,7 @@ lib-button {
       color: #787878;
    }
 }
+
 @media (max-width: 374px) {
    .train-station {
       margin: 32px auto;

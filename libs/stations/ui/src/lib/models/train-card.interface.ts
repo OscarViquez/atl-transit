@@ -1,5 +1,5 @@
+/* eslint-disable @nx/enforce-module-boundaries */
 import { Button, ComponentState, Header } from 'shared';
-import { RailDirection, RailMainDestination } from '../types';
 
 export interface TrainStaion {
    header: Header;
