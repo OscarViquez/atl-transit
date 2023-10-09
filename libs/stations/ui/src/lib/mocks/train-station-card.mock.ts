@@ -1,3 +1,4 @@
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import { ButtonLightModeMock } from 'shared';
 import { TrainStaion } from '../models';
 import { RailArrivalMock } from './rail-arrival-card.mock';
