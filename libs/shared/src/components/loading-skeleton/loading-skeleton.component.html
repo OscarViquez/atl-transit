@@ -5,17 +5,26 @@
  </ng-container>
 
 <ng-container *ngIf="loadingItem === 'hero'">
-    <div class="container__hero">
-        <div class="container__hero--h"></div>
-        <div class="container__hero--s"></div>
-        <div class="container__hero--border"></div>
+    <div class="container">
+        <div class="container__hero">
+           <h1 class="container__hero--h">Train Arrivals</h1>
+           <p class="container__hero--s">View arrival times of rail lines in the area.</p>
+           <div class="container__hero--border"></div>
+        </div>
      </div>
 </ng-container>
 
 <ng-container *ngIf="loadingItem === 'tab'">
-<div class="tab__container">
-
-</div>
+    <div class="tab">
+        <div class="tab-row">
+              <div class="tab-row__btn">
+                <p class="tab-row__btn--t">Nearest Station</p>
+              </div>
+              <div class="tab-row__btn">
+                <p class="tab-row__btn--t">Saved Station</p>
+              </div>
+        </div>
+     </div>
 </ng-container>
 
 <ng-container *ngIf="loadingItem === 'train-card'">

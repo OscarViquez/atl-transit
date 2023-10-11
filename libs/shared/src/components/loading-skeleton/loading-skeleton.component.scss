@@ -107,15 +107,27 @@ $button-light-md-text-active: #c65854;
       flex-direction: column;
       justify-content: space-between;
       font-family: 'General Sans', sans-serif;
+      gap: 1rem;
 
       &--h {
-         width: 40%;
-         @include background-gradient-dark;
+         font-size: 14px;
+         font-weight: 500;
+         letter-spacing: 0.3px;
+         width: 65%;
+         @include background-gradient-light;
+         animation: shine-avatar 1.5s infinite linear;
+         color: transparent;
       }
 
       &--s {
-         width: 70%;
-         @include background-gradient-dark;
+         font-size: 14px;
+         font-weight: 500;
+         letter-spacing: 0.21px;
+         font-family: inherit;
+         margin-bottom: 1rem;
+         @include background-gradient-light;
+         animation: shine-avatar 1.5s infinite linear;
+         color: transparent;
       }
 
       &--border {
@@ -138,4 +150,65 @@ $button-light-md-text-active: #c65854;
       max-width: 992px;
       margin: 0 auto
    }
+}
+
+
+//tab 
+@import '../../styles/global.scss';
+
+.tab {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 3px;
+   font-family: 'General Sans', sans-serif;
+
+   &-row {
+      display: flex;
+      width: 100%;
+      border: #e4e3e3 solid 1px;
+      border-radius: 3px;
+      margin-left: 1.5rem;
+      overflow: hidden;
+
+      &__btn {
+        border: none;
+        padding: 14px 32px;
+        border-right: #e4e3e3 solid 1px;
+        letter-spacing: 0.24px;
+        color: #5b5f67;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+         &--t {
+            height: 45%;
+            animation: shine-avatar 1.5s infinite linear;
+            @include background-gradient-light;
+            color: transparent;
+         }
+
+         &:not(:last-child)
+         {
+            background-color: #FFFFFF;
+         }
+      }
+   }
+}
+
+
+.active {
+   background-color: #ffff;
+   color: #c65854;
+}
+
+@media screen and (max-width: 500px) {
+
+   .tab {
+      &-row {
+         margin-left: 0rem;
+      }
+   }
+   
 }

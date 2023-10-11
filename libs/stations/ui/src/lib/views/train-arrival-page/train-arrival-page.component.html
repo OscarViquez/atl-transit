@@ -1,4 +1,4 @@
-<ng-container *ngIf="this.view.Loading === false">
+<ng-container *ngIf="!this.view.Loading">
 <section class="hero-wrapper">
    <lib-hero [content]="header"></lib-hero>
 </section>
@@ -11,11 +11,23 @@
 </ng-container>
 
 
+<ng-container *ngIf="!this.view.Loading">
 <div class="tab">
    <div class="tab-wrapper">
       <lib-tab [content]="tab"></lib-tab>
    </div>
 </div>
+</ng-container>
+
+<ng-container *ngIf="this.view.Loading">
+   <div class="tab">
+      <div class="tab-wrapper">
+         <lib-loading-skeleton [loadingItem]="'tab'"></lib-loading-skeleton>
+      </div>
+   </div>
+</ng-container>
+
+
 <section class="train-arrivals" *ngIf="view.currentTabIndex === 0">
    <div class="train-arrivals-wrapper">
       <ng-container *ngFor="let train of [trainData[0], trainData[1] ]">
