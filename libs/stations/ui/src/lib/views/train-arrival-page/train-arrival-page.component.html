@@ -1,6 +1,16 @@
+<ng-container *ngIf="this.view.Loading === false">
 <section class="hero-wrapper">
    <lib-hero [content]="header"></lib-hero>
 </section>
+</ng-container>
+
+<ng-container *ngIf="this.view.Loading">
+   <section class="hero-wrapper">
+     <lib-loading-skeleton [loadingItem]="'hero'"></lib-loading-skeleton>
+   </section>
+</ng-container>
+
+
 <div class="tab">
    <div class="tab-wrapper">
       <lib-tab [content]="tab"></lib-tab>

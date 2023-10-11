@@ -9,6 +9,7 @@ import { TrainStationCardComponent } from '../../components/train-station-card/t
 import { CardComponent, Header, HeroMock, Tab, TabMock } from 'shared';
 import { HeroComponent } from 'shared';
 import { TabComponent } from 'shared';
+import {LoadingSkeletonComponent} from 'shared'
 import { SavedStationsCardComponent } from '../../components/saved-stations-card/saved-stations-card.component';
 
 @Component({
@@ -20,7 +21,8 @@ import { SavedStationsCardComponent } from '../../components/saved-stations-card
       TrainStationCardComponent,
       HeroComponent,
       TabComponent,
-      SavedStationsCardComponent
+      SavedStationsCardComponent,
+      LoadingSkeletonComponent
    ],
    templateUrl: './train-arrival-page.component.html',
    styleUrls: ['./train-arrival-page.component.scss']
@@ -37,6 +39,7 @@ export class TrainArrivalPageComponent implements OnInit {
       try {
          this.facade.userLocation().then((res) => {
             if (res === true) {
+            this.view.Loading = false;
             this.trainData = this.facade.uiStations;
             }
              })
