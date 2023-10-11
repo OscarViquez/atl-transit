@@ -212,3 +212,53 @@ $button-light-md-text-active: #c65854;
    }
    
 }
+
+//train card
+
+.train-station {
+    min-width: 327px;
+    max-width: 992px;
+    background: #ffffff;
+    margin: 32px 24px;
+    border-radius: 5px;
+    display: flex;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    &__row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: .8rem;
+        padding: 1rem;
+
+       color: transparent;
+
+        &--short {
+            height: 45%;
+            width: 45%;
+            animation: shine-avatar 1.5s infinite linear;
+            @include background-gradient-light;
+        }
+
+        &--long {
+            height: 45%;
+            width: 65%;
+            animation: shine-avatar 1.5s infinite linear;
+            @include background-gradient-light;
+        }
+
+    }
+
+
+ }
+
+
+@media (max-width: 374px) {
+    .train-station {
+       margin: 32px auto;
+    }
+ }
