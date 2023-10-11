@@ -1,4 +1,4 @@
-.tab-wrapper {
+.contaienr {
    padding: 32px 24px;
 }
 
@@ -7,6 +7,11 @@
       display: flex;
       justify-content: center;
       padding: 24px 0;
+   }
+}
+
+@media (min-width: 468px) {
+   .tab-wrapper {
    }
 }
 

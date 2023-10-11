@@ -1,5 +1,5 @@
-import { Button, Header } from 'shared';
-import { RailDirection, RailMainDestination } from '../types';
+/* eslint-disable @nx/enforce-module-boundaries */
+import { Button, ComponentState, Header } from 'shared';
 
 export interface TrainStaion {
    header: Header;
@@ -7,6 +7,8 @@ export interface TrainStaion {
    railArrivals: RailArrival[];
    /* Button Content and Data */
    button: Button;
+   /* Component State */
+   state?: ComponentState;
 }
 
 export interface RailArrival {

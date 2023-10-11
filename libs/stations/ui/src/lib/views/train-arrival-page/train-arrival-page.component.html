@@ -6,10 +6,17 @@
       <lib-tab [content]="tab"></lib-tab>
    </div>
 </div>
-<section class="train-arrivals">
+<section class="train-arrivals" *ngIf="view.currentTabIndex === 0">
    <div class="train-arrivals-wrapper">
-      <ng-container *ngFor="let train of trainData">
+      <ng-container *ngFor="let train of [trainData[0], trainData[1] ]">
          <lib-train-station-card [content]="train"></lib-train-station-card>
+      </ng-container>
+   </div>
+</section>
+<section class="train-arrivals" *ngIf="view.currentTabIndex === 1">
+   <div class="train-arrivals-wrapper">
+      <ng-container>
+         <lib-saved-stations-card></lib-saved-stations-card>
       </ng-container>
    </div>
 </section>

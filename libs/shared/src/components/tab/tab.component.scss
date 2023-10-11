@@ -12,6 +12,7 @@
       width: 100%;
       border: #e4e3e3 solid 1px;
       border-radius: 3px;
+      margin-left: 1.5rem;
       overflow: hidden;
 
       &__btn {
@@ -29,4 +30,14 @@
 .active {
    background-color: #ffff;
    color: #c65854;
+}
+
+@media screen and (max-width: 500px) {
+
+   .tab {
+      &-row {
+         margin-left: 0rem;
+      }
+   }
+   
 }

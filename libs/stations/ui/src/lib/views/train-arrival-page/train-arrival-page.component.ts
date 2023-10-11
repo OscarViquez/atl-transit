@@ -1,7 +1,7 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Facade } from 'stations-data';
+import { Facade, ViewService } from 'stations-data';
 import { OnInit } from '@angular/core';
 //component import
 import { TrainStaion } from '../../models';
@@ -9,6 +9,7 @@ import { TrainStationCardComponent } from '../../components/train-station-card/t
 import { CardComponent, Header, HeroMock, Tab, TabMock } from 'shared';
 import { HeroComponent } from 'shared';
 import { TabComponent } from 'shared';
+import { SavedStationsCardComponent } from '../../components/saved-stations-card/saved-stations-card.component';
 
 @Component({
    selector: 'lib-train-arrival-page',
@@ -18,7 +19,8 @@ import { TabComponent } from 'shared';
       CardComponent,
       TrainStationCardComponent,
       HeroComponent,
-      TabComponent
+      TabComponent,
+      SavedStationsCardComponent
    ],
    templateUrl: './train-arrival-page.component.html',
    styleUrls: ['./train-arrival-page.component.scss']
@@ -28,15 +30,18 @@ export class TrainArrivalPageComponent implements OnInit {
    header: Header = HeroMock;
    trainData!: TrainStaion[];
 
-   constructor(public facade: Facade) {}
+   constructor(private facade: Facade, public view: ViewService) {}
 
    async ngOnInit(): Promise<void> {
       console.log('test')
       try {
-         const result = await this.facade.initializePageRender();
-         if (result === true) {
+         this.facade.userLocation().then((res) => {
+            if (res === true) {
             this.trainData = this.facade.uiStations;
-         }
+            }
+             })
+         
+         
       } catch (error) {
          console.log(error);
       }
