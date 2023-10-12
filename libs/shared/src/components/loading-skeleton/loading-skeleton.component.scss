@@ -95,8 +95,6 @@ $button-light-md-text-active: #c65854;
 }
 
 //hero
-@import '../../styles/global.scss';
-
 .container {
    display: flex;
    border-radius: 5px;
@@ -109,7 +107,7 @@ $button-light-md-text-active: #c65854;
       font-family: 'General Sans', sans-serif;
       gap: 1rem;
 
-      &--h {
+      &--header {
          font-size: 14px;
          font-weight: 500;
          letter-spacing: 0.3px;
@@ -119,7 +117,7 @@ $button-light-md-text-active: #c65854;
          color: transparent;
       }
 
-      &--s {
+      &--sub {
          font-size: 14px;
          font-weight: 500;
          letter-spacing: 0.21px;
@@ -145,17 +143,9 @@ $button-light-md-text-active: #c65854;
    }
 }
 
-@media (min-width: 992px) {
-   .container {
-      max-width: 992px;
-      margin: 0 auto
-   }
-}
 
 
 //tab 
-@import '../../styles/global.scss';
-
 .tab {
    display: inline-flex;
    justify-content: center;
@@ -182,7 +172,7 @@ $button-light-md-text-active: #c65854;
         justify-content: center;
         align-items: center;
 
-         &--t {
+         &--text {
             height: 45%;
             animation: shine-avatar 1.5s infinite linear;
             @include background-gradient-light;
@@ -203,15 +193,6 @@ $button-light-md-text-active: #c65854;
    color: #c65854;
 }
 
-@media screen and (max-width: 500px) {
-
-   .tab {
-      &-row {
-         margin-left: 0rem;
-      }
-   }
-   
-}
 
 //train card
 
@@ -236,14 +217,14 @@ $button-light-md-text-active: #c65854;
         padding: 1rem;
 
         &--short {
-            height: 45%;
+            height: 16px;
             width: 45%;
             animation: shine-avatar 1.5s infinite linear;
             @include background-gradient-light;
         }
 
         &--long {
-            height: 45%;
+            height: 16px;
             width: 65%;
             animation: shine-avatar 1.5s infinite linear;
             @include background-gradient-light;
@@ -255,8 +236,28 @@ $button-light-md-text-active: #c65854;
  }
 
 
+//media queries
+
+@media screen and (max-width: 500px) {
+
+    .tab {
+       &-row {
+          margin-left: 0rem;
+       }
+    }
+    
+ }
+
 @media (max-width: 374px) {
     .train-station {
        margin: 32px auto;
     }
  }
+
+ @media (min-width: 992px) {
+    .container {
+       max-width: 992px;
+       margin: 0 auto
+    }
+ }
+
