@@ -1,0 +1,60 @@
+<ng-container *ngIf="loadingItem === 'button'">
+    <div class="button button--{{ mode }}-mode">
+       <div class="button-skeleton"></div>
+    </div>
+ </ng-container>
+
+<ng-container *ngIf="loadingItem === 'hero'">
+    <div class="container">
+        <div class="container__hero">
+           <h1 class="container__hero--header"></h1>
+           <p class="container__hero--sub">View arrival times of rail lines in the area.</p>
+           <div class="container__hero--border"></div>
+        </div>
+     </div>
+</ng-container>
+
+<ng-container *ngIf="loadingItem === 'tab'">
+    <div class="tab">
+        <div class="tab-row">
+              <div class="tab-row__btn">
+                <p class="tab-row__btn--text">Nearest Station</p>
+              </div>
+              <div class="tab-row__btn">
+                <p class="tab-row__btn--text">Saved Station</p>
+              </div>
+        </div>
+     </div>
+</ng-container>
+
+<ng-container *ngIf="loadingItem === 'train-card'">
+    <div class="train-station">
+        <div class="train-station__container">
+
+        <div class="train-station__row">
+            <div class="train-station__row--short"></div>
+            <div class="train-station__row--long"></div>
+        </div>
+
+        <div class="train-station__row">
+            <div class="train-station__row--short"></div>
+            <div class="train-station__row--long"></div>
+        </div>
+
+        <div class="train-station__row">
+            <div class="train-station__row--short"></div>
+            <div class="train-station__row--long"></div>
+        </div>
+
+        <div class="train-station__row">
+            <div class="train-station__row--short"></div>
+            <div class="train-station__row--long"></div>
+        </div>
+
+        </div>
+
+     </div>
+</ng-container>
+
+
+

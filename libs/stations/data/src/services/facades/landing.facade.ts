@@ -71,7 +71,6 @@ export class Facade {
        navigator.geolocation.getCurrentPosition((pos) => {
         this.user.currentUser.latitude = pos.coords.latitude
         this.user.currentUser.longitude = pos.coords.longitude
-        console.log(`"Latitude: ${this.user.currentUser.latitude}. Longitude: ${this.user.currentUser.longitude}"`)
         const result = this.initializePageRender()
         resolve(result)
       }, (error) => {

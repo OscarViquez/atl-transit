@@ -7,7 +7,7 @@ export * from './components/header/header.component';
 export * from './components/hero/hero.component';
 export * from './components/tab/tab.component';
 export * from './components/dropdown/dropdown.component';
-
+export * from './components/loading-skeleton/loading-skeleton.component'
 // Exporting Mock, Types, and Interfaces
 export * from './mocks';
 export * from './types';

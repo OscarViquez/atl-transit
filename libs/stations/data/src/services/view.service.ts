@@ -7,6 +7,7 @@
  })
  export class ViewService {
  currentTabIndex: number = 0
+ Loading: boolean = true;
    
   
  }
