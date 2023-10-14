@@ -36,7 +36,7 @@ export class Facade {
 
       try {
          const stationResponse = lastValueFrom(await this.httpClient.get<JsonStationInterface[]>(
-            '/assets/json/marta.trains.json'
+            '/assets/jsons/marta.trains.json'
          ))
 
 

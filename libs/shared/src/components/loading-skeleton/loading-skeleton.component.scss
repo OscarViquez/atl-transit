@@ -1,7 +1,5 @@
-// button 
-
 //* Component Variables */
-@import '../../styles/global.scss';
+@import '../../../../assets/src/lib/assets/main.scss';
 
 //* Component Variables */
 $button-font: 'General Sans', sans-serif;
@@ -54,7 +52,7 @@ $button-light-md-text-active: #c65854;
          width: 35%;
          height: 14px;
          @include background-gradient-light;
-         animation: shine-avatar 1.5s infinite linear;
+         animation: shine-avatar 2s infinite linear;
       }
    }
 
@@ -73,7 +71,7 @@ $button-light-md-text-active: #c65854;
          width: 35%;
          height: 14px;
          @include background-gradient-dark;
-         animation: shine-avatar 1.5s infinite linear;
+         animation: shine-avatar 2s infinite linear;
       }
    }
 
@@ -113,7 +111,7 @@ $button-light-md-text-active: #c65854;
          letter-spacing: 0.3px;
          width: 65%;
          @include background-gradient-light;
-         animation: shine-avatar 1.5s infinite linear;
+         animation: shine-avatar 2s infinite linear;
          color: transparent;
       }
 
@@ -124,7 +122,7 @@ $button-light-md-text-active: #c65854;
          font-family: inherit;
          margin-bottom: 1rem;
          @include background-gradient-light;
-         animation: shine-avatar 1.5s infinite linear;
+         animation: shine-avatar 2s infinite linear;
          color: transparent;
       }
 
@@ -174,7 +172,7 @@ $button-light-md-text-active: #c65854;
 
          &--text {
             height: 45%;
-            animation: shine-avatar 1.5s infinite linear;
+            animation: shine-avatar 2s infinite linear;
             @include background-gradient-light;
             color: transparent;
          }
@@ -219,14 +217,14 @@ $button-light-md-text-active: #c65854;
         &--short {
             height: 16px;
             width: 45%;
-            animation: shine-avatar 1.5s infinite linear;
+            animation: shine-avatar 2s infinite linear;
             @include background-gradient-light;
         }
 
         &--long {
             height: 16px;
             width: 65%;
-            animation: shine-avatar 1.5s infinite linear;
+            animation: shine-avatar 2s infinite linear;
             @include background-gradient-light;
         }
 
