@@ -15,6 +15,7 @@
       "skipDefaultLibCheck": true,
       "baseUrl": ".",
       "paths": {
+         "assets": ["libs/assets/src/index.ts"],
          "shared": ["libs/shared/src/index.ts"],
          "stations-data": ["libs/stations/data/src/index.ts"],
          "stations-ui": ["libs/stations/ui/src/index.ts"]

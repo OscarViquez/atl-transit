@@ -66,7 +66,7 @@ export const pageHeaderContent: PageHeader = {
    logo: {
       name: 'logo',
       alt: 'image of logo',
-      path: '/assets/images/logo.svg'
+      path: '/assets/icons/logo.svg'
    },
    pages: [
       {
@@ -105,17 +105,17 @@ export const pageHeaderContent: PageHeader = {
       {
          name: 'hamburgerIcon',
          alt: 'icon of menu',
-         path: '/assets/images/menu-icon-light.svg'
+         path: '/assets/icons/menu-icon-light.svg'
       },
       {
          name: 'searchIcon',
          alt: 'icon of search',
-         path: '/assets/images/search-icon-light.svg'
+         path: '/assets/icons/search-icon-light.svg'
       },
       {
          name: 'closeIcon',
          alt: 'icon of search',
-         path: '/assets/images/close-icon-light.svg'
+         path: '/assets/icons/close-icon-light.svg'
       }
    ]
 };

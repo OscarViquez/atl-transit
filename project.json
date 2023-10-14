@@ -15,11 +15,21 @@
         "main": "./src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "./tsconfig.app.json",
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "libs/assets/styles/main.scss"
+          ]
+        },
         "assets": [
           {
             "glob": "**/*",
-            "input": "./libs/assets",
+            "input": "./libs/assets/src/lib/assets",
             "output": "/assets/"
+          },
+          {
+            "glob": "_redirects",
+            "input": "src",
+            "output": "/"
           }
         ],
         "styles": ["./src/styles.scss"],
