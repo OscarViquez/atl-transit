@@ -84,10 +84,4 @@ Similarly to Monorepos, this would make it easier to scale if need to add additi
 -  20230504221132  
    http://labs.itsmarta.com/signpost/trains
 
--  Trip Updates:  
-   https://gtfs-rt.itsmarta.com/TMGTFSRealTimeWebService/tripupdate/tripupdates.pb
-
--  Vehicle Positions:  
-   https://gtfs-rt.itsmarta.com/TMGTFSRealTimeWebService/vehicle/vehiclepositions.pb
-
 ## Components and Storybook Folder Structure
