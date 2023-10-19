@@ -1,9 +1,8 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { CardHeaderComponent } from './card-header.component';
-import { CardHeaderMock } from '../../mocks';
+import { CardHeaderComponent, CardHeaderMock } from 'shared';
 
 export default {
-   title: 'shared/CardHeader',
+   title: 'Components/Atoms/Card Header',
    component: CardHeaderComponent,
    decorators: [
       moduleMetadata({
@@ -17,7 +16,7 @@ const Template: Story<CardHeaderComponent> = (args: CardHeaderComponent) => ({
    props: args
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const CardHeader = Template.bind({});
+CardHeader.args = {
    content: CardHeaderMock
 };

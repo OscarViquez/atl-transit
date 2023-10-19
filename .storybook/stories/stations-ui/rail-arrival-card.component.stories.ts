@@ -1,6 +1,5 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { RailArrivalCardComponent } from '../rail-arrival-card.component';
-import { RailArrivalMock } from '../mocks/rail-arrival-card.mock';
+import { RailArrivalCardComponent, RailArrivalMock } from 'stations-ui';
 
 export default {
    title: 'Trains/Rail Arrival Card',
@@ -17,8 +16,8 @@ const Template: Story<RailArrivalCardComponent> = (args: RailArrivalCardComponen
    props: args
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const RailCardArrivalDefault = Template.bind({});
+RailCardArrivalDefault.args = {
    railArrival: RailArrivalMock,
    systemMode: 'light'
 };

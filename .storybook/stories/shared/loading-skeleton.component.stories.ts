@@ -1,8 +1,8 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { LoadingSkeletonComponent } from './loading-skeleton.component';
+import { LoadingSkeletonComponent } from 'shared';
 
 export default {
-   title: 'shared/Skeleton Loader',
+   title: 'Components/Atoms/Skeleton Loader',
    component: LoadingSkeletonComponent,
    decorators: [
       moduleMetadata({
@@ -17,29 +17,29 @@ const Template: Story<LoadingSkeletonComponent> = (args: LoadingSkeletonComponen
 });
 
 
-export const Tab = Template.bind({});
-Tab.args = {
+export const TabLoading = Template.bind({});
+TabLoading.args = {
    loadingItem: 'tab'
 };
 
-export const TrainCard = Template.bind({});
-TrainCard.args = {
+export const TrainCardLoading = Template.bind({});
+TrainCardLoading.args = {
    loadingItem: 'train-card'
 };
 
-export const Hero = Template.bind({});
-Hero.args = {
+export const HeroLoading = Template.bind({});
+HeroLoading.args = {
    loadingItem: 'hero'
 };
 
-export const ButtonLight = Template.bind({});
-ButtonLight.args = {
+export const ButtonLightLoading = Template.bind({});
+ButtonLightLoading.args = {
    loadingItem: 'button',
    mode: 'light'
 };
 
-export const ButtonDark = Template.bind({});
-ButtonDark.args = {
+export const ButtonDarkLoading = Template.bind({});
+ButtonDarkLoading.args = {
    loadingItem: 'button',
    mode: 'dark'
 };

@@ -4,13 +4,12 @@ import { TrainArrivalPageComponent } from 'stations-ui';
 
 export const appRoutes: Route[] = [
    {
-      path: 'welcome',
-      component: AppComponent,
-      pathMatch: 'full'
-   },
-   {
       path: 'arrivals',
       component: TrainArrivalPageComponent,
       pathMatch: 'full'
+   },
+   {
+      path: '**', // fallback router must in the last
+      redirectTo: '', // this is optional depends of your needs
    }
 ];

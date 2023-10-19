@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 
 import { TrainArrivalAdapter, TrainUiAdapter, UserAdapter } from '../adapters/';
-import { JsonStationInterface, BusRoutes } from 'libs/stations/ui/src/lib/types';
+import { JsonStationInterface, BusRoutes } from 'stations-ui';
 
 
 @Injectable({

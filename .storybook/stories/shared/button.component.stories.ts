@@ -1,16 +1,15 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { ButtonComponent } from './button.component';
 import {
+   ButtonComponent,
    ButtonLightModeMock,
    ButtonActiveMockDark,
    ButtonDarkModeMock,
    ButtonWithIconMock,
    ButtonActiveMockLight
-} from '../../mocks';
-// import { SiderbarDarkMocks,SiderbarLightMocks } from './mocks/button.mocks';
+} from 'shared';
 
 export default {
-   title: 'shared/Button',
+   title: 'Components/Atoms/Button',
    component: ButtonComponent,
    decorators: [
       moduleMetadata({
@@ -25,7 +24,6 @@ const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({
 });
 
 // export const Default = () => Template.bind({})
-
 
 export const ButtonLightMode = Template.bind({});
 ButtonLightMode.args = {

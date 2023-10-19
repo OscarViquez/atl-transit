@@ -9,4 +9,6 @@ export * from './lib/views/station-page/station-page.component';
 
 // * Interfaces
 export * from './lib/models';
+export * from './lib/mocks';
+
 

@@ -1,9 +1,8 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { TabComponent } from './tab.component';
-import { TabMock } from '../../mocks';
+import { TabComponent, TabMock } from 'shared';
 
 export default {
-   title: 'shared/Tab',
+   title: 'Components/Atoms/Tab',
    component: TabComponent,
    decorators: [
       moduleMetadata({
@@ -17,7 +16,7 @@ const Template: Story<TabComponent> = (args: TabComponent) => ({
    props: args
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const Tab = Template.bind({});
+Tab.args = {
    content: TabMock
 };

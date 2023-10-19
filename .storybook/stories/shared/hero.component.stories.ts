@@ -1,9 +1,8 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { HeroComponent } from './hero.component';
-import { HeroMock } from '../../mocks';
+import { HeroComponent, HeroMock } from 'shared';
 
 export default {
-   title: 'shared/Hero',
+   title: 'Components/Atoms/Hero',
    component: HeroComponent,
    decorators: [
       moduleMetadata({
@@ -17,7 +16,7 @@ const Template: Story<HeroComponent> = (args: HeroComponent) => ({
    props: args
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const Hero = Template.bind({});
+Hero.args = {
    content: HeroMock
 };

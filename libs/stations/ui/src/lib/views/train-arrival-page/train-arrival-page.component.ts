@@ -6,9 +6,8 @@ import { OnInit } from '@angular/core';
 //component import
 import { TrainStaion } from '../../models';
 import { TrainStationCardComponent } from '../../components/train-station-card/train-station-card.component';
-import { CardComponent, Header, HeroMock, Tab, TabMock } from 'shared';
+import { CardComponent, HeroMock, TabMock ,Header, Tab, TabComponent} from 'shared';
 import { HeroComponent } from 'shared';
-import { TabComponent } from 'shared';
 import {LoadingSkeletonComponent} from 'shared'
 import { SavedStationsCardComponent } from '../../components/saved-stations-card/saved-stations-card.component';
 

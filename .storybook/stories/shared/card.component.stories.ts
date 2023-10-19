@@ -1,9 +1,9 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import {CardComponent} from './card.component'
+import {CardComponent} from 'shared'
 // import { SiderbarDarkMocks,SiderbarLightMocks } from './mocks/button.mocks';
 
 export default {
-  title: 'shared/Card',
+  title: 'Components/Atoms/Card',
   component: CardComponent,
   decorators: [
     moduleMetadata({
@@ -20,4 +20,4 @@ const Template: Story<CardComponent> = (args: CardComponent) => ({
 
 // export const Default = () => Template.bind({})
 
-export const Default = () => Template.bind({})
+export const card = () => Template.bind({})

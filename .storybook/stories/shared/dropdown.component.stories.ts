@@ -1,9 +1,8 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { DropdownComponent } from './dropdown.component';
-import { DropDownSingle } from '../../mocks';
+import { DropdownComponent, DropDownSingle } from 'shared';
 
 export default {
-   title: 'shared/Dropdown',
+   title: 'Components/Atoms/Dropdown',
    component: DropdownComponent,
    decorators: [
       moduleMetadata({
@@ -17,7 +16,7 @@ const Template: Story<DropdownComponent> = (args: DropdownComponent) => ({
    props: args
 });
 
-export const Default = Template.bind({});
-Default.args = {
+export const Dropdown = Template.bind({});
+Dropdown.args = {
    content: DropDownSingle
 };

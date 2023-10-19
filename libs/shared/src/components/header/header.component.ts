@@ -1,13 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { PageHeader } from '../../models';
 import { pageHeaderContent } from '../../mocks';
-import { Icon } from '../../types';
+import { Icon } from '../../models';
 
 @Component({
    selector: 'lib-header',
    standalone: true,
-   imports: [CommonModule],
+   imports: [CommonModule, RouterModule],
    templateUrl: './header.component.html',
    styleUrls: ['./header.component.scss']
 })

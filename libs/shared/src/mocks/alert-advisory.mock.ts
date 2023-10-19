@@ -1,4 +1,4 @@
-import { AdvisoryCard } from '../models/advisory-card.interface';
+import { AdvisoryCard } from '../models';
 import { DropDownMock } from './dropdown.mock';
 
 export const AdvisoryAlertMock: AdvisoryCard = {
