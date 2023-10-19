@@ -1,6 +1,6 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { TrainStationCardComponent } from './train-station-card.component';
-import { TrainStationMock } from '../../mocks'
+import { TrainStationCardComponent } from '../train-station-card.component';
+import { TrainStationMock } from '../mocks/train-station-card.mock';
 // import { SiderbarDarkMocks,SiderbarLightMocks } from './mocks/button.mocks';
 
 export default {

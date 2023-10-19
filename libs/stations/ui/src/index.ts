@@ -10,8 +10,3 @@ export * from './lib/views/station-page/station-page.component';
 // * Interfaces
 export * from './lib/models';
 
-// * Types
-export * from './lib/types';
-
-// * Mock Data
-export * from './lib/mocks';
