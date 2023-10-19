@@ -1,7 +1,7 @@
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import { ButtonLightModeMock } from 'shared';
-import { TrainStaion } from '../models';
-import { RailArrivalMock } from './rail-arrival-card.mock';
+import { RailArrivalMock } from '../../rail-arrival-card/mocks/rail-arrival-card.mock';
+import { TrainStaion } from '../../../models';
 
 export const TrainStationMock: TrainStaion = {
    header: {

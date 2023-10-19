@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RailArrival } from '../../models';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import { UiModes } from 'shared';
+import { RailArrival } from '../../models';
 
 @Component({
    selector: 'lib-rail-arrival-card',

@@ -1,4 +1,5 @@
-import { RailArrival } from '../models';
+import { RailArrival } from "../../../models/";
+
 
 export const RailArrivalMock: RailArrival[] = [
    {
