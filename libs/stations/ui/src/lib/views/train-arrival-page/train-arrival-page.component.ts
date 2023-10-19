@@ -11,7 +11,9 @@ import { HeroComponent } from 'shared';
 import { TabComponent } from 'shared';
 import {LoadingSkeletonComponent} from 'shared'
 import { SavedStationsCardComponent } from '../../components/saved-stations-card/saved-stations-card.component';
-
+import { Store } from '@ngrx/store';
+import { UserStateInterface } from 'libs/stations/data/src/models';
+import { userLocationAction } from  'libs/+state/src/lib/state'
 @Component({
    selector: 'lib-train-arrival-page',
    standalone: true,
@@ -32,9 +34,11 @@ export class TrainArrivalPageComponent implements OnInit {
    header: Header = HeroMock;
    trainData!: TrainStaion[];
 
-   constructor(private facade: Facade, public view: ViewService) {}
+   constructor(private facade: Facade, public view: ViewService, 
+      private state: Store) {}
 
    async ngOnInit(): Promise<void> {
+      this.state.dispatch(userLocationAction.location());
       console.log('test')
       try {
          this.facade.userLocation().then((res) => {

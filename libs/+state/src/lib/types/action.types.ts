@@ -20,6 +20,7 @@ export enum ArrivalActionTypes {
 
 export enum StationActionTypes {
    GeneralInformationType = 'Station',
+   GeneralInformationLocate = 'Station Locate',
    GeneralInformationSuccess = 'General Station Success',
    GeneralInformationFailure = 'General Station Failure', 
    ArrivalResponseType = 'Arrival Response',

@@ -1,7 +1,7 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 
 import { StationInterface } from "stations-ui";
-import { User } from "../../models/user";
+import { User } from "../../models";
 import { UserService } from "../user.service";
 
 export class UserAdapter {
