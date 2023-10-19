@@ -1,5 +1,7 @@
-/* PLACEHOLDER / EXAMPLE interface */
-export interface IRandom {
-   title: string;
-   text: string;
+import { TrainStaion } from "stations-ui";
+
+export interface User {
+ latitude: number;
+ longitude: number;
+ closestStation?: TrainStaion[]
 }
