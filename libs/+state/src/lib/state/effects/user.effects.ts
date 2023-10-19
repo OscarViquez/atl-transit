@@ -5,3 +5,11 @@ import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { DataService } from '../../services/data.service';
 import { MartaArrivalResponse } from '../../models';
+
+@Injectable({
+   providedIn: 'root'
+})
+
+export class UserEffects {
+
+}
