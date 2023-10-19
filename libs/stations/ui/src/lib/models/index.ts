@@ -1,1 +1,2 @@
-export * from './train-card.interface'
+export * from './component.interfaces';
+export * from './component.types';

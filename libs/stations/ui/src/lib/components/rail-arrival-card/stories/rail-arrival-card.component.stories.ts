@@ -1,6 +1,6 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { RailArrivalCardComponent } from './rail-arrival-card.component';
-import { RailArrivalMock } from '../../mocks';
+import { RailArrivalCardComponent } from '../rail-arrival-card.component';
+import { RailArrivalMock } from '../mocks/rail-arrival-card.mock';
 
 export default {
    title: 'Trains/Rail Arrival Card',
