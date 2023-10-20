@@ -9,7 +9,6 @@ import { userLocationAction } from '../actions';
    providedIn: 'root'
 })
 export class UserEffects {
-   constructor(private actions$: Actions, private userService: UserService) {}
 
    loadUser$ = createEffect(() =>
       this.actions$.pipe(
@@ -32,4 +31,7 @@ export class UserEffects {
    //     ofType(userLocationAction.locateUserSuccess),
    //     concatMap(() => this.userService)
    // ))
+
+   constructor(private actions$: Actions, 
+    private userService: UserService) {}
 }

@@ -11,9 +11,6 @@ import { arrivalResponseActions, generalStationActions, userLocationAction } fro
 
 export class StationEffects {
 
-    constructor(private actions$: Actions, 
-    private dataService: DataService) {}
-
 
     loadGeneralStations$ = createEffect(() => 
     this.actions$.pipe(
@@ -32,5 +29,8 @@ export class StationEffects {
             catchError((error) => of(arrivalResponseActions.arrivalResponseFailure({ message: error })))
         ))
     ))
+
+    constructor(private actions$: Actions, 
+        private dataService: DataService) {}
 
 }

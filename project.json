@@ -68,6 +68,9 @@
             },
             "development": {
                "browserTarget": "atl-transit:build:development"
+            },
+            "options" : {
+               "optimization": false
             }
          },
          "defaultConfiguration": "development"
