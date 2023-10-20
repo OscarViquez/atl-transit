@@ -1,8 +1,8 @@
 {
-  "name": "station-ui",
+  "name": "stations-ui",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/stations/ui/src",
-  "prefix": "station-ui",
+  "prefix": "stations-ui",
   "tags": [],
   "projectType": "library",
   "targets": {

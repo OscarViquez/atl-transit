@@ -1,6 +1,5 @@
 import { Route } from '@angular/router';
-import { AppComponent } from './app.component';
-import { TrainArrivalPageComponent } from 'stations-ui';
+import { TrainArrivalPageComponent } from '@stations-data';
 
 export const appRoutes: Route[] = [
    {
