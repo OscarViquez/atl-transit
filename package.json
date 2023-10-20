@@ -20,6 +20,7 @@
       "@ngrx/effects": "^16.2.0",
       "@ngrx/entity": "^16.2.0",
       "@ngrx/store": "^16.2.0",
+      "@ngrx/store-devtools": "^16.2.0",
       "@nx/angular": "16.8.1",
       "fs": "^0.0.1-security",
       "react": "^18.2.0",

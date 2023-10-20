@@ -1,24 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from 'shared';
-import { DataModule, Facade } from 'stations-data';
+import {StateModule} from 'libs/+state/src/lib/state.module'
 
 // TODO: Imports from Actions Can not be in any component file. Only Service files
 
 @Component({
    standalone: true,
-   imports: [RouterModule, DataModule, HeaderComponent],
+   imports: [RouterModule, StateModule, HeaderComponent],
    selector: 'app-root',
    templateUrl: './app.component.html',
    styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
    title = 'atl-transit';
-
-   constructor(private facade: Facade){}
-
-    ngOnInit(): void {
-
-   }
-
 }
