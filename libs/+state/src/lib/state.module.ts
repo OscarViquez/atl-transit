@@ -12,10 +12,10 @@ import { EffectsModule } from '@ngrx/effects';
       HttpClientModule,
       StoreModule.forRoot({}),
       StoreDevtoolsModule.instrument({ maxAge: 25 }),
-      EffectsModule.forRoot([]),
       StoreModule.forFeature('user', userReducer),
       StoreModule.forFeature('stations', stationReducer),
-     EffectsModule.forFeature([UserEffects, StationEffects])
+      EffectsModule.forRoot([]),
+      EffectsModule.forFeature([UserEffects, StationEffects])
    ],
    providers: [DataService],
    bootstrap: []
