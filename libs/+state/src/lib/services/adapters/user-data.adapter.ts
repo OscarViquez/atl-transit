@@ -2,12 +2,11 @@
 
 import { StationInterface } from "stations-ui";
 import { User } from "../../models";
-import { UserService } from "../user.service";
 
 export class UserAdapter {
 
     static MapClosestStationToUser(user: User, stations: StationInterface[]) : StationInterface[] {
-        let stationDistances: {name: string, distance: number}[] = []
+        const stationDistances: {name: string, distance: number}[] = []
 
         stations.forEach((station) => {
             const stationLocation = {
@@ -36,7 +35,7 @@ export class UserAdapter {
 
 
     static LocationTracker(locationUser: {latitude: number, longitude: number}, locationStation: {latitude: number, longitude: number}) {
-        const earthRadiusKm: number = 6371;
+        const earthRadiusKm = 6371;
 
         const latitudeDegrees = this.DegreesToRadians(locationUser.latitude - locationStation.latitude)
         const longitudeDegrees = this.DegreesToRadians(locationUser.longitude - locationStation.longitude)
@@ -69,10 +68,10 @@ export class UserAdapter {
     static MappingStationsLocation(distancesStations: {name: string, distance: number}[], stations: StationInterface[]) : StationInterface[] {
         distancesStations.sort((a, b) => a.distance - b.distance)
 
-        let allStations: StationInterface[] = []
+        const allStations: StationInterface[] = []
 
         distancesStations.forEach((item)=> {
-            let index = stations.findIndex((station) => station.name === item.name)
+            const index = stations.findIndex((station) => station.name === item.name)
             allStations.push(stations[index])
         })
 

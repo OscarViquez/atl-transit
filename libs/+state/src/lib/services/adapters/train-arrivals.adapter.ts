@@ -1,6 +1,5 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { RailArrival } from 'libs/stations/ui/src/lib/models';
-import { BusRoutes, StationInterface, JsonStationInterface, RailDirection } from 'libs/stations/ui/src/lib/models';
+import { RailArrival, JsonStationInterface, RailDirection, StationInterface, BusRoutes } from 'stations-ui';
 import { MartaArrivalResponse } from '../../models';
 
 export class TrainArrivalAdapter{

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdvisoryCard } from '../../models/advisory-card.interface';
+import { AdvisoryCard } from '../../models';
 import { ButtonComponent } from '../button/button.component';
 import { CardHeaderComponent } from '../card-header/card-header.component';
 import { DropdownComponent } from '../dropdown/dropdown.component';

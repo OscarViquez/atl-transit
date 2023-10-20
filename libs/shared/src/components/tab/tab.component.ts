@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Tab } from '../../models/tab.interface';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-
+import { Tab } from '../../models/';
 
 @Component({
    selector: 'lib-tab',
@@ -13,8 +11,8 @@ import { Tab } from '../../models/tab.interface';
 })
 export class TabComponent {
    @Input() content!: Tab[];
-
-   constructor() {}
+   currentTabIndex = 0;
+   Loading = true;
 
    toggleTabActiveState(tab: Tab): void {
       if (!tab.active) {
@@ -22,7 +20,6 @@ export class TabComponent {
             button.active = button === tab;
          });
       }
-
-     // this.view.currentTabIndex = this.content.findIndex((tab) => tab.active === true);
+      this.currentTabIndex = this.content.findIndex((tab) => tab.active === true);
    }
 }

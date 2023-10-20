@@ -15,9 +15,10 @@
       "skipDefaultLibCheck": true,
       "baseUrl": ".",
       "paths": {
+         "@stations-data": ["libs/stations/smart/src/index.ts"],
          "assets": ["libs/assets/src/index.ts"],
-         "shared": ["libs/shared/src/index.ts"],
          "global-state": ["libs/+state/src/index.ts"],
+         "shared": ["libs/shared/src/index.ts"],
          "stations-data": ["libs/stations/data/src/index.ts"],
          "stations-ui": ["libs/stations/ui/src/index.ts"]
       }

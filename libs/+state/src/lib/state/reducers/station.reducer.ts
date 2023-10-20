@@ -1,4 +1,4 @@
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { generalStationActions, arrivalMappingActions, arrivalResponseActions } from '../actions/stations.action';
 import { StationStateInterface  } from '../../models';
 

@@ -1,4 +1,4 @@
-import { Dropdown } from '../models/advisory-card.interface';
+import { Dropdown } from '../models';
 
 export const DropDownMock: Dropdown[] = [
    {

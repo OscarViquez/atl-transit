@@ -1,5 +1,5 @@
+/* eslint-disable @nx/enforce-module-boundaries */
 import { Button, Header } from "shared";
-// eslint-disable-next-line @nx/enforce-module-boundaries
 import { StationInterface, TrainStaion } from "stations-ui";
 
 export class TrainUiAdapter{

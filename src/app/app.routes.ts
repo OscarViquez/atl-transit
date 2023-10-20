@@ -1,16 +1,14 @@
 import { Route } from '@angular/router';
-import { AppComponent } from './app.component';
-import { TrainArrivalPageComponent } from 'stations-ui';
+import { TrainArrivalPageComponent } from '@stations-data';
 
 export const appRoutes: Route[] = [
-   {
-      path: 'welcome',
-      component: AppComponent,
-      pathMatch: 'full'
-   },
    {
       path: 'arrivals',
       component: TrainArrivalPageComponent,
       pathMatch: 'full'
+   },
+   {
+      path: '**', // fallback router must in the last
+      redirectTo: '', // this is optional depends of your needs
    }
 ];

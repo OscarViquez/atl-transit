@@ -37,6 +37,7 @@
                   href="{{ link.url }}"
                   class="menu-link"
                   [ngClass]="{ 'menu-link--active': link.active }"
+                  (click)="toggleMenu()"
                >
                   <span>{{ link.name }}</span>
                </a>
@@ -54,6 +55,7 @@
                   href="{{ link.url }}"
                   class="menu-link"
                   [ngClass]="{ 'menu-link--active': link.active }"
+                  (click)="toggleMenu()"
                >
                   <span>{{ link.name }}</span>
                </a>
