@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Tab } from '../../models/tab.interface';
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import { ViewService } from 'stations-data';
+
 
 @Component({
    selector: 'lib-tab',
@@ -14,7 +14,7 @@ import { ViewService } from 'stations-data';
 export class TabComponent {
    @Input() content!: Tab[];
 
-   constructor(private view: ViewService) {}
+   constructor() {}
 
    toggleTabActiveState(tab: Tab): void {
       if (!tab.active) {
@@ -23,6 +23,6 @@ export class TabComponent {
          });
       }
 
-      this.view.currentTabIndex = this.content.findIndex((tab) => tab.active === true);
+     // this.view.currentTabIndex = this.content.findIndex((tab) => tab.active === true);
    }
 }

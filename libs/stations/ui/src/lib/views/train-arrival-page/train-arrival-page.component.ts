@@ -1,7 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Facade, ViewService } from 'stations-data';
 import { OnInit } from '@angular/core';
 //component import
 import { TrainStaion } from '../../models';
@@ -12,8 +11,8 @@ import { TabComponent } from 'shared';
 import {LoadingSkeletonComponent} from 'shared'
 import { SavedStationsCardComponent } from '../../components/saved-stations-card/saved-stations-card.component';
 import { Store } from '@ngrx/store';
-import { UserStateInterface } from 'libs/stations/data/src/models';
-import { userLocationAction } from  'libs/+state/src/lib/state'
+import { generalStationActions, userLocationAction } from  'libs/+state/src/lib/state'
+import { StationStateInterface, UserStateInterface } from 'libs/+state/src/lib/models';
 @Component({
    selector: 'lib-train-arrival-page',
    standalone: true,
@@ -34,23 +33,13 @@ export class TrainArrivalPageComponent implements OnInit {
    header: Header = HeroMock;
    trainData!: TrainStaion[];
 
-   constructor(private facade: Facade, public view: ViewService, 
-      private state: Store) {}
+   constructor(
+      private state: Store<UserStateInterface>, 
+      private stationStore: Store<StationStateInterface>) {}
 
-   async ngOnInit(): Promise<void> {
+    ngOnInit() {
       this.state.dispatch(userLocationAction.location());
-      console.log('test')
-      try {
-         this.facade.userLocation().then((res) => {
-            if (res === true) {
-            this.view.Loading = false;
-            this.trainData = this.facade.uiStations;
-            }
-             })
-         
-         
-      } catch (error) {
-         console.log(error);
-      }
+      this.stationStore.dispatch(generalStationActions.stationLocate())
+      this.state.dispatch(userLocationAction.locateUserFailure({message: 'Yeah I tried'}))
    }
 }

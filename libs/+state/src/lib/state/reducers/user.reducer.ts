@@ -12,7 +12,7 @@ export const initalUserState: UserStateInterface = {
    error: ''
 };
 
-export const locationReducer = createReducer(
+export const userReducer = createReducer(
    initalUserState,
    on(userLocationAction.locateUserSuccess, (state, action) => ({
       ...state, 
@@ -28,5 +28,5 @@ export const locationReducer = createReducer(
  );
 
 export function reducers(state: UserStateInterface, action: Action) {
-   return locationReducer(state, action);
+   return userReducer(state, action);
 }
