@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from 'shared';
 import {StateModule} from 'libs/+state/src/lib/state.module'
@@ -12,13 +12,6 @@ import {StateModule} from 'libs/+state/src/lib/state.module'
    templateUrl: './app.component.html',
    styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
    title = 'atl-transit';
-
-   constructor(){}
-
-    ngOnInit(): void {
-
-   }
-
 }
