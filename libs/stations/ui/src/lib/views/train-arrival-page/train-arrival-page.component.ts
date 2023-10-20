@@ -10,8 +10,7 @@ import { HeroComponent } from 'shared';
 import {LoadingSkeletonComponent} from 'shared'
 import { SavedStationsCardComponent } from '../../components/saved-stations-card/saved-stations-card.component';
 import { Store } from '@ngrx/store';
-import { generalStationActions, userLocationAction } from  'libs/+state/src/lib/state'
-import { StationStateInterface, UserStateInterface } from 'libs/+state/src/lib/models';
+import { generalStationActions, userLocationAction, StationStateInterface, UserStateInterface  } from  'global-state'
 @Component({
    selector: 'lib-train-arrival-page',
    standalone: true,
