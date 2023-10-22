@@ -26,12 +26,6 @@ export class UserEffects {
       )
    );
 
-   // loadUserTrains$ = createEffect(() =>
-   // this.actions$.pipe(
-   //     ofType(userLocationAction.locateUserSuccess),
-   //     concatMap(() => this.userService)
-   // ))
-
    constructor(private actions$: Actions, 
     private userService: UserService) {}
 }

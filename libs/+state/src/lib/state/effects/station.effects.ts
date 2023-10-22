@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
-import { catchError, map, concatMap} from 'rxjs/operators';
+import { catchError, map, concatMap, withLatestFrom} from 'rxjs/operators';
+import { StationStateInterface, UserStateInterface } from '../../models';
 import { DataService } from '../../services/data.service';
-import { arrivalResponseActions, generalStationActions, userLocationAction } from '../actions';
+import { arrivalMappingActions, arrivalResponseActions, generalStationActions, userLocationAction } from '../actions';
+import { stationArrivalResponseSelector, stationGeneralSelector } from '../selectors';
 
 @Injectable({
    providedIn: 'root'
@@ -31,6 +34,7 @@ export class StationEffects {
     ))
 
     constructor(private actions$: Actions, 
-        private dataService: DataService) {}
+        private dataService: DataService, 
+        private stationStore: Store<StationStateInterface>) {}
 
 }
