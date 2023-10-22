@@ -32,6 +32,6 @@ export class DataService {
    }
 
    getArrivalTimes(): Observable<MartaArrivalResponse[]> {
-      return this.http.get<MartaArrivalResponse[]>(EndpointResponse.RAIL_ARRIVAL_TIMES_RESPONSE);
+      return this.http.get<MartaArrivalResponse[]>('/api' + EndpointResponse.RAIL_ARRIVAL_TIMES_RESPONSE);
    }
 }

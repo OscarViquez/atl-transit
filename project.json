@@ -70,7 +70,8 @@
                "browserTarget": "atl-transit:build:development"
             },
             "options" : {
-               "optimization": false
+               "optimization": false,
+               "proxyConfig": "src/proxy.conf.json"
             }
          },
          "defaultConfiguration": "development"
