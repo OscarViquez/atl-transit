@@ -10,8 +10,9 @@ import { HeroComponent } from 'shared';
 import { TabComponent } from 'shared';
 import {LoadingSkeletonComponent} from 'shared'
 import { select, Store } from '@ngrx/store';
-import { arrivalMappingActions, generalStationActions, stationArrivalResponseSelector, stationGeneralSelector, stationMappedArrivalData, userLocationAction, userSelector, userTrainStations } from  'libs/+state/src/lib/state'
+import { arrivalMappingActions, generalStationActions, stationArrivalResponseSelector, stationGeneralSelector, userLoadingSelector, userLocationAction, userSelector, userStationsSelector, userTrainStations } from  'libs/+state/src/lib/state'
 import { StationStateInterface, UserStateInterface } from 'libs/+state/src/lib/models';
+import { ViewService } from 'libs/+state/src/lib/services';
 import { JsonStationInterface, SavedStationsCardComponent, StationInterface, TrainStaion, TrainStationCardComponent } from 'stations-ui';
 import { delay } from 'rxjs';
 import { TrainUiAdapter, UserAdapter } from 'libs/+state/src/lib/services/adapters';
@@ -31,33 +32,25 @@ import { TrainUiAdapter, UserAdapter } from 'libs/+state/src/lib/services/adapte
    styleUrls: ['./train-arrival-page.component.scss']
 })
 export class TrainArrivalPageComponent implements OnInit {
-   content: TrainArrivalPage = {
+   staticContent: TrainArrivalPage = {
       tab: TabMock,
       header: HeroMock,
    };
-   trainData!: TrainStaion[];
-   stationArrivals!: StationInterface[];
-   railData$ : Observable<JsonStationInterface[]> = this.stationStore.pipe(select(stationGeneralSelector));
+   trainData$!: Observable<TrainStaion[]>;
+   pageLoaded$!: Observable<boolean>;
    
 
    constructor(
       private state: Store<UserStateInterface>, 
-      private stationStore: Store<StationStateInterface>) {}
+      private stationStore: Store<StationStateInterface>,
+      public view: ViewService) {}
 
    ngOnInit() {
       this.state.dispatch(userLocationAction.location());
       this.stationStore.dispatch(generalStationActions.stationLocate())
 
-      this.stationStore.select(stationMappedArrivalData).subscribe((mappedData) => {
-        this.stationStore.dispatch(arrivalMappingActions.arrivalMappingSuccess({ arrivalsMapped : mappedData}))
-        this.stationArrivals = mappedData
-      })
-
-      this.state.select(userSelector).subscribe((user) => {
-         const mappedUserTrainData = UserAdapter.MapClosestStationToUser(user, this.stationArrivals);
-         this.state.dispatch(userTrainStations.userStationMappingSuccess({ stations:  TrainUiAdapter.MapStationsToUi(mappedUserTrainData) }))
-
-      })
+     this.trainData$ = this.state.select(userStationsSelector)
+     this.pageLoaded$ = this.state.select(userLoadingSelector)
       
 
 }

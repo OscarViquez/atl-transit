@@ -10,6 +10,7 @@ export interface UserStateInterface {
    locationFound: boolean;
    trainStations: TrainStaion[];
    error?: string;
+   loading: boolean;
 }
 
 export interface StationStateInterface {

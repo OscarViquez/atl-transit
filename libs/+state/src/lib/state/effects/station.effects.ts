@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, concatMap, withLatestFrom} from 'rxjs/operators';
 import { StationStateInterface, UserStateInterface } from '../../models';
+import { CombinedDataAdapter } from '../../services/adapters';
 import { DataService } from '../../services/data.service';
 import { arrivalMappingActions, arrivalResponseActions, generalStationActions, userLocationAction } from '../actions';
 import { stationArrivalResponseSelector, stationGeneralSelector } from '../selectors';
@@ -32,6 +33,20 @@ export class StationEffects {
             catchError((error) => of(arrivalResponseActions.arrivalResponseFailure({ message: error })))
         ))
     ))
+
+    loadMappedData$ = createEffect(() => 
+    this.actions$.pipe(
+        ofType(arrivalResponseActions.arrivalResponseSuccess),
+        withLatestFrom(
+            this.stationStore.select(stationGeneralSelector),
+            this.stationStore.select(stationArrivalResponseSelector)
+          ),
+        concatMap(([action, jsonStations, arrivalData]) => CombinedDataAdapter.MapCombinedStationArrivalData(jsonStations, arrivalData).pipe(
+            map((mappedStationRailData) => arrivalMappingActions.arrivalMappingSuccess({ arrivalsMapped : mappedStationRailData})),
+            catchError((error) => of(arrivalMappingActions.arrivalMappingFailure({ message : error })))
+        ))
+    )
+    )
 
     constructor(private actions$: Actions, 
         private dataService: DataService, 

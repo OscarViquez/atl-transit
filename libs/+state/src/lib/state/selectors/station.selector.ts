@@ -29,7 +29,3 @@ export const stationErrorSelector = createSelector(
     (stationState) => stationState.jsonStations
 );
 
-export const stationMappedArrivalData = createSelector(
-    stationFeatureSelector, 
-    (stationState) => CombinedDataAdapter.MapCombinedStationArrivalData(stationState.jsonStations, stationState.arrivalData)
-)

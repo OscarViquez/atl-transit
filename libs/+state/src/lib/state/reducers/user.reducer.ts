@@ -9,7 +9,8 @@ export const initalUserState: UserStateInterface = {
    user: {longitude: 0, latitude: 0},
    locationFound: false,
    trainStations: [], 
-   error: ''
+   error: '', 
+   loading: true
 };
 
 export const userReducer = createReducer(
@@ -26,7 +27,8 @@ export const userReducer = createReducer(
    })),
    on(userTrainStations.userStationMappingSuccess, (state, action) => ({
       ...state, 
-      trainStations : action.stations
+      trainStations : action.stations,
+      loading : false,
    }))
       
  );
