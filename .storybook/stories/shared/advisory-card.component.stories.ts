@@ -2,7 +2,7 @@ import { Meta, Story, moduleMetadata } from '@storybook/angular';
 import { AdvisoryCardComponent, AdvisoryAlertMock } from 'shared';
 
 export default {
-   title: 'Components/Organism/Advisory Card',
+   title: 'Components/Molecules/Advisory Card',
    component: AdvisoryCardComponent,
    decorators: [
       moduleMetadata({

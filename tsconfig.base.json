@@ -15,6 +15,8 @@
       "skipDefaultLibCheck": true,
       "baseUrl": ".",
       "paths": {
+         "@search-modal-data": ["libs/search-modal/smart/src/index.ts"],
+         "@search-modal-ui": ["libs/search-modal/ui/src/index.ts"],
          "@stations-data": ["libs/stations/smart/src/index.ts"],
          "assets": ["libs/assets/src/index.ts"],
          "global-state": ["libs/+state/src/index.ts"],
