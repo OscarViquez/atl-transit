@@ -1,7 +1,7 @@
 {
-   "name": "search-modal-ui",
+   "name": "search-ui",
    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-   "sourceRoot": "libs/search-modal/ui/src",
+   "sourceRoot": "libs/search/ui/src",
    "prefix": "lib",
    "tags": [],
    "projectType": "library",
@@ -10,7 +10,7 @@
          "executor": "@nx/jest:jest",
          "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
          "options": {
-            "jestConfig": "libs/search-modal/ui/jest.config.ts",
+            "jestConfig": "libs/search/ui/jest.config.ts",
             "passWithNoTests": true
          },
          "configurations": {
@@ -25,8 +25,8 @@
          "outputs": ["{options.outputFile}"],
          "options": {
             "lintFilePatterns": [
-               "libs/search-modal/ui/**/*.ts",
-               "libs/search-modal/ui/**/*.html"
+               "libs/search/ui/**/*.ts",
+               "libs/search/ui/**/*.html"
             ]
          }
       }

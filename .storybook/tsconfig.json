@@ -7,6 +7,7 @@
    "include": [
       "stories/stations-ui/**/*.stories.ts",
       "stories/shared/**/*.stories.ts",
+      "stories/search/**/*.stories.ts",
       "../src/**/*.stories.ts",
       "../src/**/*.stories.js",
       "../src/**/*.stories.jsx",
@@ -14,5 +15,5 @@
       "../src/**/*.stories.mdx",
       "*.js",
       "*.ts"
-, "stories/shared/advisory-card.component.stories.ts", "stories/shared/button.component.stories.ts", "stories/shared/card.component.stories.ts", "stories/shared/card-header.component.stories.ts", "stories/shared/dropdown.component.stories.ts", "stories/shared/header.component.stories.ts", "stories/shared/hero.component.stories.ts", "stories/shared/tab.component.stories.ts", "stories/shared/loading-skeleton.component.stories.ts"   ]
+   ]
 }

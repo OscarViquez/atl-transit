@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-   displayName: 'search-modal-data',
+   displayName: 'search-data',
    preset: '../../../jest.preset.js',
    setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-   coverageDirectory: '../../../coverage/libs/search-modal/smart',
+   coverageDirectory: '../../../coverage/libs/search/smart',
    transform: {
       '^.+\\.(ts|mjs|js|html)$': [
          'jest-preset-angular',

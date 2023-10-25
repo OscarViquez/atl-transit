@@ -5,7 +5,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: '',
-        order: ['Components', "Layouts", "Trains"],
+        order: ['Components', "Layouts", "Trains", "Search Modal"],
         locales: 'en-US',
       },
     },
