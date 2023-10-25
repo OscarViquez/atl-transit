@@ -1,9 +1,9 @@
 import { Button } from './button.interface';
-import { Header } from './common.interface';
+import { GenericHeader } from './common.interface';
 
 export interface AdvisoryCard {
    /* Card Title */
-   header: Header
+   header: GenericHeader
    /* Content For Dropdown */
    dropdown: Dropdown[];
    /* Content For Button */

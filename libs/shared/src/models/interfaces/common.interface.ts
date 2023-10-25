@@ -7,7 +7,7 @@ export interface IconComponent {
    className?: string;
 }
 
-export interface Header {
+export interface GenericHeader {
    title: string;
    subtitle?: string;
 }

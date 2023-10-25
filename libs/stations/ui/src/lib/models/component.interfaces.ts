@@ -1,8 +1,8 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { Button, ComponentState, Header } from 'shared';
+import { Button, ComponentState, GenericHeader } from 'shared';
 
 export interface TrainStaion {
-   header: Header;
+   header: GenericHeader;
    /* Rail Arrivals */
    railArrivals: RailArrival[];
    /* Button Content and Data */
