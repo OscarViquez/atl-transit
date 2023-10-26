@@ -1,0 +1,22 @@
+.divider {
+   font-family: 'General Sans', sans-serif;
+   max-width: 992px;
+   display: flex;
+   align-items: center;
+   padding: 0 24px;
+   gap: 1rem;
+
+   &__label {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      color: #787878;
+   }
+
+   &__border {
+      flex: 1;
+      height: 1px;
+      width: fit-content;
+      background: #e4e3e3;
+   }
+}

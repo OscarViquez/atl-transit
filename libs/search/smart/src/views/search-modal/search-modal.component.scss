@@ -1,0 +1,30 @@
+.search-modal {
+   background-color: #ffffff;
+   padding-bottom: 24px;
+
+   &-wrapper {
+      padding: 16px 24px;
+
+      &--search-bar {
+         padding: 0 24px 24px 24px;
+      }
+   }
+
+   &--backdrop-wrapper {
+      background-blend-mode: color-dodge, normal;
+      box-shadow: 0px 0px 32px 0px rgba(56, 56, 56, 0.1);
+      backdrop-filter: blur(75px);
+   }
+}
+
+@media (min-width: 992px) {
+   .search-modal--backdrop-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+   }
+
+   .search-modal-wrapper {
+      max-width: 992px;
+      margin: 0 auto;
+   }
+}
