@@ -7,7 +7,8 @@ const config: StorybookConfig = {
       'stories/search/**/*.stories.@(js|jsx|ts|tsx|mdx)'
    ],
    staticDirs: [
-      '../libs/assets/src/lib/assets/icons',
+      //  for icons
+      '../libs/assets/src/lib',
       '../libs/assets/src/lib/assets/main.scss'
    ],
    addons: ['@storybook/addon-essentials', '@storybook/addon-styling'],

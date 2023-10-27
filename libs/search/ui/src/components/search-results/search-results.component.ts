@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SearchResults } from '../../models/interfaces';
 
 @Component({
    selector: 'lib-search-results',
@@ -8,4 +9,6 @@ import { CommonModule } from '@angular/common';
    templateUrl: './search-results.component.html',
    styleUrls: ['./search-results.component.scss']
 })
-export class SearchResultsComponent {}
+export class SearchResultsComponent {
+   @Input() results!: SearchResults[];
+}

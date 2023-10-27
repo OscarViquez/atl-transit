@@ -1,1 +1,12 @@
-<p>search-results works!</p>
+<div class="search-results">
+   <ng-container *ngFor="let result of results">
+      <a tabindex="0" class="search-results-card">
+         <div class="search-results-card__label">
+            {{ result.label }}
+         </div>
+         <button class="search-results-card__button">
+           <img src='/assets/icons/ellipsis.svg' alt='view more options' />
+         </button>
+      </a>
+   </ng-container>
+</div>

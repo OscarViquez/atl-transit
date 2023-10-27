@@ -3,10 +3,14 @@
    padding-bottom: 24px;
 
    &-wrapper {
-      padding: 16px 24px;
+      padding: 8px 24px;
 
       &--search-bar {
-         padding: 0 24px 24px 24px;
+         padding: 8px 24px 24px 24px;
+      }
+
+      &--search-results {
+         padding: 8px 16px;
       }
    }
 

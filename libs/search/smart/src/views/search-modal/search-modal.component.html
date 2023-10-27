@@ -1,11 +1,12 @@
 <div class="search-modal--backdrop-wrapper">
    <div class="search-modal">
-      <lib-hero [content]="headerText" spacing="spacing-md"></lib-hero>
-      <div class="search-modal-wrapper">
+      <lib-hero [content]="headerText" spacing="spacing-default"> </lib-hero>
+      <div class="search-modal-wrapper--search-bar">
          <lib-search-bar></lib-search-bar>
       </div>
-      <lib-divider [showDivider]="true" label="Search By"></lib-divider>
+      <lib-divider [showDivider]="true" label="Results"> </lib-divider>
+      <div class="search-modal-wrapper--search-results">
+         <lib-search-results [results]="searchResults"> </lib-search-results>
+      </div>
    </div>
 </div>
-
-<!-- search-modal-wrapper--search-bar -->
