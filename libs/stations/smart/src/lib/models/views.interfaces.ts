@@ -1,8 +1,8 @@
-import { Tab, Header } from 'shared';
+import { Tab, GenericHeader } from 'shared';
 import { TrainStaion } from 'stations-ui';
 
 export interface TrainArrivalPage {
    tab: Tab[];
-   header: Header;
+   header: GenericHeader;
    trainData?: TrainStaion[];
 }

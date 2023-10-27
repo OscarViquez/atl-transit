@@ -1,10 +1,9 @@
 {
   "singleQuote": true,
   "bracketSpacing": true,
-  "printWidth": 80,
+  "printWidth": 90,
   "semi": true,
   "tabWidth": 3,
   "trailingComma": "none",
-  "editor.formatOnSave": true,
   "useTabs": false
 }

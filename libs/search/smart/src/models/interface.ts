@@ -1,10 +1,10 @@
 import { GenericHeader } from 'shared';
 
-export interface ISearchModalStatics {
+export interface SearchModalStatics {
    header: GenericHeader;
-   body?: ISearchModalBody;
+   body?: SearchModalBody;
 }
 
-export interface ISearchModalBody {
+export interface SearchModalBody {
    results: string;
 }
