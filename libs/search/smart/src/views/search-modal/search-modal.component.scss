@@ -2,6 +2,23 @@
    background-color: #ffffff;
    padding-bottom: 24px;
 
+   &__submit {
+      background: #2c2b36;
+      border: 2px solid #2c2b36;
+      border-radius: 3px;
+      color: #ffffff;
+      width: 155px;
+      height: 41px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+
+      &:active,
+      &:focus {
+         border: 2px solid #f28548;
+      }
+   }
+
    &-wrapper {
       padding: 8px 24px;
 
@@ -11,6 +28,12 @@
 
       &--search-results {
          padding: 8px 16px;
+      }
+
+      &--submit {
+         border-top: 1px solid #E4E3E3;
+         padding: 16px 24px 0px 24px;
+         text-align: right;
       }
    }
 
