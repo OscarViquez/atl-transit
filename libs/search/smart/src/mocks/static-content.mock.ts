@@ -1,14 +1,10 @@
 import { ButtonInputType, GenericHeader } from 'shared';
-import { SearchModalStatics } from '../models/interface';
 import { SearchResults } from '@search-ui';
 
 export const GenericHeaderMock: GenericHeader = {
    title: 'Where to?'
 };
 
-export const StaticContentMock: SearchModalStatics = {
-   header: GenericHeaderMock
-};
 
 export const SearchResultsMock: SearchResults[] = [
    {

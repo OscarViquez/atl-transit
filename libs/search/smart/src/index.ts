@@ -1,2 +1,2 @@
-export * from './views/search-modal/search-modal.component'
-export * from './models/interface'
+export * from './views/search-modal/search-modal.component';
+export * from './models'

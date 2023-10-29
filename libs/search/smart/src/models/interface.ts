@@ -1,10 +1,13 @@
-import { GenericHeader } from 'shared';
+import { SearchModalStates } from './types';
 
-export interface SearchModalStatics {
-   header: GenericHeader;
-   body?: SearchModalBody;
+export interface SearchFilters {
+   byNorthAndSouth: boolean;
+   byStations: boolean;
+   byBusRoutes: boolean;
+   byStreetCar: boolean;
 }
 
-export interface SearchModalBody {
-   results: string;
+export interface SearchModal {
+   isSearching: boolean;
+   state: SearchModalStates;
 }
