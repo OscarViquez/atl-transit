@@ -1,8 +1,14 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { RailArrival, JsonStationInterface, RailDirection, StationInterface, BusRoutes } from 'stations-ui';
+import {
+   RailArrival,
+   JsonStationInterface,
+   RailDirection,
+   StationInterface,
+   BusRoutes
+} from 'stations-ui';
 import { MartaArrivalResponse } from '../../models';
 
-export class TrainArrivalAdapter{
+export class TrainArrivalAdapter {
    static MapToRailArrival(item: MartaArrivalResponse): RailArrival {
       let direction: RailDirection = 'North';
 
@@ -33,36 +39,34 @@ export class TrainArrivalAdapter{
    static MapJsonToStationInterface(
       allStations: JsonStationInterface[]
    ): StationInterface[] {
+      const stations: StationInterface[] = [];
+      allStations.forEach((station) => {
+         const routes: BusRoutes[] = [];
+         station.connectingbusroutes.forEach((x) => {
+            if (x !== null) {
+               const busRoute = this.MapObjectToBusRoute(x);
 
-    const stations: StationInterface[] = []
-    allStations.forEach((station) => {
-        const routes: BusRoutes[] = [];
-        station.connectingbusroutes.forEach((x) => {
-        if(x !== null)
-        {
-         const busRoute = this.MapObjectToBusRoute(x) 
+               routes.push(busRoute);
+            }
+         });
 
-          routes.push(busRoute);
-        }
-        });
+         // map the stationponse to the interface
+         const mappedResponse: StationInterface = {
+            name: station.name,
+            description: 'fill here',
+            latitude: parseFloat(station.latitude),
+            longitude: parseFloat(station.longitude),
+            contactnumber: station.contactnumber,
+            connectingbusroutes: routes,
+            ammenities1: station.amenities1,
+            ammenities2: station.amenities2,
+            ammenities3: station.amenities3,
+            ammenities4: station.amenities4,
+            arrivals: []
+         };
 
-        // map the stationponse to the interface
-        const mappedResponse: StationInterface = {
-           name: station.name,
-           description: 'fill here',
-           latitude: parseFloat(station.latitude),
-           longitude: parseFloat(station.longitude),
-           contactnumber: station.contactnumber,
-           connectingbusroutes: routes,
-           ammenities1: station.amenities1,
-           ammenities2: station.amenities2,
-           ammenities3: station.amenities3,
-           ammenities4: station.amenities4,
-           arrivals: []
-        };
-
-        stations.push(mappedResponse);
-    })
+         stations.push(mappedResponse);
+      });
       return stations;
    }
 
@@ -87,17 +91,16 @@ export class TrainArrivalAdapter{
    }
 
    static MapObjectToBusRoute(item: any): BusRoutes {
+      const mappedBus = {
+         key: Object.keys(item)[0],
+         value: Object.values(item)[0]
+      };
 
-    const mappedBus = {
-        key: Object.keys(item)[0],
-        value: Object.values(item)[0]
-    }
+      const busRoute: BusRoutes = {
+         routeID: parseInt(mappedBus.key),
+         name: mappedBus.value as string
+      };
 
-    const busRoute: BusRoutes = {
-        routeID: parseInt(mappedBus.key),
-        name: mappedBus.value as string
-    }
-
-    return busRoute;
+      return busRoute;
    }
 }

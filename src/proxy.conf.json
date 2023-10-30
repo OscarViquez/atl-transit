@@ -1,0 +1,12 @@
+
+{
+    "/api": {
+      "target": "https://www.itsmarta.com",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "logLevel": "debug"
+    }
+  }

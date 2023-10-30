@@ -1,4 +1,4 @@
-import { TrainStaion, StationInterface, RailArrival } from "stations-ui";
+import { TrainStaion, StationInterface, RailArrival, JsonStationInterface } from "stations-ui";
 import { User, MartaArrivalResponse } from "./index";
 export interface AppStateInterface {
    user: UserStateInterface;
@@ -10,12 +10,13 @@ export interface UserStateInterface {
    locationFound: boolean;
    trainStations: TrainStaion[];
    error?: string;
+   loading: boolean;
 }
 
 export interface StationStateInterface {
-   jsonStations: StationInterface[];
+   jsonStations: JsonStationInterface[];
    arrivalData: MartaArrivalResponse[];
-   railArrivalData: RailArrival[];
+   railArrivalData: StationInterface[];
    loading: boolean;
    error?: string;
 }

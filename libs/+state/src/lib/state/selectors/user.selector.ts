@@ -22,3 +22,8 @@ export const userStationsSelector = createSelector(
    userFeatureSelector, 
    (userState) => userState.trainStations
 );
+
+export const userLoadingSelector = createSelector(
+   userFeatureSelector, 
+   (userState) => userState.loading
+)

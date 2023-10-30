@@ -6,7 +6,10 @@ import { HeaderComponent } from 'shared';
 
 @Component({
    standalone: true,
-   imports: [RouterModule, HeaderComponent],
+   imports: [
+      RouterModule,
+      HeaderComponent
+   ],
    selector: 'app-root',
    templateUrl: './app.component.html',
    styleUrls: ['./app.component.scss']

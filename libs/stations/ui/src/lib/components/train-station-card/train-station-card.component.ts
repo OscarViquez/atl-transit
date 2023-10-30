@@ -17,28 +17,9 @@ import { TrainStaion } from '../../models';
    templateUrl: './train-station-card.component.html',
    styleUrls: ['./train-station-card.component.scss']
 })
-export class TrainStationCardComponent implements OnInit {
+export class TrainStationCardComponent {
+   /* Data for train arrivals */
    @Input() content!: TrainStaion;
-
-   ngOnInit(): void {
-      this.setComponentState();
-      this.content.button.mode = 'light';
-   }
-
-   // TODO: Have this method moved to the adapter
-   public setComponentState(): void {
-      if (this.content.railArrivals.length > 0) {
-         this.content.state = {
-            isLoading: true,
-            systemMode: 'light',
-            error: false
-         };
-      } else {
-         this.content.state = {
-            isLoading: false,
-            systemMode: 'light',
-            error: true
-         };
-      }
-   }
+   /* Set Max amount of train arrivals shown*/
+   @Input() maxQuantiy!: number;
 }

@@ -1,14 +1,16 @@
 // import { state } from '@angular/animations';
 import { createReducer, on, Action } from '@ngrx/store';
-import { userLocationAction } from '../actions/user.action';
+import { userLocationAction, userTrainStations } from '../actions/user.action';
 import { UserStateInterface } from '../../models';
+import { userStationsSelector } from '../selectors';
 
 
 export const initalUserState: UserStateInterface = {
    user: {longitude: 0, latitude: 0},
    locationFound: false,
    trainStations: [], 
-   error: ''
+   error: '', 
+   loading: true
 };
 
 export const userReducer = createReducer(
@@ -22,6 +24,11 @@ export const userReducer = createReducer(
       ...state, 
       error: action.message,
       locationFound: true
+   })),
+   on(userTrainStations.userStationMappingSuccess, (state, action) => ({
+      ...state, 
+      trainStations : action.stations,
+      loading : false,
    }))
       
  );

@@ -1,7 +1,8 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationStateInterface } from '../../models';
+import { CombinedDataAdapter } from '../../services/adapters';
 
-export const stationFeatureSelector = createFeatureSelector<StationStateInterface>('station')
+export const stationFeatureSelector = createFeatureSelector<StationStateInterface>('stations')
 
 export const stationGeneralSelector = createSelector(
     stationFeatureSelector, 

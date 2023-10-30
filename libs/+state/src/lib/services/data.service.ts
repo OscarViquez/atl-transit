@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EndpointResponse } from '../types';
 import { MartaArrivalResponse } from '../models';
-import { StationInterface } from 'stations-ui';
+import { JsonStationInterface } from 'stations-ui';
 
 @Injectable({
    providedIn: 'root'
@@ -17,10 +17,11 @@ export class DataService {
    /* Constructor Here  */
    constructor(private http: HttpClient) {}
 
-
    /* get Data Methods Declared Here  */
-   getStationData() : Observable<StationInterface[]> {
-      return this.http.get<StationInterface[]>(EndpointResponse.GENERAL_STATION_RESPONSE)
+   getStationData(): Observable<JsonStationInterface[]> {
+      return this.http.get<JsonStationInterface[]>(
+         EndpointResponse.GENERAL_STATION_RESPONSE
+      );
    }
 
    getArrivalPredictionData(): Observable<object[]> {
@@ -32,6 +33,8 @@ export class DataService {
    }
 
    getArrivalTimes(): Observable<MartaArrivalResponse[]> {
-      return this.http.get<MartaArrivalResponse[]>(EndpointResponse.RAIL_ARRIVAL_TIMES_RESPONSE);
+      return this.http.get<MartaArrivalResponse[]>(
+         EndpointResponse.RAIL_ARRIVAL_TIMES_RESPONSE
+      );
    }
 }
