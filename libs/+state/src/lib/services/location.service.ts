@@ -1,18 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
-import { User } from '../models';
 
 @Injectable({
-  providedIn: 'root'
+   providedIn: 'root'
 })
-export class LocationService {
-
-
-   
-
-
-
-
-  
- 
-}
+export class LocationService {}

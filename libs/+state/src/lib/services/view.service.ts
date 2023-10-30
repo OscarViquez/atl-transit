@@ -1,13 +1,9 @@
- import { Injectable } from '@angular/core';
- import { HttpClient } from '@angular/common/http';
- import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
- @Injectable({
+@Injectable({
    providedIn: 'root'
- })
- export class ViewService {
- currentTabIndex: number = 0
- Loading: boolean = true;
-   
-  
- }
+})
+export class ViewService {
+   currentTabIndex = 0;
+   Loading = true;
+}

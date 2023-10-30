@@ -33,7 +33,7 @@
 <section class="train-arrivals" *ngIf="view.currentTabIndex === 0">
    <div class="train-arrivals-wrapper">
       <ng-container *ngFor="let train of (trainData$ | async); let i = index">
-         <div *ngIf="(i < 2)">
+         <div *ngIf="i < 2">
          <lib-train-station-card [content]="train"></lib-train-station-card>
          </div>
       </ng-container>
