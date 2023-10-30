@@ -2,26 +2,10 @@
    "name": "state",
    "$schema": "../../node_modules/nx/schemas/project-schema.json",
    "sourceRoot": "libs/+state/src",
-   "prefix": "lib",
+   "prefix": "state",
    "tags": [],
    "projectType": "library",
    "targets": {
-      "build": {
-         "executor": "@nx/angular:ng-packagr-lite",
-         "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
-         "options": {
-            "project": "libs/+state/ng-package.json"
-         },
-         "configurations": {
-            "production": {
-               "tsConfig": "libs/+state/tsconfig.lib.prod.json"
-            },
-            "development": {
-               "tsConfig": "libs/+state/tsconfig.lib.json"
-            }
-         },
-         "defaultConfiguration": "production"
-      },
       "test": {
          "executor": "@nx/jest:jest",
          "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
@@ -42,9 +26,7 @@
          "options": {
             "lintFilePatterns": [
                "libs/+state/**/*.ts",
-               "libs/+state/**/*.html",
-               "libs/+state/package.json"
-            ]
+               "libs/+state/**/*.html"            ]
          }
       }
    }
