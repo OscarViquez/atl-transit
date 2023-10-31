@@ -14,6 +14,5 @@ import { RailArrival } from '../../models';
 export class RailArrivalCardComponent {
    @Input() railArrival!: RailArrival[];
    @Input() systemMode!: UiModes;
-
-   
+   @Input() maxQuantiy!: number;
 }

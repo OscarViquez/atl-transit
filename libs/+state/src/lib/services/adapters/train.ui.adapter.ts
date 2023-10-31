@@ -8,7 +8,8 @@ export class TrainUiAdapter {
       stations.forEach((station) => {
          const header = this.MapStationToHeader(station);
          const button: Button = {
-            text: 'More details'
+            text: 'More details',
+            mode: 'light'
          };
 
          const trainUiStationIndividual: TrainStaion = {
