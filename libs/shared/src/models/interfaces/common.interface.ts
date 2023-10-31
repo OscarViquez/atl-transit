@@ -37,3 +37,9 @@ export interface ComponentState {
    systemMode: UiModes; // system mode for the component
    error?: boolean; // error state for the component
 }
+
+
+export interface NavigationUI {
+   pageName: string;
+   index: number;
+}

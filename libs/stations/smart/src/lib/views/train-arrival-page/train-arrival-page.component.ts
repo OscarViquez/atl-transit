@@ -5,7 +5,7 @@ import { OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 //component import
 import { TrainArrivalPage } from '../../models';
-import { CardComponent, HeroMock, TabMock } from 'shared';
+import { HeroMock, TabMock } from 'shared';
 import { HeroComponent } from 'shared';
 import { TabComponent } from 'shared';
 import { LoadingSkeletonComponent } from 'shared';
@@ -28,7 +28,6 @@ import {
    standalone: true,
    imports: [
       CommonModule,
-      CardComponent,
       TrainStationCardComponent,
       HeroComponent,
       TabComponent,

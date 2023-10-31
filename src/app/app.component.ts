@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from 'shared';
+import { NavigationComponent } from 'shared';
 
 // TODO: Imports from Actions Can not be in any component file. Only Service files
 
@@ -8,7 +8,7 @@ import { HeaderComponent } from 'shared';
    standalone: true,
    imports: [
       RouterModule,
-      HeaderComponent
+      NavigationComponent
    ],
    selector: 'app-root',
    templateUrl: './app.component.html',

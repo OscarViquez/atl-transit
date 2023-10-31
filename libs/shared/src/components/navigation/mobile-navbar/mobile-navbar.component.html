@@ -1,0 +1,56 @@
+<header class="mobile-nav">
+   <div class="mobile-nav-wrapper">
+      <!-- Menu Button  -->
+      <ng-container *ngIf="!menuIsOpen; else closeBtn">
+         <button class="mobile-nav-btn mobile-nav-btn--menu" (click)="toggleMenu()">
+            <img
+               class="mobile-nav-btn_icon"
+               [src]="setIcon('hamburgerIcon')?.path"
+               [alt]="setIcon('hamburgerIcon')?.alt"
+            />
+         </button>
+      </ng-container>
+      <div class="mobile-nav-logo">
+         <img [src]="content.logo.path" [alt]="content.logo.alt" />
+      </div>
+      <!-- Search Button  -->
+      <button
+         class="mobile-nav-btn mobile-nav-btn--search"
+         [ngClass]="{
+            'mobile-nav-btn--hide': menuIsOpen
+         }"
+      >
+         <img
+            class="pageHeader-btn_icon"
+            [src]="setIcon('searchIcon')?.path"
+            [alt]="setIcon('searchIcon')?.alt"
+         />
+      </button>
+   </div>
+   <nav class="mobile-menu" *ngIf="menuIsOpen">
+      <ul class="mobile-menu-list">
+         <ng-container *ngFor="let link of content.pages; let i = index">
+            <li class="mobile-menu-list__item">
+               <a
+                  class="mobile-menu-list__item__link"
+                  [routerLink]="link.url"
+                  [ngClass]="{ 'mobile-menu-list__item__link--active': link.active }"
+                  (click)="toggleMenu()"
+               >
+                  <span>{{ link.name }}</span>
+               </a>
+            </li>
+         </ng-container>
+      </ul>
+   </nav>
+</header>
+
+<ng-template #closeBtn>
+   <button class="mobile-nav-btn mobile-nav-btn--close" (click)="toggleMenu()">
+      <img
+         class="mobile-nav-btn_icon"
+         [src]="setIcon('closeIcon')?.path"
+         [alt]="setIcon('closeIcon')?.alt"
+      />
+   </button>
+</ng-template>

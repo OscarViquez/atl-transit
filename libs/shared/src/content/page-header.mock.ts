@@ -10,9 +10,9 @@ export const pageHeaderContent: PageHeader = {
    },
    pages: [
       {
-         active: true,
+         active: false,
          icon: 'path to icon here',
-         name: 'Trains',
+         name: 'Train Arrivals',
          url: '/arrivals'
       },
       {
