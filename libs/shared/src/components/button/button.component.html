@@ -1,9 +1,12 @@
 <ng-container *ngIf="content && !isLoading">
    <a
-      class="button button--size-{{ content.size }} button--{{ content.mode }}-mode"
+      class="
+         button
+         button--size-{{ content.size }} "
       [ngClass]="{
          'button--icon-padding': content.icon,
-         'button--active': content.active
+         'button--active': content.active,
+         'button--light-mode': content.mode === 'light',
       }"
       href="{{ content.hyperLink }}"
    >

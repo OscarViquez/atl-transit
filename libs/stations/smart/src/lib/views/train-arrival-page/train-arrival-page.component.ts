@@ -43,7 +43,11 @@ export class TrainArrivalPageComponent implements OnInit {
    trainData$!: Observable<TrainStaion[]>;
    pageLoaded$!: Observable<boolean>;
 
-   /* Staic Content:  **/
+   /* Max Limit of Stations Train Arrivals Cards **/
+   maxStationArrivals = 2;
+   maxRailArrivals = 4;
+
+   /* Staic Content  **/
    staticContent: TrainArrivalPage = {
       tab: TabMock,
       header: HeroMock

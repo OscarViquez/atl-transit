@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RailArrivalCardComponent } from '../rail-arrival-card/rail-arrival-card.component';
 // eslint-disable-next-line @nx/enforce-module-boundaries
