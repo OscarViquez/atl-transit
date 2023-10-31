@@ -1,0 +1,17 @@
+lib-mobile-navbar {
+   display: none;
+}
+
+lib-sidebar {
+   display: inline-block;
+}
+
+@media (max-width: 768px) {
+   lib-mobile-navbar {
+      display: block;
+   }
+
+   lib-sidebar {
+      display: none;
+   }
+}

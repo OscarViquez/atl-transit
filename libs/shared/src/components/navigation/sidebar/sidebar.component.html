@@ -1,0 +1,32 @@
+<div class="sticky">
+   <aside class="sidebar" ngClass="sidebar--{{ content.mode }}-mode">
+      <div class="sidebar-logo">
+         <img src="{{ content.logo.url }}" alt="{{ content.logo.alt }}" />
+      </div>
+      <nav class="nav">
+         <ng-container *ngFor="let nav of content.pages">
+            <a
+               [ngClass]="{ 'nav-link--active': nav.active }"
+               class="nav-link"
+               [routerLink]="nav.pageUrl"
+            >
+               <div class="nav-link-icon"></div>
+               <div class="nav-link-text">
+                  {{ nav.pageName }}
+               </div>
+            </a>
+         </ng-container>
+      </nav>
+
+      <div class="quickLinks">
+         <h2>{{ content.quickLinks.title }}</h2>
+         <ng-container *ngFor="let link of content.quickLinks.links">
+            <div class="quickLink">
+               <a [routerLink]="link.url">
+                  {{ link.label }}
+               </a>
+            </div>
+         </ng-container>
+      </div>
+   </aside>
+</div>
