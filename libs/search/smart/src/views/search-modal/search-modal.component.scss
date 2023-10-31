@@ -12,10 +12,18 @@
       font-size: 12px;
       font-weight: 500;
       cursor: pointer;
+      transition: background 0.2s ease-in-out;
 
       &:active,
       &:focus {
          border: 2px solid #f28548;
+      }
+
+      &:hover {
+         background: #ffffff;
+         color: #2c2b36;
+         // border-color: #ecedf5;
+         transition: background 0.2s ease-in-out;
       }
    }
 
@@ -31,7 +39,7 @@
       }
 
       &--submit {
-         border-top: 1px solid #E4E3E3;
+         border-top: 1px solid #e4e3e3;
          padding: 16px 24px 0px 24px;
          text-align: right;
       }

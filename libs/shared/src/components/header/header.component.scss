@@ -8,7 +8,7 @@
       justify-content: space-between;
       align-items: center;
 
-      max-width: 992px;
+      // max-width: 992px;
       padding: 24px;
       margin: 0 auto;
    }
@@ -31,7 +31,6 @@
    .mobile-menu {
       padding: 24px;
       height: 90vh;
-      transition: opacity 0.5s ease-in-out;
 
       &-list {
          display: flex;
@@ -67,30 +66,30 @@
    }
 }
 
-@media (min-width: 768px) {
-   .pageHeader {
-      background: #ffffff;
+// @media (min-width: 768px) {
+//    .pageHeader {
+//       background: #ffffff;
 
-      &-btn {
-         &--menu {
-            display: none;
-         }
+//       &-btn {
+//          &--menu {
+//             display: none;
+//          }
 
-         &--close {
-            display: none;
-         }
-      }
+//          &--close {
+//             display: none;
+//          }
+//       }
 
-      .mobile-menu {
-         display: none;
-      }
+//       .mobile-menu {
+//          display: none;
+//       }
 
-      .desktop-menu {
-         display: block;
-      }
+//       .desktop-menu {
+//          display: block;
+//       }
 
-      .menu-link {
-         font-size: 14px;
-      }
-   }
-}
+//       .menu-link {
+//          font-size: 14px;
+//       }
+//    }
+// }
