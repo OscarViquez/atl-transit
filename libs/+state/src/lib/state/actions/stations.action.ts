@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { StationInterface, RailArrival, JsonStationInterface } from '@atl-transit/stations';
+import { StationInterface, JsonStationInterface } from '@atl-transit/stations';
 import { MartaArrivalResponse } from '../../models';
 import { StationActionTypes } from '../../types';
 

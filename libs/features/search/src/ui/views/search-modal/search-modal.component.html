@@ -1,0 +1,21 @@
+<div class="search-modal--backdrop-wrapper">
+   <div class="search-modal">
+      <lib-hero [content]="headerText" spacing="spacing-default"> </lib-hero>
+      <form>
+         <section class="search-modal-wrapper--search-bar">
+            <lib-search-bar></lib-search-bar>
+         </section>
+         <!-- <lib-divider [showDivider]="true" label="Search By"> </lib-divider>
+         <div class="search-modal-wrapper--search-results">
+            <lib-search-filter></lib-search-filter>
+         </div> -->
+         <lib-divider [showDivider]="true" label="Results"> </lib-divider>
+         <div class="search-modal-wrapper--search-results">
+            <lib-search-results [results]="searchResults"> </lib-search-results>
+         </div>
+         <div class="search-modal-wrapper search-modal-wrapper--submit">
+            <button class="search-modal__submit">Search</button>
+         </div>
+      </form>
+   </div>
+</div>
