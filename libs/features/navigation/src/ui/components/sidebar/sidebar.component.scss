@@ -67,8 +67,10 @@
          font-weight: 500;
          line-height: 29px;
          letter-spacing: 0.24px;
+         transition: color 0.2s ease-in-out;
 
          & a:hover {
+            transition: color 0.2s ease-in-out;
             cursor: pointer;
             text-decoration: underline;
          }
@@ -107,7 +109,9 @@
                background: #ececec;
                border: 2px solid #ececec;
                color: #212121;
-
+               transition: background 0.2s ease-in-out;
+               transition: border 0.1s ease-in-out;
+               
                & path {
                   fill: #212121;
                }
@@ -139,9 +143,13 @@
                border-bottom: 2px solid #333;
                border-left: 2px solid #333;
                background: #292730;
+               transition: background 0.2s ease-in-out;
+               transition: border 0.2s ease-in-out;
             }
 
             &:not(.nav-link--active) {
+               transition: background 0.2s ease-in-out;
+               transition: border 0.2s ease-in-out;
                border: 2px solid #212121;
                color: #b0b0b0;
 
@@ -154,6 +162,7 @@
                background: #312f3d;
                border: 2px solid #312f3d;
                color: #ffffff;
+               transition: background 0.2s ease-in-out;
 
                & path {
                   fill: #ffffff;
