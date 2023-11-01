@@ -46,6 +46,11 @@
    }
 
    &--backdrop-wrapper {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      z-index: 3;
+
       background-blend-mode: color-dodge, normal;
       box-shadow: 0px 0px 32px 0px rgba(56, 56, 56, 0.1);
       backdrop-filter: blur(75px);
@@ -56,6 +61,11 @@
    .search-modal--backdrop-wrapper {
       max-width: 600px;
       margin: 0 auto;
+      width: 100%;
+      top: 0;
+      left: 20vw;
+      right: 20vw;
+      z-index: 3;
    }
 
    .search-modal-wrapper {

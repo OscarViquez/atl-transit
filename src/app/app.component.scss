@@ -1,13 +1,14 @@
 .app-wrapper {
    display: flex;
    flex-direction: row;
+   position: relative;
 }
 
 .app-wrapper__pages {
    flex: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
    .app-wrapper {
       flex-direction: column;
    }
