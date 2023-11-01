@@ -1,3 +1,4 @@
+/* eslint-disable @nx/enforce-module-boundaries */
 // * ANGULAR IMPORTS */
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -64,5 +65,10 @@ export class TrainArrivalPageComponent implements OnInit {
       this.stationStore.dispatch(generalStationActions.stationLocate());
       this.trainData$ = this.state.select(userStationsSelector);
       this.pageLoaded$ = this.state.select(userLoadingSelector);
+   }
+
+   /* habomane */
+   currentTabSetter(e: number): void {
+      this.view.currentTabIndex = e;
    }
 }
