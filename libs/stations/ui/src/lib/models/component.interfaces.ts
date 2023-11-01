@@ -22,8 +22,6 @@ export interface RailArrival {
    color: string;
    /* time of arrival to current station */
    arrivalTime: string;
-   /* seconds remaining -- used for mapping*/
-   secondsToArrive: number;
    /* current station */
    station: string;
 }
