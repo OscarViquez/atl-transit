@@ -1,4 +1,4 @@
-import { Sidebar } from '../models';
+import { Sidebar } from '../models/interface';
 
 export const SidebarMock: Sidebar = {
    mode: 'light',

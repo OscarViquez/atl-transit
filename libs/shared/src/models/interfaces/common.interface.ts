@@ -18,20 +18,6 @@ export interface UserInterface {
    latitude: number;
 }
 
-export interface PageHeader {
-   mode: string;
-   logo: Icon;
-   pages: PageHyperlink[];
-   icons: Icon[];
-}
-
-export interface PageHyperlink {
-   active: boolean;
-   icon: string;
-   name: string;
-   url: string;
-}
-
 export interface ComponentState {
    isLoading: boolean; // loading state for the component
    systemMode: UiModes; // system mode for the component

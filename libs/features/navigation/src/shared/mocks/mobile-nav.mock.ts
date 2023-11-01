@@ -1,7 +1,7 @@
-import { PageHeader } from '../models';
+import { MobileNav } from '../models/interface';
 
 // * Should be used when serving the app
-export const pageHeaderContent: PageHeader = {
+export const MobileNavMock: MobileNav = {
    mode: 'light',
    logo: {
       name: 'logo',

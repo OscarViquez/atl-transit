@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Sidebar } from '../../../models';
-import { SidebarMock } from '../../../content';
 import { RouterModule } from '@angular/router';
+import { Sidebar, SidebarMock } from '../../../shared';
 
 @Component({
    selector: 'lib-sidebar',

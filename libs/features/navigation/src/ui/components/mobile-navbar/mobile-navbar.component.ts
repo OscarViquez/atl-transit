@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { pageHeaderContent } from '../../../content';
-import { Icon, NavigationUI } from '../../../models';
+import { MobileNavMock } from '../../../shared/mocks/mobile-nav.mock'
+import { NavigationUI } from '../../../shared/models/interface';
 import { RouterModule } from '@angular/router';
+import { Icon } from 'shared';
 
 @Component({
    selector: 'lib-mobile-navbar',
@@ -12,7 +13,7 @@ import { RouterModule } from '@angular/router';
    styleUrls: ['./mobile-navbar.component.scss']
 })
 export class MobileNavbarComponent {
-   content = pageHeaderContent;
+   content = MobileNavMock;
    menuIsOpen = false;
    currentPage: NavigationUI = {
       pageName: 'Home',
@@ -29,5 +30,4 @@ export class MobileNavbarComponent {
    toggleMenu(): void {
       this.menuIsOpen = !this.menuIsOpen;
    }
-
 }
