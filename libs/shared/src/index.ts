@@ -10,5 +10,5 @@ export * from './components/inputs/text-input/text-input.component';
 export * from './components/divider/divider.component';
 
 // Exporting Mock, Types, and Interfaces
-export * from './content';
+export * from './mocks';
 export * from './models';
