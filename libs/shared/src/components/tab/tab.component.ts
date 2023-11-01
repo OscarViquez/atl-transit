@@ -11,9 +11,9 @@ import { Tab } from '../../models/';
 })
 export class TabComponent {
    @Input() content!: Tab[];
-   @Output() currentTabEmitter = new EventEmitter<number>()
    currentTabIndex = 0;
    Loading = true;
+   @Output() currentTabEmitter = new EventEmitter<number>()
 
    toggleTabActiveState(tab: Tab): void {
       if (!tab.active) {
