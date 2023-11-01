@@ -1,0 +1,65 @@
+<div class="train-arrivals-page">
+   <ng-container *ngIf="{ loading: pageLoaded$ | async } as loaded">
+      <ng-container *ngIf="!loaded.loading">
+         <section class="hero-wrapper">
+            <lib-hero [content]="staticContent.header"></lib-hero>
+         </section>
+      </ng-container>
+
+      <ng-container *ngIf="loaded.loading">
+         <section class="hero-wrapper">
+            <lib-loading-skeleton [loadingItem]="'hero'"></lib-loading-skeleton>
+         </section>
+      </ng-container>
+
+      <ng-container *ngIf="!loaded.loading">
+         <div class="tab">
+            <div class="tab-wrapper">
+               <lib-tab [content]="staticContent.tab"></lib-tab>
+            </div>
+         </div>
+      </ng-container>
+
+      <ng-container *ngIf="loaded.loading">
+         <div class="tab">
+            <div class="tab-wrapper">
+               <lib-loading-skeleton [loadingItem]="'tab'"></lib-loading-skeleton>
+            </div>
+         </div>
+      </ng-container>
+
+      <ng-container *ngIf="!loaded.loading">
+         <section class="train-arrivals" *ngIf="view.currentTabIndex === 0">
+            <div class="train-arrivals-wrapper">
+               <ng-container *ngFor="let train of trainData$ | async; let i = index">
+                  <div *ngIf="i < maxStationArrivals">
+                     <lib-train-station-card
+                        [content]="train"
+                        [maxQuantiy]="maxRailArrivals"
+                     ></lib-train-station-card>
+                  </div>
+               </ng-container>
+            </div>
+         </section>
+         <section class="train-arrivals" *ngIf="view.currentTabIndex === 1">
+            <div class="train-arrivals-wrapper">
+               <ng-container>
+                  <lib-saved-stations-card></lib-saved-stations-card>
+               </ng-container>
+            </div>
+         </section>
+      </ng-container>
+
+      <ng-container *ngIf="loaded.loading">
+         <section class="train-arrivals">
+            <div class="train-arrivals-wrapper">
+               <ng-container>
+                  <lib-loading-skeleton
+                     [loadingItem]="'train-card'"
+                  ></lib-loading-skeleton>
+               </ng-container>
+            </div>
+         </section>
+      </ng-container>
+   </ng-container>
+</div>

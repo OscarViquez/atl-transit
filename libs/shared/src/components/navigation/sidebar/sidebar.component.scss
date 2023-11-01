@@ -1,15 +1,13 @@
-/* VARIABLES */
 .sticky {
    width: 192px;
 }
 
 .sidebar {
    font-family: 'General Sans', sans-serif;
-   /* LAYOUT */
    display: inline-block;
    width: 192px;
    height: 100vh;
-   padding: 32px 0 32px 32px;
+   padding: 48px 0 32px 32px;
 
    overflow: hidden;
    position: fixed;

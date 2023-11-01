@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { TrainArrivalPageComponent } from '@stations-data';
+import { TrainArrivalPageComponent } from '@atl-transit/stations';
 
 export const appRoutes: Route[] = [
    {

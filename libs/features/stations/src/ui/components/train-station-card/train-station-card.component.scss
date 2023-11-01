@@ -1,0 +1,47 @@
+//* Component Variables */
+// @import '../../styles/global.scss';
+
+.train-station {
+   min-width: 327px;
+   max-width: 992px;
+   background: #ffffff;
+   margin: 32px 24px;
+   font-family: 'General Sans', sans-serif;
+   border-radius: 5px;
+   box-shadow: 0px 4px 10px 0px rgba(56, 56, 56, 0.10);
+}
+
+lib-button {
+   border-radius: 0 0 5px 5px;
+}
+
+.train-station__no-arrival {
+   display: grid;
+   place-content: center;
+   text-align: center;
+   padding: 1rem;
+   height: 328px;
+   gap: 8px;
+
+   &-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #1b1b1b;
+
+      &--highlight {
+         color: #c65854;
+      }
+   }
+
+   &-desc {
+      font-size: 14px;
+      font-weight: 500;
+      color: #787878;
+   }
+}
+
+@media (max-width: 374px) {
+   .train-station {
+      margin: 32px auto;
+   }
+}
