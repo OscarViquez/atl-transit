@@ -32,6 +32,7 @@ export class TrainArrivalAdapter {
          destination: item.DESTINATION,
          description: direction + 'bound',
          color: item.LINE.toLowerCase(),
+         secondsToArrive: item.WAITING_SECONDS,
          arrivalTime: item.WAITING_TIME
       };
    }
@@ -74,7 +75,9 @@ export class TrainArrivalAdapter {
       arrival: RailArrival[],
       currentStations: StationInterface[]
    ): StationInterface[] {
-      //
+      // sort based on arrival time 
+      arrival.sort((a, b) => a.secondsToArrive - b.secondsToArrive)
+      
       arrival.forEach((trainArrival) => {
          // step one: define the looking we are looking for
          const locationToFind = trainArrival.station;
