@@ -1,5 +1,5 @@
 import { Tab, GenericHeader } from 'shared';
-import { TrainStaion } from 'stations-ui';
+import { TrainStaion } from '@atl-transit/stations';
 
 export interface TrainArrivalPage {
    tab: Tab[];

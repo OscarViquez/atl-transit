@@ -5,7 +5,7 @@ import {
    RailDirection,
    StationInterface,
    BusRoutes
-} from 'stations-ui';
+} from '@atl-transit/stations';
 import { MartaArrivalResponse } from '../../models';
 
 export class TrainArrivalAdapter {

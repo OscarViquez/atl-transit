@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 
-import { StationInterface } from 'stations-ui';
+import { StationInterface } from '@atl-transit/stations';
 import { User } from '../../models';
 
 export class UserAdapter {
