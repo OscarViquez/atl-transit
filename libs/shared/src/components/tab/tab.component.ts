@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Tab } from '../../models/';
 
@@ -13,6 +13,7 @@ export class TabComponent {
    @Input() content!: Tab[];
    currentTabIndex = 0;
    Loading = true;
+   @Output() currentTabEmitter = new EventEmitter<number>()
 
    toggleTabActiveState(tab: Tab): void {
       if (!tab.active) {
@@ -21,5 +22,6 @@ export class TabComponent {
          });
       }
       this.currentTabIndex = this.content.findIndex((tab) => tab.active === true);
+      this.currentTabEmitter.emit(this.currentTabIndex)
    }
 }

@@ -64,4 +64,9 @@ export class TrainArrivalPageComponent implements OnInit {
       this.trainData$ = this.state.select(userStationsSelector);
       this.pageLoaded$ = this.state.select(userLoadingSelector);
    }
+
+   currentTabSetter(e : any)
+   {
+      this.view.currentTabIndex = e;
+   }
 }

@@ -15,7 +15,7 @@
       <ng-container *ngIf="!loaded.loading">
          <div class="tab">
             <div class="tab-wrapper">
-               <lib-tab [content]="staticContent.tab"></lib-tab>
+               <lib-tab [content]="staticContent.tab" (currentTabEmitter)="currentTabSetter($event)"></lib-tab>
             </div>
          </div>
       </ng-container>
