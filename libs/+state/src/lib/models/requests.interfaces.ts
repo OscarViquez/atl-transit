@@ -32,7 +32,7 @@ export type MartaArrivalResponse = {
     NEXT_ARR: string;
     STATION: string;
     TRAIN_ID: number;
-    WAITING_SECONDS?: number;
+    WAITING_SECONDS: number;
     WAITING_TIME: string;
  };
  

@@ -24,6 +24,7 @@ export class CombinedDataAdapter {
             mappedRailData.push(TrainArrivalAdapter.MapToRailArrival(rail));
          });
 
+         
          //step 2: Map arrival groups on their location
 
          const mappedData = TrainArrivalAdapter.MapRailArrivalGroups(
@@ -46,4 +47,5 @@ export class CombinedDataAdapter {
          observer.next(mappedUi);
       });
    }
+
 }

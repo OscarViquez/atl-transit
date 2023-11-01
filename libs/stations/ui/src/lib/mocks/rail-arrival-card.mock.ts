@@ -8,6 +8,7 @@ export const RailArrivalMock: RailArrival[] = [
       destination: 'Doraville',
       color: 'gold',
       description: 'Northbound',
+      secondsToArrive: 0,
       arrivalTime: 'Arriving'
    },
    {
@@ -15,6 +16,7 @@ export const RailArrivalMock: RailArrival[] = [
       direction: 'South',
       destination: 'Airport',
       color: 'red',
+      secondsToArrive: 60,
       description: 'Southbound',
       arrivalTime: '1 min'
    },
@@ -24,6 +26,7 @@ export const RailArrivalMock: RailArrival[] = [
       destination: 'Indian Creek',
       color: 'green',
       description: 'Eastbound',
+      secondsToArrive : 180,
       arrivalTime: '3 min'
    },
    {
@@ -32,6 +35,7 @@ export const RailArrivalMock: RailArrival[] = [
       destination: 'Hamilton E Holmes',
       color: 'blue',
       description: 'Westbound',
+      secondsToArrive: 720,
       arrivalTime: '5 min'
    }
 ];

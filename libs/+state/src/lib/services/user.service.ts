@@ -15,8 +15,8 @@ getUserCoordinations(): Observable<any>{
      navigator.geolocation.getCurrentPosition((pos) => {
 
       const userLocation: User = {
-        longitude: pos.coords.latitude,
-        latitude: pos.coords.longitude
+        longitude: pos.coords.longitude,
+        latitude: pos.coords.latitude
       }
 
       return observer.next(userLocation)

@@ -31,7 +31,8 @@ export class UserAdapter {
          stationDistances.push(stationInformation);
       });
 
-      return this.MappingStationsLocation(stationDistances, stations);
+      const mappedStations = this.MappingStationsLocation(stationDistances, stations);
+      return mappedStations;
    }
 
    static LocationTracker(
@@ -39,7 +40,6 @@ export class UserAdapter {
       locationStation: { latitude: number; longitude: number }
    ) {
       const earthRadiusKm = 6371;
-
       const latitudeDegrees = this.DegreesToRadians(
          locationUser.latitude - locationStation.latitude
       );
