@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EndpointResponse } from '../types';
 import { MartaArrivalResponse } from '../models';
-import { JsonStationInterface } from 'stations-ui';
+import { JsonStationInterface } from '@atl-transit/stations';
 
 @Injectable({
    providedIn: 'root'

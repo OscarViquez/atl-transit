@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { TrainStaion } from 'stations-ui';
+import { TrainStaion } from '@atl-transit/stations';
 import { UserActionTypes } from '../../types';
 import { User } from '../../models';
 

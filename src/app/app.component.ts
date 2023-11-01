@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NavigationComponent } from 'shared';
-
-// TODO: Imports from Actions Can not be in any component file. Only Service files
+import { NavigationComponent } from '@atl-transit/navigation';
 
 @Component({
    standalone: true,

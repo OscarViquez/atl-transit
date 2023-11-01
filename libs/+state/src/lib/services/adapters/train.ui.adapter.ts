@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { Button, GenericHeader } from 'shared';
-import { StationInterface, TrainStaion } from 'stations-ui';
+import { StationInterface, TrainStaion } from '@atl-transit/stations';
 
 export class TrainUiAdapter {
    static MapStationsToUi(stations: StationInterface[]): TrainStaion[] {
