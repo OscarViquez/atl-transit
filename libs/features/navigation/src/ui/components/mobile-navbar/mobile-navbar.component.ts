@@ -1,9 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MobileNavMock } from '../../../shared/mocks/mobile-nav.mock';
-import { NavigationUI } from '../../../shared/models/interface';
 import { RouterModule } from '@angular/router';
-import { Icon } from 'shared';
 
 @Component({
    selector: 'lib-mobile-navbar',

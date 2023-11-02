@@ -23,6 +23,5 @@ export class NavigationComponent {
          // Handle the event here. 'open' is the value emitted from the child component.
          this.openModal = eventToggle;
       }
-      console.log('openModal', this.openModal);
    }
 }
