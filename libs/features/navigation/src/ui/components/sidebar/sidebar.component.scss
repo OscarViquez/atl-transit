@@ -51,10 +51,10 @@
          align-items: center;
          justify-content: center;
          margin-top: 1rem;
-         width: 148px;
+         width: 144px;
          height: 48px;
          background: linear-gradient(131deg, #f28548 30.12%, #f0636f 85.93%);
-         border: 1px solid #ffffff;
+         border: none;
          border-radius: 5px;
          text-align: center;
          cursor: pointer;
@@ -75,6 +75,11 @@
             line-height: 29px;
             letter-spacing: 0.24px;
             color: #ffffff;
+         }
+
+         &:hover {
+            box-shadow: 0px 4px 10px 0px rgba(56, 56, 56, 0.30);
+            transition: box-shadow 0.2s ease-in-out;
          }
       }
    }
