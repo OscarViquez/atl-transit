@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MobileNavMock } from '../../../shared/mocks/mobile-nav.mock'
+import { MobileNavMock } from '../../../shared/mocks/mobile-nav.mock';
 import { NavigationUI } from '../../../shared/models/interface';
 import { RouterModule } from '@angular/router';
 import { Icon } from 'shared';
@@ -13,12 +13,10 @@ import { Icon } from 'shared';
    styleUrls: ['./mobile-navbar.component.scss']
 })
 export class MobileNavbarComponent {
+   @Output() toggleModalEmitter = new EventEmitter<boolean>();
    content = MobileNavMock;
    menuIsOpen = false;
-   currentPage: NavigationUI = {
-      pageName: 'Home',
-      index: 0
-   };
+   openModal = false;
 
    setIcon(name: string): Icon | undefined {
       return this.content.icons.find((icon) => {
@@ -29,5 +27,9 @@ export class MobileNavbarComponent {
 
    toggleMenu(): void {
       this.menuIsOpen = !this.menuIsOpen;
+   }
+
+   toggleSearchModal(): void {
+      this.toggleModalEmitter.emit((this.openModal = !this.openModal));
    }
 }

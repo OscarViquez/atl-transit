@@ -16,6 +16,7 @@
       <!-- Search Button  -->
       <button
          class="mobile-nav-btn mobile-nav-btn--search"
+         (click)="toggleSearchModal()"
          [ngClass]="{
             'mobile-nav-btn--hide': menuIsOpen
          }"

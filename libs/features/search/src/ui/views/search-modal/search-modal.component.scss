@@ -20,8 +20,9 @@
          border: none;
          background: none;
 
-         &--hide {
-            visibility: hidden;
+         & > img {
+            width: 24px;
+            height: 24px;
          }
       }
    }
