@@ -1,11 +1,13 @@
 <div class="sticky">
    <aside class="sidebar sidebar--light-mode">
       <div class="sidebar-logo">
-         <img src="{{ content.logo.url }}" alt="{{ content.logo.alt }}" />
+         <a [routerLink]="'/'">
+            <img src="{{ content.logo.url }}" alt="{{ content.logo.alt }}" />
+         </a>
       </div>
       <nav class="nav">
          <ng-container *ngFor="let nav of content.pages">
-            <a [ngClass]="{ 'nav-link--active': nav.active }" class="nav-link" [routerLink]="nav.pageUrl">
+            <a class="nav-link" [routerLink]="nav.pageUrl">
                <div class="nav-link-icon"></div>
                <div class="nav-link-text">
                   {{ nav.pageName }}
