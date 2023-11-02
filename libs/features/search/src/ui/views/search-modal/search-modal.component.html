@@ -1,5 +1,10 @@
 <div class="search-modal--backdrop-wrapper">
    <div class="search-modal">
+      <div class="search-modal-header">
+         <button class="search-modal-header__close" (click)="closeModal()">
+            <img src="./assets/icons/close-icon-light.svg" alt="close icon" />
+         </button>
+      </div>
       <lib-hero [content]="headerText" spacing="spacing-default"> </lib-hero>
       <form>
          <section class="search-modal-wrapper--search-bar">
@@ -13,7 +18,7 @@
          <div class="search-modal-wrapper--search-results">
             <lib-search-results [results]="searchResults"> </lib-search-results>
          </div>
-         <div class="search-modal-wrapper search-modal-wrapper--submit">
+         <div class="search-modal-wrapper--submit">
             <button class="search-modal__submit">Search</button>
          </div>
       </form>

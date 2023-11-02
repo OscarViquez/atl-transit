@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DividerComponent, HeroComponent } from 'shared';
 import { SearchBarComponent, SearchFilterComponent, SearchResultsComponent } from '../../components';
@@ -19,6 +19,7 @@ import { GenericHeaderMock, SearchResultsMock, SearchFilters, SearchModal } from
    styleUrls: ['./search-modal.component.scss']
 })
 export class SearchModalComponent {
+   @Output() closeModalEmitter = new EventEmitter<boolean>();
    headerText = GenericHeaderMock;
    searchResults = SearchResultsMock;
    searchModal: SearchModal = {
@@ -26,12 +27,9 @@ export class SearchModalComponent {
       state: 'initial'
    };
 
-   // Function to search using the selected filters
-   // search(): void {
-   //    const searchValue = this.getSearchValue();
-   //    const searchFilters = this.getSearchFilters();
-   //    // Perform search using searchValue and searchFilters
-   // }
+   closeModal(): void {
+      this.closeModalEmitter.emit(false);
+   }
 
    // Updates parameter is of type Partial<SearchModal>
    updateSearchModal(updates: Partial<SearchModal>): void {
@@ -63,4 +61,12 @@ export class SearchModalComponent {
       });
       return filters;
    }
+
+   // TODO: this is when we implement filters
+   // Function to search using the selected filters
+   // search(): void {
+   //    const searchValue = this.getSearchValue();
+   //    const searchFilters = this.getSearchFilters();
+   //    // Perform search using searchValue and searchFilters
+   // }
 }

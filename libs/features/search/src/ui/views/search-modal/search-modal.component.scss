@@ -1,6 +1,31 @@
 .search-modal {
-   background-color: #ffffff;
+   background: #ffffff;
    padding-bottom: 24px;
+   height: inherit;
+
+   &-header {
+      background: #ffffff;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      border-bottom: 1px solid #e4e3e3;
+      &__close {
+         display: grid;
+         place-content: center;
+         width: 32px;
+         height: 32px;
+
+         cursor: pointer;
+         border: none;
+         background: none;
+
+         & > img {
+            width: 24px;
+            height: 24px;
+         }
+      }
+   }
 
    &__submit {
       background: #2c2b36;
@@ -36,40 +61,52 @@
 
       &--search-results {
          padding: 8px 16px;
+         overflow-x: hidden;
+         overflow-y: auto;
+         height: calc(55vh);
       }
 
       &--submit {
+         position: fixed;
+         width: 100%;
+         bottom: 16px;
          border-top: 1px solid #e4e3e3;
          padding: 16px 24px 0px 24px;
          text-align: right;
+         background: #ffffff;
       }
    }
 
    &--backdrop-wrapper {
-      position: absolute;
+      overflow: hidden;
+      position: fixed;
+      height: 100vh;
       width: 100%;
       top: 0;
       z-index: 3;
 
       background-blend-mode: color-dodge, normal;
-      box-shadow: 0px 0px 32px 0px rgba(56, 56, 56, 0.1);
+      box-shadow: 15px 0px 15px 0px rgba(56, 56, 56, 0.1);
       backdrop-filter: blur(75px);
    }
 }
 
+// Desktop View ==================================== //
 @media (min-width: 992px) {
    .search-modal--backdrop-wrapper {
       max-width: 600px;
       margin: 0 auto;
       width: 100%;
-      top: 0;
-      left: 20vw;
-      right: 20vw;
-      z-index: 3;
+      left: 192px;
    }
 
    .search-modal-wrapper {
+      height: 100vh;
       max-width: 992px;
       margin: 0 auto;
+   }
+
+   .search-modal-header {
+      display: none;
    }
 }

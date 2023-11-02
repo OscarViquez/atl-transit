@@ -1,6 +1,5 @@
 import { Route } from '@angular/router';
-import { TrainArrivalPageComponent } from '@atl-transit/stations';
-import { SearchModalComponent } from '@atl-transit/search';
+import { StationPageComponent, TrainArrivalPageComponent } from '@atl-transit/stations';
 
 
 export const appRoutes: Route[] = [
@@ -11,7 +10,7 @@ export const appRoutes: Route[] = [
    },
    {
       path: 'search',
-      component: SearchModalComponent,
+      component: StationPageComponent,
       pathMatch: 'full'
    },
    {

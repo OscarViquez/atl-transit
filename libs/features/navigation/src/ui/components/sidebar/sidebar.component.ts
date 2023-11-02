@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Sidebar, SidebarMock } from '../../../shared';
@@ -11,5 +11,15 @@ import { Sidebar, SidebarMock } from '../../../shared';
    styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-   content: Sidebar = SidebarMock
+   @Output() toggleModalEmitter = new EventEmitter<boolean>();
+   content: Sidebar = SidebarMock;
+   openModal = false;
+
+   get searchButtonLabel(): string {
+      return this.openModal ? 'Close Search' : 'Go Search';
+   }
+
+   toggleSearchModal(): void {
+      this.toggleModalEmitter.emit((this.openModal = !this.openModal));
+   }
 }

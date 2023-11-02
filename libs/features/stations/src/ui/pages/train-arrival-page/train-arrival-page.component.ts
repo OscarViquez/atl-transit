@@ -68,7 +68,7 @@ export class TrainArrivalPageComponent implements OnInit {
    }
 
    /* habomane */
-   currentTabSetter(e: number): void {
-      this.view.currentTabIndex = e;
+   currentTabSetter(index: number): void {
+      this.view.currentTabIndex = index;
    }
 }

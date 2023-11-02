@@ -5,8 +5,8 @@
          <button class="mobile-nav-btn mobile-nav-btn--menu" (click)="toggleMenu()">
             <img
                class="mobile-nav-btn_icon"
-               [src]="setIcon('hamburgerIcon')?.path"
-               [alt]="setIcon('hamburgerIcon')?.alt"
+               src="/assets/icons/menu-icon-light.svg"
+               alt="menu icon"
             />
          </button>
       </ng-container>
@@ -16,14 +16,15 @@
       <!-- Search Button  -->
       <button
          class="mobile-nav-btn mobile-nav-btn--search"
+         (click)="toggleSearchModal()"
          [ngClass]="{
             'mobile-nav-btn--hide': menuIsOpen
          }"
       >
          <img
             class="pageHeader-btn_icon"
-            [src]="setIcon('searchIcon')?.path"
-            [alt]="setIcon('searchIcon')?.alt"
+            src="/assets/icons/search-icon-light.svg"
+            alt="search icon"
          />
       </button>
    </div>
@@ -49,8 +50,8 @@
    <button class="mobile-nav-btn mobile-nav-btn--close" (click)="toggleMenu()">
       <img
          class="mobile-nav-btn_icon"
-         [src]="setIcon('closeIcon')?.path"
-         [alt]="setIcon('closeIcon')?.alt"
+         src="./assets/icons/close-icon-light.svg"
+         alt="close icon"
       />
    </button>
 </ng-template>
