@@ -5,17 +5,17 @@
       </div>
       <nav class="nav">
          <ng-container *ngFor="let nav of content.pages">
-            <a
-               [ngClass]="{ 'nav-link--active': nav.active }"
-               class="nav-link"
-               [routerLink]="nav.pageUrl"
-            >
+            <a [ngClass]="{ 'nav-link--active': nav.active }" class="nav-link" [routerLink]="nav.pageUrl">
                <div class="nav-link-icon"></div>
                <div class="nav-link-text">
                   {{ nav.pageName }}
                </div>
             </a>
          </ng-container>
+         <button class="nav__search-modal-button">
+            <p>Search</p>
+            <img src="/assets/icons/search-icon-white.svg" alt="search" />
+         </button>
       </nav>
 
       <div class="quickLinks">

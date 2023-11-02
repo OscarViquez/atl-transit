@@ -45,6 +45,38 @@
             letter-spacing: 0.24px;
          }
       }
+
+      &__search-modal-button {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-top: 1rem;
+         width: 148px;
+         height: 48px;
+         background: linear-gradient(131deg, #f28548 30.12%, #f0636f 85.93%);
+         border: 1px solid #ffffff;
+         border-radius: 5px;
+         text-align: center;
+         cursor: pointer;
+         gap: 0.5rem;
+
+         & > img {
+            display: grid;
+            place-content: center;
+            height: 16px;
+            width: 16px;
+         }
+
+         & > p {
+            font-family: 'General Sans', sans-serif;
+            margin-left: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 29px;
+            letter-spacing: 0.24px;
+            color: #ffffff;
+         }
+      }
    }
 
    .quickLinks {
@@ -111,7 +143,7 @@
                color: #212121;
                transition: background 0.2s ease-in-out;
                transition: border 0.1s ease-in-out;
-               
+
                & path {
                   fill: #212121;
                }

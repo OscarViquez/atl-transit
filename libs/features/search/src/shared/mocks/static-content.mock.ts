@@ -5,7 +5,6 @@ export const GenericHeaderMock: GenericHeader = {
    title: 'Where to?'
 };
 
-
 export const SearchResultsMock: SearchResults[] = [
    {
       label: 'North Springs',
@@ -21,6 +20,38 @@ export const SearchResultsMock: SearchResults[] = [
    },
    {
       label: 'Medical Center',
+      action: ButtonInputType.HYPERLINK
+   },
+   {
+      label: 'Buckhead',
+      action: ButtonInputType.HYPERLINK
+   },
+   {
+      label: 'Buckhead',
+      action: ButtonInputType.HYPERLINK
+   },
+   {
+      label: 'Buckhead',
+      action: ButtonInputType.HYPERLINK
+   },
+   {
+      label: 'Buckhead',
+      action: ButtonInputType.HYPERLINK
+   },
+   {
+      label: 'Buckhead',
+      action: ButtonInputType.HYPERLINK
+   },
+   {
+      label: 'Buckhead',
+      action: ButtonInputType.HYPERLINK
+   },
+   {
+      label: 'Buckhead',
+      action: ButtonInputType.HYPERLINK
+   },
+   {
+      label: 'Buckhead',
       action: ButtonInputType.HYPERLINK
    },
    {
