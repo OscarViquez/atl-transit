@@ -63,7 +63,7 @@
          padding: 8px 16px;
          overflow-x: hidden;
          overflow-y: auto;
-         height: calc(65vh);
+         height: calc(55vh);
       }
 
       &--submit {
@@ -78,7 +78,8 @@
    }
 
    &--backdrop-wrapper {
-      position: absolute;
+      overflow: hidden;
+      position: fixed;
       height: 100vh;
       width: 100%;
       top: 0;
@@ -96,9 +97,7 @@
       max-width: 600px;
       margin: 0 auto;
       width: 100%;
-      top: 0;
       left: 192px;
-      z-index: 3;
    }
 
    .search-modal-wrapper {

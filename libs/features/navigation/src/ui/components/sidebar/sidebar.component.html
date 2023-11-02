@@ -1,5 +1,5 @@
 <div class="sticky">
-   <aside class="sidebar" ngClass="sidebar--{{ content.mode }}-mode">
+   <aside class="sidebar sidebar--light-mode">
       <div class="sidebar-logo">
          <img src="{{ content.logo.url }}" alt="{{ content.logo.alt }}" />
       </div>
@@ -13,12 +13,10 @@
             </a>
          </ng-container>
 
-         <!-- SEARCH MODAL BUTTON ================  -->
-         <button class="nav__search-modal-button" (click)="toggleSearchModal()">
-            <p>Search</p>
+         <button class="nav__search-btn" (click)="toggleSearchModal()">
+            <p>{{ searchButtonLabel }}</p>
             <img src="/assets/icons/search-icon-white.svg" alt="search" />
          </button>
-         <!-- SEARCH MODAL BUTTON  ================  -->
       </nav>
 
       <div class="quickLinks">

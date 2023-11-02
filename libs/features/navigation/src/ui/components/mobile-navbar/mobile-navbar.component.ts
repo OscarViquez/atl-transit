@@ -16,20 +16,12 @@ export class MobileNavbarComponent {
    @Output() toggleModalEmitter = new EventEmitter<boolean>();
    content = MobileNavMock;
    menuIsOpen = false;
-   openModal = false;
-
-   setIcon(name: string): Icon | undefined {
-      return this.content.icons.find((icon) => {
-         if (icon.name === name) return icon;
-         return undefined;
-      });
-   }
 
    toggleMenu(): void {
       this.menuIsOpen = !this.menuIsOpen;
    }
 
    toggleSearchModal(): void {
-      this.toggleModalEmitter.emit((this.openModal = !this.openModal));
+      this.toggleModalEmitter.emit((true));
    }
 }

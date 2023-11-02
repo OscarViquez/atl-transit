@@ -16,10 +16,13 @@ export class NavigationComponent {
    openModal = false;
 
    /* Method that toggles opening and closing modal */
-   handleToggleModal(eventToggle: boolean) {
-      // Handle the event here. 'open' is the value emitted from the child component.
-      this.openModal = eventToggle;
-      console.log(this.openModal)
-      console.log({eventToggle})
+   handleToggleModal(eventToggle: boolean, closeModal = false): void {
+      if (closeModal) {
+         this.openModal = false;
+      } else {
+         // Handle the event here. 'open' is the value emitted from the child component.
+         this.openModal = eventToggle;
+      }
+      console.log('openModal', this.openModal);
    }
 }
