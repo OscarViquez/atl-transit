@@ -9,12 +9,4 @@ import { CommonModule } from '@angular/common';
    styleUrls: ['./saved-stations-card.component.scss']
 })
 export class SavedStationsCardComponent {
-   // TODO: need to find a better way to store this static contents
-   @Input() errorContent: {
-      title: string;
-      message: string;
-   } = {
-      title: '',
-      message: ''
-   };
 }
