@@ -70,3 +70,8 @@ export interface JsonStationInterface {
    contactnumber: string;
    connectingbusroutes: BusRoutes[];
 }
+
+export interface GenericTrainErrorMessage {
+   title: 'No Saved Stations' | 'No Stations Found' | 'No Arrivals Found' | 'No Stations Found';
+   description: string;
+}
