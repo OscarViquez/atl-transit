@@ -1,8 +1,13 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DividerComponent, HeroComponent } from 'shared';
+import { ButtonInputType, DividerComponent, HeroComponent } from 'shared';
 import { SearchBarComponent, SearchFilterComponent, SearchResultsComponent } from '../../components';
-import { GenericHeaderMock, SearchResultsMock, SearchFilters, SearchModal } from '../../../shared';
+import { GenericHeaderMock, SearchResultsMock, SearchFilters, SearchModal, SearchResults } from '../../../shared';
+import { Store } from '@ngrx/store';
+import { AppStateInterface } from 'global-state';
+import { stationGeneralSelector } from 'global-state';
+import { TrainUiAdapter } from 'libs/+state/src/lib/services/adapters';
+
 
 @Component({
    selector: 'lib-search-modal',
@@ -21,11 +26,14 @@ import { GenericHeaderMock, SearchResultsMock, SearchFilters, SearchModal } from
 export class SearchModalComponent {
    @Output() closeModalEmitter = new EventEmitter<boolean>();
    headerText = GenericHeaderMock;
-   searchResults = SearchResultsMock;
+   searchResults: SearchResults[] =  []; //SearchResultsMock;
+   allStationData = this.store.select(stationGeneralSelector);
    searchModal: SearchModal = {
       isSearching: false,
       state: 'initial'
    };
+
+   constructor(private store: Store<AppStateInterface>){}
 
    closeModal(): void {
       this.closeModalEmitter.emit(false);
@@ -62,6 +70,32 @@ export class SearchModalComponent {
       return filters;
    }
 
+   processQuery(event: string)
+   {
+      this.searchResults = []
+      const userQuery = event.toLowerCase()
+      this.allStationData.subscribe((stations) => {
+         stations.forEach((station) => {
+            const stationNameLowerCase = station.name.toLowerCase()
+            if(stationNameLowerCase.includes(userQuery) || stationNameLowerCase == userQuery)
+            {
+               const stationName = TrainUiAdapter.MapHeaderToUiView(stationNameLowerCase)
+               const returnedResult: SearchResults = {
+                  label: stationName,
+                  action: ButtonInputType.HYPERLINK
+               }
+
+                  this.searchResults.push(returnedResult)
+                  
+            }
+            })
+         })
+   }
+     
+   }
+
+   
+
    // TODO: this is when we implement filters
    // Function to search using the selected filters
    // search(): void {
@@ -69,4 +103,4 @@ export class SearchModalComponent {
    //    const searchFilters = this.getSearchFilters();
    //    // Perform search using searchValue and searchFilters
    // }
-}
+   

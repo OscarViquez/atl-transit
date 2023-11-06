@@ -6,6 +6,7 @@ export interface SearchResults {
    action: ButtonInputType;
    disabled?: boolean;
    description?: string;
+   link?: string;
 }
 
 export interface SearchFilters {
