@@ -9,9 +9,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 // * LOCAL IMPORTS */
-import { TrainArrivalPage } from '../../../shared/models/component.interfaces';
-import { SavedStationsCardComponent, TrainStationCardComponent } from '../../components';
-import { TrainStaion } from '../../../shared';
+import { StationCardComponent, StationErrorMessageComponent } from '../../components';
+import { TrainStaion, GenericTrainErrorMocks } from '../../../shared';
 
 // * LIBS IMPORTS */
 import { HeroMock, TabMock, HeroComponent, TabComponent, LoadingSkeletonComponent } from 'shared';
@@ -30,10 +29,10 @@ import {
    standalone: true,
    imports: [
       CommonModule,
-      TrainStationCardComponent,
+      StationErrorMessageComponent,
       HeroComponent,
       TabComponent,
-      SavedStationsCardComponent,
+      StationCardComponent,
       LoadingSkeletonComponent
    ],
    templateUrl: './train-arrival-page.component.html',
@@ -49,10 +48,9 @@ export class TrainArrivalPageComponent implements OnInit {
    maxRailArrivals = 4;
 
    /* Staic Content  **/
-   staticContent: TrainArrivalPage = {
-      tab: TabMock,
-      header: HeroMock
-   };
+   savedErrorMessage = GenericTrainErrorMocks[0];
+   staticContentTab = TabMock;
+   staticContentHeader = HeroMock;
 
    constructor(
       private state: Store<UserStateInterface>,

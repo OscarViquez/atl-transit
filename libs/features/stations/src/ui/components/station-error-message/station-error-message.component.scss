@@ -1,7 +1,4 @@
-//* Component Variables */
-// @import '../../styles/global.scss';
-
-.saved-stations-error {
+.station-error {
    display: grid;
    place-content: center;
    text-align: center;
@@ -13,23 +10,15 @@
    background-color: #ffffff;
    border-radius: 5px;
 
-   &-title {
+   &__title {
       font-size: 1.25rem;
       font-weight: 500;
       color: #1b1b1b;
-
-      &--highlight {
-         color: #c65854;
-      }
    }
 
-   &-desc {
+   &__description {
       font-size: 14px;
       font-weight: 500;
       color: #787878;
    }
-}
-
-.saved-stations-error-title--highlight {
-   color: #c65854;
 }

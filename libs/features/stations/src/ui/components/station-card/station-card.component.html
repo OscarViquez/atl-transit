@@ -1,0 +1,15 @@
+<ng-container *ngIf="content">
+   <div class="station">
+      <ng-container *ngIf="content.railArrivals.length > 0; else NoArrivalsMessage">
+         <lib-card-header [content]="content.header"></lib-card-header>
+         <lib-rail-arrival-card [railArrival]="content.railArrivals" [maxQuantiy]="maxQuantiy"></lib-rail-arrival-card>
+         <lib-button [content]="content.button"></lib-button>
+      </ng-container>
+   </div>
+</ng-container>
+
+<ng-template #NoArrivalsMessage>
+   <lib-card-header [content]="content.header" [state]="content.state!"></lib-card-header>
+   <lib-station-error-message [content]="errorMessage"></lib-station-error-message>
+   <lib-button [content]="content.button"></lib-button>
+</ng-template>
