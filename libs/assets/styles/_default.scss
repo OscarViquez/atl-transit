@@ -1,0 +1,24 @@
+// * Default Styling Properties * /
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  html {
+    background-color: #f3f3f3;
+  }
+  
+  // * Default Styling Properties for Anchor Tags <a> </a> * /
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  // * Default Styling Properties for List Elements <li> </li> * /
+  li {
+    list-style: none;
+  }
+  
+  ul {
+    padding: 0;
+  }

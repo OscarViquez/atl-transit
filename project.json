@@ -21,7 +21,7 @@
             "assets": [
                {
                   "glob": "**/*",
-                  "input": "./libs/assets/src/lib/assets",
+                  "input": "./libs/assets",
                   "output": "/assets/"
                },
                {

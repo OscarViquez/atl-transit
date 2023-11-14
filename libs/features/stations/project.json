@@ -32,9 +32,8 @@
       }
    },
    "assets": [
-      "../assets/src/lib/assets/main.scss",
-      "../assets/src/lib/assets/images",
-      "../assets/src/lib/assets/icons",
-      "../assets/src/lib/assets/data"
+      "../assets/main.scss",
+      "../assets/images",
+      "../assets/icons"
    ]
 }
