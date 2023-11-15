@@ -3,11 +3,11 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, concatMap, withLatestFrom } from 'rxjs/operators';
 import { StationStateInterface, UserStateInterface } from '../../models';
-import { UserService } from '../../services';
+import { UserService } from '../../services/user-location/user.service';
 import { arrivalMappingActions, userLocationAction, userTrainStations } from '../actions';
 import { stationRailArrivalSelector, userSelector } from '../selectors';
 import { Store } from '@ngrx/store';
-import { CombinedDataAdapter } from '../../services/adapters';
+import { CombinedDataAdapter } from '../../adapters/index';
 
 @Injectable({
    providedIn: 'root'
