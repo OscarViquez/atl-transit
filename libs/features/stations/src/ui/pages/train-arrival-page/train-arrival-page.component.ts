@@ -23,6 +23,7 @@ import {
    UserStateInterface,
    ViewService
 } from 'global-state';
+import { TabToggleService } from '../../../data/services/tab-toggle/tab-toggle.service';
 
 @Component({
    selector: 'lib-train-arrivals-page',
@@ -55,7 +56,7 @@ export class TrainArrivalPageComponent implements OnInit {
    constructor(
       private state: Store<UserStateInterface>,
       private stationStore: Store<StationStateInterface>,
-      public view: ViewService
+      public view: TabToggleService
    ) {}
 
    ngOnInit() {

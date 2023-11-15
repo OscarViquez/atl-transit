@@ -3,4 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
    providedIn: 'root'
 })
-export class LocationService {}
+export class TabToggleService {
+   currentTabIndex = 0;
+   Loading = true;
+}
