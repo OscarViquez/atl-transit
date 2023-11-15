@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Tab } from '../../models/';
+import { Tab } from '../../../models';
 
 @Component({
    selector: 'lib-tab',

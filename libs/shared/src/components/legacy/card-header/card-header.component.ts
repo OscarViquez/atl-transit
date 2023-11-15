@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ComponentState, GenericHeader } from '../../models';
+import { ComponentState, GenericHeader } from '../../../models';
 
 @Component({
    selector: 'lib-card-header',

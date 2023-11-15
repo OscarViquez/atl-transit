@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Button } from '../../models';
+import { Button } from '../../../models';
 
 @Component({
    selector: 'lib-button',
