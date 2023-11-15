@@ -2,11 +2,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonInputType, DividerComponent, HeroComponent } from 'shared';
 import { SearchBarComponent, SearchFilterComponent, SearchResultsComponent } from '../../components';
-import { GenericHeaderMock, SearchResultsMock, SearchFilters, SearchModal, SearchResults } from '../../../shared';
+import { GenericHeaderMock, SearchFilters, SearchModal, SearchResults } from '../../../shared';
 import { Store } from '@ngrx/store';
 import { AppStateInterface } from 'global-state';
 import { stationGeneralSelector } from 'global-state';
-import { TrainUiAdapter } from 'libs/+state/src/lib/services/adapters';
+import { TrainUiAdapter } from 'global-state';
 
 
 @Component({
