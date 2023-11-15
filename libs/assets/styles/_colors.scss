@@ -1,0 +1,82 @@
+// COLORS FOR TYPOGRAPHY
+// ————————————————————————————————————
+$light-colors-text: (
+   'primary': #000000,
+   'secondary': #5e5e5e,
+   'primary-label': #302f30,
+   'secondary-label': #676879,
+   'accent': #c54600,
+   'background': #ffffff
+);
+
+$dark-colors-text: (
+   'primary': #dddddd,
+   'secondary': #a6a6a6,
+   'primary-label': #f3f3f3,
+   'secondary-label': #e8e8e8,
+   'accent': #f28548,
+   'background': #000000
+);
+
+// LIGHT / DARK MODE MIXIN
+// Usage: @include color-mode('primary', 'light'); // Applies the light mode primary color
+@mixin color-mode($color-name: 'primary', $mode: 'light') {
+   color: map-get(if($mode == 'dark', $dark-colors-text, $light-colors-text), $color-name);
+}
+
+// MARTA RAIL LINES
+// ————————————————————————————————————
+$light-rail-colors: (
+   'red': #d72404,
+   'gold': #e49a05,
+   'blue': #1948a3,
+   'green': #0d572d
+);
+
+$dark-rail-colors: (
+   'red': #f83446,
+   'gold': #ffb749,
+   'blue': #068bee,
+   'green': #009a51
+);
+
+// LIGHT / DARK MODE MIXIN
+// Usage: @include rail-colors('primary', 'light'); // Applies the light mode primary color
+@mixin rail-colors($color-name: 'primary', $mode: 'light') {
+   color: map-get(if($mode == 'dark', $dark-colors-text, $light-colors-text), $color-name);
+}
+
+// FOUNDATION COLORS
+// ————————————————————————————————————
+
+$greyscale: (
+   'black': #000000,
+   'gray900': #282828,
+   'gray800': #4b4b4b,
+   'gray700': #5e5e5e,
+   'gray600': #727272,
+   'gray500': #868686,
+   'gray400': #a6a6a6,
+   'gray300': #bbbbbb,
+   'gray200': #dddddd,
+   'gray100': #e8e8e8,
+   'gray50': #f3f3f3,
+   'white': #ffffff
+);
+
+$red: (
+   '900': #520810,
+   '800': #950f22,
+   '700': #bb032a,
+   '600': #de1135,
+   '500': #f83446,
+   '400': #fc7f79,
+   '300': #ffb2ab,
+   '200': #ffd2cd,
+   '100': #ffe1de,
+   '50': #fff0ee
+);
+
+@mixin color($color-category, $color-name) {
+   color: map-get($color-category, $color-name);
+}

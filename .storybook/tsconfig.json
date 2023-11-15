@@ -7,7 +7,7 @@
    "include": [
       "stories/stations-ui/**/*.stories.ts",
       "stories/shared/**/*.stories.ts",
-      "stories/search/**/*.stories.ts",
+      "search/**/*.stories.ts",
       "../src/**/*.stories.ts",
       "../src/**/*.stories.js",
       "../src/**/*.stories.jsx",
