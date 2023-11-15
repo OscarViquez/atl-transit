@@ -6,7 +6,6 @@ export * from './components/hero/hero.component';
 export * from './components/tab/tab.component';
 export * from './components/dropdown/dropdown.component';
 export * from './components/loading-skeleton/loading-skeleton.component';
-export * from './components/inputs/text-input/text-input.component';
 export * from './components/divider/divider.component';
 
 // Exporting Mock, Types, and Interfaces

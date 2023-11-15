@@ -3,7 +3,7 @@ import type { StorybookConfig } from '@storybook/angular';
 const config: StorybookConfig = {
    stories: [
       // 'search/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-      'core/**/*.stories.@(js|jsx|ts|tsx|mdx)'
+      'stories/core/**/*.stories.@(js|jsx|ts|tsx|mdx)'
    ],
    staticDirs: [
       //  for icons

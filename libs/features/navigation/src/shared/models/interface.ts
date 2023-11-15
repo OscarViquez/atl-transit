@@ -1,4 +1,4 @@
-import { Icon } from 'shared';
+import { Icon } from '@atl-transit/shared';
 
 export interface Sidebar {
    // Dark Or Light Mode
