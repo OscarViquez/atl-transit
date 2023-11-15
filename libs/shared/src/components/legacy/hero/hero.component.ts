@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GenericHeader, Spacing } from '../../models';
+import { GenericHeader, Spacing } from '../../../models';
 
 @Component({
    selector: 'lib-hero',

@@ -1,11 +1,11 @@
 import { Icon, UiModes } from '../types';
 
-export interface IconComponent {
-   ref?: HTMLElement;
-   id?: string;
-   size?: string | number;
-   className?: string;
-}
+// export interface IconComponent {
+//    ref?: HTMLElement;
+//    id?: string;
+//    size?: string | number;
+//    className?: string;
+// }
 
 export interface GenericHeader {
    title: string;
