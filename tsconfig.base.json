@@ -15,6 +15,7 @@
       "skipDefaultLibCheck": true,
       "baseUrl": ".",
       "paths": {
+         "@atl-transit/core": ["libs/core/src/index.ts"],
          "@atl-transit/navigation": ["libs/features/navigation/src/index.ts"],
          "@atl-transit/search": ["libs/features/search/src/index.ts"],
          "@atl-transit/stations": ["libs/features/stations/src/index.ts"],
