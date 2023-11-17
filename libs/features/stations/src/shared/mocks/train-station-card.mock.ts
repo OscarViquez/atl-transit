@@ -1,4 +1,4 @@
-import { ButtonLightModeMock } from 'shared';
+import { ButtonLightModeMock } from '@atl-transit/shared';
 import { RailArrivalMock } from './rail-arrival-card.mock';
 import { TrainStaion } from '../../shared';
 

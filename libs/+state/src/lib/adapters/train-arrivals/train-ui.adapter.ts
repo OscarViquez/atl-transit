@@ -1,5 +1,5 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { Button, GenericHeader } from 'shared';
+import { Button, GenericHeader } from '@atl-transit/shared';
 import { StationInterface, TrainStaion } from '@atl-transit/stations';
 
 export class TrainUiAdapter {

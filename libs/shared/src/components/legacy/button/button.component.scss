@@ -1,0 +1,111 @@
+//* Component Variables */
+@import '../../../../../assets/main.scss';
+
+//* Component Variables */
+$button-font: 'General Sans', sans-serif;
+$button-width: 327px;
+$button-hieght: 41px;
+$button-border-radius: 0 0 5px 5px;
+$button-cursor: pointer;
+$button-text-size: 12px;
+$button-text-weight: 500;
+$button-gap: 1rem;
+
+$button-icon-width: 20px;
+$button-icon-height: 20px;
+
+$button-dark-md-bg: #2c2b36;
+$button-dark-md-border: 1px solid #333;
+$button-dark-md-text: #c5c5c7;
+$button-dark-md-text-active: #b0b0b0;
+
+$button-light-md-bg: #ffffff;
+$button-light-md-border: 1px solid #e4e3e3;
+$button-light-md-text: #5b5f67;
+$button-light-md-text-active: #c65854;
+
+//* Component Styling */
+
+.button {
+   height: $button-hieght;
+   cursor: $button-cursor;
+   border-radius: inherit;
+
+   // * Layout
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: $button-gap;
+
+   &__icon {
+      // * Layout
+      display: flex;
+      align-items: center;
+
+      & > img {
+         width: 20px;
+         height: 20px;
+      }
+   }
+
+   &__text {
+      font-family: $button-font;
+      font-size: $button-text-size;
+      font-weight: $button-text-weight;
+      
+   }
+
+   &--light-mode {
+      color: $button-light-md-text;
+      background-color: $button-light-md-bg;
+      border-top: $button-light-md-border;
+
+      &.button--active {
+         background-color: #ffffff;
+         color: #C65854;
+      }
+
+      .button-skeleton {
+         background-color: #e5e5e2;
+         width: 35%;
+         height: 14px;
+         @include background-gradient-light;
+         animation: shine-avatar 1.5s infinite linear;
+      }
+   }
+
+   &--dark-mode {
+      color: #B0B0B0;
+      background-color: #17171D;
+      border: $button-dark-md-border;
+
+      &.button--active {
+         background-color: #2c2b36;
+         color: #C5C5C7;
+      }
+
+      .button-skeleton {
+         background-color: #e5e5e2;
+         width: 35%;
+         height: 14px;
+         @include background-gradient-dark;
+         animation: shine-avatar 1.5s infinite linear;
+      }
+   }
+
+   &--icon-padding {
+      padding-right: 4px;
+   }
+
+   &--size-small {
+      max-width: 50px;
+   }
+
+   &--size-medium {
+      max-width: 120px;
+   }
+
+   &--size-large {
+      max-width: $button-width;
+   }
+}
