@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GenericTrainErrorMocks, TrainStaion } from '../../../shared';
 import { RailArrivalCardComponent } from '../rail-arrival-card/rail-arrival-card.component';
-import { ButtonComponent, CardHeaderComponent } from 'shared';
+import { ButtonComponent, CardHeaderComponent } from '@atl-transit/shared';
 import { StationErrorMessageComponent } from '../station-error-message/station-error-message.component';
 
 @Component({

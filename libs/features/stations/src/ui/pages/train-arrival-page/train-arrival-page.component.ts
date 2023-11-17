@@ -13,7 +13,7 @@ import { StationCardComponent, StationErrorMessageComponent } from '../../compon
 import { TrainStaion, GenericTrainErrorMocks } from '../../../shared';
 
 // * LIBS IMPORTS */
-import { HeroMock, TabMock, HeroComponent, TabComponent, LoadingSkeletonComponent } from 'shared';
+import { HeroMock, TabMock, HeroComponent, TabComponent, LoadingSkeletonComponent } from '@atl-transit/shared';
 import {
    generalStationActions,
    userLoadingSelector,
@@ -21,8 +21,8 @@ import {
    userStationsSelector,
    StationStateInterface,
    UserStateInterface,
-   ViewService
-} from 'global-state';
+} from '@atl-transit/global-state';
+import { TabToggleService } from '../../../data/services/tab-toggle/tab-toggle.service';
 
 @Component({
    selector: 'lib-train-arrivals-page',
@@ -55,7 +55,7 @@ export class TrainArrivalPageComponent implements OnInit {
    constructor(
       private state: Store<UserStateInterface>,
       private stationStore: Store<StationStateInterface>,
-      public view: ViewService
+      public view: TabToggleService
    ) {}
 
    ngOnInit() {

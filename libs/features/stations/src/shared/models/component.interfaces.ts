@@ -1,5 +1,5 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { Button, ComponentState, GenericHeader, Tab } from 'shared';
+import { Button, ComponentState, GenericHeader, Tab } from '@atl-transit/shared';
 
 export interface TrainArrivalPage {
    tab: Tab[];

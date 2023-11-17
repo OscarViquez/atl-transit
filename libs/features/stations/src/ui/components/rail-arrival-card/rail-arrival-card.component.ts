@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UiModes } from 'shared';
+import { UiModes } from '@atl-transit/shared';
 import { RailArrival } from '../../../shared';
 
 @Component({

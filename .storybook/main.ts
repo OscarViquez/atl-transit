@@ -2,13 +2,12 @@ import type { StorybookConfig } from '@storybook/angular';
 
 const config: StorybookConfig = {
    stories: [
-      'stories/shared/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-      'stories/stations-ui/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-      'stories/search/**/*.stories.@(js|jsx|ts|tsx|mdx)'
+      // 'search/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+      'stories/core/**/*.stories.@(js|jsx|ts|tsx|mdx)'
    ],
    staticDirs: [
       //  for icons
-      '../libs/assets/src/lib',
+      '../libs/assets',
       '../libs/assets/main.scss'
    ],
    addons: ['@storybook/addon-essentials', '@storybook/addon-styling'],
