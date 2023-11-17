@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationStateInterface } from '../../models';
 import { CombinedDataAdapter } from '../../services/adapters';
+import { getRouterSelectors } from '@ngrx/router-store'
 
 export const stationFeatureSelector = createFeatureSelector<StationStateInterface>('stations')
 
@@ -28,4 +29,12 @@ export const stationErrorSelector = createSelector(
     stationFeatureSelector, 
     (stationState) => stationState.jsonStations
 );
+
+export const { selectRouteParams } = getRouterSelectors();
+
+export const selectGeneralStationById = createSelector(
+    stationGeneralSelector, 
+    selectRouteParams,
+    (jsonStations, {id}) => jsonStations.find((station) => station.name == id)
+)
 

@@ -9,7 +9,8 @@ export class TrainUiAdapter {
          const header = this.MapStationToHeader(station);
          const button: Button = {
             text: 'More details',
-            mode: 'light'
+            mode: 'light',
+            hyperLink: '/station/' + station.station_key
          };
 
          const trainUiStationIndividual: TrainStaion = {
@@ -81,7 +82,7 @@ export class TrainUiAdapter {
 
       const header: GenericHeader = {
          title: this.MapHeaderToUiView(station.name),
-         subtitle: subtitle
+         subtitle: station.description
       };
 
       return header;

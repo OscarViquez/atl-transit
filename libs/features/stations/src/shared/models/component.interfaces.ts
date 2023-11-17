@@ -35,16 +35,14 @@ export interface RailArrival {
 }
 
 export interface StationInterface {
+   station_key: number;
    name: string;
    description?: string;
    latitude: number;
    longitude: number;
    contactnumber?: string;
    connectingbusroutes?: BusRoutes[];
-   ammenities1?: string;
-   ammenities2?: string;
-   ammenities3?: string;
-   ammenities4?: string;
+   ammenities_key: number[];
    arrivals: RailArrival[];
 }
 
@@ -60,15 +58,14 @@ export interface BusRoutes {
 }
 
 export interface JsonStationInterface {
+   station_key: number;
    name: string;
+   description: string;
    longitude: string;
    latitude: string;
-   amenities1?: string;
-   amenities2?: string;
-   amenities3?: string;
-   amenities4?: string;
+   amentities_key: number[];
    contactnumber: string;
-   connectingbusroutes: BusRoutes[];
+   connectingbusroutes_key: number[];
 }
 
 export interface GenericTrainErrorMessage {
