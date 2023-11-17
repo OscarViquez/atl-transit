@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { AppStateInterface, stationGeneralSelector } from 'global-state';
+import { AppStateInterface, stationGeneralSelector } from '@atl-transit/global-state';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationStateInterface } from '../../models';
 import { CombinedDataAdapter } from '../../adapters/index';
+import { getRouterSelectors } from '@ngrx/router-store';
 
 export const stationFeatureSelector = createFeatureSelector<StationStateInterface>('stations')
 
