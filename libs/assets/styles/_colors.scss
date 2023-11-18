@@ -1,12 +1,17 @@
 // COLORS FOR TYPOGRAPHY
 // ————————————————————————————————————
 $light-colors-text: (
-   'primary': #000000,
+   'primary': #302F30,
    'secondary': #5e5e5e,
    'primary-label': #302f30,
    'secondary-label': #676879,
    'accent': #c54600,
    'background': #ffffff
+);
+
+$light-background: (
+   'primary': #FFFFFF,
+   'secondary': #F7F8FB,
 );
 
 $dark-colors-text: (
@@ -18,10 +23,19 @@ $dark-colors-text: (
    'background': #000000
 );
 
+$dark-background: (
+   'primary': #4B4E5C,
+   'secondary': #1D1F26,
+);
+
 // LIGHT / DARK MODE MIXIN
 // Usage: @include color-mode('primary', 'light'); // Applies the light mode primary color
-@mixin color-mode($color-name: 'primary', $mode: 'light') {
-   color: map-get(if($mode == 'dark', $dark-colors-text, $light-colors-text), $color-name);
+@mixin color-mode($variant: 'primary', $mode: 'light') {
+   color: map-get(if($mode == 'dark', $dark-colors-text, $light-colors-text), $variant);
+}
+
+@mixin background-mode($variant: 'primary', $mode: 'light') {
+   background: map-get(if($mode == 'dark', $dark-background, $light-background), $variant);
 }
 
 // MARTA RAIL LINES

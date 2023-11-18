@@ -1,0 +1,91 @@
+@import '../../../../../assets/main.scss';
+
+.button {
+   width: $width-full;
+   display: flex;
+   align-items: center;
+   gap: $spacing-4;
+   padding: $spacing-0 $spacing-6;
+
+   cursor: pointer;
+   border: none;
+   border-radius: inherit;
+
+   &__icon {
+      display: grid;
+      place-items: center;
+      width: $font-size-md;
+   }
+
+   &__label {
+      font-size: $font-size-sm;
+      font-weight: $font-medium;
+      letter-spacing: 0.24px;
+   }
+
+   &.default {
+      height: 40px;
+   }
+
+   &.menu {
+      height: 42px;
+   }
+
+   &.text {
+      height: 35px;
+   }
+
+   &.light {
+      &.default {
+         &.primary {
+            @include color-mode('primary', 'light');
+            @include background-mode('primary', 'light');
+            box-shadow: 0px 4px 10px 0px rgba(57, 57, 57, 0.05);
+         }
+         &.secondary {
+            @include color-mode('primary', 'light');
+            @include background-mode('secondary', 'light');
+         }
+      }
+
+      &.menu {
+         @include color-mode('secondary', 'light');
+         @include background-mode('primary', 'light');
+      }
+
+      &.text {
+         @include color-mode('secondary', 'light');
+         @include background-mode('primary', 'light');
+      }
+   }
+   &.dark {
+      &.default {
+         &.primary {
+            @include color-mode('primary', 'dark');
+            @include background-mode('primary', 'dark');
+         }
+         &.secondary {
+            @include color-mode('primary', 'dark');
+            @include background-mode('secondary', 'dark');
+         }
+      }
+
+      &.menu {
+         @include color-mode('secondary', 'dark');
+         @include background-mode('primary', 'dark');
+      }
+
+      &.text {
+         @include color-mode('secondary', 'dark');
+         @include background-mode('secondary', 'dark');
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .button {
+      &.menu {
+         height: 48px;
+      }
+   }
+}
