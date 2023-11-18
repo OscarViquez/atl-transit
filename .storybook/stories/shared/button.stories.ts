@@ -19,7 +19,6 @@ export const Default: Story = {
          },
          type: 'default',
          variant: 'primary',
-         size: 'large',
          mode: 'light',
          align: 'center',
       }
@@ -36,7 +35,6 @@ export const ButtonMenuVariant: Story = {
          },
          type: 'menu',
          variant: 'primary',
-         size: 'large',
          mode: 'light',
          align: 'center',
          icon: {
@@ -56,7 +54,6 @@ export const ButtonTextVariant: Story = {
          },
          type: 'text',
          variant: 'primary',
-         size: 'large',
          mode: 'light',
          align: 'center',
          icon: {
