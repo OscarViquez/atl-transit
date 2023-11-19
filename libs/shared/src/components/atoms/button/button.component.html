@@ -1,0 +1,29 @@
+<!-- if there is an href property -->
+<a
+   *ngIf="props.content.href"
+   [style.justify-content]="props.align"
+   [attr.href]="props.content.href || null"
+   id="{{ props.content.id }}"
+   class="{{ props.variant }} {{ props.mode }} {{ props.type }} {{ props.align }} button"
+   type="button"
+>
+   <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+</a>
+
+<!-- if there is an href property -->
+<button
+   *ngIf="!props.content.href"
+   [style.justify-content]="props.align"
+   [disabled]="props.content.disabled"
+   id="{{ props.content.id }}"
+   class="{{ props.variant }} {{ props.mode }} {{ props.type }} {{ props.align }} button"
+>
+   <ng-container *ngTemplateOutlet="buttonContent"></ng-container>
+</button>
+
+<ng-template #buttonContent>
+   <div *ngIf="props.icon" class="button__icon">
+      <img [src]="props.icon.path" />
+   </div>
+   <div class="button__label">{{ props.content.label }}</div>
+</ng-template>
