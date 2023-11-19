@@ -15,5 +15,6 @@ export type ButtonContent = {
    disabled?: boolean;
 };
 
+// text and 
 export type Variants = 'primary' | 'secondary' | 'accent' | 'text' | 'link';
 export type Alignment = 'left' | 'right' | 'center';

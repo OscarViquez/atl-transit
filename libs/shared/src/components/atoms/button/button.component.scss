@@ -57,6 +57,11 @@
          @include color-mode('secondary', 'light');
          @include background-mode('primary', 'light');
       }
+
+      &.accent {
+         color: #ffffff;
+         @include background-mode('accent', 'light');
+      }
    }
    &.dark {
       &.default {
@@ -72,12 +77,17 @@
 
       &.menu {
          @include color-mode('secondary', 'dark');
-         @include background-mode('primary', 'dark');
+         @include background-mode('secondary', 'dark');
       }
 
       &.text {
          @include color-mode('secondary', 'dark');
          @include background-mode('secondary', 'dark');
+      }
+
+      &.accent {
+         color: #ffffff;
+         @include background-mode('accent', 'dark');
       }
    }
 }

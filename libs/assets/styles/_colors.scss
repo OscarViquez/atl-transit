@@ -1,7 +1,7 @@
 // COLORS FOR TYPOGRAPHY
 // ————————————————————————————————————
 $light-colors-text: (
-   'primary': #302F30,
+   'primary': #302f30,
    'secondary': #5e5e5e,
    'primary-label': #302f30,
    'secondary-label': #676879,
@@ -10,8 +10,9 @@ $light-colors-text: (
 );
 
 $light-background: (
-   'primary': #FFFFFF,
-   'secondary': #F7F8FB,
+   'primary': #ffffff,
+   'secondary': #f7f8fb,
+   'accent': linear-gradient(90deg, #f2844b 23.17%, #f1676c 84.65%)
 );
 
 $dark-colors-text: (
@@ -24,8 +25,9 @@ $dark-colors-text: (
 );
 
 $dark-background: (
-   'primary': #4B4E5C,
-   'secondary': #1D1F26,
+   'primary': #4b4e5c,
+   'secondary': #1d1f26,
+   'accent': linear-gradient(90deg, #e56928 23.17%, #e7484e 84.65%)
 );
 
 // LIGHT / DARK MODE MIXIN
