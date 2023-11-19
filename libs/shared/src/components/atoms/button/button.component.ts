@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonType, Icon, UiModes, Variants, Alignment, ButtonContent } from '../../../models';
+import { IconComponent } from '../icon/icon.component';
 
 interface ButtonProps {
    content: ButtonContent;
@@ -23,10 +24,14 @@ const defaultProps: ButtonProps = {
 @Component({
    selector: 'rya-button',
    standalone: true,
-   imports: [CommonModule],
+   imports: [CommonModule, IconComponent],
    templateUrl: './button.component.html',
    styleUrls: ['./button.component.scss']
 })
 export class ThemeButtonComponent {
    @Input() props: ButtonProps = { ...defaultProps };
+
+   get buttonClass(): string {
+      return `${this.props.variant} ${this.props.mode} ${this.props.type} ${this.props.align} button`;
+   }
 }

@@ -7,7 +7,7 @@ const config: StorybookConfig = {
    ],
    staticDirs: [
       //  for icons
-      '../libs/assets',
+      '../libs',
       '../libs/assets/main.scss'
    ],
    addons: ['@storybook/addon-essentials', '@storybook/addon-styling'],
