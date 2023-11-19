@@ -5,8 +5,8 @@
    },
    "exclude": ["../**/*.spec.ts"],
    "include": [
-      "stories/stations-ui/**/*.stories.ts",
       "stories/shared/**/*.stories.ts",
+      "stories/navigation/**/*.stories.ts",
       "search/**/*.stories.ts",
       "../src/**/*.stories.ts",
       "../src/**/*.stories.js",
