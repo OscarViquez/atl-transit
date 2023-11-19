@@ -1,7 +1,5 @@
-import { Icon } from '@atl-transit/shared';
 
 export interface Sidebar {
-   // Dark Or Light Mode
    mode: string;
    logo: {
       alt: string;
@@ -30,18 +28,4 @@ export interface Links {
 export interface NavigationUI {
    pageName: string;
    index: number;
-}
-
-export interface MobileNav {
-   mode: string;
-   logo: Icon;
-   pages: PageHyperlink[];
-   icons: Icon[];
-}
-
-export interface PageHyperlink {
-   active: boolean;
-   icon: string;
-   name: string;
-   url: string;
 }

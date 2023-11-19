@@ -3,7 +3,7 @@ import { SidebarComponent } from '@atl-transit/navigation';
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 
 export default {
-   title: 'Atoms/Icon',
+   title: 'Atoms/Sidebar',
    component: SidebarComponent,
    decorators: [moduleMetadata({ imports: [SidebarComponent] })],
    parameters: {

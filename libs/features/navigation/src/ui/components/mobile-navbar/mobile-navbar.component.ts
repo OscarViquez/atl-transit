@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MobileNavMock } from '../../../shared/mocks/mobile-nav.mock';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -12,7 +11,6 @@ import { RouterModule } from '@angular/router';
 })
 export class MobileNavbarComponent {
    @Output() toggleModalEmitter = new EventEmitter<boolean>();
-   content = MobileNavMock;
    menuIsOpen = false;
 
    toggleMenu(): void {
