@@ -12,10 +12,10 @@ To start the development server run `npx nx serve atl-transit`. Open your browse
 
 ### Start Storybook Showcase
 
-To run your local storybook, use one of these commands, depending on the library: 
-  
+To run your local storybook, use one of these commands, depending on the library:
+
 `npx nx run shared:storybook`  
-`npx nx run station-ui:storybook`   
+`npx nx run station-ui:storybook`
 
 Open your browser and navigate to http://localhost:4400/.
 
@@ -37,42 +37,9 @@ Similarly to Monorepos, this would make it easier to scale if need to add additi
 -  <strong> Buses </strong> :
    -  Bus Routes and the Route Arrivals
 
-### Inside a Library Folder Structure:
-
-### data folder
-
-    + data-services ( ... )
-        - state (where we manage state)
-        - actions
-        - effects
-        - reducer
-        - selectors
-
-    + adapters ( where we transform data from
-          api to the way we would like it be )
-    + facades
-    + mocks (mock data)
-    + models (interfaces)
-    + services
-    + utils
-
-### ui folder
-
-    + view ( Different Screen and Pages )
-        - `<train-arrivals-page/>`
-        - `<train-station--page/>`
-
-    + ui ( ui components for those views and screen )
-        - storybook
-        - src
-        - libs
-            - components (components go here)
-
-✨ **⬆⬆ Will update this section above with more detailed explanation ⬆⬆** ✨
-
 ## API USED
 
--  Rail Arrival Data:     
+-  Rail Arrival Data:  
    https://www.itsmarta.com/arrivals.aspx
 
 -  20230504221309  
