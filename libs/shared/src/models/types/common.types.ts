@@ -4,8 +4,9 @@ export type Spacing = 'spacing-xs' | 'spacing-sm' | 'spacing-md' | 'spacing-lg' 
 
 /** For When passing icons to components */
 export type Icon = {
-   path: string;
-   url?: string;
+   category: string;
+   name: string;
+   mode: string;
 };
 
 export type ButtonContent = {

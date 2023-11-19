@@ -27,7 +27,12 @@ export const Default: Story = {
          type: 'default',
          variant: 'primary',
          mode: 'light',
-         align: 'center'
+         align: 'center',
+         icon: {
+            category: 'navigation',
+            name: 'overview',
+            mode: 'light'
+         }
       }
    }
 };
@@ -45,7 +50,9 @@ export const ButtonMenuVariant: Story = {
          mode: 'light',
          align: 'center',
          icon: {
-            path: 'icons/navigation/overview-icon.svg'
+            category: 'navigation',
+            name: 'overview',
+            mode: 'light'
          }
       }
    }
