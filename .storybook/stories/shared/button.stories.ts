@@ -2,9 +2,16 @@ import { ThemeButtonComponent } from '@atl-transit/shared';
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 
 export default {
-   title: 'button',
+   title: 'Atoms/Button',
    component: ThemeButtonComponent,
-   decorators: [moduleMetadata({ imports: [ThemeButtonComponent] })]
+   decorators: [moduleMetadata({ imports: [ThemeButtonComponent] })],
+   parameters: {
+      docs: {
+         description: {
+            component: 'This is a button component that can be used in different themes.'
+         }
+      }
+   }
 } as Meta<ThemeButtonComponent>;
 
 type Story = StoryObj<ThemeButtonComponent>;
@@ -20,7 +27,7 @@ export const Default: Story = {
          type: 'default',
          variant: 'primary',
          mode: 'light',
-         align: 'center',
+         align: 'center'
       }
    }
 };
@@ -49,16 +56,12 @@ export const ButtonTextVariant: Story = {
       props: {
          content: {
             label: 'Nearest',
-            href: 'https://www.google.com/maps',
             id: 'myButton'
          },
          type: 'text',
          variant: 'primary',
          mode: 'light',
          align: 'center',
-         icon: {
-            path: '/icons/navigation/test-icon.svg'
-         }
       }
    }
 };
