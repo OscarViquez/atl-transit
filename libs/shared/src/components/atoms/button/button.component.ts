@@ -2,8 +2,9 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonType, Icon, UiModes, Variants, Alignment, ButtonContent } from '../../../models';
 import { IconComponent } from '../icon/icon.component';
+import { RouterModule } from '@angular/router';
 
-interface ButtonProps {
+export interface ButtonProps {
    content: ButtonContent;
    type: ButtonType;
    variant: Variants;
@@ -24,7 +25,7 @@ const defaultProps: ButtonProps = {
 @Component({
    selector: 'rya-button',
    standalone: true,
-   imports: [CommonModule, IconComponent],
+   imports: [CommonModule, IconComponent, RouterModule],
    templateUrl: './button.component.html',
    styleUrls: ['./button.component.scss']
 })

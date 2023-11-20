@@ -1,31 +1,11 @@
+import { Icon, MenuProps } from '@atl-transit/shared';
 
 export interface Sidebar {
-   mode: string;
-   logo: {
-      alt: string;
-      url: string;
-   };
-   pages: Page[];
-   quickLinks: QuickLink;
-}
-
-export interface Page {
-   active: boolean;
-   pageName: string;
-   pageUrl: string;
-}
-
-export interface QuickLink {
-   title: string;
-   links: Links[];
+   icon: Icon;
+   menu: MenuProps[];
 }
 
 export interface Links {
    label: string;
    url: string;
-}
-
-export interface NavigationUI {
-   pageName: string;
-   index: number;
 }
