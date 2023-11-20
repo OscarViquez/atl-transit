@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class StaticContentService {
+export class NavigationService {
+
+  // setActiveMenuItem(): void {
+  // }
 
 }

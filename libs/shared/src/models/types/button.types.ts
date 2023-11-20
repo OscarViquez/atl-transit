@@ -1,3 +1,6 @@
+export type ButtonSize = 'small' | 'med' | 'large';
+export type ButtonType = 'default' | 'menu' | 'text';
+
 export enum ButtonInputType {
    BUTTON = 'button',
    HYPERLINK = 'link',
@@ -5,6 +8,3 @@ export enum ButtonInputType {
    RESET = 'reset',
    REFRESH = 'refresh'
 }
-
-export type ButtonSize = 'small' | 'med' | 'large'
-

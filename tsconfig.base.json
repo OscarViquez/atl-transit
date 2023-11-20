@@ -15,12 +15,12 @@
       "skipDefaultLibCheck": true,
       "baseUrl": ".",
       "paths": {
+         "@atl-transit/global-state": ["libs/+state/src/index.ts"],
          "@atl-transit/navigation": ["libs/features/navigation/src/index.ts"],
          "@atl-transit/search": ["libs/features/search/src/index.ts"],
-         "@atl-transit/stations": ["libs/features/stations/src/index.ts"],
          "@atl-transit/shared": ["libs/shared/src/index.ts"],
-         "@atl-transit/global-state": ["libs/+state/src/index.ts"],
-         "assets": ["libs/assets/src/index.ts"],
+         "@atl-transit/stations": ["libs/features/stations/src/index.ts"],
+         "assets": ["libs/assets/src/index.ts"]
       }
    },
    "exclude": ["node_modules", "tmp"]

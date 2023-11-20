@@ -18,12 +18,10 @@ export const ButtonWithIconMock: Button = {
 
 export const ButtonActiveMockLight: Button = {
    ...ButtonLightModeMock,
-   active: true
 };
 
 export const ButtonActiveMockDark: Button = {
    ...ButtonDarkModeMock,
-   active: true
 };
 
 export const NearestStationMock: Button = {

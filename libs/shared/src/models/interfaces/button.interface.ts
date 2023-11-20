@@ -1,4 +1,4 @@
-import { ButtonInputType, UiModes, ButtonSize } from '../types';
+import { UiModes, ButtonSize } from '../types';
 
 export interface Button {
    /* text content for button */
@@ -13,8 +13,6 @@ export interface Button {
    hyperLink?: string;
    /* whether button is an active state */
    active?: boolean;
-   /* how is the button being used */
-   type?: ButtonInputType;
    /* assigned Id for button */
    id?: string;
    /* whether button should be disabled */
