@@ -1,15 +1,15 @@
-lib-mobile-navbar {
-   display: none;
-}
+// lib-mobile-navbar {
+//    display: none;
+// }
 
 lib-sidebar {
    display: inline-block;
 }
 
 @media (max-width: 992px) {
-   lib-mobile-navbar {
-      display: block;
-   }
+   // lib-mobile-navbar {
+   //    display: block;
+   // }
 
    lib-sidebar {
       display: none;

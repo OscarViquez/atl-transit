@@ -9,16 +9,16 @@ import { Sidebar } from '../../../shared/models/interface';
    standalone: true,
    imports: [CommonModule, RouterModule, MenuComponent, IconComponent],
    template: `
-      <!-- <div class="sticky"> -->
-      <aside class="sidebar">
-         <div class="sidebar__logo">
-            <rya-icon [category]="content.icon.category" [name]="content.icon.name" [mode]="content.icon.mode" />
-         </div>
-         <ng-container *ngFor="let menu of content.menu">
-            <rya-menu [content]="menu"></rya-menu>
-         </ng-container>
-      </aside>
-      <!-- </div> -->
+      <div class="sticky">
+         <aside class="sidebar">
+            <div class="sidebar__logo">
+               <rya-icon [category]="content.icon.category" [name]="content.icon.name" [mode]="content.icon.mode" />
+            </div>
+            <ng-container *ngFor="let menu of content.menu">
+               <rya-menu [content]="menu"></rya-menu>
+            </ng-container>
+         </aside>
+      </div>
    `,
    styleUrls: ['./sidebar.component.scss']
 })

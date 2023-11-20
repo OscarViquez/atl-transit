@@ -6,6 +6,11 @@
    align-items: center;
    gap: $spacing-4;
    padding: $spacing-0 $spacing-6;
+   transition: ease-in 0.1s;
+
+   &:hover {
+      transition: ease-in 0.1s;
+   }
 
    cursor: pointer;
    border: none;
@@ -51,6 +56,11 @@
       &.menu {
          @include color-mode('secondary', 'light');
          @include background-mode('primary', 'light');
+
+         &:hover {
+            @include color-mode('primary', 'light');
+            @include background-mode('secondary', 'light');
+         }
       }
 
       &.text {
