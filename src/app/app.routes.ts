@@ -4,7 +4,7 @@ import { StationPageComponent, TrainArrivalPageComponent } from '@atl-transit/st
 
 export const appRoutes: Route[] = [
    {
-      path: 'arrivals',
+      path: 'trains',
       component: TrainArrivalPageComponent,
       pathMatch: 'full'
    },

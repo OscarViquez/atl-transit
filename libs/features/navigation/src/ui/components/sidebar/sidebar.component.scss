@@ -1,5 +1,7 @@
 .sticky {
-   width: 192px;
+   width: 19vw;
+   background-color: white;
+   height: 100vh;
 }
 
 .sidebar {
@@ -7,11 +9,12 @@
    padding: 40px 1rem;
    background-color: white;
    width: 100%;
-   max-width: 225px;
+   max-width: 19vw;
    height: 100vh;
-   //    overflow: hidden;
-   //    position: fixed;
-   //    top: 0;
+   overflow: hidden;
+   position: fixed;
+   top: 0;
+   border-right: 1px solid #eff1f8;
 
    &__logo {
       margin: 0 0 1rem 1rem;

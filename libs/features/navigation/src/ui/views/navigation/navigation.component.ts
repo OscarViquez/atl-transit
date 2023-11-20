@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MobileNavbarComponent, SidebarComponent } from '../../components';
 import { SearchModalComponent } from '@atl-transit/search';
+import { StaticContentService } from '../../../data';
 
 @Component({
    selector: 'lib-navigation',
@@ -12,15 +14,14 @@ import { SearchModalComponent } from '@atl-transit/search';
    styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
-   /* Boolean to check if Search modal is open or not */
+   constructor(private service: StaticContentService) {}
+   sideBarContent = this.service.setSidebarContent();
    openModal = false;
 
-   /* Method that toggles opening and closing modal */
    handleToggleModal(eventToggle: boolean, closeModal = false): void {
       if (closeModal) {
          this.openModal = false;
       } else {
-         // Handle the event here. 'open' is the value emitted from the child component.
          this.openModal = eventToggle;
       }
    }

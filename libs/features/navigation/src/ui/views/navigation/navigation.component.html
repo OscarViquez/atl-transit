@@ -1,5 +1,4 @@
-<lib-mobile-navbar (toggleModalEmitter)="handleToggleModal($event)"></lib-mobile-navbar>
-<lib-sidebar (toggleModalEmitter)="handleToggleModal($event)"></lib-sidebar>
+<lib-sidebar [content]="sideBarContent"></lib-sidebar>
 <ng-container *ngIf="openModal">
    <lib-search-modal (closeModalEmitter)="handleToggleModal($event, true)"></lib-search-modal>
 </ng-container>

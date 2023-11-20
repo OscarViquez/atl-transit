@@ -1,56 +1,28 @@
-import { Sidebar } from '../models/interface';
+import { SidebarContent } from "../models/interface";
 
-export const SidebarMock: Sidebar = {
-   mode: 'light',
+export const sideBarContent: SidebarContent = {
    logo: {
-      alt: 'Logo',
-      url: '/assets/icons/logo.svg'
+      category: 'navigation',
+      name: 'logo',
+      mode: 'light'
    },
-   pages: [
+   button: {
+      category: 'navigation',
+      type: 'menu',
+      variant: 'primary',
+      mode: 'light',
+      align: 'left'
+   },
+   menu: [
       {
-         active: true,
-         pageName: 'Trains',
-         pageUrl: '/arrivals'
+         title: 'Main Menu',
+         divider: true,
+         items: ['Overview', 'Trains', 'Buses', 'Plan Trip', 'Alerts']
       },
       {
-         active: false,
-         pageName: 'Buses',
-         pageUrl: '#'
-      },
-      {
-         active: false,
-         pageName: 'Steet Car',
-         pageUrl: '#'
-      },
-      {
-         active: false,
-         pageName: 'Advisories',
-         pageUrl: '#'
-      },
-
-      {
-         active: false,
-         pageName: 'Breeze Card',
-         pageUrl: '#'
+         title: 'Quick Links',
+         divider: true,
+         items: ['Accessibility', 'Parking Areas', 'Breezecard']
       }
-   ],
-   quickLinks: {
-      title: 'Quick Links',
-      links: [
-         {
-            label: 'Contact Info',
-            url: '#'
-         },
-         {
-            label: 'News & Updates',
-            url: '#'
-         },
-         {
-            label: 'Accessibility Services',
-            url: '#'
-         }
-      ]
-   }
+   ]
 };
-
-
