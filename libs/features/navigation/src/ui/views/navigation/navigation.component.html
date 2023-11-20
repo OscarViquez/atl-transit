@@ -1,4 +1,2 @@
-<lib-sidebar [content]="sideBarContent"></lib-sidebar>
-<ng-container *ngIf="openModal">
-   <lib-search-modal (closeModalEmitter)="handleToggleModal($event, true)"></lib-search-modal>
-</ng-container>
+<rya-sidebar [content]="sideBarContent"></rya-sidebar>
+<rya-navbar [menu]="sideBarContent"></rya-navbar>

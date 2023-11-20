@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { SideBarButtonProps, Sidebar, SidebarMenuItem } from '../../shared';
+import { SideBarButtonProps, Sidebar, SidebarMenuItem } from '../../../shared';
 import { ButtonProps, Icon, MenuProps } from '@atl-transit/shared';
-import { sideBarContent } from '../../shared/index';
+import { sideBarContent } from '../../../shared/index';
 
 @Injectable({
    providedIn: 'root'

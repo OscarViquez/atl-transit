@@ -1,17 +1,17 @@
-// lib-mobile-navbar {
-//    display: none;
-// }
+rya-navbar {
+   display: none;
+}
 
-lib-sidebar {
+rya-sidebar {
    display: inline-block;
 }
 
 @media (max-width: 992px) {
-   // lib-mobile-navbar {
-   //    display: block;
-   // }
+   rya-navbar {
+      display: block;
+   }
 
-   lib-sidebar {
+   rya-sidebar {
       display: none;
    }
 }
