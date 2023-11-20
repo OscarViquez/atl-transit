@@ -2,14 +2,13 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MobileNavbarComponent, SidebarComponent } from '../../components';
-import { SearchModalComponent } from '@atl-transit/search';
-import { StaticContentService } from '../../../data';
+import { NavbarComponent, SidebarComponent } from '../../components';
+import { StaticContentService } from '../../../data/index';
 
 @Component({
-   selector: 'lib-navigation',
+   selector: 'rya-navigation',
    standalone: true,
-   imports: [CommonModule, RouterModule, MobileNavbarComponent, SidebarComponent, SearchModalComponent],
+   imports: [CommonModule, RouterModule, SidebarComponent, NavbarComponent],
    templateUrl: './navigation.component.html',
    styleUrls: ['./navigation.component.scss']
 })

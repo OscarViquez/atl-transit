@@ -20,3 +20,21 @@
       margin: 0 0 1rem 1rem;
    }
 }
+
+@media (max-width: 992px) {
+   .sticky {
+      display: block;
+      max-width: unset;
+      width: 100%;
+   }
+   .sidebar {
+      display: block;
+      max-width: unset;
+      width: 100%;
+      padding: 1rem 0;
+
+      &__menu {
+         padding: 0 1rem;
+      }
+   }
+}

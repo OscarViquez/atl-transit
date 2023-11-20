@@ -5,7 +5,7 @@ import { IconComponent, MenuComponent } from '@atl-transit/shared';
 import { Sidebar } from '../../../shared/models/interface';
 
 @Component({
-   selector: 'lib-sidebar',
+   selector: 'rya-sidebar',
    standalone: true,
    imports: [CommonModule, RouterModule, MenuComponent, IconComponent],
    template: `
@@ -14,9 +14,9 @@ import { Sidebar } from '../../../shared/models/interface';
             <div class="sidebar__logo">
                <rya-icon [category]="content.icon.category" [name]="content.icon.name" [mode]="content.icon.mode" />
             </div>
-            <ng-container *ngFor="let menu of content.menu">
+            <div class="sidebar__menu" *ngFor="let menu of content.menu">
                <rya-menu [content]="menu"></rya-menu>
-            </ng-container>
+            </div>
          </aside>
       </div>
    `,
