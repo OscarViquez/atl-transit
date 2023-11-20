@@ -1,9 +1,9 @@
 // SidebarComponent
 import { SidebarComponent } from '@atl-transit/navigation';
 import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
-
+import { sideBarMocks } from './sidebar.mocks';
 export default {
-   title: 'Atoms/Icon',
+   title: 'Navigation/Sidebar',
    component: SidebarComponent,
    decorators: [moduleMetadata({ imports: [SidebarComponent] })],
    parameters: {
@@ -19,5 +19,6 @@ type Story = StoryObj<SidebarComponent>;
 
 export const Default: Story = {
    args: {
+      content: sideBarMocks 
    }
 };

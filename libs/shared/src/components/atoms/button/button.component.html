@@ -1,6 +1,6 @@
-<ng-container [ngSwitch]="!!props.content.href">
+<ng-container [ngSwitch]="true">
    <a
-      *ngSwitchCase="true"
+      *ngSwitchCase="!!props.content.href"
       [style.justify-content]="props.align"
       [attr.href]="props.content.href || null"
       [class]="buttonClass"
@@ -10,7 +10,7 @@
    </a>
 
    <button
-      *ngSwitchCase="false"
+      *ngSwitchCase="!props.content.href && !props.content.routerLink"
       [style.justify-content]="props.align"
       [disabled]="props.content.disabled"
       [class]="buttonClass"
@@ -18,6 +18,16 @@
    >
       <ng-container *ngTemplateOutlet="buttonContentTemplate"> </ng-container>
    </button>
+
+   <a
+      *ngSwitchCase="!!props.content.routerLink"
+      [style.justify-content]="props.align"
+      [routerLink]="props.content.routerLink || null"
+      [class]="buttonClass"
+      id="{{ props.content.id }}"
+   >
+      <ng-container *ngTemplateOutlet="buttonContentTemplate"> </ng-container>
+   </a>
 </ng-container>
 
 <ng-template #buttonContentTemplate>

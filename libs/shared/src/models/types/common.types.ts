@@ -11,11 +11,12 @@ export type Icon = {
 
 export type ButtonContent = {
    label: string;
+   routerLink?: string;
    href?: string;
    id?: string;
    disabled?: boolean;
 };
 
-// text and 
+// text and
 export type Variants = 'primary' | 'secondary' | 'accent' | 'text' | 'link';
 export type Alignment = 'left' | 'right' | 'center';
