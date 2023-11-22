@@ -1,17 +1,54 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { Sidebar } from '../../../shared';
+import { IconComponent } from '@atl-transit/shared';
 
 @Component({
    selector: 'rya-navbar',
    standalone: true,
-   imports: [CommonModule, SidebarComponent, RouterModule],
-   template: `<rya-sidebar [content]='menu'/>`,
+   imports: [CommonModule, SidebarComponent, IconComponent, RouterModule],
+   template: `
+      <div class="nav">
+         <div class="nav-sticky">
+            <div class="nav-wrapper">
+               <div class="nav__logo">
+                  <rya-icon [category]="menu.icon.category" [name]="menu.icon.name" [mode]="menu.icon.mode" />
+               </div>
+               <div class="nav__buttons">
+                  <ng-container *ngIf="!menuIsOpen">
+                     <div class="nav__button">
+                        <rya-icon [category]="'navigation'" [name]="'search'" class="search" (click)="toggleSearch()" />
+                     </div>
+                     <div class="nav__button">
+                        <rya-icon [category]="'navigation'" [name]="'hamburger'" (click)="toggleMenu()" />
+                     </div>
+                  </ng-container>
+                  <ng-container *ngIf="menuIsOpen">
+                     <div class="nav__button">
+                        <rya-icon [category]="'navigation'" [name]="'close'" (click)="toggleMenu()" />
+                     </div>
+                  </ng-container>
+               </div>
+            </div>
+         </div>
+         <rya-sidebar [ngClass]="{ 'display-none': !menuIsOpen }" [content]="menu" (click)="toggleMenu()" />
+      </div>
+   `,
    styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-   @Input() header!: Sidebar;
    @Input() menu!: Sidebar;
+   @Input() menuIsOpen = false;
+   @Input() searchIsOpen = false;
+   @Output() searchClicked = new EventEmitter<boolean>();
+
+   toggleSearch(): void {
+      this.searchClicked.emit(true);
+   }
+
+   toggleMenu(): void {
+      this.menuIsOpen = !this.menuIsOpen;
+   }
 }

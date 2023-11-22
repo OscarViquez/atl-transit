@@ -23,6 +23,7 @@
       *ngSwitchCase="!!props.content.routerLink"
       [style.justify-content]="props.align"
       [routerLink]="props.content.routerLink || null"
+      routerLinkActive="active-link"
       [class]="buttonClass"
       id="{{ props.content.id }}"
    >
@@ -32,11 +33,7 @@
 
 <ng-template #buttonContentTemplate>
    <div *ngIf="props.icon" class="button__icon">
-      <rya-icon 
-         [category]="props.icon.category" 
-         [name]="props.icon.name" 
-         [mode]="props.icon.mode" 
-      />
+      <rya-icon [category]="props.icon.category" [name]="props.icon.name" [mode]="props.icon.mode" />
    </div>
    <div class="button__label">{{ props.content.label }}</div>
 </ng-template>
