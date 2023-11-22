@@ -19,6 +19,12 @@
       }
    }
 
+   &__items {
+      rya-button {
+         border-radius: 8px;
+      }
+   }
+
    &--divider {
       border-bottom: 1px solid #eff1f8;
    }

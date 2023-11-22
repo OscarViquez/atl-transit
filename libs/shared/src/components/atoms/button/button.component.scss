@@ -54,10 +54,12 @@
       }
 
       &.menu {
+         border: 1px solid #ffffff;
          @include color-mode('secondary', 'light');
          @include background-mode('primary', 'light');
 
          &:hover {
+            border: 1px solid #a6a6a6;
             @include color-mode('primary', 'light');
             @include background-mode('secondary', 'light');
          }
@@ -68,9 +70,20 @@
          @include background-mode('primary', 'light');
       }
 
-      &.accent {
+      &.accent,
+      &.active-link {
          color: #ffffff;
          @include background-mode('accent', 'light');
+
+         rya-icon {
+            filter: invert(1) grayscale(1) brightness(9);
+         }
+         
+         &:hover {
+            rya-icon {
+               filter: none;
+            }
+         }
       }
    }
    &.dark {
@@ -98,6 +111,16 @@
       &.accent {
          color: #ffffff;
          @include background-mode('accent', 'dark');
+
+         rya-icon {
+            filter: invert(1) grayscale(1) brightness(9);
+         }
+
+         &:hover {
+            rya-icon {
+               filter: none;
+            }
+         }
       }
    }
 }

@@ -13,9 +13,10 @@ import { StaticContentService } from '../../../data/index';
    styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
-   constructor(private service: StaticContentService) {}
-   sideBarContent = this.service.setSidebarContent();
+   constructor(private staticContent: StaticContentService) {}
+   sideBarContent = this.staticContent.setSidebarContent();
    openModal = false;
+
 
    handleToggleModal(eventToggle: boolean, closeModal = false): void {
       if (closeModal) {
