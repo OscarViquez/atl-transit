@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { Sidebar } from '../../../shared';
 import { IconComponent } from '@atl-transit/shared';
+import { gsap } from 'gsap';
 
 @Component({
    selector: 'rya-navbar',
@@ -38,11 +39,21 @@ import { IconComponent } from '@atl-transit/shared';
    `,
    styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements AfterViewInit {
    @Input() menu!: Sidebar;
    @Input() menuIsOpen = false;
    @Input() searchIsOpen = false;
    @Output() searchClicked = new EventEmitter<boolean>();
+
+   // ...existing component properties and methods...
+   ngAfterViewInit() {
+      gsap.from('.nav__button', {
+         opacity: 0,
+         y: -10,
+         duration: 0.5,
+         stagger: 0.1
+      });
+   }
 
    toggleSearch(): void {
       this.searchClicked.emit(true);
@@ -50,5 +61,12 @@ export class NavbarComponent {
 
    toggleMenu(): void {
       this.menuIsOpen = !this.menuIsOpen;
+      if (this.menuIsOpen) {
+         gsap.from('rya-sidebar', {
+           opacity: 0,
+           duration: 0.2,
+           stagger: 0.1
+         });
+       }
    }
 }
