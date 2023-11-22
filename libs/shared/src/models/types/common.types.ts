@@ -13,7 +13,7 @@ export type ButtonContent = {
    label: string;
    routerLink?: string;
    href?: string;
-   id?: string;
+   id: string;
    disabled?: boolean;
 };
 

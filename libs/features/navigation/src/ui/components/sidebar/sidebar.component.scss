@@ -1,5 +1,5 @@
 .sticky {
-   width: 19vw;
+   width: 250px;
    background-color: white;
    height: 100vh;
 }
@@ -8,8 +8,7 @@
    display: inline-block;
    padding: 40px 1rem;
    background-color: white;
-   width: 100%;
-   max-width: 19vw;
+   width: 250px;
    height: 100vh;
    overflow: hidden;
    position: fixed;
@@ -21,20 +20,37 @@
    }
 }
 
+@media (max-width: 1299px) {
+   .sticky {
+      width: 192px;
+   }
+   .sidebar {
+      width: 192px;
+   }
+}
+
 @media (max-width: 992px) {
    .sticky {
       display: block;
-      max-width: unset;
       width: 100%;
    }
    .sidebar {
       display: block;
-      max-width: unset;
       width: 100%;
-      padding: 1rem 0;
+      padding: 3.75rem 0 1rem 0;
+
+      &__logo {
+         margin: 0 0 1rem 2rem;
+      }
 
       &__menu {
          padding: 0 1rem;
       }
+   }
+}
+
+@media (max-width: 767px) {
+   .sidebar {
+      padding: 1rem 0;
    }
 }
