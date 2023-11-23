@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { AppStateInterface, selectGeneralStationById, stationGeneralSelector, TrainUiAdapter } from '@atl-transit/global-state';
+import { amenitiesByIdSelector, AppStateInterface, generalStationByIdSelector, stationGeneralSelector, TrainUiAdapter } from '@atl-transit/global-state';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -26,10 +26,9 @@ import { HeroMock, TabMock, HeroComponent, TabComponent, LoadingSkeletonComponen
    styleUrls: ['./station-details-page.component.scss']
 })
 export class StationDetailsPageComponent implements OnInit{
-   station$ = this.store.select(selectGeneralStationById);
-   pageLoaded$ = this.store.select(selectGeneralStationById);
+   station$ = this.store.select(generalStationByIdSelector);
    staticContentHeader! : GenericHeader;
-   lines: string[] = [];
+   amenities$ = this.store.select(amenitiesByIdSelector);
 
    constructor(
       private store: Store<AppStateInterface>,
@@ -60,7 +59,9 @@ export class StationDetailsPageComponent implements OnInit{
          title: stationName|| '',
          subtitle: station?.description
       }
+
    })
+
    }
 
 }
