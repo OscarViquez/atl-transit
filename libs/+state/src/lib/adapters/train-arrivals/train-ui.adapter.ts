@@ -7,6 +7,7 @@ export class TrainUiAdapter {
       const uiStations: TrainStaion[] = [];
       stations.forEach((station) => {
          const header = this.MapStationToHeader(station);
+         
          const button: Button = {
             text: 'More details',
             mode: 'light',
@@ -82,7 +83,7 @@ export class TrainUiAdapter {
 
       const header: GenericHeader = {
          title: this.MapHeaderToUiView(station.name),
-         subtitle: station.description
+         subtitle: subtitle
       };
 
       return header;

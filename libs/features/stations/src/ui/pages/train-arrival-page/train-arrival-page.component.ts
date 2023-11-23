@@ -59,8 +59,6 @@ export class TrainArrivalPageComponent implements OnInit {
    ) {}
 
    ngOnInit() {
-      this.state.dispatch(userLocationAction.location());
-      this.stationStore.dispatch(generalStationActions.stationLocate());
       this.trainData$ = this.state.select(userStationsSelector);
       this.pageLoaded$ = this.state.select(userLoadingSelector);
    }

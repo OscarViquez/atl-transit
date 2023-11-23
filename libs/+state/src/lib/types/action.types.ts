@@ -29,4 +29,10 @@ export enum StationActionTypes {
    ArrivalMappingType = 'Arrival Mapping', 
    ArrivalMappingSuccess = 'Arrival Mapping Success', 
    ArrivalMappingFailure = 'Arrival Mapping Failure',
+   AmenitesResponseType = 'Amenities Response',
+   AmenitesResponseSuccess = 'Amenities Response Success',
+   AmenitesResponseFailure = 'Amenities Response Failure', 
+   StationScheduleResponseType = 'Station Schedule Response', 
+   StationScheduleResponseSuccess = 'Station Schedule Response Success', 
+   StationScheduleResponseFailure = 'Station Schedule Response Failure'
 }

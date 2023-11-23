@@ -35,6 +35,6 @@ export const { selectRouteParams } = getRouterSelectors();
 export const selectGeneralStationById = createSelector(
     stationGeneralSelector, 
     selectRouteParams,
-    (jsonStations, {id}) => jsonStations.find((station) => station.name == id)
+    (jsonStations, {id}) => jsonStations.find((station) => station._station_key == id)
 )
 
