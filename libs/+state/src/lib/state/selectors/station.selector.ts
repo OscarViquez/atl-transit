@@ -2,7 +2,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationStateInterface } from '../../models';
 import { CombinedDataAdapter } from '../../adapters/index';
 import { getRouterSelectors } from '@ngrx/router-store';
-import { AmenitiesStationInterface } from '@atl-transit/stations';
+import { AmenitiesStationInterface, ScheduleStationInterface } from '@atl-transit/stations';
 
 export const stationFeatureSelector = createFeatureSelector<StationStateInterface>('stations')
 
@@ -67,10 +67,23 @@ export const amenitiesByIdSelector = createSelector(
                 schedule: locatedAmenity?.schedule || '',
                 icon: locatedAmenity?.icon || ''
             };
-            
+
             amenityArray.push(mappedAmenity);
         })
 
         return amenityArray
+    }
+)
+
+export const scheduleByIdSelector = createSelector(
+    stationGeneralSelector, 
+    stationScheduleSelector, 
+    selectRouteParams,
+    (jsonStations, schedules, {id}) => {
+        const currentStation = jsonStations.find((station) => station._station_key == id);
+        
+        const currentStationSchedule = schedules.find((schedule) => schedule._schedule_key == currentStation?._schedule_key)
+
+        return currentStationSchedule;
     }
 )

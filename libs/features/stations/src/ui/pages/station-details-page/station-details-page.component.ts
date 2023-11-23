@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { amenitiesByIdSelector, AppStateInterface, generalStationByIdSelector, stationGeneralSelector, TrainUiAdapter } from '@atl-transit/global-state';
+import { amenitiesByIdSelector, AppStateInterface, generalStationByIdSelector, scheduleByIdSelector, stationGeneralSelector, TrainUiAdapter } from '@atl-transit/global-state';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -29,6 +29,7 @@ export class StationDetailsPageComponent implements OnInit{
    station$ = this.store.select(generalStationByIdSelector);
    staticContentHeader! : GenericHeader;
    amenities$ = this.store.select(amenitiesByIdSelector);
+   schedule$ = this.store.select(scheduleByIdSelector);
 
    constructor(
       private store: Store<AppStateInterface>,
@@ -46,20 +47,18 @@ export class StationDetailsPageComponent implements OnInit{
    const dateObject = new Date(formattedDate + dateString);
 
    this.station$.subscribe((station) => {
-
-      const red = station?.description.search('red');
-      const blue = station?.description.search('blue');
-      const green = station?.description.search('green');
-      const gold = station?.description.search('gold');
-      const all = station?.description.search('all');
       
       const stationName = TrainUiAdapter.MapHeaderToUiView(station?.name || '');
 
       this.staticContentHeader = {
-         title: stationName|| '',
+         title: stationName,
          subtitle: station?.description
       }
 
+   })
+
+   this.schedule$.subscribe((i) => {
+      console.log(i)
    })
 
    }

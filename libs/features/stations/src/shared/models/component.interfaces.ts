@@ -69,6 +69,7 @@ export interface JsonStationInterface {
    contactnumber: string;
    busroutes: number[];
    lines?: string[];
+   _schedule_key: number;
 }
 
 export interface AmenitiesStationInterface {
