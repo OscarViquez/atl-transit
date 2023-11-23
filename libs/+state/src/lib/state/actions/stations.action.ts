@@ -39,7 +39,7 @@ export const amenitiesActions = createActionGroup({
    source: StationActionTypes.AmenitesResponseType,
    events: {
       [StationActionTypes.AmenitesResponseSuccess]: props<{
-         generalStations: AmenitiesStationInterface[];
+         amenities: AmenitiesStationInterface[];
       }>(),
       [StationActionTypes.AmenitesResponseFailure]: props<{ message: string }>()
    }
@@ -49,7 +49,7 @@ export const stationScheduleActions = createActionGroup({
    source: StationActionTypes.StationScheduleResponseType,
    events: {
       [StationActionTypes.StationScheduleResponseSuccess]: props<{
-         generalStations: ScheduleStationInterface[];
+         stationSchedule: ScheduleStationInterface[];
       }>(),
       [StationActionTypes.StationScheduleResponseFailure]: props<{ message: string }>()
    }
