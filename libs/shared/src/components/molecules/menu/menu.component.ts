@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonProps, ThemeButtonComponent } from '../../atoms';
 
 export interface MenuProps {
-   title: string;
+   title?: string;
    items: ButtonProps[];
    mode?: string;
    divider?: boolean;

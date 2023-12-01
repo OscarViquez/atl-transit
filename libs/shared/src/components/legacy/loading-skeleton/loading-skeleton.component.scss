@@ -2,7 +2,7 @@
 @import '../../../../../assets/main.scss';
 
 //* Component Variables */
-$button-font: 'General Sans', sans-serif;
+$button-font: 'Inter', sans-serif;
 $button-width: 327px;
 $button-hieght: 41px;
 $button-border-radius: 0 0 5px 5px;
@@ -102,7 +102,7 @@ $button-light-md-text-active: #c65854;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      font-family: 'General Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       gap: 1rem;
 
       &--header {
@@ -149,7 +149,7 @@ $button-light-md-text-active: #c65854;
    justify-content: center;
    align-items: center;
    border-radius: 3px;
-   font-family: 'General Sans', sans-serif;
+   font-family: 'Inter', sans-serif;
 
    &-row {
       display: flex;

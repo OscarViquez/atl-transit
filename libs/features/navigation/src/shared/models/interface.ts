@@ -17,7 +17,7 @@ export interface SidebarContent {
 }
 
 export interface SidebarMenuItem {
-   title: string;
+   title?: string;
    divider: boolean;
    items: string[];
  }
