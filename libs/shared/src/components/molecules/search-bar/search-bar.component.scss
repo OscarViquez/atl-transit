@@ -1,5 +1,5 @@
 .search-bar {
-   font-family: 'General Sans', sans-serif;
+   font-family: 'Inter', sans-serif;
    display: flex;
    width: 100%;
    height: 48px;
@@ -50,6 +50,26 @@
       &:hover {
          background: #ecedf5;
          transition: background 0.2s ease-in-out;
+      }
+   }
+
+   &--primary {
+      .search-bar {
+         &__input,
+         &__button {
+            border: 1px solid #f7f8fb;
+            background: #f7f8fb;
+         }
+      }
+   }
+
+   &--secondary {
+      .search-bar {
+         &__input,
+         &__button {
+            border: 1px solid #fff;
+            background: #fff;
+         }
       }
    }
 }

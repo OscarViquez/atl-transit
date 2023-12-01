@@ -2,7 +2,7 @@
    "name": "search",
    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
    "sourceRoot": "libs/features/search/src",
-   "prefix": "lib",
+   "prefix": "rya",
    "tags": [],
    "projectType": "library",
    "targets": {
