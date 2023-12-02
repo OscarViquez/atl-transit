@@ -1,0 +1,13 @@
+.tabs {
+   display: flex;
+   flex-direction: row;
+   border-radius: 8px;
+   border: 1px solid #eff1f8;
+   background: #f7f8fb;
+   padding: 4px;
+}
+
+rya-button {
+   flex: 1;
+   border-radius: 5px;
+}

@@ -37,9 +37,7 @@ export class SearchModalComponent implements OnInit {
 
    closeModal(): void {
       this.isModalActive = false;
-      setTimeout(() => {
-         this.closeSearch.emit(false);
-      }, 300);
+      this.closeSearch.emit(false);
    }
 
    processQuery(event: string) {
