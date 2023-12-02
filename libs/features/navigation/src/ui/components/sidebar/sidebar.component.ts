@@ -2,7 +2,7 @@ import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, Simpl
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { IconComponent, MenuComponent } from '@atl-transit/shared';
-import { Sidebar } from '../../../shared/models/interface';
+import { Sidebar } from '../../../shared/models/interfaces';
 import { gsap } from 'gsap';
 
 @Component({

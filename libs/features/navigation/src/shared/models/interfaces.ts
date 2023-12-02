@@ -20,8 +20,9 @@ export interface SidebarMenuItem {
    title?: string;
    divider: boolean;
    items: string[];
- }
+}
 
+//  TODO: Honestly, I'm not sure what this is for.
 export interface SideBarButtonProps {
    category: 'navigation';
    type: 'menu';
