@@ -1,4 +1,4 @@
-import { SidebarContent } from '../models/interface';
+import { SidebarContent } from '../models/interfaces';
 
 export const sideBarContent: SidebarContent = {
    logo: {

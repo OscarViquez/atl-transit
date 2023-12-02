@@ -26,73 +26,16 @@ export const MenuLight: Story = {
             {
                content: {
                   label: 'Overview',
-                  href: 'https://www.google.com/maps',
                   id: 'myButton'
                },
                type: 'menu',
                variant: 'primary',
-               mode: 'light',
+               mode: 'dark',
                align: 'left',
                icon: {
                   category: 'navigation',
                   name: 'overview',
-                  mode: 'light'
-               }
-            },
-            {
-               content: {
-                  label: 'Trains'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'light',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'light'
-               }
-            },
-            {
-               content: {
-                  label: 'Buses'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'light',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'light'
-               }
-            },
-            {
-               content: {
-                  label: 'Plan Trip'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'light',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'light'
-               }
-            },
-            {
-               content: {
-                  label: 'Alerts'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'light',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'light'
+                  mode: 'dark'
                }
             }
          ]
@@ -111,62 +54,6 @@ export const MenuDark: Story = {
                content: {
                   label: 'Overview',
                   id: 'myButton'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'dark',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'dark'
-               }
-            },
-            {
-               content: {
-                  label: 'Trains'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'dark',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'dark'
-               }
-            },
-            {
-               content: {
-                  label: 'Buses'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'dark',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'dark'
-               }
-            },
-            {
-               content: {
-                  label: 'Plan Trip'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'dark',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'dark'
-               }
-            },
-            {
-               content: {
-                  label: 'Alerts'
                },
                type: 'menu',
                variant: 'primary',

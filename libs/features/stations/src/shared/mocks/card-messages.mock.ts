@@ -1,4 +1,4 @@
-import { GenericTrainErrorMessage } from '../models/component.interfaces';
+import { GenericTrainErrorMessage } from '../models/interfaces';
 
 export const GenericTrainErrorMocks: GenericTrainErrorMessage[] = [
    {
