@@ -2,13 +2,37 @@
    <ng-container *ngIf="{ loading: pageLoaded$ | async } as loaded">
       <!-- If content has completed loading -->
       <ng-container *ngIf="!loaded.loading">
-         <section class="hero-wrapper">
+         <!-- TODO: Make a new hero variant -->
+         <!-- <section class="hero-wrapper">
             <lib-hero [content]="staticContentHeader"></lib-hero>
-         </section>
+         </section> -->
+         <!-- TODO: MOVE THIS TO STATIC CONTENT SERVICES -->
          <div class="tab">
-            <div class="tab-wrapper">
-               <lib-tab [content]="staticContentTab" (currentTabEmitter)="currentTabSetter($event)"></lib-tab>
-            </div>
+            <rya-tab
+               [tabs]="[
+                      {
+                         content: {
+                            label: 'Overview',
+                            id: 'myButton'
+                         },
+                         type: 'default',
+                         variant: 'primary',
+                         mode: 'light',
+                         align: 'center',
+                      },
+                      {
+                         content: {
+                            label: 'Overview',
+                            id: 'myButton'
+                         },
+                         type: 'default',
+                         variant: 'secondary',
+                         mode: 'light',
+                         align: 'center',
+                      }
+                   ]"
+               (currentTabEmitter)="currentTabSetter($event)"
+            />
          </div>
          <section class="train-arrivals" *ngIf="view.currentTabIndex === 0">
             <div class="train-arrivals-wrapper">

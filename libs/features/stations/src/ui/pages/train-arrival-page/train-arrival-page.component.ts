@@ -16,7 +16,6 @@ import { TrainStaion, GenericTrainErrorMocks } from '../../../shared';
 import { HeroMock, TabMock, HeroComponent, TabComponent, LoadingSkeletonComponent } from '@atl-transit/shared';
 import {
    generalStationActions,
-   userLocationAction,
    userStationsSelector,
    StationStateInterface,
    UserStateInterface,
