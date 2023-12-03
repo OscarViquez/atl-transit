@@ -19,6 +19,7 @@
       "@angular/router": "~16.2.0",
       "@ngrx/effects": "^16.2.0",
       "@ngrx/entity": "^16.2.0",
+      "@ngrx/router-store": "^16.3.0",
       "@ngrx/store": "^16.2.0",
       "@ngrx/store-devtools": "^16.2.0",
       "@nx/angular": "16.8.1",

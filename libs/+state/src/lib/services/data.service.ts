@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EndpointResponse } from '../types';
 import { MartaArrivalResponse } from '../models';
-import { JsonStationInterface } from '@atl-transit/stations';
+import { AmenitiesStationInterface, JsonStationInterface, ScheduleStationInterface } from '@atl-transit/stations';
 
 @Injectable({
    providedIn: 'root'
@@ -23,6 +23,19 @@ export class DataService {
          EndpointResponse.GENERAL_STATION_RESPONSE
       );
    }
+
+   getAmenitiesData(): Observable<AmenitiesStationInterface[]> {
+      return this.http.get<AmenitiesStationInterface[]>(
+         EndpointResponse.AMENITIES_STATION_RESPONSE
+      );
+   }
+
+   getStationSchedule(): Observable<ScheduleStationInterface[]> {
+      return this.http.get<ScheduleStationInterface[]>(
+         EndpointResponse.STATION_SCHEDULE_RESPONSE
+      );
+   }
+
 
    getArrivalPredictionData(): Observable<object[]> {
       return this.http.get<object[]>(EndpointResponse.PREDICTIONS_RESPONSE);
