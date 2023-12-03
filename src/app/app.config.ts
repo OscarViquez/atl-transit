@@ -2,11 +2,7 @@ import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter, withEnabledBlockingInitialNavigation } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { StateModule } from '@atl-transit/global-state';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-// const providers = importProvidersFrom(
-//   StateModule,
-//   // ... other modules
-// );
+import { PathLocationStrategy, LocationStrategy } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
    providers: [
@@ -14,6 +10,7 @@ export const appConfig: ApplicationConfig = {
       importProvidersFrom(
          StateModule
       ),
-      {provide: LocationStrategy, useClass: HashLocationStrategy}
+      // EXPIREMENTAL: This is to remove the hash from the url, if not, then we revert back to HashLocationStrategy
+      {provide: LocationStrategy, useClass: PathLocationStrategy}
    ]
 };

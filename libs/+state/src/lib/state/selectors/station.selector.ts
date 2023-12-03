@@ -1,8 +1,8 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationStateInterface } from '../../models';
-import { CombinedDataAdapter } from '../../adapters/index';
 import { getRouterSelectors } from '@ngrx/router-store';
-import { AmenitiesStationInterface, ScheduleStationInterface } from '@atl-transit/stations';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { AmenitiesStationInterface } from '@atl-transit/stations';
 
 export const stationFeatureSelector = createFeatureSelector<StationStateInterface>('stations')
 
@@ -54,7 +54,8 @@ export const amenitiesByIdSelector = createSelector(
     amenitiesSelector, 
     selectRouteParams,
     (jsonStations, amenities, {id}) => {
-        let amenityArray : AmenitiesStationInterface[] = [];
+        // TODO: if possible, move this to the adapter or the service file
+        const amenityArray : AmenitiesStationInterface[] = [];
         const currentStation = jsonStations.find((station) => station._station_key == id);
         currentStation?.amenities.forEach((amenity) => {
             const locatedAmenity = amenities.find((item) => item._amenities_key == amenity);
@@ -81,9 +82,7 @@ export const scheduleByIdSelector = createSelector(
     selectRouteParams,
     (jsonStations, schedules, {id}) => {
         const currentStation = jsonStations.find((station) => station._station_key == id);
-        
         const currentStationSchedule = schedules.find((schedule) => schedule._schedule_key == currentStation?._schedule_key)
-
         return currentStationSchedule;
     }
 )
