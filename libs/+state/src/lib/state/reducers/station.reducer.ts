@@ -1,6 +1,7 @@
-import { createReducer, on } from '@ngrx/store';
-import { generalStationActions, arrivalMappingActions, arrivalResponseActions } from '../actions/stations.action';
+import { createReducer, on, State } from '@ngrx/store';
+import { generalStationActions, arrivalMappingActions, arrivalResponseActions, amenitiesActions, stationScheduleActions } from '../actions/stations.action';
 import { StationStateInterface  } from '../../models';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 
 export const initalArrivalState: StationStateInterface = {
@@ -8,6 +9,8 @@ export const initalArrivalState: StationStateInterface = {
     arrivalData: [], 
     railArrivalData: [], 
     loading: true, 
+    amenities: [], 
+    stationSchedule: [],
     error: ''
 }
 
@@ -35,6 +38,22 @@ export const stationReducer = createReducer(
         railArrivalData: action.arrivalsMapped
     })), 
     on(arrivalMappingActions.arrivalMappingFailure, (state, action) => ({
+        ...state, 
+        error: action.message
+    })), 
+    on(amenitiesActions.amenitiesResponseSuccess, (state, action) => ({
+        ...state, 
+        amenities: action.amenities
+    })), 
+    on(amenitiesActions.amenitiesResponseFailure, (state, action) => ({
+        ...state, 
+        error: action.message
+    })), 
+    on(stationScheduleActions.stationScheduleResponseSuccess, (state, action) => ({
+        ...state, 
+        stationSchedule: action.stationSchedule
+    })), 
+    on(stationScheduleActions.stationScheduleResponseFailure, (state, action) => ({
         ...state, 
         error: action.message
     }))

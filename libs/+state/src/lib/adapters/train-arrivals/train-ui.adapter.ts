@@ -7,9 +7,11 @@ export class TrainUiAdapter {
       const uiStations: TrainStaion[] = [];
       stations.forEach((station) => {
          const header = this.MapStationToHeader(station);
+         
          const button: Button = {
             text: 'More details',
-            mode: 'light'
+            mode: 'light',
+            hyperLink: '/station/' + station.station_key
          };
 
          const trainUiStationIndividual: TrainStaion = {

@@ -3,8 +3,9 @@ import { RouterModule } from '@angular/router';
 import { NavigationComponent } from '@atl-transit/navigation';
 import { CommonModule } from '@angular/common';
 import { SearchModalComponent } from '@atl-transit/search';
-import { UserStateInterface, userLocationAction } from '@atl-transit/global-state';
+import { UserStateInterface } from '@atl-transit/global-state';
 import { Store } from '@ngrx/store';
+import { StationStateInterface, userLocationAction, generalStationActions } from '@atl-transit/global-state';
 
 @Component({
    standalone: true,
@@ -16,10 +17,11 @@ import { Store } from '@ngrx/store';
 export class AppComponent implements OnInit {
    searchModalActive = false;
 
-   constructor(private store: Store<UserStateInterface>) {}
+   constructor(private store: Store<UserStateInterface>, private stationStore: Store<StationStateInterface>) {}
 
-   ngOnInit() {
+   ngOnInit(): void {
       this.store.dispatch(userLocationAction.location());
+      this.stationStore.dispatch(generalStationActions.stationLocate());
    }
 
    toggleSearchModal(bool: boolean): void {

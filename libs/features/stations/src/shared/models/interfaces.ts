@@ -35,17 +35,16 @@ export interface RailArrival {
 }
 
 export interface StationInterface {
+   station_key: number;
    name: string;
    description?: string;
    latitude: number;
    longitude: number;
    contactnumber?: string;
    connectingbusroutes?: BusRoutes[];
-   ammenities1?: string;
-   ammenities2?: string;
-   ammenities3?: string;
-   ammenities4?: string;
+   ammenities_key: number[];
    arrivals: RailArrival[];
+   lines?: string[];
 }
 
 export interface TrainInterface {
@@ -60,16 +59,44 @@ export interface BusRoutes {
 }
 
 export interface JsonStationInterface {
+   _station_key: number;
    name: string;
+   _id: string;
+   description: string;
    longitude: string;
    latitude: string;
-   amenities1?: string;
-   amenities2?: string;
-   amenities3?: string;
-   amenities4?: string;
+   amenities: number[];
    contactnumber: string;
-   connectingbusroutes: BusRoutes[];
+   busroutes: number[];
+   lines?: string[];
+   _schedule_key: number;
 }
+
+export interface AmenitiesStationInterface {
+   _id: string, 
+   _amenities_key: number, 
+   name: string, 
+   free: boolean,
+   schedule: string, 
+   icon: string
+};
+
+export interface ScheduleStationInterface {
+   _id: string, 
+   _schedule_key: number, 
+   alllines: ScheduleLineInterface[]
+};
+
+export interface ScheduleLineInterface {
+   line: string, 
+   schedules: DayScheduleInterface[]
+}
+
+export interface DayScheduleInterface {
+   direction: string, 
+   day: string, 
+   schedule: number[]
+};
 
 export interface GenericTrainErrorMessage {
    title: 'No Saved Stations' | 'No Stations Found' | 'No Arrivals Found' | 'No Stations Found';

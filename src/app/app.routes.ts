@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { StationPageComponent, TrainArrivalPageComponent } from '@atl-transit/stations';
+import { StationDetailsPageComponent, TrainArrivalPageComponent } from '@atl-transit/stations';
 
 
 export const appRoutes: Route[] = [
@@ -9,8 +9,8 @@ export const appRoutes: Route[] = [
       pathMatch: 'full'
    },
    {
-      path: 'search',
-      component: StationPageComponent,
+      path: 'station/:id',
+      component: StationDetailsPageComponent,
       pathMatch: 'full'
    },
    {

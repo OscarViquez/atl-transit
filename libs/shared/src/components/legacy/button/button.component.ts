@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Button } from '../../../models';
+import {RouterModule} from '@angular/router';
 
 @Component({
    selector: 'lib-button',
    standalone: true,
-   imports: [CommonModule],
+   imports: [CommonModule,
+   RouterModule],
    templateUrl: './button.component.html',
    styleUrls: ['./button.component.scss']
 })
