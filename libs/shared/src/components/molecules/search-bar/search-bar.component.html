@@ -1,10 +1,10 @@
-<div class="search-bar search-bar--{{color}}">
-   <input
-      class="search-bar__input"
-      type="text"
-      placeholder="Search Destination"
-      [(ngModel)]="query"
-   />
+<div class="search-bar search-bar--{{ color }}" [ngSwitch]="color">
+   <ng-container *ngSwitchCase="'primary'">
+      <input class="search-bar__input" type="text" placeholder="Search Destination" [(ngModel)]="query" />
+   </ng-container>
+   <ng-container *ngSwitchCase="'secondary'">
+      <div class="search-bar__input">Search Destination</div>
+   </ng-container>
    <button class="search-bar__button" type="button" (click)="emitQuery()">
       <img src="/assets/icons/search-icon-default.svg" />
    </button>

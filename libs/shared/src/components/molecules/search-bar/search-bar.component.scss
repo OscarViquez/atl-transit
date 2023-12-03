@@ -65,10 +65,25 @@
 
    &--secondary {
       .search-bar {
+         &__input {
+            display: flex;
+            align-items: center;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+         }
          &__input,
          &__button {
             border: 1px solid #fff;
             background: #fff;
+
+            &::placeholder {
+               font-family: inherit;
+               font-size: 12px;
+               font-weight: 500;
+               color: #000;
+            }
          }
       }
    }

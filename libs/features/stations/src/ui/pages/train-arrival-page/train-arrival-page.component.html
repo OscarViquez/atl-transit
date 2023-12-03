@@ -1,73 +1,21 @@
-<div class="train-arrivals-page">
-   <ng-container *ngIf="{ loading: pageLoaded$ | async } as loaded">
-      <!-- If content has completed loading -->
-      <ng-container *ngIf="!loaded.loading">
-         <!-- TODO: Make a new hero variant -->
-         <!-- <section class="hero-wrapper">
-            <lib-hero [content]="staticContentHeader"></lib-hero>
-         </section> -->
-         <!-- TODO: MOVE THIS TO STATIC CONTENT SERVICES -->
-         <div class="tab">
-            <rya-tab
-               [tabs]="[
-                      {
-                         content: {
-                            label: 'Overview',
-                            id: 'myButton'
-                         },
-                         type: 'default',
-                         variant: 'primary',
-                         mode: 'light',
-                         align: 'center',
-                      },
-                      {
-                         content: {
-                            label: 'Overview',
-                            id: 'myButton'
-                         },
-                         type: 'default',
-                         variant: 'secondary',
-                         mode: 'light',
-                         align: 'center',
-                      }
-                   ]"
-               (currentTabEmitter)="currentTabSetter($event)"
-            />
-         </div>
-         <section class="train-arrivals" *ngIf="view.currentTabIndex === 0">
-            <div class="train-arrivals-wrapper">
-               <ng-container *ngFor="let train of trainData$ | async; let i = index">
-                  <div *ngIf="i < maxStationArrivals">
-                     <lib-station-card [content]="train" [maxQuantiy]="maxRailArrivals"></lib-station-card>
-                  </div>
-               </ng-container>
-            </div>
+<ng-container *ngIf="{ loading: pageLoaded$ | async } as loaded">
+   <main class="train">
+      <header class="train-header">
+         <rya-search-bar [color]="'secondary'" (click)="this.searchClicked.emit(true)"/>
+         <rya-header [content]="content.header.main" />
+         <rya-tab [tabs]="content.tab" (currentTabEmitter)="currentTabSetter($event)" />
+      </header>
+
+      <!-- <section [ngSwitch]="config.currentTabIndex">
+         <section class="train-arrivals" *ngSwitchCase="0">
          </section>
-         <section class="train-arrivals" *ngIf="view.currentTabIndex === 1">
-            <div class="train-arrivals-wrapper">
-               <!-- TODO: Add view change when there are saved stations in storage -->
-               <lib-station-error-message [content]="savedErrorMessage"></lib-station-error-message>
-            </div>
+         <section class="train-arrivals" *ngSwitchCase="1">
          </section>
-      </ng-container>
+      </section> -->
 
       <!-- If content is still loading... -->
       <ng-container *ngIf="loaded.loading">
-         <section class="hero-wrapper">
-            <lib-loading-skeleton [loadingItem]="'hero'"></lib-loading-skeleton>
-         </section>
-
-         <div class="tab">
-            <div class="tab-wrapper">
-               <lib-loading-skeleton [loadingItem]="'tab'"></lib-loading-skeleton>
-            </div>
-         </div>
-
-         <section class="train-arrivals">
-            <div class="train-arrivals-wrapper">
-               <lib-loading-skeleton [loadingItem]="'train-card'"></lib-loading-skeleton>
-            </div>
-         </section>
+         <lib-loading-skeleton [loadingItem]="'train-card'"></lib-loading-skeleton>
       </ng-container>
-   </ng-container>
-</div>
+   </main>
+</ng-container>

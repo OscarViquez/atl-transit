@@ -1,11 +1,4 @@
-import { Icon, UiModes } from '../types';
-
-// export interface IconComponent {
-//    ref?: HTMLElement;
-//    id?: string;
-//    size?: string | number;
-//    className?: string;
-// }
+import { UiModes } from '../types';
 
 export interface GenericHeader {
    title: string;
@@ -23,7 +16,6 @@ export interface ComponentState {
    systemMode: UiModes; // system mode for the component
    error?: boolean; // error state for the component
 }
-
 
 export interface NavigationUI {
    pageName: string;

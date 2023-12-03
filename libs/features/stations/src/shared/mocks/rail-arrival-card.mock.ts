@@ -1,5 +1,6 @@
-import { RailArrival } from "../../shared";
-
+import { RailArrival } from '../../shared';
+import { ButtonLightModeMock } from '@atl-transit/shared';
+import { TrainStaion } from '../../shared';
 
 export const RailArrivalMock: RailArrival[] = [
    {
@@ -39,3 +40,17 @@ export const RailArrivalMock: RailArrival[] = [
       arrivalTime: '5 min'
    }
 ];
+
+export const TrainStationMock: TrainStaion = {
+   header: {
+      title: 'Five Points',
+      subtitle: 'All Rail Lines Available'
+   },
+   railArrivals: RailArrivalMock,
+   button: ButtonLightModeMock,
+   state: {
+      isLoading: false,
+      systemMode: 'light',
+      error: true
+   }
+};

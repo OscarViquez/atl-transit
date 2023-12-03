@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ContentService } from './static-content.service';
+import { StaticContentService } from './static-content.service';
 
 describe('ContentService', () => {
-  let service: ContentService;
+   let service: StaticContentService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ContentService);
-  });
+   beforeEach(() => {
+      TestBed.configureTestingModule({});
+      service = TestBed.inject(StaticContentService);
+   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+   it('should be created', () => {
+      expect(service).toBeTruthy();
+   });
 });
