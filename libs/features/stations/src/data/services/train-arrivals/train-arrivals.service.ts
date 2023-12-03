@@ -35,7 +35,7 @@ export class TrainArrivalsService {
 
    setConfig(): ArrivalPageConfig {
       return {
-         maxStationArrivals: 3,
+         maxStationArrivals: 2,
          maxRailArrivals: 4,
          currentTabIndex: 0
       };

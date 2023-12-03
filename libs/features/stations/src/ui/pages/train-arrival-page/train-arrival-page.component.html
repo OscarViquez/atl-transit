@@ -1,19 +1,26 @@
 <ng-container *ngIf="{ loading: pageLoaded$ | async } as loaded">
    <main class="train">
       <header class="train-header">
-         <rya-search-bar [color]="'secondary'" (click)="this.searchClicked.emit(true)"/>
-         <rya-header [content]="content.header.main" />
+         <rya-search-bar [color]="'secondary'" (click)="shared.toggleSearchModal()" />
+         <rya-header [content]="content.header.main" [variant]="'main'" />
          <rya-tab [tabs]="content.tab" (currentTabEmitter)="currentTabSetter($event)" />
       </header>
 
-      <!-- <section [ngSwitch]="config.currentTabIndex">
-         <section class="train-arrivals" *ngSwitchCase="0">
+      <section [ngSwitch]="config.currentTabIndex">
+         <section *ngSwitchCase="0">
+            <ng-container *ngIf="!loaded.loading">
+               <ng-container *ngFor="let train of trainData$ | async; let i = index">
+                  <div *ngIf="i < config.maxStationArrivals">
+                     <lib-station-card [content]="train" [maxQuantiy]="config.maxRailArrivals"></lib-station-card>
+                  </div>
+               </ng-container>
+            </ng-container>
          </section>
-         <section class="train-arrivals" *ngSwitchCase="1">
+         <section *ngSwitchCase="1">
+            <lib-station-error-message [content]="content.errorMessages[0]"></lib-station-error-message>
          </section>
-      </section> -->
+      </section>
 
-      <!-- If content is still loading... -->
       <ng-container *ngIf="loaded.loading">
          <lib-loading-skeleton [loadingItem]="'train-card'"></lib-loading-skeleton>
       </ng-container>

@@ -9,7 +9,8 @@ import {
    TabComponent,
    LoadingSkeletonComponent,
    HeaderComponent,
-   SearchBarComponent
+   SearchBarComponent,
+   SharedService
 } from '@atl-transit/shared';
 import { StaticContentService, TrainArrivalsService } from '../../../data';
 @Component({
@@ -29,13 +30,16 @@ import { StaticContentService, TrainArrivalsService } from '../../../data';
    styleUrls: ['./train-arrival-page.component.scss']
 })
 export class TrainArrivalPageComponent implements OnInit {
-   @Output() searchClicked = new EventEmitter<boolean>();
    content!: TrainPageContent;
    config!: ArrivalPageConfig;
    trainData$!: Observable<TrainStaion[]>;
    pageLoaded$!: Observable<boolean>;
 
-   constructor(private trainArrivalService: TrainArrivalsService, private contentService: StaticContentService) {}
+   constructor(
+      private trainArrivalService: TrainArrivalsService,
+      private contentService: StaticContentService,
+      public shared: SharedService
+   ) {}
 
    ngOnInit(): void {
       this.content = this.contentService.setTrainPageContent();
