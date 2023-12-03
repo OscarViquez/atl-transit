@@ -43,24 +43,23 @@ export class TrainArrivalAdapter {
       const stations: StationInterface[] = [];
       allStations.forEach((station) => {
          const routes: BusRoutes[] = [];
-         station.connectingbusroutes_key.forEach((x) => {
+         station.busroutes.forEach((x) => {
             if (x !== null) {
                // const busRoute = this.MapObjectToBusRoute(x);
-
                // routes.push(busRoute);
             }
          });
 
          // map the stationponse to the interface
          const mappedResponse: StationInterface = {
-            station_key: station.station_key,
+            station_key: station._station_key,
             name: station.name,
             description: station.description,
             latitude: parseFloat(station.latitude),
             longitude: parseFloat(station.longitude),
             contactnumber: station.contactnumber,
             connectingbusroutes: routes,
-            ammenities_key: station.amentities_key,
+            ammenities_key: station.amenities,
             arrivals: []
          };
 

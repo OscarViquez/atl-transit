@@ -12,6 +12,7 @@ export class CombinedDataAdapter {
       //step 1: convert from from json to station interface
 
       return new Observable((observer: Observer<any>) => {
+        
          const mappedStationData = TrainArrivalAdapter.MapJsonToStationInterface(stationData);
          const mappedRailData: RailArrival[] = [];
          railData.forEach((rail) => {

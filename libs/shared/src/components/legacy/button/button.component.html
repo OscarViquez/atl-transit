@@ -1,5 +1,5 @@
 <ng-container *ngIf="content && !isLoading">
-   <a
+ <a
       class="
          button
          button--size-{{ content.size }} "
@@ -8,7 +8,8 @@
          'button--active': content.active,
          'button--light-mode': content.mode === 'light',
       }"
-      href="{{ content.hyperLink }}"
+
+      [routerLink]="content.hyperLink"
    >
       <div *ngIf="content.icon" class="button__icon">
          <img src="{{ content.icon }}" alt="{{ content.icon }}" />

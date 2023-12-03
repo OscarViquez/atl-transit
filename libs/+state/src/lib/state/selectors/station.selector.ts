@@ -2,6 +2,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationStateInterface } from '../../models';
 import { CombinedDataAdapter } from '../../adapters/index';
 import { getRouterSelectors } from '@ngrx/router-store';
+import { AmenitiesStationInterface, ScheduleStationInterface } from '@atl-transit/stations';
 
 export const stationFeatureSelector = createFeatureSelector<StationStateInterface>('stations')
 
@@ -32,9 +33,57 @@ export const stationErrorSelector = createSelector(
 
 export const { selectRouteParams } = getRouterSelectors();
 
-export const selectGeneralStationById = createSelector(
+export const generalStationByIdSelector = createSelector(
     stationGeneralSelector, 
     selectRouteParams,
-    (jsonStations, {id}) => jsonStations.find((station) => station.name == id)
+    (jsonStations, {id}) => jsonStations.find((station) => station._station_key == id)
 )
 
+export const amenitiesSelector = createSelector(
+    stationFeatureSelector, 
+    (stationState) => stationState.amenities
+)
+
+export const stationScheduleSelector = createSelector(
+    stationFeatureSelector, 
+    (stationState) => stationState.stationSchedule
+)
+
+export const amenitiesByIdSelector = createSelector(
+    stationGeneralSelector, 
+    amenitiesSelector, 
+    selectRouteParams,
+    (jsonStations, amenities, {id}) => {
+        let amenityArray : AmenitiesStationInterface[] = [];
+        const currentStation = jsonStations.find((station) => station._station_key == id);
+        currentStation?.amenities.forEach((amenity) => {
+            const locatedAmenity = amenities.find((item) => item._amenities_key == amenity);
+
+            const mappedAmenity: AmenitiesStationInterface = {
+                _id: locatedAmenity?._id || '',  
+                _amenities_key: locatedAmenity?._amenities_key || 0, 
+                name: locatedAmenity?.name || '',
+                free: locatedAmenity?.free || false,
+                schedule: locatedAmenity?.schedule || '',
+                icon: locatedAmenity?.icon || ''
+            };
+
+            amenityArray.push(mappedAmenity);
+        })
+
+        return amenityArray
+    }
+)
+
+export const scheduleByIdSelector = createSelector(
+    stationGeneralSelector, 
+    stationScheduleSelector, 
+    selectRouteParams,
+    (jsonStations, schedules, {id}) => {
+        const currentStation = jsonStations.find((station) => station._station_key == id);
+        
+        const currentStationSchedule = schedules.find((schedule) => schedule._schedule_key == currentStation?._schedule_key)
+
+        return currentStationSchedule;
+    }
+)

@@ -6,7 +6,7 @@ import { catchError, map, concatMap, withLatestFrom} from 'rxjs/operators';
 import { StationStateInterface } from '../../models';
 import { CombinedDataAdapter } from '../../adapters/index';
 import { DataService } from '../../services/data.service';
-import { arrivalMappingActions, arrivalResponseActions, generalStationActions, userLocationAction } from '../actions';
+import { amenitiesActions, arrivalMappingActions, arrivalResponseActions, generalStationActions, stationScheduleActions, userLocationAction } from '../actions';
 import { stationArrivalResponseSelector, stationGeneralSelector } from '../selectors';
 
 @Injectable({
@@ -34,6 +34,25 @@ export class StationEffects {
         ))
     ))
 
+    loadAmenities$ = createEffect(() => 
+        this.actions$.pipe(
+            ofType(generalStationActions.generalStationSuccess),
+            concatMap(() => this.dataService.getAmenitiesData().pipe(
+                map((amenitiesData) => amenitiesActions.amenitiesResponseSuccess( {amenities: amenitiesData})),
+                catchError((error) => of(amenitiesActions.amenitiesResponseFailure({ message: error })))
+            ))
+        )
+    )
+
+    loadStationSchedule$ = createEffect(() => 
+        this.actions$.pipe(
+            ofType(generalStationActions.generalStationSuccess), 
+            concatMap(() => this.dataService.getStationSchedule().pipe(
+                map((scheduleData) => stationScheduleActions.stationScheduleResponseSuccess({ stationSchedule: scheduleData })),
+                catchError((error) => of(stationScheduleActions.stationScheduleResponseFailure({ message: error })))
+            ))
+        ))
+
     loadMappedData$ = createEffect(() => 
     this.actions$.pipe(
         ofType(arrivalResponseActions.arrivalResponseSuccess),
@@ -47,6 +66,8 @@ export class StationEffects {
         ))
     )
     )
+
+
 
     constructor(private actions$: Actions, 
         private dataService: DataService, 
