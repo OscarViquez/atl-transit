@@ -1,8 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationStateInterface } from '../../models';
 import { getRouterSelectors } from '@ngrx/router-store';
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import { AmenitiesStationInterface } from '@atl-transit/stations';
+import { AmenitiesStationInterface } from '../../models/amenities.interfaces';
 
 export const stationFeatureSelector = createFeatureSelector<StationStateInterface>('stations')
 
