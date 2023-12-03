@@ -15,6 +15,7 @@ import { StationStateInterface, userLocationAction, generalStationActions } from
    styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+   // Move this into a search modal component
    searchModalActive = false;
 
    constructor(private store: Store<UserStateInterface>, private stationStore: Store<StationStateInterface>) {}

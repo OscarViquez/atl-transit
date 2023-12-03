@@ -1,5 +1,5 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { Button, ComponentState, GenericHeader, Tab } from '@atl-transit/shared';
+import { Button, ButtonProps, ComponentState, GenericHeader, Tab } from '@atl-transit/shared';
 
 export interface TrainArrivalPage {
    tab: Tab[];
@@ -73,32 +73,49 @@ export interface JsonStationInterface {
 }
 
 export interface AmenitiesStationInterface {
-   _id: string, 
-   _amenities_key: number, 
-   name: string, 
-   free: boolean,
-   schedule: string, 
-   icon: string
-};
+   _id: string;
+   _amenities_key: number;
+   name: string;
+   free: boolean;
+   schedule: string;
+   icon: string;
+}
 
 export interface ScheduleStationInterface {
-   _id: string, 
-   _schedule_key: number, 
-   alllines: ScheduleLineInterface[]
-};
+   _id: string;
+   _schedule_key: number;
+   alllines: ScheduleLineInterface[];
+}
 
 export interface ScheduleLineInterface {
-   line: string, 
-   schedules: DayScheduleInterface[]
+   line: string;
+   schedules: DayScheduleInterface[];
 }
 
 export interface DayScheduleInterface {
-   direction: string, 
-   day: string, 
-   schedule: number[]
-};
+   direction: string;
+   day: string;
+   schedule: number[];
+}
 
 export interface GenericTrainErrorMessage {
    title: 'No Saved Stations' | 'No Stations Found' | 'No Arrivals Found' | 'No Stations Found';
    description: string;
+}
+
+export interface TrainPageContent {
+   header: ArrivalHeaders;
+   tab: ButtonProps[];
+   errorMessages: GenericTrainErrorMessage[];
+}
+
+export interface ArrivalPageConfig {
+   maxStationArrivals: number;
+   maxRailArrivals: number;
+   currentTabIndex: number;
+}
+
+export interface ArrivalHeaders {
+   main: GenericHeader;
+   explore: GenericHeader;
 }
