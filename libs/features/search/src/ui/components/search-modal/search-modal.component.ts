@@ -1,8 +1,13 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { DividerComponent, ModalAnimationDirective, IconComponent, SearchBarComponent } from '@atl-transit/shared';
-import { AppStateInterface } from '@atl-transit/global-state';
+import {
+   DividerComponent,
+   ModalAnimationDirective,
+   IconComponent,
+   SearchBarComponent,
+   SharedService
+} from '@atl-transit/shared';
 import { SearchResultsComponent } from '../../components';
 import { SearchResults } from '../../../shared';
 import { SearchService } from '../../../data';
@@ -25,10 +30,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SearchModalComponent implements OnInit {
    @Output() closeSearch = new EventEmitter<boolean>();
-   isModalActive = true;
    searchResults$ = new BehaviorSubject<SearchResults[]>([]);
 
-   constructor(private service: SearchService, private store: Store<AppStateInterface>) {}
+   constructor(private service: SearchService, public shared: SharedService) {}
 
    ngOnInit(): void {
       this.service.init();
@@ -36,8 +40,7 @@ export class SearchModalComponent implements OnInit {
    }
 
    closeModal(): void {
-      this.isModalActive = false;
-      this.closeSearch.emit(false);
+      this.shared.searchModalActive = false;
    }
 
    processQuery(event: string) {

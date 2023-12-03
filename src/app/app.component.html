@@ -1,9 +1,9 @@
 <div class="app-wrapper">
-   <rya-navigation (searchClicked)="toggleSearchModal($event)" />
+   <rya-navigation />
    <div class="app-wrapper__pages">
       <router-outlet></router-outlet>
    </div>
-   <ng-container *ngIf="searchModalActive">
-      <rya-search-modal (closeSearch)="toggleSearchModal($event)" />
+   <ng-container *ngIf="shared.searchModalActive">
+      <rya-search-modal />
    </ng-container>
 </div>
