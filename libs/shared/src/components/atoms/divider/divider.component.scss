@@ -1,0 +1,21 @@
+.divider {
+   font-family: 'Inter', sans-serif;
+   max-width: 992px;
+   display: flex;
+   align-items: center;
+   gap: 18px;
+
+   &__label {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      color: #3d3d3d;
+   }
+
+   &__border {
+      flex: 1;
+      height: 1px;
+      width: fit-content;
+      background: #e4e3e3;
+   }
+}

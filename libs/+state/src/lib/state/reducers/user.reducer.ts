@@ -2,7 +2,6 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { userLocationAction, userTrainStations } from '../actions/user.action';
 import { UserStateInterface } from '../../models';
-import { userStationsSelector } from '../selectors';
 
 
 export const initalUserState: UserStateInterface = {

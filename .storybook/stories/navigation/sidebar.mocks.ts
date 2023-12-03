@@ -9,69 +9,13 @@ export const sideBarMocks: Sidebar = {
    menu: [
       {
          title: 'Main Menu',
-         mode: 'light',
+         mode: '',
          divider: true,
          items: [
             {
                content: {
                   label: 'Overview',
                   id: 'myButton'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'light',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'light'
-               }
-            },
-            {
-               content: {
-                  label: 'Trains'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'light',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'light'
-               }
-            },
-            {
-               content: {
-                  label: 'Buses'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'light',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'light'
-               }
-            },
-            {
-               content: {
-                  label: 'Plan Trip'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'light',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'light'
-               }
-            },
-            {
-               content: {
-                  label: 'Alerts'
                },
                type: 'menu',
                variant: 'primary',

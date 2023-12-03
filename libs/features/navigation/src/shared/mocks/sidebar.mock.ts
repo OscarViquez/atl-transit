@@ -1,4 +1,4 @@
-import { SidebarContent } from "../models/interface";
+import { SidebarContent } from '../models/interfaces';
 
 export const sideBarContent: SidebarContent = {
    logo: {
@@ -20,7 +20,6 @@ export const sideBarContent: SidebarContent = {
          items: ['Overview', 'Trains', 'Buses', 'Plan Trip', 'Alerts']
       },
       {
-         title: 'Quick Links',
          divider: true,
          items: ['Accessibility', 'Parking Areas', 'Breezecard']
       }

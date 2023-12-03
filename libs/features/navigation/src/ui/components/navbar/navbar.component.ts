@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, AfterViewInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
@@ -39,21 +39,11 @@ import { gsap } from 'gsap';
    `,
    styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements AfterViewInit {
+export class NavbarComponent {
    @Input() menu!: Sidebar;
    @Input() menuIsOpen = false;
    @Input() searchIsOpen = false;
    @Output() searchClicked = new EventEmitter<boolean>();
-
-   // ...existing component properties and methods...
-   ngAfterViewInit() {
-      gsap.from('.nav__button', {
-         opacity: 0,
-         y: -10,
-         duration: 0.5,
-         stagger: 0.1
-      });
-   }
 
    toggleSearch(): void {
       this.searchClicked.emit(true);
@@ -63,10 +53,10 @@ export class NavbarComponent implements AfterViewInit {
       this.menuIsOpen = !this.menuIsOpen;
       if (this.menuIsOpen) {
          gsap.from('rya-sidebar', {
-           opacity: 0,
-           duration: 0.2,
-           stagger: 0.1
+            opacity: 0,
+            duration: 0.3,
+            stagger: 0.1
          });
-       }
+      }
    }
 }

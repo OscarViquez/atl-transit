@@ -9,6 +9,10 @@ export interface SearchResults {
    link?: string;
 }
 
+export interface SearchResultsProps {
+   results: SearchResults[];
+}
+
 export interface SearchFilters {
    byNorthAndSouth: boolean;
    byStations: boolean;

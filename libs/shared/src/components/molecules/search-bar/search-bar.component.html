@@ -1,0 +1,11 @@
+<div class="search-bar search-bar--{{color}}">
+   <input
+      class="search-bar__input"
+      type="text"
+      placeholder="Search Destination"
+      [(ngModel)]="query"
+   />
+   <button class="search-bar__button" type="button" (click)="emitQuery()">
+      <img src="/assets/icons/search-icon-default.svg" />
+   </button>
+</div>

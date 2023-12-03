@@ -1,2 +1,2 @@
-export * from './models/interface'
+export * from './models/interfaces'
 export * from './mocks/sidebar.mock'

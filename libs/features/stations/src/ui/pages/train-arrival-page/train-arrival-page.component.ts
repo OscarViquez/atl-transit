@@ -16,11 +16,10 @@ import { TrainStaion, GenericTrainErrorMocks } from '../../../shared';
 import { HeroMock, TabMock, HeroComponent, TabComponent, LoadingSkeletonComponent } from '@atl-transit/shared';
 import {
    generalStationActions,
-   userLoadingSelector,
-   userLocationAction,
    userStationsSelector,
    StationStateInterface,
    UserStateInterface,
+   userLoadingSelector
 } from '@atl-transit/global-state';
 import { TabToggleService } from '../../../data/services/tab-toggle/tab-toggle.service';
 
@@ -59,7 +58,6 @@ export class TrainArrivalPageComponent implements OnInit {
    ) {}
 
    ngOnInit() {
-      this.state.dispatch(userLocationAction.location());
       this.stationStore.dispatch(generalStationActions.stationLocate());
       this.trainData$ = this.state.select(userStationsSelector);
       this.pageLoaded$ = this.state.select(userLoadingSelector);
