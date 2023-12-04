@@ -19,12 +19,10 @@ export class AppComponent implements OnInit {
    constructor(
       private store: Store<UserStateInterface>,
       private stationStore: Store<StationStateInterface>,
-      private updates: SwUpdate,
       public shared: SharedService
    ) {}
 
    ngOnInit(): void {
-      this.updatePWA(this.updates);
       this.store.dispatch(userLocationAction.location());
       this.stationStore.dispatch(generalStationActions.stationLocate());
    }
