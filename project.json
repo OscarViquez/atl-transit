@@ -28,10 +28,22 @@
                   "glob": "_redirects",
                   "input": "src",
                   "output": "/"
+               },
+               {
+                  "glob": "**/*",
+                  "input": "./src/pwa/",
+                  "output": "/pwa/"
+               },
+               {
+                  "glob": "manifest.json",
+                  "input": "src",
+                  "output": "/"
                }
             ],
             "styles": ["./src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
          },
          "configurations": {
             "production": {
@@ -47,7 +59,9 @@
                      "maximumError": "4kb"
                   }
                ],
-               "outputHashing": "all"
+               "outputHashing": "all",
+               "serviceWorker": true,
+               "ngswConfigPath": "ngsw-config.json"
             },
             "development": {
                "buildOptimizer": false,
@@ -69,7 +83,7 @@
             "development": {
                "browserTarget": "atl-transit:build:development"
             },
-            "options" : {
+            "options": {
                "optimization": false,
                "proxyConfig": "src/proxy.conf.json"
             }

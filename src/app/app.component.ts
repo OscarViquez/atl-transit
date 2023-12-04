@@ -7,7 +7,7 @@ import { UserStateInterface } from '@atl-transit/global-state';
 import { Store } from '@ngrx/store';
 import { StationStateInterface, userLocationAction, generalStationActions } from '@atl-transit/global-state';
 import { SharedService } from '@atl-transit/shared';
-
+import { SwUpdate } from '@angular/service-worker';
 @Component({
    standalone: true,
    imports: [CommonModule, RouterModule, NavigationComponent, SearchModalComponent],
@@ -25,5 +25,11 @@ export class AppComponent implements OnInit {
    ngOnInit(): void {
       this.store.dispatch(userLocationAction.location());
       this.stationStore.dispatch(generalStationActions.stationLocate());
+   }
+
+   updatePWA(updates: SwUpdate) {
+      updates.versionUpdates.subscribe((event) => {
+         updates.activateUpdate().then(() => document.location.reload());
+      });
    }
 }
