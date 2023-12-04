@@ -1,169 +1,162 @@
 {
-  "name": "atl-transit",
-  "$schema": "node_modules/nx/schemas/project-schema.json",
-  "projectType": "application",
-  "prefix": "app",
-  "sourceRoot": "./src",
-  "tags": [],
-  "targets": {
-    "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
-      "options": {
-        "outputPath": "dist/atl-transit",
-        "index": "./src/index.html",
-        "main": "./src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
-        "tsConfig": "./tsconfig.app.json",
-        "stylePreprocessorOptions": {
-          "includePaths": [
-            "libs/assets/styles/main.scss"
-          ]
-        },
-        "assets": [
-          {
-            "glob": "**/*",
-            "input": "./libs/assets",
-            "output": "/assets/"
-          },
-          {
-            "glob": "_redirects",
-            "input": "src",
-            "output": "/"
-          }
-        ],
-        "styles": [
-          "./src/styles.scss"
-        ],
-        "scripts": [],
-        "serviceWorker": true,
-        "ngswConfigPath": "ngsw-config.json"
-      },
-      "configurations": {
-        "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+   "name": "atl-transit",
+   "$schema": "node_modules/nx/schemas/project-schema.json",
+   "projectType": "application",
+   "prefix": "app",
+   "sourceRoot": "./src",
+   "tags": [],
+   "targets": {
+      "build": {
+         "executor": "@angular-devkit/build-angular:browser",
+         "outputs": ["{options.outputPath}"],
+         "options": {
+            "outputPath": "dist/atl-transit",
+            "index": "./src/index.html",
+            "main": "./src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "./tsconfig.app.json",
+            "stylePreprocessorOptions": {
+               "includePaths": ["libs/assets/styles/main.scss"]
             },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+            "assets": [
+               {
+                  "glob": "**/*",
+                  "input": "./libs/assets",
+                  "output": "/assets/"
+               },
+               {
+                  "glob": "_redirects",
+                  "input": "src",
+                  "output": "/"
+               },
+               {
+                  "glob": "**/*",
+                  "input": "./src/pwa/",
+                  "output": "/pwa/"
+               },
+               {
+                  "glob": "manifest.json",
+                  "input": "src",
+                  "output": "/"
+               }
+            ],
+            "styles": ["./src/styles.scss"],
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
+         },
+         "configurations": {
+            "production": {
+               "budgets": [
+                  {
+                     "type": "initial",
+                     "maximumWarning": "500kb",
+                     "maximumError": "1mb"
+                  },
+                  {
+                     "type": "anyComponentStyle",
+                     "maximumWarning": "2kb",
+                     "maximumError": "4kb"
+                  }
+               ],
+               "outputHashing": "all",
+               "serviceWorker": true,
+               "ngswConfigPath": "ngsw-config.json"
+            },
+            "development": {
+               "buildOptimizer": false,
+               "optimization": false,
+               "vendorChunk": true,
+               "extractLicenses": false,
+               "sourceMap": true,
+               "namedChunks": true
             }
-          ],
-          "outputHashing": "all",
-          "serviceWorker": true,
-          "ngswConfigPath": "ngsw-config.json"
-        },
-        "development": {
-          "buildOptimizer": false,
-          "optimization": false,
-          "vendorChunk": true,
-          "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
-        }
+         },
+         "defaultConfiguration": "production"
       },
-      "defaultConfiguration": "production"
-    },
-    "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "browserTarget": "atl-transit:build:production"
-        },
-        "development": {
-          "browserTarget": "atl-transit:build:development"
-        },
-        "options": {
-          "optimization": false,
-          "proxyConfig": "src/proxy.conf.json"
-        }
+      "serve": {
+         "executor": "@angular-devkit/build-angular:dev-server",
+         "configurations": {
+            "production": {
+               "browserTarget": "atl-transit:build:production"
+            },
+            "development": {
+               "browserTarget": "atl-transit:build:development"
+            },
+            "options": {
+               "optimization": false,
+               "proxyConfig": "src/proxy.conf.json"
+            }
+         },
+         "defaultConfiguration": "development"
       },
-      "defaultConfiguration": "development"
-    },
-    "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
-      "options": {
-        "browserTarget": "atl-transit:build"
-      }
-    },
-    "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
-      "options": {
-        "lintFilePatterns": [
-          "./src/**/*.ts",
-          "./src/**/*.html"
-        ]
-      }
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectName}"
-      ],
-      "options": {
-        "jestConfig": "jest.config.app.ts",
-        "passWithNoTests": true
+      "extract-i18n": {
+         "executor": "@angular-devkit/build-angular:extract-i18n",
+         "options": {
+            "browserTarget": "atl-transit:build"
+         }
       },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
-      }
-    },
-    "storybook": {
-      "executor": "@storybook/angular:start-storybook",
-      "options": {
-        "port": 4400,
-        "configDir": "./.storybook",
-        "browserTarget": "atl-transit:build",
-        "compodoc": false
+      "lint": {
+         "executor": "@nx/linter:eslint",
+         "outputs": ["{options.outputFile}"],
+         "options": {
+            "lintFilePatterns": ["./src/**/*.ts", "./src/**/*.html"]
+         }
       },
-      "configurations": {
-        "ci": {
-          "quiet": true
-        }
-      }
-    },
-    "build-storybook": {
-      "executor": "@storybook/angular:build-storybook",
-      "outputs": [
-        "{options.outputDir}"
-      ],
-      "options": {
-        "outputDir": "dist/storybook/atl-transit",
-        "configDir": "./.storybook",
-        "browserTarget": "atl-transit:build",
-        "compodoc": false
+      "test": {
+         "executor": "@nx/jest:jest",
+         "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+         "options": {
+            "jestConfig": "jest.config.app.ts",
+            "passWithNoTests": true
+         },
+         "configurations": {
+            "ci": {
+               "ci": true,
+               "codeCoverage": true
+            }
+         }
       },
-      "configurations": {
-        "ci": {
-          "quiet": true
-        }
-      }
-    },
-    "static-storybook": {
-      "executor": "@nx/web:file-server",
-      "options": {
-        "buildTarget": "atl-transit:build-storybook",
-        "staticFilePath": "dist/storybook/atl-transit"
+      "storybook": {
+         "executor": "@storybook/angular:start-storybook",
+         "options": {
+            "port": 4400,
+            "configDir": "./.storybook",
+            "browserTarget": "atl-transit:build",
+            "compodoc": false
+         },
+         "configurations": {
+            "ci": {
+               "quiet": true
+            }
+         }
       },
-      "configurations": {
-        "ci": {
-          "buildTarget": "atl-transit:build-storybook:ci"
-        }
+      "build-storybook": {
+         "executor": "@storybook/angular:build-storybook",
+         "outputs": ["{options.outputDir}"],
+         "options": {
+            "outputDir": "dist/storybook/atl-transit",
+            "configDir": "./.storybook",
+            "browserTarget": "atl-transit:build",
+            "compodoc": false
+         },
+         "configurations": {
+            "ci": {
+               "quiet": true
+            }
+         }
+      },
+      "static-storybook": {
+         "executor": "@nx/web:file-server",
+         "options": {
+            "buildTarget": "atl-transit:build-storybook",
+            "staticFilePath": "dist/storybook/atl-transit"
+         },
+         "configurations": {
+            "ci": {
+               "buildTarget": "atl-transit:build-storybook:ci"
+            }
+         }
       }
-    }
-  }
+   }
 }

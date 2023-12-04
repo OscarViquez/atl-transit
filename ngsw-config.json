@@ -1,5 +1,5 @@
 {
-  "$schema": "/node_modules/@angular/service-worker/config/schema.json",
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "assetGroups": [
     {
@@ -7,9 +7,9 @@
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "pwa/favicon.ico",
+          "/pwa/favicon.ico",
           "/index.html",
-          "pwa/site.webmanifest",
+          "manifest.json",
           "/*.css",
           "/*.js"
         ]
@@ -21,7 +21,7 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/**",
+          "/pwa/**",
           "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
         ]
       }
