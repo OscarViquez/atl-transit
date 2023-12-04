@@ -14,5 +14,4 @@ import { StaticContentService } from '../../../data/index';
 export class NavigationComponent {
    constructor(private staticContent: StaticContentService) {}
    sideBarContent = this.staticContent.setSidebarContent();
-   
 }
