@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "$schema": "/node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,8 +8,8 @@
       "resources": {
         "files": [
           "pwa/favicon.ico",
-          "src/index.html",
-          "pwa/manifest.webmanifest",
+          "/index.html",
+          "pwa/site.webmanifest",
           "/*.css",
           "/*.js"
         ]
