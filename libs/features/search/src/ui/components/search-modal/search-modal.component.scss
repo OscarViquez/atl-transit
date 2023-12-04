@@ -15,12 +15,21 @@
 .search-modal {
    background: #ffffff;
    padding-bottom: 24px;
-   overflow: scroll;
+   overflow: auto;
    height: 100vh;
    width: 100%;
    padding: 16px 24px 24px;
    border-radius: 0;
    box-shadow: 0px 4px 10px 0px rgba(57, 57, 57, 0.1);
+   scrollbar-color: #eff1f8 #f7f8fb;
+   scrollbar-width: thin;
+   -ms-overflow-style: none; /* IE and Edge */
+   scrollbar-width: none; /* Firefox */
+
+   &::-webkit-scrollbar {
+      width: 8px;
+      // display: none;
+   }
 
    rya-icon {
       display: block;
