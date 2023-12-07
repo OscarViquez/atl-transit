@@ -1,3 +1,4 @@
+
 // FONT FAMILY
 // ————————————————————————————————————
 $ff-primary: 'Inter', sans-serif;
@@ -21,3 +22,104 @@ $font-size-lg: 1rem; // 16px
 $font-size-xl: 1.125rem; // 18px
 $font-size-xxl: 1.25rem; // 20px
 $font-size-xxxl: 1.5rem; // 24px
+$font-size-4xl: 2.0 rem; //32 px
+/// FONT WEIGHTS 
+/// ————————————————————————————————————
+
+.bold {
+    font-weight: $font-bold;
+}
+
+.semibold {
+    font-weight: $font-semibold;
+}
+
+.regular {
+    font-weight: $font-regular;
+}
+
+.medium {
+    font-weight: $font-medium;
+}
+
+.light {
+    font-weight: $font-light;
+}
+
+.x-light {
+    font-weight: $font-extra-light;
+}
+
+/// FONT STYLE 
+/// ————————————————————————————————————
+
+//headers 
+.h1 {
+    font-size: $font-size-4xl;
+}
+
+.h2 {
+    font-size: $font-size-xxxl;
+}
+
+.h3 {
+    font-size: $font-size-xxl;
+}
+
+
+.t1 {
+    font-size: $font-size-lg;
+}
+
+
+.t2 {
+    font-size: $font-size-md;
+}
+
+.t3 {
+    font-size: $font-size-sm;
+}
+///FONT COLORS
+/// ------
+
+.grey {
+    color: #5e5e5e;
+}
+
+
+ @media (min-width: 768px) {
+
+    .h1 {
+        font-size: $font-size-xxxl;
+    }
+
+    .h2 {
+        font-size: $font-size-xxl;
+    }
+    
+    .h3 {
+        font-size: $font-size-xl;
+    }
+
+    .t1 {
+        font-size: $font-size-lg;
+    }
+
+    .t2 {
+        font-size: $font-size-md;
+    }
+ }
+ 
+ @media (max-width: 768px) {
+    .h1 {
+        font-size: $font-size-xxl;
+    }
+
+    .h2 {
+        font-size: $font-size-xl;
+    }
+    
+    .h3 {
+        font-size: $font-size-lg;
+    }
+ }
