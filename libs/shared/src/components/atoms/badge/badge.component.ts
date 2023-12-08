@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-   selector: 'rya-chip',
+   selector: 'rya-badge',
    standalone: true,
    imports: [CommonModule],
-   template: `<p>chip works!</p>`,
-   styleUrls: ['./chip.component.scss']
+   template: `<p>badge works!</p>`,
+   styleUrls: ['./badge.component.scss']
 })
-export class ChipComponent {}
+export class BadgeComponent {}
