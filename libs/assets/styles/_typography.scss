@@ -54,72 +54,80 @@ $font-size-4xl: 2.0 rem; //32 px
 /// ————————————————————————————————————
 
 //headers 
-.h1 {
-    font-size: $font-size-4xl;
-}
-
-.h2 {
-    font-size: $font-size-xxxl;
-}
-
-.h3 {
-    font-size: $font-size-xxl;
-}
-
-
-.t1 {
-    font-size: $font-size-lg;
-}
-
-
-.t2 {
-    font-size: $font-size-md;
-}
-
-.t3 {
-    font-size: $font-size-sm;
+.text {
+    &__h1 {
+        font-size: $font-size-4xl;
+    }
+    
+    &__h2 {
+        font-size: $font-size-xxxl;
+    }
+    
+    &__h3 {
+        font-size: $font-size-xxl;
+    }
+    
+    
+    &__t1 {
+        font-size: $font-size-lg;
+    }
+    
+    
+    &__t2 {
+        font-size: $font-size-md;
+    }
+    
+    &__t3 {
+        font-size: $font-size-sm;
+    }
 }
 ///FONT COLORS
 /// ------
 
-.grey {
-    color: #5e5e5e;
+.color {
+    &__grey {
+        color: #5e5e5e;
+    }
 }
 
 
  @media (min-width: 768px) {
 
-    .h1 {
-        font-size: $font-size-xxxl;
-    }
-
-    .h2 {
-        font-size: $font-size-xxl;
-    }
+    .text {
+        &__h1 {
+            font-size: $font-size-xxxl;
+        }
     
-    .h3 {
-        font-size: $font-size-xl;
-    }
-
-    .t1 {
-        font-size: $font-size-lg;
-    }
-
-    .t2 {
-        font-size: $font-size-md;
+        &__h2 {
+            font-size: $font-size-xxl;
+        }
+        
+        &__h3 {
+            font-size: $font-size-xl;
+        }
+    
+        &__t1 {
+            font-size: $font-size-lg;
+        }
+    
+        &__t2 {
+            font-size: $font-size-md;
+        }
     }
  }
  
  @media (max-width: 768px) {
-    .h1 {
-        font-size: $font-size-xxl;
-    }
-
-    .h2 {
-        font-size: $font-size-xl;
-    }
+    .text {
+        &__h1 {
+            font-size: $font-size-xxl;
+        }
     
-    .h3 {
-        font-size: $font-size-lg;
+        &__h2 {
+            font-size: $font-size-xl;
+        }
+        
+        &__h3 {
+            font-size: $font-size-lg;
+        }
     }
  }
