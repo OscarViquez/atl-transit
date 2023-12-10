@@ -1,5 +1,5 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { HeroComponent, TextComponent, TabComponent, LoadingSkeletonComponent, GenericHeader } from '@atl-transit/shared';
+import { HeroComponent, TabComponent, LoadingSkeletonComponent, GenericHeader } from '@atl-transit/shared';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
@@ -23,7 +23,6 @@ import { StationCardComponent, StationErrorMessageComponent } from '../../compon
       TabComponent,
       StationCardComponent,
       LoadingSkeletonComponent,
-      TextComponent
    ],
    templateUrl: './station-details-page.component.html',
    styleUrls: ['./station-details-page.component.scss']
