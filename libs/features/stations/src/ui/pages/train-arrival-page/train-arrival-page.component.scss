@@ -1,27 +1,64 @@
-.train-header {
-   padding: 40px 32px 24px 32px;
+.page {
+   padding: 2.5rem 2rem 2rem;
 
-   rya-header {
+   &__header {
       display: inherit;
-      margin-top: 40px;
+      margin-top: 2.5rem;
    }
 
-   rya-tab {
+   &__tab {
       display: inherit;
-      margin-top: 32px;
+      margin-top: 2rem;
    }
-}
 
-.center {
-   text-align: center;
+   &__section {
+      margin: 2.5rem 0;
+   }
+
+   &__arrivals {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      &__card {
+         flex: 1;
+      }
+   }
+
+   &__explore__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+
+      &__tile {
+         width: 47%;
+
+         & p {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 1rem;
+         }
+      }
+   }
 }
 
 @media (max-width: 992px) {
-   .train-header {
-      padding: 40px 24px 24px 24px;
-   }
+   .page {
+      padding: 2.5rem 1.5rem 1.5rem 1.5rem;
 
-   rya-search-bar {
-      display: none;
+      &__search-bar {
+         display: none;
+      }
+   }
+}
+
+@media (max-width: 768px) {
+   .page__header {
+      margin-top: 0;
+   }
+   
+   .page__arrivals {
+      flex-direction: column;
    }
 }

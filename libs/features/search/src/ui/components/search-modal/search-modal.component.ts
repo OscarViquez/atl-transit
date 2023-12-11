@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Store } from '@ngrx/store';
+
 import {
    DividerComponent,
    ModalAnimationDirective,
@@ -31,7 +31,8 @@ import { BehaviorSubject } from 'rxjs';
 export class SearchModalComponent implements OnInit {
    @Output() closeSearch = new EventEmitter<boolean>();
    searchResults$ = new BehaviorSubject<SearchResults[]>([]);
-
+   isModalActive = this.shared.searchModalActive;
+   
    constructor(private service: SearchService, public shared: SharedService) {}
 
    ngOnInit(): void {

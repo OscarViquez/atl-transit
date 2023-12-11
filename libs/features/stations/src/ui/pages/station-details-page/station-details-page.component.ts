@@ -11,19 +11,12 @@ import {
    scheduleByIdSelector,
    TrainUiAdapter
 } from '@atl-transit/global-state';
-import { StationCardComponent, StationErrorMessageComponent } from '../../components';
+import { StationCardComponent } from '../../components';
 
 @Component({
    selector: 'lib-station-details-page',
    standalone: true,
-   imports: [
-      CommonModule,
-      StationErrorMessageComponent,
-      HeroComponent,
-      TabComponent,
-      StationCardComponent,
-      LoadingSkeletonComponent
-   ],
+   imports: [CommonModule, HeroComponent, TabComponent, StationCardComponent, LoadingSkeletonComponent],
    templateUrl: './station-details-page.component.html',
    styleUrls: ['./station-details-page.component.scss']
 })

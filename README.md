@@ -19,7 +19,7 @@ Afterwards, you are able to run the application locally and run Storybook as wel
 **Serve the App**:
 
 ```bash
-$ npx nx run atl-transit:serve
+npx nx run atl-transit:serve
 ```
 
 _Will be serving on_ `http://localhost:4200` :
@@ -29,7 +29,7 @@ _Will be serving on_ `http://localhost:4200` :
 **Storybook**:
 
 ```bash
-$ npx nx run atl-transit:storybook
+npx nx run atl-transit:storybook
 ```
 
 _Will be serving on_ `http://localhost:4400`

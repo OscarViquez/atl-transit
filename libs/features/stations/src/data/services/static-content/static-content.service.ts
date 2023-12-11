@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-   GenericTrainErrorMocks,
-   SectionHeaderMocks,
-   TabContentMocks,
-   TrainPageContent
-} from '../../../shared';
+import { StationFeedbackMessages, SectionHeaderMocks, TabContentMocks, TrainPageContent } from '../../../shared';
 
 @Injectable({
    providedIn: 'root'
@@ -14,7 +9,7 @@ export class StaticContentService {
       return {
          header: SectionHeaderMocks,
          tab: TabContentMocks,
-         errorMessages: GenericTrainErrorMocks
+         feedback: StationFeedbackMessages
       };
    }
 }

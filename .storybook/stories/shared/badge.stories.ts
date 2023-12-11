@@ -19,7 +19,16 @@ type Story = StoryObj<BadgeComponent>;
 export const Default: Story = {
    render: () => ({
       template: `
-      <rya-badge />
+      <rya-badge color="gold">
+         gold
+      </rya-badge>
+
+      <br/>
+      <br/>
+
+      <rya-badge color="red">
+         red
+      </rya-badge>
      `
    })
 };

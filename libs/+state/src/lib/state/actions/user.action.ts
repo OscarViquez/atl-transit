@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { TrainStaion } from '@atl-transit/stations';
+import { TrainStation } from '@atl-transit/stations';
 import { UserActionTypes } from '../../types';
 import { User } from '../../models';
 
@@ -17,7 +17,7 @@ export const userTrainStations = createActionGroup({
    source: UserActionTypes.LocateType,
    events: {
       [UserActionTypes.StationType]: emptyProps(),
-      [UserActionTypes.StationUserSuccess]: props<{ stations: TrainStaion[] }>(),
+      [UserActionTypes.StationUserSuccess]: props<{ stations: TrainStation[] }>(),
       [UserActionTypes.StationUserFailure]: props<{ message: string }>()
    }
 });

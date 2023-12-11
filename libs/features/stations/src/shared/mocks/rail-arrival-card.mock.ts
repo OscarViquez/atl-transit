@@ -1,6 +1,6 @@
 import { RailArrival } from '../../shared';
 import { ButtonLightModeMock } from '@atl-transit/shared';
-import { TrainStaion } from '../../shared';
+import { TrainStation } from '../../shared';
 
 export const RailArrivalMock: RailArrival[] = [
    {
@@ -41,7 +41,7 @@ export const RailArrivalMock: RailArrival[] = [
    }
 ];
 
-export const TrainStationMock: TrainStaion = {
+export const TrainStationMock: TrainStation = {
    header: {
       title: 'Five Points',
       subtitle: 'All Rail Lines Available'

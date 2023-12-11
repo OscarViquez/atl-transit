@@ -9,10 +9,10 @@ import {
    userLoadingSelector
 } from '@atl-transit/global-state';
 import { Observable } from 'rxjs';
-import { ArrivalPageConfig, TrainStaion } from '../../../shared';
+import { ArrivalPageConfig, TrainStation } from '../../../shared';
 
 interface InitializationData {
-   trainData$: Observable<TrainStaion[]>;
+   trainData$: Observable<TrainStation[]>;
    pageLoaded$: Observable<boolean>;
 }
 

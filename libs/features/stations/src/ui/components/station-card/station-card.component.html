@@ -1,15 +1,16 @@
-<ng-container *ngIf="content">
-   <div class="station">
-      <ng-container *ngIf="content.railArrivals.length > 0; else NoArrivalsMessage">
-         <lib-card-header [content]="content.header"></lib-card-header>
-         <lib-rail-arrival-card [railArrival]="content.railArrivals" [maxQuantiy]="maxQuantiy"></lib-rail-arrival-card>
-         <lib-button [content]="content.button"></lib-button>
+<ng-container [ngSwitch]="infoFlag">
+   <div *ngSwitchCase="stationInfoFlags.arrival" class="station-card">
+      <div class="station-card__header">
+         <lib-card-header [content]="content.header" />
+      </div>
+      <ng-container *ngFor="let arrival of content.railArrivals; let i = index">
+         <lib-arrival-info [content]="arrival" />
       </ng-container>
+      <lib-button [content]="content.button" />
+   </div>
+
+   <div *ngSwitchCase="stationInfoFlags.feedback" class="station-card station-card__feedback">
+      <rya-card-feedback [content]="feedback" />
+      <button class="station-card__feedback__search">Search</button>
    </div>
 </ng-container>
-
-<ng-template #NoArrivalsMessage>
-   <lib-card-header [content]="content.header" [state]="content.state!"></lib-card-header>
-   <lib-station-error-message [content]="errorMessage"></lib-station-error-message>
-   <lib-button [content]="content.button"></lib-button>
-</ng-template>

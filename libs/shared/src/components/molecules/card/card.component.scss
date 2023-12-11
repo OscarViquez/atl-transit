@@ -1,0 +1,77 @@
+.card {
+   &--theme {
+      &-light {
+         background-color: #ffffff;
+         border: 1px solid #eff1f7;
+
+         &:hover {
+            cursor: pointer;
+            background-color: #eaebef;
+            border: 1px solid #eaebef;
+            animation: pulse 0.3s;
+         }
+      }
+      &-dark {
+         background-color: #1d1f26;
+         // TODO: add this shadows after refactor
+         // box-shadow: 0px 4px 15px 0px hsla(227, 10%, 27%, 0.302);
+      }
+   }
+   &--border {
+      &-default,
+      &-light {
+         border: 1px solid #eff1f7;
+      }
+      &-dark {
+         border: 1px solid #1d1f26;
+      }
+   }
+   &--spacing {
+      &-auto {
+         margin: 1rem auto;
+      }
+      &-xs {
+         padding: 1rem 0.75rem;
+      }
+      &-small {
+         padding: 1rem 1rem 0;
+      }
+      &-medium {
+         padding: 1.5rem;
+      }
+      &-large {
+         padding: 2rem;
+      }
+      &-xl {
+         padding: 2.5rem;
+      }
+      &-xxl {
+         padding: 3.5rem;
+      }
+   }
+
+   &--radius {
+      &-small {
+         border-radius: 3px;
+      }
+      &-medium {
+         border-radius: 8px;
+      }
+      &-large {
+         border-radius: 16px;
+      }
+   }
+}
+
+@keyframes pulse {
+   0% {
+     transform: scale3d(1, 1, 1);
+   }
+   50% {
+     transform: scale3d(1.05, 1.05, 1);
+   }
+   100% {
+     transform: scale3d(1, 1, 1);
+   }
+ }
+

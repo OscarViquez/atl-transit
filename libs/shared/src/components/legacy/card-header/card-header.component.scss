@@ -1,37 +1,23 @@
-
-
 .card-header {
-   display: flex;
-   flex-direction: column;
-   background: white;
+   padding: 0.5rem 0rem 0.5rem 0rem;
+   background-color: white;
    border-radius: 5px;
 
-   &__container {
-      &__title {
-         display: flex;
-         flex-direction: column;
-         padding: 1.15rem 1rem;
+   &__title {
+      color: #1f1f1f;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      text-transform: capitalize;
+   }
 
-         &--head {
-            color: var(--Base-Black, #1f1f1f);
-            font-family: 'Inter', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            text-transform: capitalize;
-         }
-
-         &--sub {
-            color: #c65854;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.18px;
-         }
-      }
-
-      &--blank {
-         height: 74px;
-      }
+   &__label {
+      color: #5E5E5E;
+      font-family: 'Inter', sans-serif;
+      text-transform: capitalize;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18px;
    }
 }

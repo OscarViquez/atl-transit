@@ -2,29 +2,36 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
-import { StationCardComponent, StationErrorMessageComponent } from '../../components';
-import { ArrivalPageConfig, TrainPageContent, TrainStaion } from '../../../shared';
+import { StationCardComponent } from '../../components';
+import { ArrivalPageConfig, TrainPageContent, TrainStation } from '../../../shared';
+import { StaticContentService, TrainArrivalsService } from '../../../data';
 import {
    HeroComponent,
    TabComponent,
    LoadingSkeletonComponent,
    HeaderComponent,
    SearchBarComponent,
-   SharedService
+   SharedService,
+   CardFeedbackComponent,
+   CardComponent,
+   IconComponent
 } from '@atl-transit/shared';
-import { StaticContentService, TrainArrivalsService } from '../../../data';
+
 @Component({
    selector: 'lib-train-arrivals-page',
    standalone: true,
    imports: [
       CommonModule,
-      StationErrorMessageComponent,
       HeroComponent,
       TabComponent,
       StationCardComponent,
       LoadingSkeletonComponent,
       HeaderComponent,
-      SearchBarComponent
+      SearchBarComponent,
+      CardFeedbackComponent,
+      CardComponent,
+      LoadingSkeletonComponent,
+      IconComponent
    ],
    templateUrl: './train-arrival-page.component.html',
    styleUrls: ['./train-arrival-page.component.scss']
@@ -32,7 +39,7 @@ import { StaticContentService, TrainArrivalsService } from '../../../data';
 export class TrainArrivalPageComponent implements OnInit {
    content!: TrainPageContent;
    config!: ArrivalPageConfig;
-   trainData$!: Observable<TrainStaion[]>;
+   trainData$!: Observable<TrainStation[]>;
    pageLoaded$!: Observable<boolean>;
 
    constructor(

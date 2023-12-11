@@ -1,28 +1,56 @@
-<ng-container *ngIf="{ loading: pageLoaded$ | async } as loaded">
-   <main class="train">
-      <header class="train-header">
-         <rya-search-bar [color]="'secondary'" (click)="shared.toggleSearchModal()" />
-         <rya-header [content]="content.header.main" [variant]="'main'" />
-         <rya-tab [tabs]="content.tab" (currentTabEmitter)="currentTabSetter($event)" />
-      </header>
+<main class="page">
+   <rya-search-bar
+      class="page__search-bar"
+      [color]="'secondary'"
+      (click)="shared.toggleSearchModal()"
+   />
+   <rya-header class="page__header" [content]="content.header.main" [variant]="'main'" />
+   <rya-tab class="page__tab" [tabs]="content.tab" (currentTabEmitter)="currentTabSetter($event)" />
 
-      <section [ngSwitch]="config.currentTabIndex">
-         <section *ngSwitchCase="0">
-            <ng-container *ngIf="!loaded.loading">
-               <ng-container *ngFor="let train of trainData$ | async; let i = index">
-                  <div *ngIf="i < config.maxStationArrivals">
-                     <lib-station-card [content]="train" [maxQuantiy]="config.maxRailArrivals"></lib-station-card>
-                  </div>
-               </ng-container>
+   <ng-container [ngSwitch]="config.currentTabIndex">
+      <section *ngSwitchCase="0" class="page__section page__arrivals">
+         <ng-container *ngIf="{ loading: pageLoaded$ | async } as loaded">
+            <lib-loading-skeleton *ngIf="loaded.loading" [loadingItem]="'train-card'" />
+            <ng-container *ngFor="let train of trainData$ | async; let i = index">
+               <lib-station-card
+                  *ngIf="i < config.maxStationArrivals"
+                  class="page__arrivals__card"
+                  [content]="train"
+                  [maxQuantiy]="config.maxRailArrivals"
+                  infoFlag="arrival"
+               />
             </ng-container>
-         </section>
-         <section *ngSwitchCase="1">
-            <lib-station-error-message [content]="content.errorMessages[0]"></lib-station-error-message>
-         </section>
+         </ng-container>
       </section>
+      <section *ngSwitchCase="1" class="page__section">
+         <lib-station-card
+            class="page__arrivals__card"
+            [feedback]="content.feedback['emptySaved']"
+            [maxQuantiy]="config.maxRailArrivals"
+            infoFlag="feedback"
+         />
+      </section>
+   </ng-container>
 
-      <ng-container *ngIf="loaded.loading">
-         <lib-loading-skeleton [loadingItem]="'train-card'"></lib-loading-skeleton>
-      </ng-container>
-   </main>
-</ng-container>
+   <section class="page__section page__explore">
+      <rya-header [content]="content.header.explore" [variant]="'main'" />
+      <div class="page__explore__actions">
+         <rya-card class="page__explore__actions__tile" spacing="xs">
+            <rya-icon [category]="'navigation'" [name]="'search'" class="search" />
+            <p>Parking</p>
+         </rya-card>
+         <rya-card class="page__explore__actions__tile" spacing="xs">
+            <rya-icon [category]="'navigation'" [name]="'search'" class="search" />
+            <p>Breeze Card</p>
+         </rya-card>
+         <rya-card class="page__explore__actions__tile" spacing="xs">
+            <rya-icon [category]="'navigation'" [name]="'search'" class="search" />
+            <p>Rail Map</p>
+         </rya-card>
+         <rya-card class="page__explore__actions__tile" spacing="xs">
+            <rya-icon [category]="'navigation'" [name]="'search'" class="search" />
+            <p>Schedules</p>
+         </rya-card>
+      </div>
+   </section>
+</main>

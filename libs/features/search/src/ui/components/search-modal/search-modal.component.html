@@ -1,8 +1,18 @@
-<div class="overlay">
+<div
+   class="overlay"
+   ryaModalAnimation
+   [active]="isModalActive"
+   [element]="'.overlay'"
+   [duration]="0.3"
+   class="overlay"
+>
    <div class="search-modal">
       <rya-icon [category]="'navigation'" [name]="'close'" (click)="closeModal()" />
       <rya-search-bar [color]="'primary'" (queryEmitter)="processQuery($event)" />
       <rya-divider [showDivider]="true" label="Results"> </rya-divider>
-      <rya-search-results *ngIf="searchResults$ | async as searchResults" [results]="searchResults" />
+      <rya-search-results
+         *ngIf="searchResults$ | async as searchResults"
+         [results]="searchResults"
+      />
    </div>
 </div>
