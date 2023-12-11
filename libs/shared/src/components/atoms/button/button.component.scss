@@ -1,11 +1,9 @@
-@import '../../../../../assets/main.scss';
-
 .button {
-   width: $width-full;
+   width: 100%;
    display: flex;
    align-items: center;
-   gap: $spacing-4;
-   padding: $spacing-0 $spacing-6;
+   gap: 12px;
+   padding: 0 16px;
    transition: ease-in 0.1s;
 
    &:hover {
@@ -19,12 +17,12 @@
    &__icon {
       display: grid;
       place-items: center;
-      width: $font-size-md;
+      width: 0.875rem;
    }
 
    &__label {
-      font-size: $font-size-sm;
-      font-weight: $font-medium;
+      font-size: 0.75rem;
+      font-weight: 500;
       letter-spacing: 0.24px;
    }
 
@@ -43,75 +41,38 @@
    &.light {
       &.default {
          &.primary {
-            @include color-mode('primary', 'light');
-            @include background-mode('primary', 'light');
+            color: #302f30;
+            background-color: #ffffff;
             box-shadow: 0px 4px 10px 0px rgba(57, 57, 57, 0.05);
          }
          &.secondary {
-            @include color-mode('primary', 'light');
-            @include background-mode('secondary', 'light');
+            color: #302f30;
+            background-color: #f7f8fb;
          }
       }
 
       &.menu {
          border: 1px solid #ffffff;
-         @include color-mode('secondary', 'light');
-         @include background-mode('primary', 'light');
+         color: #5e5e5e;
+         background-color: #ffffff;
 
          &:hover {
             border: 1px solid transparent;
             border-radius: 3px;
-            @include color-mode('primary', 'light');
-            @include background-mode('secondary', 'light');
+            color: #302f30;
+            background-color: #f7f8fb;
          }
       }
 
       &.text {
-         @include color-mode('secondary', 'light');
-         @include background-mode('primary', 'light');
+         color: #5e5e5e;
+         background-color: #ffffff;
       }
 
       &.accent,
       &.active-link {
          color: #ffffff;
-         @include background-mode('accent', 'light');
-
-         rya-icon {
-            filter: invert(1) grayscale(1) brightness(9);
-         }
-         
-         &:hover {
-            rya-icon {
-               filter: none;
-            }
-         }
-      }
-   }
-   &.dark {
-      &.default {
-         &.primary {
-            @include color-mode('primary', 'dark');
-            @include background-mode('primary', 'dark');
-         }
-         &.secondary {
-            @include color-mode('primary', 'dark');
-            @include background-mode('secondary', 'dark');
-         }
-      }
-
-      &.menu {
-         @include color-mode('secondary', 'dark');
-         @include background-mode('secondary', 'dark');
-      }
-
-      &.text {
-         @include color-mode('secondary', 'dark');
-         @include background-mode('secondary', 'dark');
-      }
-
-      &.accent {
-         color: #ffffff;
-         @include background-mode('accent', 'dark');
+         background: linear-gradient(90deg, #e56928 23.17%, #e7484e 84.65%);
 
          rya-icon {
             filter: invert(1) grayscale(1) brightness(9);
