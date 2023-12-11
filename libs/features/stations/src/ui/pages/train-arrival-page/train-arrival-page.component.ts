@@ -16,6 +16,7 @@ import {
    CardComponent,
    IconComponent
 } from '@atl-transit/shared';
+import { FooterComponent } from '@atl-transit/navigation';
 
 @Component({
    selector: 'lib-train-arrivals-page',
@@ -31,7 +32,8 @@ import {
       CardFeedbackComponent,
       CardComponent,
       LoadingSkeletonComponent,
-      IconComponent
+      IconComponent,
+      FooterComponent
    ],
    templateUrl: './train-arrival-page.component.html',
    styleUrls: ['./train-arrival-page.component.scss']

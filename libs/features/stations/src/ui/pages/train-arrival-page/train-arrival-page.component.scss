@@ -1,5 +1,10 @@
+main {
+   display: flex;
+}
+
 .page {
    padding: 2.5rem 2rem 2rem;
+   flex: 1;
 
    &__header {
       display: inherit;
@@ -43,6 +48,49 @@
          }
       }
    }
+
+   &__map {
+      flex: 1;
+      position: relative;
+      border-left: 1px solid #f3f3f3;
+      background: #f7f8fb;
+
+      &__wrapper {
+         display: grid;
+         place-content: center;
+         position: fixed;
+         text-align: center;
+         height: 100vh;
+         width: 40vw;
+
+         .icon--ripple {
+            position: relative;
+            z-index: 1;
+
+            &::before {
+               content: '';
+               position: absolute;
+               top: 50%;
+               left: 50%;
+               width: 200px;
+               height: 200px;
+               background: rgba(255, 255, 255, 0.8);
+               border-radius: 50%;
+               transform: translate(-50%, -50%) scale(0);
+               animation: ripple 1.3s infinite;
+               z-index: -1;
+            }
+         }
+
+         & > p {
+            max-width: 11.063rem;
+            margin-top: 1rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #373636;
+         }
+      }
+   }
 }
 
 @media (max-width: 992px) {
@@ -50,6 +98,10 @@
       padding: 2.5rem 1.5rem 1.5rem 1.5rem;
 
       &__search-bar {
+         display: none;
+      }
+
+      &__map {
          display: none;
       }
    }
@@ -62,5 +114,18 @@
 
    .page__arrivals {
       flex-direction: column;
+   }
+}
+
+@keyframes ripple {
+   0% {
+      transform: translate(-50%, -50%) scale(0);
+   }
+   50% {
+      transform: translate(-50%, -50%) scale(1);
+   }
+   100% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
    }
 }

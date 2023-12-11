@@ -7,6 +7,7 @@ import {
    CardFeedback,
    CardFeedbackComponent,
    CardHeaderComponent,
+   SharedService,
    ThemeButtonComponent
 } from '@atl-transit/shared';
 import { ArrivalInfoComponent } from '../arrival-info/arrival-info.component';
@@ -27,6 +28,8 @@ import { ArrivalInfoComponent } from '../arrival-info/arrival-info.component';
    styleUrls: ['./station-card.component.scss']
 })
 export class StationCardComponent {
+   constructor(public shared: SharedService) {}
+   
    /* Data for train arrivals */
    @Input() content!: TrainStation;
    /* Data for train arrivals */
