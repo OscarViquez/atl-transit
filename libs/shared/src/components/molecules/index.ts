@@ -5,5 +5,5 @@ export * from './toast/toast.component';
 export * from './items/items.component';
 export * from './search-bar/search-bar.component';
 export * from './tab/tab.component';
-export * from './card/card.component';
+export * from './tile/tile.component';
 export * from './card-feedback/index';
