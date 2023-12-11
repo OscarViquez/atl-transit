@@ -8,7 +8,7 @@
       </div>
       <div *ngIf="content.railArrivals.length > 0">
          <ng-container *ngFor="let arrival of content.railArrivals; let i = index">
-            <lib-arrival-info *ngIf="content.railArrivals" [content]="arrival" />
+            <lib-arrival-info *ngIf="i < maxQuantiy" [content]="arrival" />
          </ng-container>
       </div>
       <lib-button [content]="content.button" />
