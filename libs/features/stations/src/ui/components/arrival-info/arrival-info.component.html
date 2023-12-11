@@ -1,0 +1,12 @@
+<div class="arrival-info">
+   <div class="arrival-info__rail">
+      <div>
+         <h3 class="arrival-info__rail__name">{{ content.destination }}</h3>
+         <p class="arrival-info__rail__description">{{ content.description }}</p>
+      </div>
+      <rya-badge [color]="content.color">{{ content.color }}</rya-badge>
+   </div>
+   <div class="arrival-info__time">
+      {{ content.arrivalTime }}
+   </div>
+</div>

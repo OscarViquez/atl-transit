@@ -1,13 +1,21 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { Button, ButtonProps, ComponentState, GenericHeader, Tab } from '@atl-transit/shared';
+import {
+   Button,
+   ButtonProps,
+   ComponentState,
+   GenericHeader,
+   Tab,
+   CardFeedback,
+   BadgeVariant
+} from '@atl-transit/shared';
 
 export interface TrainArrivalPage {
    tab: Tab[];
    header: GenericHeader;
-   trainData?: TrainStaion[];
+   trainData?: TrainStation[];
 }
 
-export interface TrainStaion {
+export interface TrainStation {
    header: GenericHeader;
    /* Rail Arrivals */
    railArrivals: RailArrival[];
@@ -98,15 +106,22 @@ export interface DayScheduleInterface {
    schedule: number[];
 }
 
-export interface GenericTrainErrorMessage {
-   title: 'No Saved Stations' | 'No Stations Found' | 'No Arrivals Found' | 'No Stations Found';
-   description: string;
+interface ErrorMocks<T> {
+   [key: string]: T;
 }
+
+export type StationCardFeedbackMessage = ErrorMocks<CardFeedback>;
+
+export type GenericFeedbackMessage =
+   | 'No Saved Stations'
+   | 'No Stations Found'
+   | 'No Arrivals Found'
+   | 'No Stations Found';
 
 export interface TrainPageContent {
    header: ArrivalHeaders;
    tab: ButtonProps[];
-   errorMessages: GenericTrainErrorMessage[];
+   feedback: StationCardFeedbackMessage;
 }
 
 export interface ArrivalPageConfig {

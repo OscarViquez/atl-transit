@@ -1,20 +1,20 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { Button, GenericHeader } from '@atl-transit/shared';
-import { StationInterface, TrainStaion } from '@atl-transit/stations';
+import { StationInterface, TrainStation } from '@atl-transit/stations';
 
 export class TrainUiAdapter {
-   static MapStationsToUi(stations: StationInterface[]): TrainStaion[] {
-      const uiStations: TrainStaion[] = [];
+   static MapStationsToUi(stations: StationInterface[]): TrainStation[] {
+      const uiStations: TrainStation[] = [];
       stations.forEach((station) => {
          const header = this.MapStationToHeader(station);
-         
+
          const button: Button = {
             text: 'More details',
             mode: 'light',
             hyperLink: '/station/' + station.station_key
          };
 
-         const trainUiStationIndividual: TrainStaion = {
+         const trainUiStationIndividual: TrainStation = {
             header: header,
             railArrivals: station.arrivals,
             button: button

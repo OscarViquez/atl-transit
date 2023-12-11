@@ -1,18 +1,52 @@
-.station {
-   min-width: 327px;
-   background: #ffffff;
-   margin: 32px 24px;
-   font-family: 'Inter', sans-serif;
-   border-radius: 5px;
-   box-shadow: 0px 4px 10px 0px rgba(56, 56, 56, 0.1);
+.station-card {
+   background-color: #ffffff;
+   border: 1px solid #eff1f7;
+   border-radius: 0.5rem;
+   padding: 0rem 1rem 0;
+
+   &__header {
+      padding: 0.5rem 0rem 0.5rem 0rem;
+
+      &__title {
+         font-family: 'Inter', sans-serif;
+         font-size: 1.25rem;
+         font-weight: 500;
+         letter-spacing: 0.3px;
+         text-transform: capitalize;
+      }
+   }
+
+   &__feedback {
+      display: grid;
+      place-content: center;
+      padding: 1rem;
+
+      &__search {
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         background: linear-gradient(91deg, #2a2c32 47.83%, #1d1f26 68.53%);
+         box-shadow: 0px 6px 10px 0px rgba(29, 31, 38, 0.25);
+         color: #ffffff;
+         border: 2px solid #2a2c32;
+         height: 35px;
+         margin: 0 auto;
+         width: 100%;
+         max-width: 295px;
+         font-size: 12px;
+         font-weight: 500;
+         transition: ease-in 0.1s;
+
+         &:hover {
+            border: 2px solid #2a2c32;
+            background: #ffffff;
+            color: #2a2c32;
+            box-shadow: none;
+         }
+      }
+   }
 }
 
 lib-button {
    border-radius: 0 0 5px 5px;
-}
-
-@media (max-width: 374px) {
-   .station {
-      margin: 32px auto;
-   }
 }

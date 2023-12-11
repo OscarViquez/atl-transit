@@ -1,16 +1,30 @@
 import { ButtonProps } from '@atl-transit/shared';
-import { ArrivalHeaders, GenericTrainErrorMessage } from '../models/interfaces';
+import { ArrivalHeaders, StationCardFeedbackMessage } from '../models/interfaces';
 
-export const GenericTrainErrorMocks: GenericTrainErrorMessage[] = [
-   {
-      title: 'No Saved Stations',
-      description: 'Save your frequently visited stations for easy access'
+export const StationFeedbackMessages: StationCardFeedbackMessage = {
+   emptySaved: {
+      icon: {
+         category: 'navigation',
+         name: 'overview',
+         mode: 'light'
+      },
+      message: {
+         title: 'No Saved Stations',
+         subtitle: 'Explore and Add Stations to Your Favorites for Quick Access.'
+      }
    },
-   {
-      title: 'No Stations Found',
-      description: 'There seems to be no upcoming arrivals at this time'
+   emptyArrivals: {
+      icon: {
+         category: 'navigation',
+         name: 'overview',
+         mode: 'light'
+      },
+      message: {
+         title: 'No Arrivals Found',
+         subtitle: 'There seems to be no upcoming arrivals at this time.'
+      }
    }
-];
+};
 
 export const SectionHeaderMocks: ArrivalHeaders = {
    main: {

@@ -1,5 +1,4 @@
 export * from './accordian/accordian.component';
-export * from './arrival-info/arrival-info.component';
 export * from './menu/menu.component';
 export * from './modal/modal.component';
 export * from './toast/toast.component';
@@ -7,4 +6,4 @@ export * from './items/items.component';
 export * from './search-bar/search-bar.component';
 export * from './tab/tab.component';
 export * from './card/card.component';
-export * from './card-details/card-details.component';
+export * from './card-feedback/index';
