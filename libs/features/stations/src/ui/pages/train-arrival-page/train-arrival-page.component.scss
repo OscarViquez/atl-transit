@@ -22,6 +22,8 @@
 
       &__card {
          flex: 1;
+         border-radius: 8px;
+         transition: ease-in 1s;
       }
    }
 
@@ -57,7 +59,7 @@
    .page__header {
       margin-top: 0;
    }
-   
+
    .page__arrivals {
       flex-direction: column;
    }

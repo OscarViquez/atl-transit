@@ -20,7 +20,7 @@ export const StationFeedbackMessages: StationCardFeedbackMessage = {
          mode: 'light'
       },
       message: {
-         title: 'No Stations Found',
+         title: 'No Arrivals Found',
          subtitle: 'There seems to be no upcoming arrivals at this time.'
       }
    }

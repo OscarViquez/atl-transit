@@ -10,16 +10,23 @@
    <ng-container [ngSwitch]="config.currentTabIndex">
       <section *ngSwitchCase="0" class="page__section page__arrivals">
          <ng-container *ngIf="{ loading: pageLoaded$ | async } as loaded">
-            <lib-loading-skeleton *ngIf="loaded.loading" [loadingItem]="'train-card'" />
             <ng-container *ngFor="let train of trainData$ | async; let i = index">
                <lib-station-card
                   *ngIf="i < config.maxStationArrivals"
                   class="page__arrivals__card"
                   [content]="train"
+                  [feedback]="content.feedback['emptyArrivals']"
                   [maxQuantiy]="config.maxRailArrivals"
                   infoFlag="arrival"
                />
             </ng-container>
+
+            <div *ngIf="loaded.loading" class="page__arrivals">
+               <lib-loading-skeleton />
+               <lib-loading-skeleton />
+               <lib-loading-skeleton />
+               <lib-loading-skeleton />
+            </div>
          </ng-container>
       </section>
       <section *ngSwitchCase="1" class="page__section">

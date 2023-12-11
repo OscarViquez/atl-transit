@@ -1,6 +1,12 @@
 <div class="search-bar search-bar--{{ color }}" [ngSwitch]="color">
    <ng-container *ngSwitchCase="'primary'">
-      <input class="search-bar__input" type="text" placeholder="Search Destination" [(ngModel)]="query" />
+      <input
+         class="search-bar__input"
+         type="text"
+         placeholder="Search Destination"
+         [(ngModel)]="query"
+         (keyup.enter)="emitQuery()"
+      />
    </ng-container>
    <ng-container *ngSwitchCase="'secondary'">
       <div class="search-bar__input">Search Destination</div>
