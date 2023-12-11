@@ -13,8 +13,8 @@ import {
    SearchBarComponent,
    SharedService,
    CardFeedbackComponent,
-   CardComponent,
-   IconComponent
+   IconComponent,
+   TileComponent
 } from '@atl-transit/shared';
 import { FooterComponent } from '@atl-transit/navigation';
 
@@ -30,7 +30,7 @@ import { FooterComponent } from '@atl-transit/navigation';
       HeaderComponent,
       SearchBarComponent,
       CardFeedbackComponent,
-      CardComponent,
+      TileComponent,
       LoadingSkeletonComponent,
       IconComponent,
       FooterComponent

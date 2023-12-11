@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Theme, BorderColor, BorderRadius, Padding } from './types/card.types';
+import { Theme, BorderColor, BorderRadius, Padding } from './types/tile.types';
 
 @Component({
-   selector: 'rya-card',
+   selector: 'rya-tile',
    standalone: true,
    imports: [CommonModule],
-   templateUrl: './card.component.html',
-   styleUrls: ['./card.component.scss']
+   templateUrl: './tile.component.html',
+   styleUrls: ['./tile.component.scss']
 })
-export class CardComponent implements OnInit {
+export class TileComponent implements OnInit {
    @Input() theme: Theme = 'light';
    @Input() spacing: Padding = 'auto';
    @Input() borderRadius: BorderRadius = 'medium';
@@ -20,7 +20,6 @@ export class CardComponent implements OnInit {
    ngOnInit(): void {
       this.setCardStyles();
    }
-   // this.addClassWithPrefix('card--radius', this.borderRadius);
 
    private setCardStyles(): void {
       this.classList.push('card');
