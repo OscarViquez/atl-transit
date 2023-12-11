@@ -1,0 +1,38 @@
+footer {
+   display: grid;
+   grid-template-columns: 1fr 1fr; // Creates two columns of equal width
+   grid-template-rows: auto auto; // Creates two rows based on content size
+   grid-template-areas:
+      'desc desc'
+      'logo logo';
+
+   background-image: url('/assets/images/footer/footer-banner.png');
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: right;
+   border-top: 1px solid #eff1f7;
+   padding-top: 1.5rem;
+}
+
+.footer__description {
+   grid-area: desc;
+   max-width: 26.875rem;
+   font-size: 12px;
+   font-weight: 500;
+   color: #5e5e5e;
+   margin-bottom: 3.75rem;
+}
+
+.footer__logo {
+   grid-area: logo;
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+
+   &__label {
+      color: #676879;
+      font-size: 8px;
+      font-weight: 500;
+      text-transform: uppercase;
+   }
+}

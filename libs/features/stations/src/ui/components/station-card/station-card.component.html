@@ -16,6 +16,8 @@
 
    <div *ngSwitchCase="stationInfoFlags.feedback" class="station-card station-card__feedback">
       <rya-card-feedback [content]="feedback" />
-      <button class="station-card__feedback__search">Search</button>
+      <button class="station-card__feedback__search" (click)="shared.toggleSearchModal()">
+         Search
+      </button>
    </div>
 </ng-container>
