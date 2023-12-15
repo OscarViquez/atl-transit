@@ -12,7 +12,7 @@ import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store'
    imports: [
       HttpClientModule,
       StoreModule.forRoot({ router: routerReducer}),
-      StoreDevtoolsModule.instrument({ maxAge: 25 }),
+      StoreDevtoolsModule.instrument({ maxAge: 25 , connectInZone: true}),
       StoreModule.forFeature('user', userReducer),
       StoreModule.forFeature('stations', stationReducer),
       EffectsModule.forRoot([]),
