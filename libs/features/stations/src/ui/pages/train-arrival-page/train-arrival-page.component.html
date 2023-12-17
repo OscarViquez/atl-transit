@@ -12,6 +12,7 @@
          (currentTabEmitter)="currentTabSetter($event)"
       />
 
+      <!-- TODO: REFACTOR THIS, move some logic to the +state / data-access -->
       <ng-container [ngSwitch]="config.currentTabIndex">
          <section *ngSwitchCase="0" class="page__section page__arrivals">
             <ng-container *ngIf="{ loading: pageLoaded$ | async } as loaded">
@@ -44,25 +45,26 @@
          </section>
       </ng-container>
 
+      <!-- TODO: REFACTOR THIS, USE @FOR to iterate the rya-tile -->
       <section class="page__section page__explore">
          <rya-header [content]="content.header.explore" [variant]="'main'" />
          <div class="page__explore__actions">
             <rya-tile class="page__explore__actions__tile" spacing="xs">
-               <rya-icon category="navigation" name="search" class="search" />
+               <rya-icon category="stations" name="parking-area" />
                <p>Parking</p>
             </rya-tile>
             <rya-tile class="page__explore__actions__tile" spacing="xs">
-               <rya-icon category="navigation" name="search" />
+               <rya-icon category="stations" name="card" />
                <p>Breeze Card</p>
-            </rya-tile >
+            </rya-tile>
             <rya-tile class="page__explore__actions__tile" spacing="xs">
-               <rya-icon category="navigation" name="search" />
+               <rya-icon category="stations" name="mini-map" />
                <p>Rail Map</p>
-            </rya-tile >
+            </rya-tile>
             <rya-tile class="page__explore__actions__tile" spacing="xs">
-               <rya-icon category="navigation" name="search" />
+               <rya-icon category="stations" name="schedule" />
                <p>Schedules</p>
-            </rya-tile >
+            </rya-tile>
          </div>
       </section>
       <rya-footer />
