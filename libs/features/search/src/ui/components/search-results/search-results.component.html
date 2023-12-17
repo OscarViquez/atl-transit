@@ -1,12 +1,12 @@
 <div class="search-results">
-   <ng-container *ngFor="let result of results">
-      <a tabindex="0" class="search-results-card">
-         <div class="search-results-card__label" >
+   <ng-container *ngFor="let result of results; let i = index">
+      <a class="search-results-card" [routerLink]="routerLinkUrl(i)">
+         <div class="search-results-card__label">
             {{ result.label }}
          </div>
-         <button class="search-results-card__button" routerLink="">
-            <img src="/assets/icons/caret-right.svg" alt="view more options" />
-         </button>
+         <div class="search-results-card__button">
+            <img src="/assets/icons/search/caret-right.svg" alt="view more options" />
+         </div>
       </a>
    </ng-container>
 </div>

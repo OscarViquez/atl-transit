@@ -28,14 +28,13 @@
          height: 35px;
          margin: 0 auto 1rem;
          padding: 0;
-         border: 2px solid #2a2c32;
          border-radius: 5px;
-         background: linear-gradient(91deg, #2a2c32 47.83%, #1d1f26 68.53%);
-         box-shadow: 0px 6px 10px 0px rgba(29, 31, 38, 0.25);
+         background: linear-gradient(180deg, #2a2c32 33.09%, #1d1f26 66.09%);
+         border: none;
          color: #ffffff;
          font-size: 12px;
          font-weight: 500;
-         transition: ease-in 0.1s;
+         transition: linear 0.2s;
          cursor: pointer;
       }
    }
