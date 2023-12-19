@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { StationFeedbackMessages, SectionHeaderMocks, TabContentMocks, TrainPageContent } from '../../../shared';
+import { StationFeedbackMessages, SectionHeaderMocks, TabContentMocks, TrainPageContent } from '../../shared';
 
 @Injectable({
    providedIn: 'root'
