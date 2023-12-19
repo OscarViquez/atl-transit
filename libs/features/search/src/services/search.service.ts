@@ -9,7 +9,7 @@ import {
    stationGeneralSelector
 } from '@atl-transit/global-state';
 import { ButtonInputType } from '@atl-transit/shared';
-import { SearchResults } from '../../shared';
+import { SearchResults } from '../shared';
 
 interface Station {
    id?: number;

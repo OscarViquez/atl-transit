@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { SideBarButtonProps, Sidebar, SidebarMenuItem } from '../../../shared';
+import { SideBarButtonProps, Sidebar, SidebarMenuItem, sideBarContent } from '../../shared';
 import { ButtonProps, Icon, MenuProps } from '@atl-transit/shared';
-import { sideBarContent } from '../../../shared/index';
 
 @Injectable({
    providedIn: 'root'
@@ -40,7 +39,10 @@ export class StaticContentService {
          name: sideBarContent.logo.name,
          mode: sideBarContent.logo.mode
       };
-      const menu: MenuProps[] = StaticContentService.setMenuContent(sideBarContent.menu, sideBarContent.button);
+      const menu: MenuProps[] = StaticContentService.setMenuContent(
+         sideBarContent.menu,
+         sideBarContent.button
+      );
       return {
          icon,
          menu

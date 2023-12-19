@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent, SidebarComponent } from '../../components';
-import { StaticContentService } from '../../../data/index';
+import { StaticContentService } from '../../../services/index';
 
 @Component({
    selector: 'rya-navigation',

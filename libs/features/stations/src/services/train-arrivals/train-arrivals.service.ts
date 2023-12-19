@@ -9,7 +9,7 @@ import {
    userLoadingSelector
 } from '@atl-transit/global-state';
 import { Observable } from 'rxjs';
-import { ArrivalPageConfig, TrainStation } from '../../../shared';
+import { ArrivalPageConfig, TrainStation } from '../../shared';
 
 interface InitializationData {
    trainData$: Observable<TrainStation[]>;
@@ -22,7 +22,7 @@ interface InitializationData {
 export class TrainArrivalsService {
    constructor(
       private state: Store<UserStateInterface>,
-      private stationStore: Store<StationStateInterface>,
+      private stationStore: Store<StationStateInterface>
    ) {}
 
    initializeData(): InitializationData {

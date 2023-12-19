@@ -10,7 +10,7 @@ import {
 } from '@atl-transit/shared';
 import { SearchResultsComponent } from '../../components';
 import { SearchResults } from '../../../shared';
-import { SearchService } from '../../../data';
+import { SearchService } from '../../../services';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
