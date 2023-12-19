@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { catchError, map, concatMap, withLatestFrom} from 'rxjs/operators';
 import { StationStateInterface } from '../../models';
 import { CombinedDataAdapter } from '../../adapters/index';
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../services/data/data.service';
 import { amenitiesActions, arrivalMappingActions, arrivalResponseActions, generalStationActions, stationScheduleActions, userLocationAction } from '../actions';
 import { stationArrivalResponseSelector, stationGeneralSelector } from '../selectors';
 

@@ -2,8 +2,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { EndpointResponse } from '../types';
-import { MartaArrivalResponse } from '../models';
+import { EndpointResponse } from '../../types';
+import { MartaArrivalResponse } from '../../models';
 import { AmenitiesStationInterface, JsonStationInterface, ScheduleStationInterface } from '@atl-transit/stations';
 
 @Injectable({

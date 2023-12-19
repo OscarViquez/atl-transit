@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { StationCardComponent } from '../../components';
 import { ArrivalPageConfig, TrainPageContent, TrainStation } from '../../../shared';
-import { StaticContentService, TrainArrivalsService } from '../../../data';
+import { StaticContentService, TrainArrivalsService } from '../../../services';
 import {
    HeroComponent,
    TabComponent,
