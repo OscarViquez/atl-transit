@@ -1,1 +1,1 @@
-export * from './app/app.facade'
+export * from './app/app.facade';

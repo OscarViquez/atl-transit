@@ -4,7 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EndpointResponse } from '../../types';
 import { MartaArrivalResponse } from '../../models';
-import { AmenitiesStationInterface, JsonStationInterface, ScheduleStationInterface } from '@atl-transit/stations';
+import {
+   AmenitiesStationInterface,
+   JsonStationInterface,
+   ScheduleStationInterface
+} from '@atl-transit/stations';
 
 @Injectable({
    providedIn: 'root'
@@ -19,9 +23,7 @@ export class DataService {
 
    /* get Data Methods Declared Here  */
    getStationData(): Observable<JsonStationInterface[]> {
-      return this.http.get<JsonStationInterface[]>(
-         EndpointResponse.GENERAL_STATION_RESPONSE
-      );
+      return this.http.get<JsonStationInterface[]>(EndpointResponse.GENERAL_STATION_RESPONSE);
    }
 
    getAmenitiesData(): Observable<AmenitiesStationInterface[]> {
@@ -31,11 +33,8 @@ export class DataService {
    }
 
    getStationSchedule(): Observable<ScheduleStationInterface[]> {
-      return this.http.get<ScheduleStationInterface[]>(
-         EndpointResponse.STATION_SCHEDULE_RESPONSE
-      );
+      return this.http.get<ScheduleStationInterface[]>(EndpointResponse.STATION_SCHEDULE_RESPONSE);
    }
-
 
    getArrivalPredictionData(): Observable<object[]> {
       return this.http.get<object[]>(EndpointResponse.PREDICTIONS_RESPONSE);
@@ -46,8 +45,6 @@ export class DataService {
    }
 
    getArrivalTimes(): Observable<MartaArrivalResponse[]> {
-      return this.http.get<MartaArrivalResponse[]>(
-         EndpointResponse.RAIL_ARRIVAL_TIMES_RESPONSE
-      );
+      return this.http.get<MartaArrivalResponse[]>(EndpointResponse.RAIL_ARRIVAL_TIMES_RESPONSE);
    }
 }

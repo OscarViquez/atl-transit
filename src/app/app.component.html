@@ -1,6 +1,8 @@
-<div class="app-wrapper">
-   <rya-navigation />
-   <div class="app-wrapper__pages">
+<div class="app">
+   <div class="app-nav">
+      <rya-navigation />
+   </div>
+   <div class="app-pages">
       <router-outlet></router-outlet>
    </div>
    <ng-container *ngIf="shared.searchModalActive">

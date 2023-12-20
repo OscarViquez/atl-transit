@@ -19,7 +19,7 @@ import {
 import { FooterComponent } from 'libs/features/src/navigation';
 
 @Component({
-   selector: 'lib-train-arrivals-page',
+   selector: 'rya-train-arrivals-page',
    standalone: true,
    imports: [
       CommonModule,

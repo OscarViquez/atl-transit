@@ -6,7 +6,7 @@ import {
    StationInterface,
    BusRoutes
 } from '@atl-transit/stations';
-import { MartaArrivalResponse } from '../../models';
+import { GenericItem, MartaArrivalResponse } from '../../models';
 
 export class TrainArrivalAdapter {
    static MapToRailArrival(item: MartaArrivalResponse): RailArrival {
@@ -37,21 +37,11 @@ export class TrainArrivalAdapter {
       };
    }
 
-   static MapJsonToStationInterface(
-      allStations: JsonStationInterface[]
-   ): StationInterface[] {
-      const stations: StationInterface[] = [];
-      allStations.forEach((station) => {
+   static MapJsonToStationInterface(allStations: JsonStationInterface[]): StationInterface[] {
+      return allStations.map((station) => {
          const routes: BusRoutes[] = [];
-         station.busroutes.forEach((x) => {
-            if (x !== null) {
-               // const busRoute = this.MapObjectToBusRoute(x);
-               // routes.push(busRoute);
-            }
-         });
 
-         // map the stationponse to the interface
-         const mappedResponse: StationInterface = {
+         return {
             station_key: station._station_key,
             name: station.name,
             description: station.description,
@@ -62,19 +52,16 @@ export class TrainArrivalAdapter {
             ammenities_key: station.amenities,
             arrivals: []
          };
-
-         stations.push(mappedResponse);
       });
-      return stations;
    }
 
    static MapRailArrivalGroups(
       arrival: RailArrival[],
       currentStations: StationInterface[]
    ): StationInterface[] {
-      // sort based on arrival time 
-      arrival.sort((a, b) => a.secondsToArrive - b.secondsToArrive)
-      
+      // sort based on arrival time
+      arrival.sort((a, b) => a.secondsToArrive - b.secondsToArrive);
+
       arrival.forEach((trainArrival) => {
          // step one: define the looking we are looking for
          const locationToFind = trainArrival.station;
@@ -90,17 +77,15 @@ export class TrainArrivalAdapter {
       return currentStations;
    }
 
-   static MapObjectToBusRoute(item: any): BusRoutes {
+   static MapObjectToBusRoute(item: GenericItem): BusRoutes {
       const mappedBus = {
          key: Object.keys(item)[0],
          value: Object.values(item)[0]
       };
-
       const busRoute: BusRoutes = {
          routeID: parseInt(mappedBus.key),
          name: mappedBus.value as string
       };
-
       return busRoute;
    }
 }
