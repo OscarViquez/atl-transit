@@ -40,4 +40,6 @@ Thumbs.db
 
 .angular
 
+# NX Files
 .nx/cache
+.nx
