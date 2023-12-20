@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Store } from '@ngrx/store';
-import {
-   StationStateInterface,
-   userLocationAction,
-   generalStationActions,
-   UserStateInterface
-} from '@atl-transit/global-state';
+import { AppFacadeService } from '@atl-transit/global-state';
 import { SharedService } from '@atl-transit/shared';
 import { NavigationComponent, SearchModalComponent } from '@atl-transit/features-ui';
 import { SwUpdate } from '@angular/service-worker';
@@ -19,15 +13,11 @@ import { SwUpdate } from '@angular/service-worker';
    styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-   constructor(
-      private store: Store<UserStateInterface>,
-      private stationStore: Store<StationStateInterface>,
-      public shared: SharedService
-   ) {}
+   constructor(private facade: AppFacadeService, public shared: SharedService) {}
 
    ngOnInit(): void {
-      this.store.dispatch(userLocationAction.location());
-      this.stationStore.dispatch(generalStationActions.stationLocate());
+      this.facade.locateUser();
+      this.facade.locateStation();
    }
 
    updatePWA(updates: SwUpdate) {

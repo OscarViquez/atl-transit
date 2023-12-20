@@ -13,7 +13,7 @@ import {
 import { ArrivalInfoComponent } from '../arrival-info/arrival-info.component';
 
 @Component({
-   selector: 'lib-station-card',
+   selector: 'rya-station-card',
    standalone: true,
    imports: [
       CommonModule,

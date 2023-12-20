@@ -17,7 +17,7 @@
          <section *ngSwitchCase="0" class="page__section page__arrivals">
             <ng-container *ngIf="{ loading: pageLoaded$ | async } as loaded">
                <ng-container *ngFor="let train of trainData$ | async; let i = index">
-                  <lib-station-card
+                  <rya-station-card
                      *ngIf="i < config.maxStationArrivals"
                      class="page__arrivals__card"
                      [content]="train"
@@ -36,7 +36,7 @@
             </ng-container>
          </section>
          <section *ngSwitchCase="1" class="page__section">
-            <lib-station-card
+            <rya-station-card
                class="page__arrivals__card"
                [feedback]="content.feedback['emptySaved']"
                [maxQuantiy]="config.maxRailArrivals"
@@ -69,7 +69,8 @@
       </section>
       <rya-footer />
    </div>
-   <aside class="page__map">
+   <!-- TODO: add this page when map is implemented -->
+   <!-- <aside class="page__map">
       <div class="page__map__wrapper">
          <ng-container *ngIf="{ loading: pageLoaded$ | async } as loaded">
             <rya-icon
@@ -80,5 +81,5 @@
             <p *ngIf="!loaded.loading">Map feature is currently unavailable.</p>
          </ng-container>
       </div>
-   </aside>
+   </aside> -->
 </main>

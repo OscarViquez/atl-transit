@@ -1,11 +1,11 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 
 import { StationInterface } from '@atl-transit/stations';
-import { User } from '../../models';
+import { UserLocationInfo } from '../../models';
 
 export class UserAdapter {
    static MapClosestStationToUser(
-      user: User,
+      user: UserLocationInfo,
       stations: StationInterface[]
    ): StationInterface[] {
       const stationDistances: { name: string; distance: number }[] = [];

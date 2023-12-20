@@ -1,9 +1,13 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { HeroComponent, TabComponent, LoadingSkeletonComponent, GenericHeader } from '@atl-transit/shared';
+import {
+   HeroComponent,
+   TabComponent,
+   LoadingSkeletonComponent,
+   GenericHeader
+} from '@atl-transit/shared';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { ActivatedRoute } from '@angular/router';
 import {
    amenitiesByIdSelector,
    AppStateInterface,
@@ -14,9 +18,15 @@ import {
 import { StationCardComponent } from '../../components';
 
 @Component({
-   selector: 'lib-station-details-page',
+   selector: 'rya-station-details-page',
    standalone: true,
-   imports: [CommonModule, HeroComponent, TabComponent, StationCardComponent, LoadingSkeletonComponent],
+   imports: [
+      CommonModule,
+      HeroComponent,
+      TabComponent,
+      StationCardComponent,
+      LoadingSkeletonComponent
+   ],
    templateUrl: './station-details-page.component.html',
    styleUrls: ['./station-details-page.component.scss']
 })
@@ -46,7 +56,6 @@ export class StationDetailsPageComponent implements OnInit {
          subtitle: station?.description
       };
    }
-
 
    // NOTE: For Readability, had to put this in to a different method
    getTodayDate(): Date {

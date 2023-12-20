@@ -3,6 +3,7 @@ import { Button, GenericHeader } from '@atl-transit/shared';
 import { StationInterface, TrainStation } from '@atl-transit/stations';
 
 export class TrainUiAdapter {
+   // This is to map for static content
    static MapStationsToUi(stations: StationInterface[]): TrainStation[] {
       const uiStations: TrainStation[] = [];
       stations.forEach((station) => {

@@ -36,5 +36,8 @@ export type MartaArrivalResponse = {
     WAITING_TIME: string;
  };
  
+ export interface GenericItem {
+   [key: string]: string;
+ }
 
  
