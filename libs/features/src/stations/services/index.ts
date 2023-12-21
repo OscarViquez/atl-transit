@@ -1,2 +1,1 @@
-export * from './static-content/static-content.service';
-export * from './train-arrivals/train-arrivals.service';
+export * from './train-page/train-page.service';

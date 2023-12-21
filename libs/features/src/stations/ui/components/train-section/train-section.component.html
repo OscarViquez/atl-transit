@@ -1,0 +1,15 @@
+@switch (config.currentTabIndex) {
+    @case (0) {
+      <rya-train-arrivals
+         [loading]="loading"
+         [content]="content"
+         [trainData]="trainData"
+         [config]="config"
+      /> 
+    } @case (1) {
+       <rya-saved-arrivals
+         [content]="content"
+         [config]="config"
+       />
+    } 
+ }

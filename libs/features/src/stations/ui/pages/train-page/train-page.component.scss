@@ -1,0 +1,49 @@
+.train {
+   display: flex;
+
+   &__page {
+      background: #fefefe;
+      padding: 2.5rem 2rem 2rem;
+      flex: 1;
+      overflow: hidden;
+
+      &__header {
+         display: inherit;
+         margin-top: 2.5rem;
+      }
+
+      &__tab {
+         display: inherit;
+         margin-top: 2rem;
+      }
+
+      &__arrivals {
+         display: inherit;
+         margin-top: 2rem;
+      }  
+   }
+
+   &__map {
+      flex: 1;
+      position: relative;
+      border-left: 1px solid #f3f3f3;
+      background: #f7f8fb;
+   }
+}
+
+@media (max-width: 992px) {
+   .train {
+      &__page {
+         padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+
+         &__search {
+            display: none;
+         }
+      }
+
+      &__map {
+         display: none;
+      }
+   }
+}
+

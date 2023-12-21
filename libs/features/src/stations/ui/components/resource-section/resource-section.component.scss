@@ -1,0 +1,16 @@
+.resource__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    &__tile {
+       width: 47%;
+
+       & p {
+          font-size: 1rem;
+          font-weight: 500;
+          margin-top: 1rem;
+       }
+    }
+ }

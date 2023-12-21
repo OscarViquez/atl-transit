@@ -2,7 +2,7 @@ import { RailArrival } from '../../shared';
 import { ButtonLightModeMock } from '@atl-transit/shared';
 import { TrainStation } from '../../shared';
 
-export const RailArrivalMock: RailArrival[] = [
+const RailArrivalMock: RailArrival[] = [
    {
       station: 'Random',
       direction: 'North',
@@ -54,3 +54,4 @@ export const TrainStationMock: TrainStation = {
       error: true
    }
 };
+

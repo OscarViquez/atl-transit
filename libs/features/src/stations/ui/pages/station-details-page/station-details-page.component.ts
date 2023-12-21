@@ -49,6 +49,7 @@ export class StationDetailsPageComponent implements OnInit {
       });
    }
 
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
    updateStaticContentHeader(station: any): void {
       const stationName = TrainUiAdapter.MapHeaderToUiView(station?.name || '');
       this.staticContentHeader = {

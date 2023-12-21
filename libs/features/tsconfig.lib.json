@@ -15,5 +15,5 @@
     "**/*.stories.ts",
     "**/*.stories.js"
   ],
-  "include": ["src/**/*.ts", "../stations/ui/src/lib/types/trainstation.types.ts", "../stations/ui/src/lib/types/railarrival.types.ts"]
+  "include": ["src/**/*.ts"]
 }
