@@ -1,10 +1,9 @@
 .train-arrivals {
-   padding: 1rem 0;
-
-   &_cards {
+   &__cards {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      padding-bottom: 1rem;
    }
 
    &__card {
@@ -16,11 +15,11 @@
    }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 599px) {
    .train-arrivals {
       &__buttons {
-        display: flex;
-        padding: 1rem 0;
+         display: flex;
+         padding: 1rem 0;
       }
 
       &__button {
@@ -48,19 +47,3 @@
       }
    }
 }
-
-// @media (max-width: 768px) {
-//     .train-arrivals {
-//         gap: 0.5rem;
-
-//        &__card {
-//           width: 300px;
-//           scroll-snap-align: start;
-//           margin-right: 16px; // or any desired spacing
-
-//           &:last-child {
-//              margin-right: 0;
-//           }
-//        }
-//     }
-//  }
