@@ -1,0 +1,36 @@
+<main class="train">
+   <div class="train__page">
+      <rya-search-bar
+         class="train__page__search"
+         [color]="'secondary'"
+         (click)="shared.toggleSearchModal()"
+      />
+      <rya-header 
+         class="train__page__header" 
+         [content]="content.header.main" 
+         [variant]="'main'" 
+      />
+      <rya-tab
+         class="train__page__tab"
+         [tabs]="content.tab"
+         (currentTabEmitter)="currentTabSetter($event)"
+      />
+
+      @if(data$ | async; as data) {
+         <rya-train-section
+            class="train__page__arrivals" 
+            [loading]="data.loading"
+            [content]="content"
+            [trainData]="data.trains"
+            [config]="config"
+         />
+      }
+      <rya-resource-section class="train__page__header" [content]="content" />
+      <rya-footer />
+   </div>
+   <aside class="train__map">
+      @if(data$ | async; as data) {
+         <rya-train-journey [loading]="data.loading" />
+      }
+   </aside>
+</main>

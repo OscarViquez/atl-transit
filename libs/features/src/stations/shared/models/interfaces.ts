@@ -6,8 +6,9 @@ import {
    GenericHeader,
    Tab,
    CardFeedback,
-   BadgeVariant
+   Icon
 } from '@atl-transit/shared';
+import { Observable } from 'rxjs';
 
 export interface TrainArrivalPage {
    tab: Tab[];
@@ -40,6 +41,13 @@ export interface RailArrival {
    arrivalTime: string;
    /* current station */
    station: string;
+}
+
+export interface StationResource {
+   id: number;
+   icon: Icon;
+   title: string;
+   action?: string;
 }
 
 export interface StationInterface {
@@ -122,9 +130,11 @@ export interface TrainPageContent {
    header: ArrivalHeaders;
    tab: ButtonProps[];
    feedback: StationCardFeedbackMessage;
+   tiles: StationResource[];
+   config: TrainPageConfig;
 }
 
-export interface ArrivalPageConfig {
+export interface TrainPageConfig {
    maxStationArrivals: number;
    maxRailArrivals: number;
    currentTabIndex: number;
@@ -133,4 +143,9 @@ export interface ArrivalPageConfig {
 export interface ArrivalHeaders {
    main: GenericHeader;
    explore: GenericHeader;
+}
+
+export interface InitializeTrainPageContent{
+   content: TrainPageContent;
+   data$: Observable<{ loading: boolean; trains: TrainStation[] }>;
 }

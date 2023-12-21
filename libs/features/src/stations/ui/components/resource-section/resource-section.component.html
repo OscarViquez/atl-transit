@@ -1,0 +1,11 @@
+<section class="resource">
+    <rya-header [content]="content.header.explore" [variant]="'main'" />
+    <div class="resource__wrapper">
+      @for (tile of content.tiles; track tile.id; let idx = $index) {
+         <rya-tile class="resource__wrapper__tile" spacing="xs">
+            <rya-icon [category]="tile.icon.category" [name]="tile.icon.name" />
+            <p>{{ tile.title }}</p>
+         </rya-tile>
+      }
+    </div>
+ </section>

@@ -1,2 +1,2 @@
-export * from './train-arrival-mocks';
+export * from './train-page-mocks';
 export * from './rail-arrival-card.mock';

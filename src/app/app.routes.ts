@@ -1,11 +1,11 @@
 import { Route } from '@angular/router';
-import { StationDetailsPageComponent, TrainArrivalPageComponent } from '@atl-transit/stations';
+import { StationDetailsPageComponent, TrainPageComponent } from '@atl-transit/stations';
 
 
 export const appRoutes: Route[] = [
    {
       path: 'trains',
-      component: TrainArrivalPageComponent,
+      component: TrainPageComponent,
       pathMatch: 'full'
    },
    {

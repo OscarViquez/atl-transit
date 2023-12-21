@@ -1,1 +1,19 @@
-<div class="skeleton-loader"></div>
+@switch (loadingItem) {
+    @case ('card') { 
+        <div class="skeleton-custom">
+            <div class="skeleton-custom__loader skeleton-loader"></div> 
+            <div class="skeleton-custom__loader skeleton-loader"></div> 
+            <div class="skeleton-custom__loader skeleton-loader"></div> 
+            <div class="skeleton-custom__loader skeleton-loader"></div> 
+        </div>
+    }
+    @case ('text') {
+        <div class="skeleton-custom">
+            <div class="skeleton-custom__loader skeleton-loader"></div> 
+            <div class="skeleton-custom__loader skeleton-loader"></div> 
+        </div>
+    }
+    @default { 
+        <div class="skeleton-default skeleton-loader"></div>
+    }
+  }
