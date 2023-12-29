@@ -4,14 +4,15 @@
 <section class="train-arrivals">
    <div class="train-arrivals__cards">
       @for (train of trainData ; track train.header.title; let idx = $index) {
-         <rya-station-card
-            *ngIf="idx < config.maxStationArrivals"
-            class="train-arrivals__card"
-            [content]="train"
-            [feedback]="content.feedback['emptyArrivals']"
-            [maxQuantiy]="config.maxRailArrivals"
-            infoFlag="arrival"
-         />
+            @if(idx < config.maxStationArrivals) {
+               <rya-station-card
+                  class="train-arrivals__card"
+                  [content]="train"
+                  [feedback]="content.feedback['emptyArrivals']"
+                  [maxQuantiy]="config.maxRailArrivals"
+                  infoFlag="arrival"
+               />
+            }
       } @empty {
          <rya-station-card
             class="train-arrivals__card"

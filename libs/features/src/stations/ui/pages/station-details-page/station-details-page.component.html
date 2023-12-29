@@ -1,30 +1,9 @@
 <h1>here</h1>
 <div class="train-arrivals-page">
-    <ng-container *ngIf="station$ | async as station">
-       <!-- If content has completed loading -->
-       <ng-container *ngIf="station">
-          <section class="hero-wrapper">
-             <rya-hero [content]="staticContentHeader"></rya-hero>
-          </section>
-          <section>
-            
-            
-          </section>
-          </ng-container>
-       <!-- If content is still loading... -->
-       <ng-container *ngIf="!station">
-          <section class="hero-wrapper">
-             <!-- <lib-loading-skeleton [loadingItem]="'hero'"></lib-loading-skeleton> -->
-          </section>
-
- 
-          <section class="train-arrivals">
-             <div class="train-arrivals-wrapper">
-                <!-- <lib-loading-skeleton [loadingItem]="'train-card'"></lib-loading-skeleton> -->
-             </div>
-          </section>
-       </ng-container>
-    </ng-container>
-
-    </div>
- 
+   <ng-container *ngIf="data$">
+      <section class="hero-wrapper">
+         <rya-hero [content]="staticContentHeader"></rya-hero>
+      </section>
+      <section></section>
+   </ng-container>
+</div>
