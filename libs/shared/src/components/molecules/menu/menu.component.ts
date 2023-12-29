@@ -15,9 +15,6 @@ export interface MenuProps {
    imports: [CommonModule, ThemeButtonComponent],
    template: `
       <div [ngClass]="{ 'menu--divider': content.divider }" class="menu {{ content.mode }}">
-         <div class="menu__title">
-            <h3>{{ content.title }}</h3>
-         </div>
          <div class="menu__items" *ngFor="let item of content.items">
             <rya-button [props]="item" />
          </div>

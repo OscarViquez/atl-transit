@@ -16,8 +16,7 @@ export class AppComponent implements OnInit {
    constructor(private facade: AppFacadeService, public shared: SharedService) {}
 
    ngOnInit(): void {
-      this.facade.locateUser();
-      this.facade.locateStation();
+      this.facade.dispatchAppData();
    }
 
    updatePWA(updates: SwUpdate) {

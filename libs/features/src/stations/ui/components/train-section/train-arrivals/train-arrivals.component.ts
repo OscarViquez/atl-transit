@@ -1,6 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PaginationButtonMocks, TrainPageConfig, TrainPageContent, TrainStation } from '../../../../shared';
+import {
+   PaginationButtonMocks,
+   TrainPageConfig,
+   TrainPageContent,
+   TrainStation
+} from '../../../../shared';
 import { StationCardComponent } from '../../../components';
 import { LoadingSkeletonComponent, ThemeButtonComponent } from '@atl-transit/shared';
 
@@ -16,7 +21,12 @@ export class TrainArrivalsComponent {
    @Input() trainData!: TrainStation[] | null;
    @Input() content!: TrainPageContent;
    @Input() config!: TrainPageConfig;
-   buttonProps = PaginationButtonMocks
+   buttonProps = PaginationButtonMocks;
+
+   filterData(data: TrainStation[] | null): TrainStation[] {
+      if(data) return data?.slice(0, 2);
+      else return [];
+   }
 
    scroll(direction: number): void {
       const container = document.querySelector('.train-arrivals__cards');

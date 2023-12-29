@@ -12,7 +12,7 @@ import { SavedArrivalsComponent } from './saved-arrivals/saved-arrivals.componen
    styleUrl: './train-section.component.scss'
 })
 export class TrainSectionComponent {
-   @Input() loading!: boolean | null;
+   @Input() loading!: boolean;
    @Input() trainData!: TrainStation[] | null;
    @Input() content!: TrainPageContent;
    @Input() config!: TrainPageConfig;

@@ -6,7 +6,8 @@ import {
    ModalAnimationDirective,
    IconComponent,
    SearchBarComponent,
-   SharedService
+   SharedService,
+   LoadingSkeletonComponent
 } from '@atl-transit/shared';
 import { SearchResultsComponent } from '..';
 import { SearchResults } from '../../../shared';
@@ -23,7 +24,8 @@ import { BehaviorSubject } from 'rxjs';
       SearchResultsComponent,
       IconComponent,
       ModalAnimationDirective,
-      SearchBarComponent
+      SearchBarComponent,
+      LoadingSkeletonComponent
    ],
    templateUrl: './search-modal.component.html',
    styleUrls: ['./search-modal.component.scss']
@@ -36,15 +38,15 @@ export class SearchModalComponent implements OnInit {
    constructor(private service: SearchService, public shared: SharedService) {}
 
    ngOnInit(): void {
-      this.service.init();
-      this.processQuery('A');
+      this.service.initializeData();
+      this.processSearchQuery('') 
    }
 
    closeModal(): void {
       this.shared.searchModalActive = false;
    }
 
-   processQuery(event: string) {
+   processSearchQuery(event: string) {
       this.service.processQuery(event.toLowerCase()).subscribe((results) => {
          this.searchResults$.next(results);
       });

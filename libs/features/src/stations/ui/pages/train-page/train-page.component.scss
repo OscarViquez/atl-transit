@@ -12,6 +12,38 @@
          margin-top: 2.5rem;
       }
 
+      .badge {
+         padding-top: 2rem;
+         display: flex;
+         gap: 0.5rem;
+
+
+         &--red {
+            width: 24px;
+            height: 24px;
+            display: grid;
+            place-content: center;
+            color: #ffffff;
+            background-color: #BB032A;
+            border-radius: 50px;
+            font-weight: 500;
+
+         }
+
+         &--gold {
+            width: 24px;
+            height: 24px;
+            display: grid;
+            place-content: center;
+            color: #1F1F1F;
+            background-color: #F1B82D;
+            border-radius: 50px;
+            font-weight: 500;
+
+            
+         }
+      }
+
       &__tab {
          display: inherit;
          margin-top: 2rem;
@@ -20,7 +52,12 @@
       &__arrivals {
          display: inherit;
          margin-top: 2rem;
-      }  
+      }
+
+      &__footer {
+         display: inherit;
+         margin-top: 2rem;
+      }
    }
 
    &__map {
@@ -36,6 +73,11 @@
       &__page {
          padding: 2.5rem 1.5rem 1.5rem 1.5rem;
 
+         &__header {
+            &--arrivals {
+               margin-top: 0;
+            }
+         }
          &__search {
             display: none;
          }
@@ -46,4 +88,3 @@
       }
    }
 }
-
