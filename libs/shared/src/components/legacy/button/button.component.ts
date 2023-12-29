@@ -16,4 +16,6 @@ export class ButtonComponent {
    // TODO: Use Directives for this component
    @Input() content!: Button;
    @Input() isLoading!: boolean;
+
+
 }

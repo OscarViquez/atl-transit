@@ -12,7 +12,7 @@ export class TrainUiAdapter {
          const button: Button = {
             text: 'More details',
             mode: 'light',
-            hyperLink: '/station/' + station.station_key
+            hyperLink: '/' + station.station_key
          };
 
          const trainUiStationIndividual: TrainStation = {

@@ -51,7 +51,7 @@ export interface StationResource {
 }
 
 export interface StationInterface {
-   station_key: number;
+   station_key: string;
    name: string;
    description?: string;
    latitude: number;
@@ -76,7 +76,7 @@ export interface BusRoutes {
 
 // TODO: rename this without interface word
 export interface JsonStationInterface {
-   _station_key: number;
+   _station_key: string;
    name: string;
    _id: string;
    description: string;

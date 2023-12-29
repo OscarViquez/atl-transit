@@ -9,7 +9,7 @@ export const appRoutes: Route[] = [
       pathMatch: 'full'
    },
    {
-      path: 'station/:id',
+      path: ':id',
       component: StationDetailsPageComponent,
       pathMatch: 'full'
    },
