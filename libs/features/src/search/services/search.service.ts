@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import {
+   AppFacadeService,
    AppStateInterface,
-   TrainUiAdapter,
-   generalStationActions,
-   stationGeneralSelector
 } from '@atl-transit/global-state';
 import { ButtonInputType } from '@atl-transit/shared';
 import { SearchResults } from '../shared';
@@ -20,16 +19,17 @@ interface Station {
    providedIn: 'root'
 })
 export class SearchService {
-   constructor(private store: Store<AppStateInterface>) {}
+   constructor(private store: Store<AppStateInterface>, private facade: AppFacadeService) {}
 
-   init(): void {
-      this.store.dispatch(generalStationActions.stationLocate());
+   initializeData(): void {
+      this.facade.dispatchSearchModal();
    }
 
+   // * This method is used to search for stations on the modal
    processQuery(userQuery: string) {
-      return this.store
-         .select(stationGeneralSelector)
-         .pipe(switchMap((stations) => this.filterAndMapStations(stations, userQuery)));
+      return this.facade.allGeneralStations$.pipe(
+         switchMap((stations) => this.filterAndMapStations(stations, userQuery))
+      );
    }
 
    private filterAndMapStations(stations: Station[], userQuery: string) {
@@ -41,14 +41,22 @@ export class SearchService {
 
    private isStationMatch(station: Station, userQuery: string): boolean {
       const stationNameLowerCase = station.name.toLowerCase();
-      return stationNameLowerCase.includes(userQuery) || stationNameLowerCase == userQuery;
+      return stationNameLowerCase.includes(userQuery);
    }
 
    private mapStationToSearchResult(station: Station): SearchResults {
-      const stationName = TrainUiAdapter.MapHeaderToUiView(station.name.toLowerCase());
       return {
-         label: stationName,
+         label: this.formatStationName(station.name.toLowerCase()),
          action: ButtonInputType.HYPERLINK
       } as SearchResults;
+   }
+
+   private formatStationName(name: string): string {
+      return name
+         .replace('STATION', '')
+         .trim()
+         .split(' ')
+         .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+         .join(' ');
    }
 }

@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { AppFacadeService } from '@atl-transit/global-state';
 import { combineLatest, map } from 'rxjs';
-import { InitializeTrainPageContent, TrainPageContentMocks, TrainPageContent } from '../../shared';
+import { TrainContentInit, TrainPageContentMocks, TrainPageContent } from '../../shared';
 
 @Injectable({
    providedIn: 'root'
@@ -10,12 +10,12 @@ import { InitializeTrainPageContent, TrainPageContentMocks, TrainPageContent } f
 export class TrainPageService {
    constructor(private facade: AppFacadeService) {}
 
-   initializeData(): InitializeTrainPageContent {
+   initializeData(): TrainContentInit {
       return {
          content: this.setTrainPageContent(),
          data$: combineLatest([
-            this.facade.selectPageLoaded(),
-            this.facade.selectTrainData()
+            this.facade.userLoading$,
+            this.facade.allStationArrivals$
          ]).pipe(map(([loading, trains]) => ({ loading, trains })))
       };
    }

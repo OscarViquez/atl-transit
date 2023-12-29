@@ -74,6 +74,7 @@ export interface BusRoutes {
    name: string;
 }
 
+// TODO: rename this without interface word
 export interface JsonStationInterface {
    _station_key: number;
    name: string;
@@ -88,6 +89,7 @@ export interface JsonStationInterface {
    _schedule_key: number;
 }
 
+// TODO: rename this without interface word
 export interface AmenitiesStationInterface {
    _id: string;
    _amenities_key: number;
@@ -97,17 +99,20 @@ export interface AmenitiesStationInterface {
    icon: string;
 }
 
+// TODO: rename this without interface word
 export interface ScheduleStationInterface {
    _id: string;
    _schedule_key: number;
    alllines: ScheduleLineInterface[];
 }
 
+// TODO: rename this without interface word
 export interface ScheduleLineInterface {
    line: string;
    schedules: DayScheduleInterface[];
 }
 
+// TODO: rename this without interface word
 export interface DayScheduleInterface {
    direction: string;
    day: string;
@@ -145,7 +150,20 @@ export interface ArrivalHeaders {
    explore: GenericHeader;
 }
 
-export interface InitializeTrainPageContent{
+export interface StationDetailsPageContent {
+   label: string
+}
+
+export interface TrainContentInit {
    content: TrainPageContent;
    data$: Observable<{ loading: boolean; trains: TrainStation[] }>;
+}
+
+export interface StationDetailsInit {
+   content: StationDetailsPageContent;
+   data$: Observable<{
+      station?: JsonStationInterface;
+      amenities: AmenitiesStationInterface[];
+      schedule?: ScheduleStationInterface;
+   }>;
 }

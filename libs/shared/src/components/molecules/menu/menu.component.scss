@@ -1,22 +1,11 @@
-@import '../../../../../assets/main.scss';
-
 .menu {
    display: flex;
    flex-direction: column;
-   padding: $spacing-6 $spacing-0;
-   gap: $spacing-2;
-   @include background-mode('primary', 'light');
+   padding: 1rem 0;
+   gap: 0.5rem;
 
    &__title {
-      margin: $spacing-0 $spacing-6;
-
-      & > h3 {
-         color: #676879;
-         text-transform: uppercase;
-         letter-spacing: 1px;
-         font-weight: $font-medium;
-         font-size: 8px;
-      }
+      margin: 0 1rem;
    }
 
    &__items {
@@ -27,16 +16,5 @@
 
    &--divider {
       border-bottom: 1px solid #eff1f8;
-   }
-
-   &.dark {
-      @include background-mode('secondary', 'dark');
-      h3 {
-         @include color-mode('secondary-label', 'dark');
-      }
-
-      & .menu--divider {
-         border-bottom: 1px solid #212029;
-      }
    }
 }
