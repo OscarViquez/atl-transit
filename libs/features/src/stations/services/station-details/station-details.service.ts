@@ -15,9 +15,10 @@ export class StationDetailsService {
          content: this.setStationDetailsContent(),
          data$: combineLatest([
             this.facade.selectedStationDetails$,
+            this.facade.currentStation$,
             this.facade.allAmenitiesData$,
             this.facade.selectedStationSchedule$
-         ]).pipe(map(([station, amenities, schedule]) => ({ station, amenities, schedule })))
+         ]).pipe(map(([station, currentStation, amenities, schedule]) => ({ station, currentStation, amenities, schedule })))
       };
    }
 

@@ -1,9 +1,9 @@
-<h1>here</h1>
+
 <div class="train-arrivals-page">
-   <ng-container *ngIf="data$">
+   @if(data$ | async; as data) {
       <section class="hero-wrapper">
-         <rya-hero [content]="staticContentHeader"></rya-hero>
+         <rya-hero [content]="updateStaticContentHeader(data.currentStation)"></rya-hero>
       </section>
       <section></section>
-   </ng-container>
+   }
 </div>
