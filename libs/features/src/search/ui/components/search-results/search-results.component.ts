@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SearchResults } from '../../../shared';
 import { gsap } from 'gsap';
 import { RouterLink } from '@angular/router';
+import { SharedService } from '@atl-transit/shared';
 
 @Component({
    selector: 'rya-search-results',
@@ -14,6 +15,9 @@ import { RouterLink } from '@angular/router';
 export class SearchResultsComponent implements OnChanges {
    @Input() results: SearchResults[] = [];
 
+
+   constructor(public shared: SharedService){}
+   
    ngOnChanges(changes: SimpleChanges) {
       if (changes['results'] && changes['results'].currentValue.length > 0) {
         setTimeout(() => this.animateResults(), 0);

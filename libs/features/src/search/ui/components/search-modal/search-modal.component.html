@@ -5,10 +5,10 @@
    [element]="'.overlay'"
    [duration]="0.3"
    class="overlay"
-   (keydown.escape)="closeModal()"
+   (keydown.escape)="shared.toggleSearchModal()"
 >
    <div class="search-modal">
-      <rya-icon [category]="'navigation'" [name]="'close'" (click)="closeModal()" />
+      <rya-icon [category]="'navigation'" [name]="'close'" (click)="shared.toggleSearchModal()" />
       <rya-search-bar [color]="'primary'" (queryEmitter)="processSearchQuery($event)" />
       <rya-divider [showDivider]="true" label="Results" />
       @if(searchResults$ | async; as searchResults) {

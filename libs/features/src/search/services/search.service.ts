@@ -9,6 +9,7 @@ import {
 } from '@atl-transit/global-state';
 import { ButtonInputType } from '@atl-transit/shared';
 import { SearchResults } from '../shared';
+import { JsonStationInterface } from '../../stations/shared';
 
 interface Station {
    id?: number;
@@ -32,7 +33,7 @@ export class SearchService {
       );
    }
 
-   private filterAndMapStations(stations: Station[], userQuery: string) {
+   private filterAndMapStations(stations: JsonStationInterface[], userQuery: string) {
       const results = stations
          .filter((station) => this.isStationMatch(station, userQuery))
          .map((station) => this.mapStationToSearchResult(station));
@@ -44,10 +45,10 @@ export class SearchService {
       return stationNameLowerCase.includes(userQuery);
    }
 
-   private mapStationToSearchResult(station: Station): SearchResults {
+   private mapStationToSearchResult(station: JsonStationInterface): SearchResults {
       return {
          label: this.formatStationName(station.name.toLowerCase()),
-         action: ButtonInputType.HYPERLINK
+         action: '/' + station._station_key
       } as SearchResults;
    }
 

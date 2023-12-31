@@ -42,10 +42,6 @@ export class SearchModalComponent implements OnInit {
       this.processSearchQuery('') 
    }
 
-   closeModal(): void {
-      this.shared.searchModalActive = false;
-   }
-
    processSearchQuery(event: string) {
       this.service.processQuery(event.toLowerCase()).subscribe((results) => {
          this.searchResults$.next(results);
