@@ -13,6 +13,11 @@
             <div class="skeleton-custom__loader skeleton-loader"></div> 
         </div>
     }
+    @case('search') {
+        <div class="loader row">
+            Loading<span class="loading-circle"></span>
+        </div>
+    }
     @default { 
         <div class="skeleton-default skeleton-loader"></div>
     }

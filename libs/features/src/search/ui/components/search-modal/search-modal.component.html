@@ -14,6 +14,8 @@
       @if(searchResults$ | async; as searchResults) {
          <rya-search-results [results]="searchResults" />
       } 
-
+      @if(true) {
+         <rya-loading-skeleton [loadingItem]="'search'"></rya-loading-skeleton>
+      }
    </div>
 </div>

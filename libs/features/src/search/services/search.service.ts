@@ -11,11 +11,6 @@ import { ButtonInputType } from '@atl-transit/shared';
 import { SearchResults } from '../shared';
 import { JsonStationInterface } from '../../stations/shared';
 
-interface Station {
-   id?: number;
-   name: string;
-}
-
 @Injectable({
    providedIn: 'root'
 })
@@ -40,7 +35,7 @@ export class SearchService {
       return of(results);
    }
 
-   private isStationMatch(station: Station, userQuery: string): boolean {
+   private isStationMatch(station: JsonStationInterface, userQuery: string): boolean {
       const stationNameLowerCase = station.name.toLowerCase();
       return stationNameLowerCase.includes(userQuery);
    }
