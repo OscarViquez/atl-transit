@@ -26,34 +26,56 @@
    position: absolute;
    top: 50%;
    left: 50%;
+   font-size: 14px;
+   color: #484848;
    transform: translate(-50%,-50%);
-   letter-spacing: 0.2em;
  }
- 
 
- .loading {
-
-   &-circle {
-      display: block;
-      width: 8px;
-      height: 8px;
-      position: absolute;
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      animation: load .8s infinite ease-in-out;;
-   }
- }
 .row {
    display: flex;
    align-items: center;
+   gap: 5px;
+}
+
+.column {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
    justify-content: center;
-   gap: 1px;
 }
 
 
-@keyframes load {
-   0% { left: 165px;}
-   50% { left: 200px; }
-   100% { left: 235px;}
+.bouncer div {
+   width: 10px;
+   height: 10px;
+   background-color: rgb(204, 201, 201);
+   border-radius: 1rem;
+   animation: bounce 0.6s ease infinite alternate;
+
+
+   &:nth-child(2) {
+      animation-delay: .1s;
+      opacity: 0.8;
+   }
+
+   &:nth-child(3) {
+      animation-delay: .2s;
+      opacity: 0.6;
+   }
+
+   &:nth-child(4) {
+      animation-delay: .3s;
+      opacity: 0.4;
+   }
+}
+
+.left {
+   margin-left: -10px;
+}
+
+@keyframes bounce {
+   from { transform: translateY(0) }
+   to { transform: translateY(-20px) }
  }
 
 @keyframes skeleton-loading {
