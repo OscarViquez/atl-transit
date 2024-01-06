@@ -9,4 +9,5 @@ export class SharedService {
    toggleSearchModal(): void {
       this.searchModalActive = !this.searchModalActive;
    }
+
 }

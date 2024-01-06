@@ -20,7 +20,8 @@ export class AppFacadeService {
    selectedStationDetails$ = this.store.pipe(select(generalStationByIdSelector));
    selectedStationSchedule$ = this.store.pipe(select(scheduleByIdSelector));
    userLoading$ = this.store.pipe(select(userLoadingSelector));
-   allGeneralStations$ = this.store.pipe(select(stationGeneralSelector))
+   allGeneralStations$ = this.store.pipe(select(stationGeneralSelector));
+   currentStation$ = this.store.pipe(select(generalStationByIdSelector))
 
    constructor(
       private readonly store: Store,

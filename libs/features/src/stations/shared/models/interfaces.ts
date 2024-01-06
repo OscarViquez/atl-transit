@@ -161,9 +161,12 @@ export interface TrainContentInit {
 
 export interface StationDetailsInit {
    content: StationDetailsPageContent;
-   data$: Observable<{
-      station?: JsonStationInterface;
-      amenities: AmenitiesStationInterface[];
-      schedule?: ScheduleStationInterface;
-   }>;
+   data$: Observable<StationDetailsData>
 }
+
+export interface StationDetailsData {
+   station?: JsonStationInterface;
+   currentStation?: JsonStationInterface,
+   amenities?: AmenitiesStationInterface[];
+   schedule?: ScheduleStationInterface;
+ }
