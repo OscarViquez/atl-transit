@@ -1,4 +1,4 @@
-# ATL Transit Concept + <br> Railway Atlanta (RYA) : Design System
+# ATL Transit Concept 
 
 ![Atlanta Railway Banner](/libs/assets/images/docs/atlanta-project-railway-banner.png)
 
