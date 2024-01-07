@@ -1,7 +1,7 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import {
    RailArrival,
-   JsonStationInterface,
+   GeneralStationResponse,
    RailDirection,
    StationInterface,
    BusRoutes
@@ -37,7 +37,7 @@ export class TrainArrivalAdapter {
       };
    }
 
-   static MapJsonToStationInterface(allStations: JsonStationInterface[]): StationInterface[] {
+   static MapJsonToStationInterface(allStations: GeneralStationResponse[]): StationInterface[] {
       return allStations.map((station) => {
          const routes: BusRoutes[] = [];
 

@@ -6,7 +6,7 @@ import { EndpointResponse, DevEndPointResponse } from '../../types';
 import { MartaArrivalResponse } from '../../models';
 import {
    AmenitiesStationInterface,
-   JsonStationInterface,
+   GeneralStationResponse,
    ScheduleStationInterface
 } from '@atl-transit/stations';
 
@@ -22,8 +22,8 @@ export class DataService {
    constructor(private http: HttpClient) {}
 
    /* get Data Methods Declared Here  */
-   getStationData(): Observable<JsonStationInterface[]> {
-      return this.http.get<JsonStationInterface[]>(DevEndPointResponse.GENERAL_STATION_RESPONSE);
+   getStationData(): Observable<GeneralStationResponse[]> {
+      return this.http.get<GeneralStationResponse[]>(DevEndPointResponse.GENERAL_STATION_RESPONSE);
    }
 
    getAmenitiesData(): Observable<AmenitiesStationInterface[]> {

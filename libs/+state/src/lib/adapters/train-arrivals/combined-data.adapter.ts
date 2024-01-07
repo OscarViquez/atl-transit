@@ -2,7 +2,7 @@
 import { Observable, Observer } from 'rxjs';
 import {
    RailArrival,
-   JsonStationInterface,
+   GeneralStationResponse,
    StationInterface,
    TrainStation
 } from '@atl-transit/stations';
@@ -11,7 +11,7 @@ import { TrainArrivalAdapter, TrainUiAdapter, UserAdapter } from '../index';
 
 export class CombinedDataAdapter {
    static MapCombinedStationArrivalData(
-      stationData: JsonStationInterface[],
+      stationData: GeneralStationResponse[],
       railData: MartaArrivalResponse[]
    ): Observable<StationInterface[]> {
       //step 1: convert from from json to station interface

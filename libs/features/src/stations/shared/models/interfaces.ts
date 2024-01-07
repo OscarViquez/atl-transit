@@ -75,7 +75,7 @@ export interface BusRoutes {
 }
 
 // TODO: rename this without interface word
-export interface JsonStationInterface {
+export interface GeneralStationResponse {
    _station_key: string;
    name: string;
    _id: string;
@@ -165,8 +165,8 @@ export interface StationDetailsInit {
 }
 
 export interface StationDetailsData {
-   station?: JsonStationInterface;
-   currentStation?: JsonStationInterface,
+   station?: GeneralStationResponse;
+   currentStation?: GeneralStationResponse,
    amenities?: AmenitiesStationInterface[];
    schedule?: ScheduleStationInterface;
  }

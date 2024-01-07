@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { StationInterface, JsonStationInterface, AmenitiesStationInterface, ScheduleStationInterface } from '@atl-transit/stations';
+import { StationInterface, GeneralStationResponse, AmenitiesStationInterface, ScheduleStationInterface } from '@atl-transit/stations';
 import { MartaArrivalResponse } from '../../models';
 import { StationActionTypes } from '../../types';
 
@@ -9,7 +9,7 @@ export const generalStationActions = createActionGroup({
    events: {
       [StationActionTypes.GeneralInformationLocate]: emptyProps(),
       [StationActionTypes.GeneralInformationSuccess]: props<{
-         generalStations: JsonStationInterface[];
+         generalStations: GeneralStationResponse[];
       }>(),
       [StationActionTypes.GeneralInformationFailure]: props<{ message: string }>()
    }
