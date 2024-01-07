@@ -68,7 +68,6 @@ export interface BusRoutes {
    name: string;
 }
 
-// TODO: rename this without interface word
 export interface GeneralStationResponse {
    _station_key: string;
    name: string;
@@ -83,7 +82,6 @@ export interface GeneralStationResponse {
    _schedule_key: number;
 }
 
-// TODO: rename this without interface word
 export interface AmenityDetails {
    _id: string;
    _amenities_key: number;
@@ -93,20 +91,17 @@ export interface AmenityDetails {
    icon: string;
 }
 
-// TODO: rename this without interface word
 export interface StationSchedule {
    _id: string;
    _schedule_key: number;
    alllines: TrainLineSchedule[];
 }
 
-// TODO: rename this without interface word
 export interface TrainLineSchedule {
    line: string;
    schedules: TrainDaySchedule[];
 }
 
-// TODO: rename this without interface word
 export interface TrainDaySchedule {
    direction: string;
    day: string;
