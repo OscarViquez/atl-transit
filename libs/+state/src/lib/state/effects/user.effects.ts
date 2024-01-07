@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, concatMap, withLatestFrom } from 'rxjs/operators';
 
-import { StationState, UserLocationInfo, UserStateInterface } from '../../models';
+import { StationState, UserLocationInfo, UserState } from '../../models';
 import { UserService } from '../../services/user-location/user.service';
 import { arrivalMappingActions, userLocationAction, userTrainStations } from '../actions';
 import { stationRailArrivalSelector, userSelector } from '../selectors';
@@ -55,7 +55,7 @@ export class UserEffects {
    constructor(
       private actions$: Actions,
       private userService: UserService,
-      private userStore: Store<UserStateInterface>,
+      private userStore: Store<UserState>,
       private stationStore: Store<StationState>
    ) {}
 }

@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import {
    AppFacadeService,
-   AppStateInterface,
+   AppState,
 } from '@atl-transit/global-state';
 import { ButtonInputType } from '@atl-transit/shared';
 import { SearchResults } from '../shared';
@@ -15,7 +15,7 @@ import { GeneralStationResponse } from '../../stations/shared';
    providedIn: 'root'
 })
 export class SearchService {
-   constructor(private store: Store<AppStateInterface>, private facade: AppFacadeService) {}
+   constructor(private store: Store<AppState>, private facade: AppFacadeService) {}
 
    initializeData(): void {
       this.facade.dispatchSearchModal();

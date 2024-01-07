@@ -1,12 +1,12 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { TrainStation, StationDetails, GeneralStationResponse, AmenityDetails, ScheduleStationInterface } from "@atl-transit/stations";
 import { UserLocationInfo, MartaArrivalResponse } from "./index";
-export interface AppStateInterface {
-   user: UserStateInterface;
+export interface AppState {
+   user: UserState;
    station: StationDetails
 }
 
-export interface UserStateInterface {
+export interface UserState {
    user: UserLocationInfo;
    locationFound: boolean;
    trainStations: TrainStation[];

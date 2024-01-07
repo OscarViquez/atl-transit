@@ -1,10 +1,10 @@
 // import { state } from '@angular/animations';
 import { createReducer, on, Action } from '@ngrx/store';
 import { userLocationAction, userTrainStations } from '../actions/user.action';
-import { UserStateInterface } from '../../models';
+import { UserState } from '../../models';
 
 
-export const initalUserState: UserStateInterface = {
+export const initalUserState: UserState = {
    user: {longitude: 0, latitude: 0},
    locationFound: false,
    trainStations: [], 
@@ -32,6 +32,6 @@ export const userReducer = createReducer(
       
  );
 
-export function reducers(state: UserStateInterface, action: Action) {
+export function reducers(state: UserState, action: Action) {
    return userReducer(state, action);
 }
