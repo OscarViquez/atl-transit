@@ -50,7 +50,7 @@ export interface StationResource {
    action?: string;
 }
 
-export interface StationInterface {
+export interface StationDetails {
    station_key: string;
    name: string;
    description?: string;

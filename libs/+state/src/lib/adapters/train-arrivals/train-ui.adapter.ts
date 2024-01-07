@@ -1,10 +1,10 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { Button, GenericHeader } from '@atl-transit/shared';
-import { StationInterface, TrainStation } from '@atl-transit/stations';
+import { StationDetails, TrainStation } from '@atl-transit/stations';
 
 export class TrainUiAdapter {
    // This is to map for static content
-   static MapStationsToUi(stations: StationInterface[]): TrainStation[] {
+   static MapStationsToUi(stations: StationDetails[]): TrainStation[] {
       const uiStations: TrainStation[] = [];
       stations.forEach((station) => {
          const header = this.MapStationToHeader(station);
@@ -53,7 +53,7 @@ export class TrainUiAdapter {
       }
       return spaceIndices;
    }
-   static MapStationToHeader(station: StationInterface): GenericHeader {
+   static MapStationToHeader(station: StationDetails): GenericHeader {
       const linesCount: string[] = [];
 
       station.arrivals.forEach((arrival) => {
