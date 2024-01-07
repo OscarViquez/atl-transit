@@ -1,4 +1,3 @@
-/* eslint-disable @nx/enforce-module-boundaries */
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { TrainStation } from '@atl-transit/stations';
 import { UserActionTypes } from '../../types';

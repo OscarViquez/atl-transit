@@ -1,5 +1,5 @@
 import { createReducer, on, State } from '@ngrx/store';
-import { generalStationActions, arrivalMappingActions, arrivalResponseActions, amenitiesActions, stationScheduleActions } from '../actions/stations.action';
+import { generalStationActions, arrivalMappingActions, arrivalResponseActions, amenitiesActions, stationScheduleActions } from '../actions';
 import { StationState  } from '../../models';
 import { Action } from 'rxjs/internal/scheduler/Action';
 
