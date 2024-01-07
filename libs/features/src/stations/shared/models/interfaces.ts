@@ -63,12 +63,6 @@ export interface StationInterface {
    lines?: string[];
 }
 
-export interface TrainInterface {
-   train_id: number;
-   currentStation: string;
-   nextStation: string;
-}
-
 export interface BusRoutes {
    routeID: number;
    name: string;
