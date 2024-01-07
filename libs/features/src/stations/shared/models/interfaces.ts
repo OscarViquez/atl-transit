@@ -97,17 +97,17 @@ export interface AmenityDetails {
 export interface StationSchedule {
    _id: string;
    _schedule_key: number;
-   alllines: ScheduleLineInterface[];
+   alllines: TrainLineSchedule[];
 }
 
 // TODO: rename this without interface word
-export interface ScheduleLineInterface {
+export interface TrainLineSchedule {
    line: string;
-   schedules: DayScheduleInterface[];
+   schedules: TrainDaySchedule[];
 }
 
 // TODO: rename this without interface word
-export interface DayScheduleInterface {
+export interface TrainDaySchedule {
    direction: string;
    day: string;
    schedule: number[];
