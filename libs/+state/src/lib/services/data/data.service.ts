@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 import { EndpointResponse, DevEndPointResponse } from '../../types';
 import { MartaArrivalResponse } from '../../models';
 import {
-   AmenitiesStationInterface,
-   JsonStationInterface,
-   ScheduleStationInterface
+   AmenityDetails,
+   GeneralStationResponse,
+   StationSchedule
 } from '@atl-transit/stations';
 
 @Injectable({
@@ -22,18 +22,18 @@ export class DataService {
    constructor(private http: HttpClient) {}
 
    /* get Data Methods Declared Here  */
-   getStationData(): Observable<JsonStationInterface[]> {
-      return this.http.get<JsonStationInterface[]>(DevEndPointResponse.GENERAL_STATION_RESPONSE);
+   getStationData(): Observable<GeneralStationResponse[]> {
+      return this.http.get<GeneralStationResponse[]>(DevEndPointResponse.GENERAL_STATION_RESPONSE);
    }
 
-   getAmenitiesData(): Observable<AmenitiesStationInterface[]> {
-      return this.http.get<AmenitiesStationInterface[]>(
+   getAmenitiesData(): Observable<AmenityDetails[]> {
+      return this.http.get<AmenityDetails[]>(
          DevEndPointResponse.AMENITIES_STATION_RESPONSE
       );
    }
 
-   getStationSchedule(): Observable<ScheduleStationInterface[]> {
-      return this.http.get<ScheduleStationInterface[]>(DevEndPointResponse.STATION_SCHEDULE_RESPONSE);
+   getStationSchedule(): Observable<StationSchedule[]> {
+      return this.http.get<StationSchedule[]>(DevEndPointResponse.STATION_SCHEDULE_RESPONSE);
    }
 
    getArrivalPredictionData(): Observable<object[]> {

@@ -1,13 +1,13 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 
-import { StationInterface } from '@atl-transit/stations';
+import { StationDetails } from '@atl-transit/stations';
 import { UserLocationInfo } from '../../models';
 
 export class UserAdapter {
    static MapClosestStationToUser(
       user: UserLocationInfo,
-      stations: StationInterface[]
-   ): StationInterface[] {
+      stations: StationDetails[]
+   ): StationDetails[] {
       const stationDistances: { name: string; distance: number }[] = [];
 
       stations.forEach((station) => {
@@ -76,11 +76,11 @@ export class UserAdapter {
 
    static MappingStationsLocation(
       distancesStations: { name: string; distance: number }[],
-      stations: StationInterface[]
-   ): StationInterface[] {
+      stations: StationDetails[]
+   ): StationDetails[] {
       distancesStations.sort((a, b) => a.distance - b.distance);
 
-      const allStations: StationInterface[] = [];
+      const allStations: StationDetails[] = [];
 
       distancesStations.forEach((item) => {
          const index = stations.findIndex((station) => station.name === item.name);

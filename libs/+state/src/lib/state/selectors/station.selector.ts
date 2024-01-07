@@ -1,9 +1,9 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { StationStateInterface } from '../../models';
+import { StationState } from '../../models';
 import { getRouterSelectors } from '@ngrx/router-store';
-import { AmenitiesStationInterface } from '../../models/amenities.interfaces';
+import { AmenityDetails } from '@atl-transit/stations';
 
-export const stationFeatureSelector = createFeatureSelector<StationStateInterface>('stations')
+export const stationFeatureSelector = createFeatureSelector<StationState>('stations')
 
 export const stationGeneralSelector = createSelector(
     stationFeatureSelector, 
@@ -54,12 +54,12 @@ export const amenitiesByIdSelector = createSelector(
     selectRouteParams,
     (jsonStations, amenities, {id}) => {
         // TODO: if possible, move this to the adapter or the service file
-        const amenityArray : AmenitiesStationInterface[] = [];
+        const amenityArray : AmenityDetails[] = [];
         const currentStation = jsonStations.find((station) => station._station_key == id);
         currentStation?.amenities.forEach((amenity) => {
             const locatedAmenity = amenities.find((item) => item._amenities_key == amenity);
 
-            const mappedAmenity: AmenitiesStationInterface = {
+            const mappedAmenity: AmenityDetails = {
                 _id: locatedAmenity?._id || '',  
                 _amenities_key: locatedAmenity?._amenities_key || 0, 
                 name: locatedAmenity?.name || '',

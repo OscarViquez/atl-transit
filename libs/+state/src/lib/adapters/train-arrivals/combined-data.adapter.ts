@@ -2,8 +2,8 @@
 import { Observable, Observer } from 'rxjs';
 import {
    RailArrival,
-   JsonStationInterface,
-   StationInterface,
+   GeneralStationResponse,
+   StationDetails,
    TrainStation
 } from '@atl-transit/stations';
 import { MartaArrivalResponse, UserLocationInfo } from '../../models';
@@ -11,11 +11,11 @@ import { TrainArrivalAdapter, TrainUiAdapter, UserAdapter } from '../index';
 
 export class CombinedDataAdapter {
    static MapCombinedStationArrivalData(
-      stationData: JsonStationInterface[],
+      stationData: GeneralStationResponse[],
       railData: MartaArrivalResponse[]
-   ): Observable<StationInterface[]> {
+   ): Observable<StationDetails[]> {
       //step 1: convert from from json to station interface
-      return new Observable((observer: Observer<StationInterface[]>) => {
+      return new Observable((observer: Observer<StationDetails[]>) => {
          const mappedStationData = TrainArrivalAdapter.MapJsonToStationInterface(stationData);
          const mappedRailData: RailArrival[] = [];
          railData.forEach((rail) => {
@@ -32,7 +32,7 @@ export class CombinedDataAdapter {
 
    static MapUserDataToFullUi(
       user: UserLocationInfo,
-      stations: StationInterface[]
+      stations: StationDetails[]
    ): Observable<TrainStation[]> {
       return new Observable((observer: Observer<TrainStation[]>) => {
          const userStations = UserAdapter.MapClosestStationToUser(user, stations);

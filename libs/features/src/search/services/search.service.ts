@@ -5,17 +5,17 @@ import { of } from 'rxjs';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import {
    AppFacadeService,
-   AppStateInterface,
+   AppState,
 } from '@atl-transit/global-state';
 import { ButtonInputType } from '@atl-transit/shared';
 import { SearchResults } from '../shared';
-import { JsonStationInterface } from '../../stations/shared';
+import { GeneralStationResponse } from '../../stations/shared';
 
 @Injectable({
    providedIn: 'root'
 })
 export class SearchService {
-   constructor(private store: Store<AppStateInterface>, private facade: AppFacadeService) {}
+   constructor(private store: Store<AppState>, private facade: AppFacadeService) {}
 
    initializeData(): void {
       this.facade.dispatchSearchModal();
@@ -28,19 +28,19 @@ export class SearchService {
       );
    }
 
-   private filterAndMapStations(stations: JsonStationInterface[], userQuery: string) {
+   private filterAndMapStations(stations: GeneralStationResponse[], userQuery: string) {
       const results = stations
          .filter((station) => this.isStationMatch(station, userQuery))
          .map((station) => this.mapStationToSearchResult(station));
       return of(results);
    }
 
-   private isStationMatch(station: JsonStationInterface, userQuery: string): boolean {
+   private isStationMatch(station: GeneralStationResponse, userQuery: string): boolean {
       const stationNameLowerCase = station.name.toLowerCase();
       return stationNameLowerCase.includes(userQuery);
    }
 
-   private mapStationToSearchResult(station: JsonStationInterface): SearchResults {
+   private mapStationToSearchResult(station: GeneralStationResponse): SearchResults {
       return {
          label: this.formatStationName(station.name.toLowerCase()),
          action: '/' + station._station_key

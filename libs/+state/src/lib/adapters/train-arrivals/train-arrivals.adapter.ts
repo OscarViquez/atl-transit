@@ -1,9 +1,9 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import {
    RailArrival,
-   JsonStationInterface,
+   GeneralStationResponse,
    RailDirection,
-   StationInterface,
+   StationDetails,
    BusRoutes
 } from '@atl-transit/stations';
 import { GenericItem, MartaArrivalResponse } from '../../models';
@@ -37,7 +37,7 @@ export class TrainArrivalAdapter {
       };
    }
 
-   static MapJsonToStationInterface(allStations: JsonStationInterface[]): StationInterface[] {
+   static MapJsonToStationInterface(allStations: GeneralStationResponse[]): StationDetails[] {
       return allStations.map((station) => {
          const routes: BusRoutes[] = [];
 
@@ -57,8 +57,8 @@ export class TrainArrivalAdapter {
 
    static MapRailArrivalGroups(
       arrival: RailArrival[],
-      currentStations: StationInterface[]
-   ): StationInterface[] {
+      currentStations: StationDetails[]
+   ): StationDetails[] {
       // sort based on arrival time
       arrival.sort((a, b) => a.secondsToArrive - b.secondsToArrive);
 

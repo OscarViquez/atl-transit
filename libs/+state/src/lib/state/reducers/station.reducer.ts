@@ -1,10 +1,10 @@
 import { createReducer, on, State } from '@ngrx/store';
 import { generalStationActions, arrivalMappingActions, arrivalResponseActions, amenitiesActions, stationScheduleActions } from '../actions/stations.action';
-import { StationStateInterface  } from '../../models';
+import { StationState  } from '../../models';
 import { Action } from 'rxjs/internal/scheduler/Action';
 
 
-export const initalArrivalState: StationStateInterface = {
+export const initalArrivalState: StationState = {
     jsonStations: [], 
     arrivalData: [], 
     railArrivalData: [], 

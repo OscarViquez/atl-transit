@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, concatMap, withLatestFrom} from 'rxjs/operators';
-import { StationStateInterface } from '../../models';
+import { StationState } from '../../models';
 import { CombinedDataAdapter } from '../../adapters/index';
 import { DataService } from '../../services/data/data.service';
 import { amenitiesActions, arrivalMappingActions, arrivalResponseActions, generalStationActions, stationScheduleActions, userLocationAction } from '../actions';
@@ -71,6 +71,6 @@ export class StationEffects {
 
     constructor(private actions$: Actions, 
         private dataService: DataService, 
-        private stationStore: Store<StationStateInterface>) {}
+        private stationStore: Store<StationState>) {}
 
 }

@@ -9,7 +9,7 @@ import {
    userLocationAction,
    userStationsSelector
 } from '../../state';
-import { StationStateInterface, UserStateInterface } from '../../models';
+import { StationState, UserState } from '../../models';
 import { Store, select } from '@ngrx/store';
 @Injectable({
    providedIn: 'root'
@@ -25,8 +25,8 @@ export class AppFacadeService {
 
    constructor(
       private readonly store: Store,
-      private user: Store<UserStateInterface>,
-      private station: Store<StationStateInterface>
+      private user: Store<UserState>,
+      private station: Store<StationState>
    ) {}
 
    // * When initializing the app, we need to dispatch actions to load the data

@@ -50,7 +50,7 @@ export interface StationResource {
    action?: string;
 }
 
-export interface StationInterface {
+export interface StationDetails {
    station_key: string;
    name: string;
    description?: string;
@@ -63,19 +63,12 @@ export interface StationInterface {
    lines?: string[];
 }
 
-export interface TrainInterface {
-   train_id: number;
-   currentStation: string;
-   nextStation: string;
-}
-
 export interface BusRoutes {
    routeID: number;
    name: string;
 }
 
-// TODO: rename this without interface word
-export interface JsonStationInterface {
+export interface GeneralStationResponse {
    _station_key: string;
    name: string;
    _id: string;
@@ -89,8 +82,7 @@ export interface JsonStationInterface {
    _schedule_key: number;
 }
 
-// TODO: rename this without interface word
-export interface AmenitiesStationInterface {
+export interface AmenityDetails {
    _id: string;
    _amenities_key: number;
    name: string;
@@ -99,21 +91,18 @@ export interface AmenitiesStationInterface {
    icon: string;
 }
 
-// TODO: rename this without interface word
-export interface ScheduleStationInterface {
+export interface StationSchedule {
    _id: string;
    _schedule_key: number;
-   alllines: ScheduleLineInterface[];
+   alllines: TrainLineSchedule[];
 }
 
-// TODO: rename this without interface word
-export interface ScheduleLineInterface {
+export interface TrainLineSchedule {
    line: string;
-   schedules: DayScheduleInterface[];
+   schedules: TrainDaySchedule[];
 }
 
-// TODO: rename this without interface word
-export interface DayScheduleInterface {
+export interface TrainDaySchedule {
    direction: string;
    day: string;
    schedule: number[];
@@ -165,8 +154,8 @@ export interface StationDetailsInit {
 }
 
 export interface StationDetailsData {
-   station?: JsonStationInterface;
-   currentStation?: JsonStationInterface,
-   amenities?: AmenitiesStationInterface[];
-   schedule?: ScheduleStationInterface;
+   station?: GeneralStationResponse;
+   currentStation?: GeneralStationResponse,
+   amenities?: AmenityDetails[];
+   schedule?: StationSchedule;
  }

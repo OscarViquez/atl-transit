@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { StationInterface, JsonStationInterface, AmenitiesStationInterface, ScheduleStationInterface } from '@atl-transit/stations';
+import { StationDetails, GeneralStationResponse, AmenityDetails, StationSchedule } from '@atl-transit/stations';
 import { MartaArrivalResponse } from '../../models';
 import { StationActionTypes } from '../../types';
 
@@ -9,7 +9,7 @@ export const generalStationActions = createActionGroup({
    events: {
       [StationActionTypes.GeneralInformationLocate]: emptyProps(),
       [StationActionTypes.GeneralInformationSuccess]: props<{
-         generalStations: JsonStationInterface[];
+         generalStations: GeneralStationResponse[];
       }>(),
       [StationActionTypes.GeneralInformationFailure]: props<{ message: string }>()
    }
@@ -29,7 +29,7 @@ export const arrivalMappingActions = createActionGroup({
    source: StationActionTypes.ArrivalMappingType,
    events: {
       [StationActionTypes.ArrivalMappingSuccess]: props<{
-         arrivalsMapped: StationInterface[];
+         arrivalsMapped: StationDetails[];
       }>(),
       [StationActionTypes.ArrivalMappingFailure]: props<{ message: string }>()
    }
@@ -39,7 +39,7 @@ export const amenitiesActions = createActionGroup({
    source: StationActionTypes.AmenitesResponseType,
    events: {
       [StationActionTypes.AmenitesResponseSuccess]: props<{
-         amenities: AmenitiesStationInterface[];
+         amenities: AmenityDetails[];
       }>(),
       [StationActionTypes.AmenitesResponseFailure]: props<{ message: string }>()
    }
@@ -49,7 +49,7 @@ export const stationScheduleActions = createActionGroup({
    source: StationActionTypes.StationScheduleResponseType,
    events: {
       [StationActionTypes.StationScheduleResponseSuccess]: props<{
-         stationSchedule: ScheduleStationInterface[];
+         stationSchedule: StationSchedule[];
       }>(),
       [StationActionTypes.StationScheduleResponseFailure]: props<{ message: string }>()
    }
