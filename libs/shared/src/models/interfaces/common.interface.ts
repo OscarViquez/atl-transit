@@ -5,12 +5,6 @@ export interface GenericHeader {
    subtitle?: string;
 }
 
-export interface UserInterface {
-   name?: string;
-   longitude: number;
-   latitude: number;
-}
-
 export interface ComponentState {
    isLoading: boolean; // loading state for the component
    systemMode: UiModes; // system mode for the component
