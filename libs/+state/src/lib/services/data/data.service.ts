@@ -7,7 +7,7 @@ import { MartaArrivalResponse } from '../../models';
 import {
    AmenityDetails,
    GeneralStationResponse,
-   ScheduleStationInterface
+   StationSchedule
 } from '@atl-transit/stations';
 
 @Injectable({
@@ -32,8 +32,8 @@ export class DataService {
       );
    }
 
-   getStationSchedule(): Observable<ScheduleStationInterface[]> {
-      return this.http.get<ScheduleStationInterface[]>(DevEndPointResponse.STATION_SCHEDULE_RESPONSE);
+   getStationSchedule(): Observable<StationSchedule[]> {
+      return this.http.get<StationSchedule[]>(DevEndPointResponse.STATION_SCHEDULE_RESPONSE);
    }
 
    getArrivalPredictionData(): Observable<object[]> {
