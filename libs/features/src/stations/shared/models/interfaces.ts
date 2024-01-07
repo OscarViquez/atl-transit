@@ -84,7 +84,7 @@ export interface GeneralStationResponse {
 }
 
 // TODO: rename this without interface word
-export interface AmenitiesStationInterface {
+export interface AmenityDetails {
    _id: string;
    _amenities_key: number;
    name: string;
@@ -161,6 +161,6 @@ export interface StationDetailsInit {
 export interface StationDetailsData {
    station?: GeneralStationResponse;
    currentStation?: GeneralStationResponse,
-   amenities?: AmenitiesStationInterface[];
+   amenities?: AmenityDetails[];
    schedule?: ScheduleStationInterface;
  }

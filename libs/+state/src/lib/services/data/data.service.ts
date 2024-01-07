@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { EndpointResponse, DevEndPointResponse } from '../../types';
 import { MartaArrivalResponse } from '../../models';
 import {
-   AmenitiesStationInterface,
+   AmenityDetails,
    GeneralStationResponse,
    ScheduleStationInterface
 } from '@atl-transit/stations';
@@ -26,8 +26,8 @@ export class DataService {
       return this.http.get<GeneralStationResponse[]>(DevEndPointResponse.GENERAL_STATION_RESPONSE);
    }
 
-   getAmenitiesData(): Observable<AmenitiesStationInterface[]> {
-      return this.http.get<AmenitiesStationInterface[]>(
+   getAmenitiesData(): Observable<AmenityDetails[]> {
+      return this.http.get<AmenityDetails[]>(
          DevEndPointResponse.AMENITIES_STATION_RESPONSE
       );
    }

@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { StationDetails, GeneralStationResponse, AmenitiesStationInterface, ScheduleStationInterface } from '@atl-transit/stations';
+import { StationDetails, GeneralStationResponse, AmenityDetails, ScheduleStationInterface } from '@atl-transit/stations';
 import { MartaArrivalResponse } from '../../models';
 import { StationActionTypes } from '../../types';
 
@@ -39,7 +39,7 @@ export const amenitiesActions = createActionGroup({
    source: StationActionTypes.AmenitesResponseType,
    events: {
       [StationActionTypes.AmenitesResponseSuccess]: props<{
-         amenities: AmenitiesStationInterface[];
+         amenities: AmenityDetails[];
       }>(),
       [StationActionTypes.AmenitesResponseFailure]: props<{ message: string }>()
    }

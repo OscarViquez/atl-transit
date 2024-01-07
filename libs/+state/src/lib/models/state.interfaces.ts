@@ -1,5 +1,5 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { TrainStation, StationDetails, GeneralStationResponse, AmenitiesStationInterface, ScheduleStationInterface } from "@atl-transit/stations";
+import { TrainStation, StationDetails, GeneralStationResponse, AmenityDetails, ScheduleStationInterface } from "@atl-transit/stations";
 import { UserLocationInfo, MartaArrivalResponse } from "./index";
 export interface AppStateInterface {
    user: UserStateInterface;
@@ -18,7 +18,7 @@ export interface StationStateInterface {
    jsonStations: GeneralStationResponse[];
    arrivalData: MartaArrivalResponse[];
    railArrivalData: StationDetails[];
-   amenities: AmenitiesStationInterface[], 
+   amenities: AmenityDetails[], 
    stationSchedule: ScheduleStationInterface[],
    loading: boolean;
    error?: string;
