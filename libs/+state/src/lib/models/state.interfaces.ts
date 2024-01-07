@@ -14,7 +14,7 @@ export interface UserStateInterface {
    loading: boolean;
 }
 
-export interface StationStateInterface {
+export interface StationState {
    jsonStations: GeneralStationResponse[];
    arrivalData: MartaArrivalResponse[];
    railArrivalData: StationDetails[];
