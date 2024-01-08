@@ -1,6 +1,6 @@
 // import { state } from '@angular/animations';
 import { createReducer, on, Action } from '@ngrx/store';
-import { userLocationAction, userTrainStations } from '../actions/user.action';
+import { userLocationAction, userTrainStations } from '../actions';
 import { UserState } from '../../models';
 
 

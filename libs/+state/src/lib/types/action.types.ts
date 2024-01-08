@@ -1,4 +1,4 @@
-export enum ActionTypes {
+export enum ArrivalActionTypes {
    GET_RAIL_ARRIVALS = '[Railway] Get Railway Information',
    GET_RAIL_ARRIVALS_SUCCESS = '[Railway] Get Railway Information Success',
    GET_RAIL_ARRIVALS_FAILURE = '[Railway] Get Railway Information Failure'
