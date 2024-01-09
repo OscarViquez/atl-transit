@@ -1,13 +1,13 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationState } from '../../models';
 import { getRouterSelectors } from '@ngrx/router-store';
-import { AmenityDetails } from '@atl-transit/stations';
+import { AmenityData } from '@atl-transit/stations';
 
 export const stationFeatureSelector = createFeatureSelector<StationState>('stations')
 
 export const stationGeneralSelector = createSelector(
     stationFeatureSelector, 
-    (stationState) => stationState.jsonStations
+    (stationState) => stationState.allStations
 );
 
 export const stationArrivalResponseSelector = createSelector(
@@ -20,14 +20,10 @@ export const stationLoadingSelector = createSelector(
     (stationState) => stationState.loading
 );
 
-export const stationRailArrivalSelector = createSelector(
-    stationFeatureSelector, 
-    (stationState) => stationState.railArrivalData
-);
 
 export const stationErrorSelector = createSelector(
     stationFeatureSelector, 
-    (stationState) => stationState.jsonStations
+    (stationState) => stationState.error
 );
 
 export const { selectRouteParams } = getRouterSelectors();
@@ -35,7 +31,7 @@ export const { selectRouteParams } = getRouterSelectors();
 export const generalStationByIdSelector = createSelector(
     stationGeneralSelector, 
     selectRouteParams,
-    (jsonStations, {id}) => jsonStations.find((station) => station._station_key == id)
+    (allStations, {id}) => allStations.find((station) => station._station_key == id)
 )
 
 export const amenitiesSelector = createSelector(
@@ -52,14 +48,14 @@ export const amenitiesByIdSelector = createSelector(
     stationGeneralSelector, 
     amenitiesSelector, 
     selectRouteParams,
-    (jsonStations, amenities, {id}) => {
+    (allStations, amenities, {id}) => {
         // TODO: if possible, move this to the adapter or the service file
-        const amenityArray : AmenityDetails[] = [];
-        const currentStation = jsonStations.find((station) => station._station_key == id);
+        const amenityArray : AmenityData[] = [];
+        const currentStation = allStations.find((station) => station._station_key == id);
         currentStation?.amenities.forEach((amenity) => {
             const locatedAmenity = amenities.find((item) => item._amenities_key == amenity);
 
-            const mappedAmenity: AmenityDetails = {
+            const mappedAmenity: AmenityData = {
                 _id: locatedAmenity?._id || '',  
                 _amenities_key: locatedAmenity?._amenities_key || 0, 
                 name: locatedAmenity?.name || '',
@@ -79,8 +75,8 @@ export const scheduleByIdSelector = createSelector(
     stationGeneralSelector, 
     stationScheduleSelector, 
     selectRouteParams,
-    (jsonStations, schedules, {id}) => {
-        const currentStation = jsonStations.find((station) => station._station_key == id);
+    (allStations, schedules, {id}) => {
+        const currentStation = allStations.find((station) => station._station_key == id);
         const currentStationSchedule = schedules.find((schedule) => schedule._schedule_key == currentStation?._schedule_key)
         return currentStationSchedule;
     }

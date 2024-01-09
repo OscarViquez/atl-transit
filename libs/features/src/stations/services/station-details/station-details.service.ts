@@ -10,17 +10,17 @@ import { StationDetailsInit, StationDetailsPageContent } from '../../shared';
 export class StationDetailsService {
    constructor(private facade: AppFacadeService) {}
 
-   initializeData(): StationDetailsInit {
-      return {
-         content: this.setStationDetailsContent(),
-         data$: combineLatest([
-            this.facade.selectedStationDetails$,
-            this.facade.currentStation$,
-            this.facade.allAmenitiesData$,
-            this.facade.selectedStationSchedule$
-         ]).pipe(map(([station, currentStation, amenities, schedule]) => ({ station, currentStation, amenities, schedule })))
-      };
-   }
+   // initializeData(): StationDetailsInit {
+   //    return {
+   //       content: this.setStationDetailsContent(),
+   //       data$: combineLatest([
+   //          this.facade.selectedStationDetails$,
+   //          this.facade.currentStation$,
+   //          this.facade.allAmenitiesData$,
+   //          this.facade.selectedStationSchedule$
+   //       ]).pipe(map(([station, currentStation, amenities, schedule]) => ({ station, currentStation, amenities, schedule })))
+   //    };
+   // }
 
    setStationDetailsContent(): StationDetailsPageContent {
       return {

@@ -9,7 +9,7 @@ import {
 import { GenericItem, MartaArrivalResponse } from '../../models';
 
 export class TrainArrivalAdapter {
-   static MapToRailArrival(item: MartaArrivalResponse): RailArrival {
+   static MartaResponseToRailArrival(item: MartaArrivalResponse): RailArrival {
       let direction: RailDirection = 'North';
 
       switch (item.DIRECTION) {
@@ -37,7 +37,7 @@ export class TrainArrivalAdapter {
       };
    }
 
-   static MapJsonToStationInterface(allStations: GeneralStationResponse[]): StationDetails[] {
+   static GeneralResponseToStationDetails(allStations: GeneralStationResponse[]): StationDetails[] {
       return allStations.map((station) => {
          const routes: BusRoutes[] = [];
 
@@ -54,7 +54,7 @@ export class TrainArrivalAdapter {
          };
       });
    }
-
+   //RailArrivalToSta
    static MapRailArrivalGroups(
       arrival: RailArrival[],
       currentStations: StationDetails[]

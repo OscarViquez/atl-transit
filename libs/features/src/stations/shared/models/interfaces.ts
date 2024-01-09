@@ -63,6 +63,22 @@ export interface StationDetails {
    lines?: string[];
 }
 
+export interface StationDetailsProgress {
+   stationKey: string;
+   header: GenericHeader;
+    supplementaryInformation: StationInformation;
+   connectingBusRoutes: BusRoutes[];
+   amenities: AmenityData[];
+   allArrivals: RailArrival[];
+}
+
+export interface StationInformation {
+   latitude: number;
+   longitude: number;
+   contactNumber: number;
+   address: string;
+}
+
 export interface BusRoutes {
    routeID: number;
    name: string;
@@ -82,7 +98,7 @@ export interface GeneralStationResponse {
    _schedule_key: number;
 }
 
-export interface AmenityDetails {
+export interface AmenityData {
    _id: string;
    _amenities_key: number;
    name: string;
@@ -150,12 +166,4 @@ export interface TrainContentInit {
 
 export interface StationDetailsInit {
    content: StationDetailsPageContent;
-   data$: Observable<StationDetailsData>
 }
-
-export interface StationDetailsData {
-   station?: GeneralStationResponse;
-   currentStation?: GeneralStationResponse,
-   amenities?: AmenityDetails[];
-   schedule?: StationSchedule;
- }

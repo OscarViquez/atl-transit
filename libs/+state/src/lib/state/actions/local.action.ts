@@ -1,13 +1,13 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { TrainStation } from '@atl-transit/stations';
 import { UserActionTypes } from '../../types';
-import { UserLocationInfo } from '../../models';
+import { Coordinates } from '../../models';
 
 export const userLocationAction = createActionGroup({
    source: UserActionTypes.LocateType,
    events: {
       [UserActionTypes.LocateType]: emptyProps(),
-      [UserActionTypes.LocateUserSuccess]: props<{ request: UserLocationInfo }>(),
+      [UserActionTypes.LocateUserSuccess]: props<{ request: Coordinates }>(),
       [UserActionTypes.LocateUserFailure]: props<{ message: string }>()
    }
 });

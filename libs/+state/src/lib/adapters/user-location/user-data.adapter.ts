@@ -1,19 +1,19 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 
-import { StationDetails } from '@atl-transit/stations';
-import { UserLocationInfo } from '../../models';
+import { GeneralStationResponse, StationDetails } from '@atl-transit/stations';
+import { Coordinates } from '../../models';
 
 export class UserAdapter {
    static MapClosestStationToUser(
-      user: UserLocationInfo,
-      stations: StationDetails[]
-   ): StationDetails[] {
+      user: Coordinates,
+      stations: GeneralStationResponse[]
+   ): GeneralStationResponse[] {
       const stationDistances: { name: string; distance: number }[] = [];
 
       stations.forEach((station) => {
          const stationLocation = {
-            latitude: station.latitude,
-            longitude: station.longitude
+            latitude: Number(station.latitude),
+            longitude: Number(station.longitude)
          };
          const userLocation = {
             latitude: user.latitude,
@@ -76,11 +76,11 @@ export class UserAdapter {
 
    static MappingStationsLocation(
       distancesStations: { name: string; distance: number }[],
-      stations: StationDetails[]
-   ): StationDetails[] {
+      stations: GeneralStationResponse[]
+   ): GeneralStationResponse[] {
       distancesStations.sort((a, b) => a.distance - b.distance);
 
-      const allStations: StationDetails[] = [];
+      const allStations: GeneralStationResponse[] = [];
 
       distancesStations.forEach((item) => {
          const index = stations.findIndex((station) => station.name === item.name);
