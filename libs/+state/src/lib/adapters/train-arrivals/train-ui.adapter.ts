@@ -12,12 +12,12 @@ export class TrainUiAdapter {
          const button: Button = {
             text: 'More details',
             mode: 'light',
-            hyperLink: '/' + station.station_key
+            hyperLink: '/' + station.stationKey
          };
 
          const trainUiStationIndividual: TrainStation = {
             header: header,
-            railArrivals: station.arrivals,
+            railArrivals: station.allArrivals,
             button: button
          };
 
@@ -56,7 +56,7 @@ export class TrainUiAdapter {
    static MapStationToHeader(station: StationDetails): GenericHeader {
       const linesCount: string[] = [];
 
-      station.arrivals.forEach((arrival) => {
+      station.allArrivals.forEach((arrival) => {
          if (!linesCount.includes(arrival.color)) {
             linesCount.push(arrival.color);
          }
@@ -83,7 +83,7 @@ export class TrainUiAdapter {
       }
 
       const header: GenericHeader = {
-         title: this.MapHeaderToUiView(station.name),
+         title: this.MapHeaderToUiView(station.header.title),
          subtitle: subtitle
       };
 

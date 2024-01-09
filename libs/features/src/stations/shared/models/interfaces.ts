@@ -51,22 +51,9 @@ export interface StationResource {
 }
 
 export interface StationDetails {
-   station_key: string;
-   name: string;
-   description?: string;
-   latitude: number;
-   longitude: number;
-   contactnumber?: string;
-   connectingbusroutes?: BusRoutes[];
-   ammenities_key: number[];
-   arrivals: RailArrival[];
-   lines?: string[];
-}
-
-export interface StationDetailsProgress {
    stationKey: string;
    header: GenericHeader;
-    supplementaryInformation: StationInformation;
+   supplementaryInformation: StationInformation;
    connectingBusRoutes: BusRoutes[];
    amenities: AmenityData[];
    allArrivals: RailArrival[];
@@ -75,8 +62,8 @@ export interface StationDetailsProgress {
 export interface StationInformation {
    latitude: number;
    longitude: number;
-   contactNumber: number;
-   address: string;
+   contactNumber: string;
+   address?: string;
 }
 
 export interface BusRoutes {

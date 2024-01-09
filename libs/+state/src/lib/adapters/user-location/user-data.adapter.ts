@@ -12,8 +12,8 @@ export class UserAdapter {
 
       stations.forEach((station) => {
          const stationLocation = {
-            latitude: Number(station.latitude),
-            longitude: Number(station.longitude)
+            latitude: parseFloat(station.latitude),
+            longitude: parseFloat(station.longitude)
          };
          const userLocation = {
             latitude: user.latitude,
