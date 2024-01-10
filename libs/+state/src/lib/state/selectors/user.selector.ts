@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { UserState } from '../../models';
-import { UserAdapter } from '../../adapters';
-import { stationFeatureSelector } from './station.selector';
+import { TrainArrivalAdapter, TrainUiAdapter, UserAdapter } from '../../adapters';
+import { stationDetailsSelector, stationFeatureSelector } from './station.selector';
 
 export const userFeatureSelector = createFeatureSelector<UserState>('user');
 
@@ -22,17 +22,17 @@ export const userErrorSelector = createSelector(
 
 export const userStationsSelector = createSelector(
    userFeatureSelector, 
-   stationFeatureSelector,
-   (userState, stationState) => UserAdapter.MapClosestStationToUser(userState.user, stationState.allStations)
-);
-
-export const userS = createSelector(
-   userFeatureSelector, 
-   stationFeatureSelector,
-   (userState, stationState) => UserAdapter.MapClosestStationToUser(userState.user, stationState.allStations)
+   stationDetailsSelector,
+   (userState, stationDetails) => UserAdapter.MapClosestStationToUser(userState.user, stationDetails)
 );
 
 export const userLoadingSelector = createSelector(
    userFeatureSelector, 
    (userState) => userState.loading
+);
+
+//UI 
+export const userTrainUiSelector = createSelector(
+   userStationsSelector,
+   (stationDetails) => TrainUiAdapter.MapStationsToUi(stationDetails)
 )

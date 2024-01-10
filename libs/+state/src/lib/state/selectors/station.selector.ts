@@ -2,7 +2,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationState } from '../../models';
 import { getRouterSelectors } from '@ngrx/router-store';
 import { AmenityData } from '@atl-transit/stations';
-import { TrainArrivalAdapter } from '../../adapters';
+import { TrainArrivalAdapter, TrainUiAdapter } from '../../adapters';
 
 export const stationFeatureSelector = createFeatureSelector<StationState>('stations')
 
@@ -36,10 +36,10 @@ export const stationDetailsSelector = createSelector(
 
 export const { selectRouteParams } = getRouterSelectors();
 
-export const generalStationByIdSelector = createSelector(
-    stationGeneralSelector, 
+export const stationDetailsByIdSelector = createSelector(
+    stationDetailsSelector, 
     selectRouteParams,
-    (allStations, {id}) => allStations.find((station) => station._station_key == id)
+    (allStations, {id}) => allStations.find((station) => station.stationKey == id)
 )
 
 export const amenitiesSelector = createSelector(
@@ -52,40 +52,17 @@ export const stationScheduleSelector = createSelector(
     (stationState) => stationState.stationSchedule
 )
 
-export const amenitiesByIdSelector = createSelector(
-    stationGeneralSelector, 
-    amenitiesSelector, 
-    selectRouteParams,
-    (allStations, amenities, {id}) => {
-        // TODO: if possible, move this to the adapter or the service file
-        const amenityArray : AmenityData[] = [];
-        const currentStation = allStations.find((station) => station._station_key == id);
-        currentStation?.amenities.forEach((amenity) => {
-            const locatedAmenity = amenities.find((item) => item._amenities_key == amenity);
 
-            const mappedAmenity: AmenityData = {
-                _id: locatedAmenity?._id || '',  
-                _amenities_key: locatedAmenity?._amenities_key || 0, 
-                name: locatedAmenity?.name || '',
-                free: locatedAmenity?.free || false,
-                schedule: locatedAmenity?.schedule || '',
-                icon: locatedAmenity?.icon || ''
-            };
+// ui selectors 
 
-            amenityArray.push(mappedAmenity);
-        })
-
-        return amenityArray
-    }
+export const allTrainUiSelector = createSelector(
+    stationDetailsSelector,
+    (stationDetails) => TrainUiAdapter.MapStationsToUi(stationDetails)
 )
 
-export const scheduleByIdSelector = createSelector(
-    stationGeneralSelector, 
-    stationScheduleSelector, 
-    selectRouteParams,
-    (allStations, schedules, {id}) => {
-        const currentStation = allStations.find((station) => station._station_key == id);
-        const currentStationSchedule = schedules.find((schedule) => schedule._schedule_key == currentStation?._schedule_key)
-        return currentStationSchedule;
-    }
+
+export const trainUiByIdSelector = createSelector(
+    allTrainUiSelector, 
+    stationDetailsByIdSelector,
+    (trainData, stationDetails) => trainData.find((train) => train.header.title == stationDetails?.header.title)
 )

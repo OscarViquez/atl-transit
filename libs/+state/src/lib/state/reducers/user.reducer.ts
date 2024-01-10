@@ -7,7 +7,6 @@ import { UserState } from '../../models';
 export const initalUserState: UserState = {
    user: {longitude: 0, latitude: 0},
    locationFound: false,
-   trainStations: [], 
    error: '', 
    loading: true
 };

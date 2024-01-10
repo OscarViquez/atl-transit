@@ -11,6 +11,7 @@ import { TrainUiAdapter } from '@atl-transit/global-state';
 import { StationCardComponent } from '../../components';
 import { StationDetailsService } from '../../../services/station-details/station-details.service';
 import { Observable } from 'rxjs';
+import { StationDetails } from '../../../shared';
 
 
 @Component({
@@ -29,8 +30,7 @@ import { Observable } from 'rxjs';
 export class StationDetailsPageComponent implements OnInit {
    //data$!: Observable<StationDetailsData>
    staticContentHeader!: GenericHeader;
-
-
+   
    constructor(private service: StationDetailsService) {}
 
    ngOnInit(): void {

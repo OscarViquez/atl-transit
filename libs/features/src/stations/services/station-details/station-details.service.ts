@@ -8,6 +8,7 @@ import { StationDetailsInit, StationDetailsPageContent } from '../../shared';
    providedIn: 'root'
 })
 export class StationDetailsService {
+   currentStation = this.facade.selectedStationDetails$
    constructor(private facade: AppFacadeService) {}
 
    // initializeData(): StationDetailsInit {

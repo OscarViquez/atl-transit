@@ -6,14 +6,14 @@ import { Coordinates } from '../../models';
 export class UserAdapter {
    static MapClosestStationToUser(
       user: Coordinates,
-      stations: GeneralStationResponse[]
-   ): GeneralStationResponse[] {
+      stations: StationDetails[]
+   ): StationDetails[] {
       const stationDistances: { name: string; distance: number }[] = [];
 
       stations.forEach((station) => {
          const stationLocation = {
-            latitude: parseFloat(station.latitude),
-            longitude: parseFloat(station.longitude)
+            latitude: station.supplementaryInformation.latitude,
+            longitude: station.supplementaryInformation.longitude
          };
          const userLocation = {
             latitude: user.latitude,
@@ -25,7 +25,7 @@ export class UserAdapter {
          );
 
          const stationInformation = {
-            name: station.name,
+            name: station.header.title,
             distance: distanceBetweenUserAndStation
          };
          stationDistances.push(stationInformation);
@@ -76,14 +76,14 @@ export class UserAdapter {
 
    static MappingStationsLocation(
       distancesStations: { name: string; distance: number }[],
-      stations: GeneralStationResponse[]
-   ): GeneralStationResponse[] {
+      stations: StationDetails[]
+   ): StationDetails[] {
       distancesStations.sort((a, b) => a.distance - b.distance);
 
-      const allStations: GeneralStationResponse[] = [];
+      const allStations: StationDetails[] = [];
 
       distancesStations.forEach((item) => {
-         const index = stations.findIndex((station) => station.name === item.name);
+         const index = stations.findIndex((station) => station.header.title === item.name);
          allStations.push(stations[index]);
       });
 

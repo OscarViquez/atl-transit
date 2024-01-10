@@ -44,6 +44,10 @@ export class TrainPageComponent implements OnInit {
       this.content = this.service.initializeData().content;
       this.data$ = this.service.initializeData().data$;
       this.config = this.service.initializeData().content.config;
+
+      this.data$.subscribe((x) => {
+         console.log(x.trains)
+      })
    }
 
    currentTabSetter(index: number): void {
