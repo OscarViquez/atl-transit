@@ -1,5 +1,4 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { ɵrestoreComponentResolutionQueue } from '@angular/core';
 import {
    RailArrival,
    GeneralStationResponse,
@@ -12,10 +11,10 @@ import {
 import { GenericItem, MartaArrivalResponse } from '../../models';
 import { UiAdapter } from '../shared';
 
-export class TrainArrivalAdapter {
+export class StationAdapter {
    static MartaResponseToRailArrival(arrivalResponse: MartaArrivalResponse[]): RailArrival[] {
      
-     var mappedRailArrivals: RailArrival[] = []
+     let mappedRailArrivals: RailArrival[] = []
 
      arrivalResponse.forEach((item) => {
       let direction: RailDirection = 'North';
@@ -53,11 +52,11 @@ export class TrainArrivalAdapter {
    
    static GeneralResponseToStationDetails(allStations: GeneralStationResponse[], arrivals: RailArrival[], amenities : AmenityData[]): StationDetails[] {
       return allStations.map((station) => {
-         const routes: BusRoutes[] = [];
-         const stationData = this.MapStationInformation(parseFloat(station.latitude), parseFloat(station.latitude), station.contactnumber)
-         const stationAmenities = this.MapStationAmenities(station.amenities, amenities)
+         let routes: BusRoutes[] = [];
+         let stationData = this.MapStationInformation(parseFloat(station.latitude), parseFloat(station.latitude), station.contactnumber)
+         let stationAmenities = this.MapStationAmenities(station.amenities, amenities)
 
-         var stationDetails = {
+         let stationDetails = {
             stationKey: station._station_key,
             header: UiAdapter.TextToGenericHeader(station.name, station.description),
             supplementaryInformation: stationData,
@@ -67,7 +66,7 @@ export class TrainArrivalAdapter {
          };
 
 
-         var stationToReturn = this.MapRailArrivalGroups(arrivals, stationDetails)
+         let stationToReturn = this.MapRailArrivalGroups(arrivals, stationDetails)
          
          return stationToReturn
 

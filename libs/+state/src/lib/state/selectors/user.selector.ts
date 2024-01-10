@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { UserState } from '../../models';
-import { TrainArrivalAdapter, TrainUiAdapter, UserAdapter } from '../../adapters';
-import { stationArrivalResponseSelector, stationDetailsSelector, stationFeatureSelector } from './station.selector';
+import { TrainUiAdapter, UserAdapter } from '../../adapters';
+import { stationDetailsByIdSelector, stationDetailsSelector, stationFeatureSelector } from './station.selector';
 
 export const userFeatureSelector = createFeatureSelector<UserState>('user');
 
@@ -23,8 +23,7 @@ export const userErrorSelector = createSelector(
 export const userStationsSelector = createSelector(
    userFeatureSelector, 
    stationDetailsSelector,
-   stationArrivalResponseSelector,
-   (userState, stationDetails, arrivals) => UserAdapter.MapClosestStationToUser(userState.user, stationDetails)
+   (userState, stationDetails) => UserAdapter.MapClosestStationToUser(userState.user, stationDetails)
 );
 
 export const userLoadingSelector = createSelector(
@@ -36,4 +35,12 @@ export const userLoadingSelector = createSelector(
 export const userTrainUiSelector = createSelector(
    userStationsSelector,
    (stationDetails) => TrainUiAdapter.MapStationsToUi(stationDetails)
+)
+
+
+
+export const trainUiByIdSelector = createSelector(
+   userTrainUiSelector, 
+   stationDetailsByIdSelector,
+   (trainData, stationDetails) => trainData.find((train) => train.header.title == stationDetails?.header.title)
 )

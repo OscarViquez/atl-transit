@@ -2,7 +2,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationState } from '../../models';
 import { getRouterSelectors } from '@ngrx/router-store';
 import { AmenityData } from '@atl-transit/stations';
-import { TrainArrivalAdapter, TrainUiAdapter } from '../../adapters';
+import { StationAdapter, TrainUiAdapter } from '../../adapters';
 
 export const stationFeatureSelector = createFeatureSelector<StationState>('stations')
 
@@ -13,7 +13,7 @@ export const stationGeneralSelector = createSelector(
 
 export const stationArrivalResponseSelector = createSelector(
     stationFeatureSelector, 
-    (stationState) => TrainArrivalAdapter.MartaResponseToRailArrival(stationState.arrivalData)
+    (stationState) => StationAdapter.MartaResponseToRailArrival(stationState.arrivalData)
 );
 
 export const stationLoadingSelector = createSelector(
@@ -30,7 +30,7 @@ export const stationErrorSelector = createSelector(
 export const stationDetailsSelector = createSelector(
     stationFeatureSelector, 
     stationArrivalResponseSelector,
-    (stationState, arrivalData) => TrainArrivalAdapter.GeneralResponseToStationDetails(stationState.allStations, arrivalData , stationState.amenities)
+    (stationState, arrivalData) => StationAdapter.GeneralResponseToStationDetails(stationState.allStations, arrivalData , stationState.amenities)
 
 )
 
@@ -53,16 +53,4 @@ export const stationScheduleSelector = createSelector(
 )
 
 
-// ui selectors 
 
-export const allTrainUiSelector = createSelector(
-    stationDetailsSelector,
-    (stationDetails) => TrainUiAdapter.MapStationsToUi(stationDetails)
-)
-
-
-export const trainUiByIdSelector = createSelector(
-    allTrainUiSelector, 
-    stationDetailsByIdSelector,
-    (trainData, stationDetails) => trainData.find((train) => train.header.title == stationDetails?.header.title)
-)
