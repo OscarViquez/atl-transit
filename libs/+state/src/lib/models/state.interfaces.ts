@@ -10,7 +10,6 @@ export interface UserState {
    user: Coordinates;
    locationFound: boolean;
    error?: string;
-   loading: boolean;
 }
 
 export interface StationState {

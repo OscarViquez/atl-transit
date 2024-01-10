@@ -4,6 +4,7 @@ import {
    generalStationActions,
    stationDetailsByIdSelector,
    stationGeneralSelector,
+   stationLoadingSelector,
    userLoadingSelector,
    userLocationAction,
    userStationsSelector,
@@ -20,6 +21,7 @@ export class AppFacadeService {
    allAmenitiesData$ = this.store.pipe(select(amenitiesSelector));
    selectedStationDetails$ = this.store.pipe(select(stationDetailsByIdSelector));
    userLoading$ = this.store.pipe(select(userLoadingSelector));
+   stationDataLoading$ = this.store.pipe(select(stationLoadingSelector))
    allGeneralStations$ = this.store.pipe(select(stationGeneralSelector));
 
    constructor(

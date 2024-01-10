@@ -7,8 +7,7 @@ import { UserState } from '../../models';
 export const initalUserState: UserState = {
    user: {longitude: 0, latitude: 0},
    locationFound: false,
-   error: '', 
-   loading: true
+   error: ''
 };
 
 export const userReducer = createReducer(
@@ -22,11 +21,6 @@ export const userReducer = createReducer(
       ...state, 
       error: action.message,
       locationFound: true
-   })),
-   on(userTrainStations.userStationMappingSuccess, (state, action) => ({
-      ...state, 
-      trainStations : action.stations,
-      loading : false,
    }))
       
  );

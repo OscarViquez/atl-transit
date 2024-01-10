@@ -46,7 +46,7 @@ export class TrainPageComponent implements OnInit {
       this.config = this.service.initializeData().content.config;
 
       this.data$.subscribe((x) => {
-         console.log(x.trains)
+         console.log(x.loading)
       })
    }
 

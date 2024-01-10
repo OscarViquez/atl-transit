@@ -109,7 +109,7 @@ export class TrainArrivalAdapter {
          // step one: define the looking we are looking for
          const locationToFind = trainArrival.station;
          //step two: loop through the stations and find the station we want
-         if (currentStation.header.title.toUpperCase() === locationToFind.toUpperCase()) {
+         if (currentStation.header.title.toUpperCase() + ' STATION' === locationToFind.toUpperCase()) {
                //step three: set the arrivals to that station
                currentStation.allArrivals.push(trainArrival);
             }
