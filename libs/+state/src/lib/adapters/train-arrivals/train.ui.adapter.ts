@@ -17,7 +17,7 @@ export class TrainUiAdapter {
 
          const trainUiStationIndividual: TrainStation = {
             header: header,
-            railArrivals: station.allArrivals,
+            trainArrivals: station.allArrivals,
             button: button
          };
 

@@ -19,14 +19,14 @@ export interface TrainArrivalPage {
 export interface TrainStation {
    header: GenericHeader;
    /* Rail Arrivals */
-   railArrivals: RailArrival[];
+   trainArrivals: TrainArrival[];
    /* Button Content and Data */
    button: Button;
    /* Component State */
    state?: ComponentState;
 }
 
-export interface RailArrival {
+export interface TrainArrival {
    /* Direction of Rail Cart */
    direction: string;
    /* Very Final Station of Rail Line */
@@ -56,7 +56,7 @@ export interface StationDetails {
    supplementaryInformation: StationInformation;
    connectingBusRoutes: BusRoutes[];
    amenities: AmenityData[];
-   allArrivals: RailArrival[];
+   allArrivals: TrainArrival[];
 }
 
 export interface StationInformation {
@@ -133,7 +133,7 @@ export interface TrainPageContent {
 
 export interface TrainPageConfig {
    maxStationArrivals: number;
-   maxRailArrivals: number;
+   maxTrainArrivals: number;
    currentTabIndex: number;
 }
 

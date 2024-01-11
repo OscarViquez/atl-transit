@@ -124,7 +124,7 @@ const TabContentMocks: ButtonProps[] = [
 
 const TrainPageConfigMocks = {
    maxStationArrivals: 2,
-   maxRailArrivals: 3,
+   maxTrainArrivals: 3,
    currentTabIndex: 0
 };
 

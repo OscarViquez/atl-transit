@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BadgeComponent } from '@atl-transit/shared';
-import { RailArrival } from '../../../shared';
+import { TrainArrival } from '../../../shared';
 
 @Component({
    selector: 'rya-arrival-info',
@@ -11,6 +11,6 @@ import { RailArrival } from '../../../shared';
    styleUrls: ['./arrival-info.component.scss']
 })
 export class ArrivalInfoComponent {
-   @Input() content!: RailArrival;
+   @Input() content!: TrainArrival;
    @Input() maxQuantiy!: number;
 }

@@ -1,1 +1,1 @@
-export * from './user-data.adapter'
+export * from './user.adapter'

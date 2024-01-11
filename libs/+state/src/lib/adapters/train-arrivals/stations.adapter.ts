@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import {
-   RailArrival,
+   TrainArrival,
    GeneralStationResponse,
    RailDirection,
    BusRoutes,
@@ -12,49 +12,55 @@ import { GenericItem, MartaArrivalResponse } from '../../models';
 import { UiAdapter } from '../shared';
 
 export class StationAdapter {
-   static MartaResponseToRailArrival(arrivalResponse: MartaArrivalResponse[]): RailArrival[] {
-     
-     let mappedRailArrivals: RailArrival[] = []
+   static MartaResponseToTrainArrival(arrivalResponse: MartaArrivalResponse[]): TrainArrival[] {
+      let mappedTrainArrivals: TrainArrival[] = [];
 
-     arrivalResponse.forEach((item) => {
-      let direction: RailDirection = 'North';
+      arrivalResponse.forEach((item) => {
+         let direction: RailDirection = 'North';
 
-      switch (item.DIRECTION) {
-         case 'N':
-            direction = 'North';
-            break;
-         case 'S':
-            direction = 'South';
-            break;
-         case 'W':
-            direction = 'West';
-            break;
-         case 'E':
-            direction = 'East';
-            break;
-      }
-      let arrivalData = {
-         station: item.STATION,
-         direction: direction,
-         destination: item.DESTINATION,
-         description: direction + 'bound',
-         color: item.LINE.toLowerCase(),
-         secondsToArrive: item.WAITING_SECONDS,
-         arrivalTime: item.WAITING_TIME
-      };
+         switch (item.DIRECTION) {
+            case 'N':
+               direction = 'North';
+               break;
+            case 'S':
+               direction = 'South';
+               break;
+            case 'W':
+               direction = 'West';
+               break;
+            case 'E':
+               direction = 'East';
+               break;
+         }
+         let arrivalData = {
+            station: item.STATION,
+            direction: direction,
+            destination: item.DESTINATION,
+            description: direction + 'bound',
+            color: item.LINE.toLowerCase(),
+            secondsToArrive: item.WAITING_SECONDS,
+            arrivalTime: item.WAITING_TIME
+         };
 
-      mappedRailArrivals.push(arrivalData)
-     })
+         mappedTrainArrivals.push(arrivalData);
+      });
 
-     return mappedRailArrivals
-      
+      return mappedTrainArrivals;
    }
-   
-   static GeneralResponseToStationDetails(allStations: GeneralStationResponse[], arrivals: RailArrival[], amenities : AmenityData[]): StationDetails[] {
+
+   static GeneralResponseToStationDetails(
+      allStations: GeneralStationResponse[],
+      arrivals: TrainArrival[],
+      amenities: AmenityData[]
+   ): StationDetails[] {
       return allStations.map((station) => {
          let routes: BusRoutes[] = [];
-         let stationData = this.MapStationInformation(parseFloat(station.latitude), parseFloat(station.latitude), station.contactnumber)
-         let stationAmenities = this.MapStationAmenities(station.amenities, amenities)
+         let stationData = this.MapStationInformation(
+            parseFloat(station.latitude),
+            parseFloat(station.latitude),
+            station.contactnumber
+         );
+         let stationAmenities = this.MapStationAmenities(station.amenities, amenities);
 
          let stationDetails = {
             stationKey: station._station_key,
@@ -65,40 +71,35 @@ export class StationAdapter {
             allArrivals: []
          };
 
+         let stationToReturn = this.MapTrainArrivalGroups(arrivals, stationDetails);
 
-         let stationToReturn = this.MapRailArrivalGroups(arrivals, stationDetails)
-         
-         return stationToReturn
-
+         return stationToReturn;
       });
    }
 
+   static MapStationAmenities(amentiyKeys: number[], allAmenities: AmenityData[]): AmenityData[] {
+      let stationAmenities: AmenityData[] = [];
 
-   static MapStationAmenities(amentiyKeys: number[], allAmenities: AmenityData []) : AmenityData[] {
-      let stationAmenities: AmenityData[] = []
-      
       amentiyKeys.forEach((key) => {
          allAmenities.forEach((item) => {
-            if(key === item._amenities_key)
-            {
-               stationAmenities.push(item)
+            if (key === item._amenities_key) {
+               stationAmenities.push(item);
             }
-         })
-      })
-      return stationAmenities
+         });
+      });
+      return stationAmenities;
    }
 
-   
-   static MapStationInformation(lat: number, long: number, phone: string) : StationInformation {
+   static MapStationInformation(lat: number, long: number, phone: string): StationInformation {
       return {
-         latitude : lat, 
-         longitude : long, 
-         contactNumber : phone
-      }
+         latitude: lat,
+         longitude: long,
+         contactNumber: phone
+      };
    }
 
-   static MapRailArrivalGroups(
-      arrival: RailArrival[],
+   static MapTrainArrivalGroups(
+      arrival: TrainArrival[],
       currentStation: StationDetails
    ): StationDetails {
       // sort based on arrival time
@@ -108,11 +109,14 @@ export class StationAdapter {
          // step one: define the looking we are looking for
          const locationToFind = trainArrival.station;
          //step two: loop through the stations and find the station we want
-         if (currentStation.header.title.toUpperCase() + ' STATION' === locationToFind.toUpperCase()) {
-               //step three: set the arrivals to that station
-               currentStation.allArrivals.push(trainArrival);
-            }
-         });
+         if (
+            currentStation.header.title.toUpperCase() + ' STATION' ===
+            locationToFind.toUpperCase()
+         ) {
+            //step three: set the arrivals to that station
+            currentStation.allArrivals.push(trainArrival);
+         }
+      });
 
       return currentStation;
    }
