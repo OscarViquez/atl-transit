@@ -3,11 +3,11 @@
       <div class="station-card__header">
          <lib-card-header [content]="content.header" />
       </div>
-      <div *ngIf="content.railArrivals.length === 0">
+      <div *ngIf="content.trainArrivals.length === 0">
          <rya-card-feedback [content]="feedback" />
       </div>
-      <div *ngIf="content.railArrivals.length > 0">
-         <ng-container *ngFor="let arrival of content.railArrivals; let i = index">
+      <div *ngIf="content.trainArrivals.length > 0">
+         <ng-container *ngFor="let arrival of content.trainArrivals; let i = index">
             <rya-arrival-info *ngIf="i < maxQuantiy" [content]="arrival" />
          </ng-container>
       </div>

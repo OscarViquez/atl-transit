@@ -1,8 +1,8 @@
-import { RailArrival } from '../../shared';
+import { TrainArrival } from '../../shared';
 import { ButtonLightModeMock } from '@atl-transit/shared';
 import { TrainStation } from '../../shared';
 
-const RailArrivalMock: RailArrival[] = [
+const RailArrivalMock: TrainArrival[] = [
    {
       station: 'Random',
       direction: 'North',
@@ -46,7 +46,7 @@ export const TrainStationMock: TrainStation = {
       title: 'Five Points',
       subtitle: 'All Rail Lines Available'
    },
-   railArrivals: RailArrivalMock,
+   trainArrivals: RailArrivalMock,
    button: ButtonLightModeMock,
    state: {
       isLoading: false,

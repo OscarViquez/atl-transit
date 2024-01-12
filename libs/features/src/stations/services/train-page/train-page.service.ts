@@ -14,7 +14,7 @@ export class TrainPageService {
       return {
          content: this.setTrainPageContent(),
          data$: combineLatest([
-            this.facade.userLoading$,
+            this.facade.stationDataLoading$, // changed from userLoading$ to stationDetailLoading$
             this.facade.allStationArrivals$
          ]).pipe(map(([loading, trains]) => ({ loading, trains })))
       };

@@ -1,7 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import {
    generalStationActions,
-   arrivalMappingActions,
    arrivalResponseActions,
    amenitiesActions,
    stationScheduleActions
@@ -9,9 +8,8 @@ import {
 import { StationState } from '../../models';
 
 export const initalArrivalState: StationState = {
-   jsonStations: [],
+   allStations: [],
    arrivalData: [],
-   railArrivalData: [],
    // TODO:
    // * Either we sperate the loading state into a seperate reducer,
    // * or we just use the loading state from the user reducer.
@@ -26,7 +24,7 @@ export const stationReducer = createReducer(
    initalArrivalState,
    on(generalStationActions.generalStationSuccess, (state, action) => ({
       ...state,
-      jsonStations: action.generalStations
+      allStations: action.generalStations
    })),
    on(generalStationActions.generalStationFailure, (state, action) => ({
       ...state,
@@ -41,14 +39,6 @@ export const stationReducer = createReducer(
       ...state,
       error: action.message,
       loading: false
-   })),
-   on(arrivalMappingActions.arrivalMappingSuccess, (state, action) => ({
-      ...state,
-      railArrivalData: action.arrivalsMapped
-   })),
-   on(arrivalMappingActions.arrivalMappingFailure, (state, action) => ({
-      ...state,
-      error: action.message
    })),
    on(amenitiesActions.amenitiesResponseSuccess, (state, action) => ({
       ...state,

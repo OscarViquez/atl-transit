@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import {
-   amenitiesByIdSelector,
+   amenitiesSelector,
    generalStationActions,
-   generalStationByIdSelector,
-   scheduleByIdSelector,
+   stationDetailsByIdSelector,
    stationGeneralSelector,
+   stationLoadingSelector,
    userLoadingSelector,
    userLocationAction,
-   userStationsSelector
+   userStationsSelector,
+   userTrainStations,
+   userTrainUiSelector
 } from '../../state';
 import { StationState, UserState } from '../../models';
 import { Store, select } from '@ngrx/store';
@@ -15,13 +17,12 @@ import { Store, select } from '@ngrx/store';
    providedIn: 'root'
 })
 export class AppFacadeService {
-   allStationArrivals$ = this.store.pipe(select(userStationsSelector));
-   allAmenitiesData$ = this.store.pipe(select(amenitiesByIdSelector));
-   selectedStationDetails$ = this.store.pipe(select(generalStationByIdSelector));
-   selectedStationSchedule$ = this.store.pipe(select(scheduleByIdSelector));
+   allStationArrivals$ = this.store.pipe(select(userTrainUiSelector));
+   allAmenitiesData$ = this.store.pipe(select(amenitiesSelector));
+   selectedStationDetails$ = this.store.pipe(select(stationDetailsByIdSelector));
    userLoading$ = this.store.pipe(select(userLoadingSelector));
+   stationDataLoading$ = this.store.pipe(select(stationLoadingSelector));
    allGeneralStations$ = this.store.pipe(select(stationGeneralSelector));
-   currentStation$ = this.store.pipe(select(generalStationByIdSelector))
 
    constructor(
       private readonly store: Store,

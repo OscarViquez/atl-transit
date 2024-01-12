@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import {
    AppFacadeService,
-   AppState,
+   AppState
 } from '@atl-transit/global-state';
 import { ButtonInputType } from '@atl-transit/shared';
 import { SearchResults } from '../shared';
@@ -24,7 +24,7 @@ export class SearchService {
    // * This method is used to search for stations on the modal
    processQuery(userQuery: string) {
       return this.facade.allGeneralStations$.pipe(
-         switchMap((stations) => this.filterAndMapStations(stations, userQuery))
+         switchMap((stations: GeneralStationResponse[]) => this.filterAndMapStations(stations, userQuery))
       );
    }
 

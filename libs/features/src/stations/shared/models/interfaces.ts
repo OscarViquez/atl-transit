@@ -19,14 +19,14 @@ export interface TrainArrivalPage {
 export interface TrainStation {
    header: GenericHeader;
    /* Rail Arrivals */
-   railArrivals: RailArrival[];
+   trainArrivals: TrainArrival[];
    /* Button Content and Data */
    button: Button;
    /* Component State */
    state?: ComponentState;
 }
 
-export interface RailArrival {
+export interface TrainArrival {
    /* Direction of Rail Cart */
    direction: string;
    /* Very Final Station of Rail Line */
@@ -51,16 +51,19 @@ export interface StationResource {
 }
 
 export interface StationDetails {
-   station_key: string;
-   name: string;
-   description?: string;
+   stationKey: string;
+   header: GenericHeader;
+   supplementaryInformation: StationInformation;
+   connectingBusRoutes: BusRoutes[];
+   amenities: AmenityData[];
+   allArrivals: TrainArrival[];
+}
+
+export interface StationInformation {
    latitude: number;
    longitude: number;
-   contactnumber?: string;
-   connectingbusroutes?: BusRoutes[];
-   ammenities_key: number[];
-   arrivals: RailArrival[];
-   lines?: string[];
+   contactNumber: string;
+   address?: string;
 }
 
 export interface BusRoutes {
@@ -82,7 +85,7 @@ export interface GeneralStationResponse {
    _schedule_key: number;
 }
 
-export interface AmenityDetails {
+export interface AmenityData {
    _id: string;
    _amenities_key: number;
    name: string;
@@ -130,7 +133,7 @@ export interface TrainPageContent {
 
 export interface TrainPageConfig {
    maxStationArrivals: number;
-   maxRailArrivals: number;
+   maxTrainArrivals: number;
    currentTabIndex: number;
 }
 
@@ -150,12 +153,4 @@ export interface TrainContentInit {
 
 export interface StationDetailsInit {
    content: StationDetailsPageContent;
-   data$: Observable<StationDetailsData>
 }
-
-export interface StationDetailsData {
-   station?: GeneralStationResponse;
-   currentStation?: GeneralStationResponse,
-   amenities?: AmenityDetails[];
-   schedule?: StationSchedule;
- }

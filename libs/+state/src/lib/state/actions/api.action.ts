@@ -1,6 +1,6 @@
 import { createAction, createActionGroup, emptyProps, props  } from '@ngrx/store';
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import { StationDetails, GeneralStationResponse, AmenityDetails, StationSchedule } from '@atl-transit/stations';
+import { StationDetails, GeneralStationResponse, AmenityData, StationSchedule } from '@atl-transit/stations';
 import { ArrivalActionTypes, StationActionTypes} from '../../types';
 import { MartaArrivalResponse } from '../../models';
 
@@ -37,21 +37,11 @@ export const generalStationActions = createActionGroup({
     }
  });
  
- export const arrivalMappingActions = createActionGroup({
-    source: StationActionTypes.ArrivalMappingType,
-    events: {
-       [StationActionTypes.ArrivalMappingSuccess]: props<{
-          arrivalsMapped: StationDetails[];
-       }>(),
-       [StationActionTypes.ArrivalMappingFailure]: props<{ message: string }>()
-    }
- });
- 
  export const amenitiesActions = createActionGroup({
     source: StationActionTypes.AmenitesResponseType,
     events: {
        [StationActionTypes.AmenitesResponseSuccess]: props<{
-          amenities: AmenityDetails[];
+          amenities: AmenityData[];
        }>(),
        [StationActionTypes.AmenitesResponseFailure]: props<{ message: string }>()
     }
