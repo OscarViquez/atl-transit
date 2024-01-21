@@ -1,11 +1,11 @@
-<div class="app">
-   <div class="app-nav">
+<main class="app">
+   <div class="app__navigation">
       <rya-navigation />
    </div>
-   <div class="app-pages">
+   <div class="app__routes">
       <router-outlet></router-outlet>
    </div>
-   <ng-container *ngIf="shared.searchModalActive">
-      <rya-search-modal />
-   </ng-container>
-</div>
+   @if(shared.searchModalActive) {
+      <rya-search-modal/>
+   }
+</main>

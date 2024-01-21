@@ -11,5 +11,5 @@ import { IconPathPipe } from '../../../pipes/index';
 export class IconComponent {
    @Input() category!: string;
    @Input() name!: string;
-   @Input() mode!: string;
+   @Input() mode!: string | undefined;
 }

@@ -1,38 +1,31 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonProps, ThemeButtonComponent } from '../../atoms';
+import { ButtonDirective } from '../../../directives';
 
 @Component({
    selector: 'rya-tab',
    standalone: true,
-   imports: [CommonModule, ThemeButtonComponent],
-   template: `
-      <div class="tabs">
-         <ng-container *ngFor="let tab of tabs; let i = index; trackBy: trackByFn" [class.active]="i === activeTab">
-            <rya-button [props]="tab" (click)="setActiveTab(i)" />
-         </ng-container>
-      </div>
-   `,
+   imports: [CommonModule, ButtonDirective],
+   templateUrl: './tab.component.html',
    styleUrls: ['./tab.component.scss']
 })
 export class TabComponent {
-   @Input() tabs: ButtonProps[] = [];
+   /**
+    * * Component Properties
+    * @var tabs: ButtonProps[] - Array of ButtonProps
+    * @var activeTab: number - Index of the active tab
+    * @var currentTabEmitter: EventEmitter<number> - Emits the index of the active tab
+    */
+   @Input() labels!: string[];
    @Output() currentTabEmitter = new EventEmitter<number>();
    activeTab = 0;
 
-   setActiveTab(index: number) {
+   /**
+    * @method setActiveTab - Sets the active tab
+    * @param index - Index of the tab
+    */
+   setActiveTab(index: number): void {
       this.activeTab = index;
-      this.setTabVariant();
       this.currentTabEmitter.emit(this.activeTab);
-   }
-
-   setTabVariant() {
-      this.tabs.forEach((tab, i) => {
-         tab.variant = i === this.activeTab ? 'primary' : 'secondary';
-      });
-   }
-
-   trackByFn(index: number): number {
-      return index;
    }
 }

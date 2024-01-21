@@ -31,12 +31,12 @@ const defaultProps: ButtonProps = {
 })
 export class ThemeButtonComponent {
    @Input() props: ButtonProps = { ...defaultProps };
-   // @Input() content!: ButtonContent;
-   // @Input() type!: ButtonType;
-   // @Input() variant!: Variants;
-   // @Input() mode!: UiModes;
-   // @Input() align!: Alignment;
-   // @Input() icon!: Icon;
+   @Input() content!: ButtonContent;
+   @Input() type!: ButtonType;
+   @Input() variant!: Variants;
+   @Input() mode!: UiModes;
+   @Input() align!: Alignment;
+   @Input() icon!: Icon;
 
    get buttonClass(): string {
       return `${this.props.variant} ${this.props.mode} ${this.props.type} ${this.props.align} button`;

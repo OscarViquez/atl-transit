@@ -1,17 +1,29 @@
-<div class="search-bar search-bar--{{ color }}" [ngSwitch]="color">
-   <ng-container *ngSwitchCase="'primary'">
+<div class="search-bar" [ngClass]="{ 'search-bar--shadow': shadow }">
+   @switch (popup) {
+      <!-- * Default Search bar provides you an input for user to type  -->
+      @default {
+      <img [src]="'navigation' | icon : 'search'" alt="picture of search icon" />
       <input
          class="search-bar__input"
          type="text"
-         placeholder="Search Destination"
+         placeholder="Search"
          [(ngModel)]="query"
          (keyup.enter)="emitQuery()"
       />
-   </ng-container>
-   <ng-container *ngSwitchCase="'secondary'">
-      <div class="search-bar__input">Search Destination</div>
-   </ng-container>
-   <button class="search-bar__button" type="button" (click)="emitQuery()">
-      <img src="/assets/icons/navigation/search-icon-default.svg" />
-   </button>
+      }
+      <!-- * Popup means if the user were to click on this search,  the actual pop up will appear  -->
+      @case (true) {
+      <div class="search-bar__placeholder">
+         <img [src]="'navigation' | icon : 'search'" alt="picture of search icon" />
+         <p class="search-bar__placeholder-text">Search</p>
+      </div>
+      <div ryaBadge color="info" radius="small" class="search-bar__commandkey">
+         <img
+            [src]="'navigation' | icon : 'commandkey'"
+            alt="picture of command key on mac keyboards"
+         />
+         <span>+ K</span>
+      </div>
+      } 
+   }
 </div>

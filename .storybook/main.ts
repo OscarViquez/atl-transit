@@ -4,12 +4,13 @@ const config: StorybookConfig = {
    stories: [
       // 'search/**/*.stories.@(js|jsx|ts|tsx|mdx)',
       'stories/navigation/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-      'stories/shared/**/*.stories.@(js|jsx|ts|tsx|mdx)'
+      'stories/shared/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+      'stories/directives/**/*.stories.@(js|jsx|ts|tsx|mdx)',
    ],
    staticDirs: [
       //  for icons
       '../libs',
-      '../libs/assets/main.scss'
+      '../src/styles.scss'
    ],
    addons: ['@storybook/addon-essentials', '@storybook/addon-styling'],
    framework: {

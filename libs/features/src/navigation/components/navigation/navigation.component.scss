@@ -1,0 +1,9 @@
+rya-sidebar {
+   display: inline-block;
+}
+
+@media (max-width: 812px){
+   rya-sidebar {
+      display: none;
+   }
+}

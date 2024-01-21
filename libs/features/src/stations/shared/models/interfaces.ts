@@ -4,14 +4,12 @@ import {
    ButtonProps,
    ComponentState,
    GenericHeader,
-   Tab,
    CardFeedback,
    Icon
 } from '@atl-transit/shared';
 import { Observable } from 'rxjs';
 
 export interface TrainArrivalPage {
-   tab: Tab[];
    header: GenericHeader;
    trainData?: TrainStation[];
 }

@@ -1,33 +1,53 @@
-import { AfterViewInit, Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { BorderRadius, Padding, FlexDirection } from '../../models';
 
-type Theme = 'light' | 'dark';
-type BorderColor = 'default' | 'light' | 'dark';
-type BorderRadius = 'small' | 'medium' | 'large';
-type Padding = 'auto' | 'xs' | 'small' | 'medium' | 'large' | 'xl' | 'xxl' | 'xxxl';
+/**
+ * * Types for Card Directive
+ */
+type FlexGap = 'none' | 'x-small' | 'small' | 'medium' | 'large';
 
 @Directive({
    selector: '[ryaCard]',
    standalone: true
 })
 export class CardDirective implements AfterViewInit {
-   @Input() theme: Theme = 'light';
-   @Input() spacing: Padding = 'auto';
+   /**
+    * * Inputs would be used as attributes,
+    * * e.g. <div ryaCard  spacing="auto">Content</div>
+    */
+   @Input() spacing: Padding = 'medium';
    @Input() borderRadius: BorderRadius = 'small';
-   @Input() borderColor: BorderColor = 'default';
-   @Input() shadow = false;
+   @Input() direction: FlexDirection = 'column';
+   @Input() gap: FlexGap = 'small';
+   // * These bools Based on Figma design
+   @Input() shadow = true;
+   @Input() border = false;
+   @Input() transparent = false;
 
    constructor(private render: Renderer2, private element: ElementRef) {}
+
+   /**
+    * * After the view has been initialized,
+    * * set the directive, which will add the classes to the element.
+    */
    ngAfterViewInit(): void {
+      //* Add these default classes to the element
       this.setDirective();
    }
 
    private setDirective(): void {
-      this.render.addClass(this.element.nativeElement, 'card');
-      this.addClassWithPrefix('card--theme', this.theme);
-      this.addClassWithPrefix('card--border', this.borderColor);
-      this.addClassWithPrefix('card--spacing', this.spacing);
-      this.addClassWithPrefix('card--radius', this.borderRadius);
-      this.addClassWithPrefix(`card--shadows-${this.theme}`, this.shadow);
+      //* Add these default classes to the element
+      this.render.addClass(this.element.nativeElement, 'rya-card');
+
+      //* Add these classes to the element, based on @Inputs
+      this.addClassWithPrefix('rya-radius-', this.borderRadius);
+      this.addClassWithPrefix('rya-card--spacing', this.spacing);
+      this.addClassWithPrefix('rya-card--flex', this.direction);
+      this.addClassWithPrefix('rya-card--gap', this.gap);
+      this.addClassWithPrefix(`rya-card--shadow`, this.shadow);
+      this.addClassWithPrefix(`rya-card--border`, this.border);
+      this.addClassWithPrefix(`rya-card--transparent`, this.transparent);
+
    }
 
    private addClassWithPrefix(prefix: string, value: string | boolean): void {

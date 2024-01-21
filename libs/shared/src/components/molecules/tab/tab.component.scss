@@ -1,13 +1,9 @@
 .tabs {
-   display: flex;
+   border-radius: var(--rya-space-2);
+   border: 1px solid var(--rya-tab-active);
+   background: var(--rya-tab);
+   padding: var(--rya-space-1);
+   display: var(--rya-display-flex);
    flex-direction: row;
-   border-radius: 8px;
-   border: 1px solid #eff1f8;
-   background: #f7f8fb;
-   padding: 4px;
-}
-
-rya-button {
-   flex: 1;
-   border-radius: 5px;
+   gap: var(--rya-space-1);
 }

@@ -1,2 +1,1 @@
-export * from './ui/index'
-export * from './shared'
+export * from './components/index'

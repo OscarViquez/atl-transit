@@ -1,1 +1,0 @@
-export * from './static-content/static-content.service'
