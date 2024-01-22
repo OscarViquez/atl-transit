@@ -1,0 +1,254 @@
+/* * File: base.css 
+ * - All CSS Variables and base styles.
+ * - Utility Classes
+*/
+
+:root {
+   /* * Text Color */
+   --rya-text-primary: #161616;
+   --rya-text-secondary: #484848;
+   --rya-text-tertiary: #fefefe;
+
+   /* * Badge Color */
+   --rya-color-red: #950f22;
+   --rya-color-orange: #d92209;
+   --rya-color-gold: #f1b82d;
+   --rya-color-green: #0d572d;
+   --rya-color-blue: #205493;
+   --rya-color-pink: #fd7272;
+   --rya-color-white: #f8f8f8;
+   --rya-color-black: #1f1f1f;
+
+   /* * Background Color */
+   --rya-bg-primary: #fefefe;
+   --rya-bg-secondary: #f8f8f8;
+   --rya-bg-tertiary: #dddddd;
+   --rya-bg-quaternary: #ebebeb;
+
+   /* * Border Color */
+   --rya-border-primary: #e0e0e0;
+   --rya-border-secondary: #dddddd;
+
+   /* * Tabs Color */
+   --rya-tab: #eaebef;
+   --rya-tab-active: #eff1f8;
+
+   /* * Button Colors */
+   --rya-button-bg-primary: linear-gradient(90deg, #e6431f 11.43%, #d92209 62.86%);
+   --rya-button-bg-secondary: #fff;
+   --rya-button-bg-subtle: #ebebeb;
+   --rya-button-bg-transparent: transparent;
+
+   --rya-button-text-primary: var(--rya-color-black);
+   --rya-button-text-secondary: var(--rya-color-black);
+   --rya-button-text-subtle: var(--rya-color-black);
+   --rya-button-text-transparent: var(--rya-color-black);
+
+   --rya-border-primary: #d1d1d1;
+
+   /* * Button Hover */
+   --rya-button-primary-hover: #D82108;
+   --rya-button-secondary-hover: #ebebeb;
+   --rya-button-subtle-hover: #fefefe;
+   --rya-button-transparent-hover: #ebebeb;
+
+   /* * Spacing */
+   --rya-space-0: 0;
+   --rya-space-1: 0.25rem; /* 4px */
+   --rya-space-2: 0.5rem; /* 8px */
+   --rya-space-3: 0.75rem; /* 12px */
+   --rya-space-4: 1rem; /* 16px */
+   --rya-space-5: 1.25rem; /* 20px */
+   --rya-space-6: 1.5rem; /* 24px */
+   --rya-space-7: 2rem; /* 32px */
+   --rya-space-8: 2.5rem; /* 40px */
+   --rya-space-9: 3rem; /* 48px */
+   --rya-space-10: 4rem; /* 64px */
+   --rya-space-11: 4.5rem; /* 72px */
+   --rya-space-12: 5rem; /* 80px */
+   --rya-space-13: 5.5rem; /* 88px */
+   --rya-space-14: 6rem; /* 96px */
+   --rya-space-15: 6.5rem; /* 104px */
+   --rya-space-16: 7rem; /* 112px */
+   --rya-space-full: 100%;
+   --rya-space-half: 50%;
+
+   /* * Layouts */
+   --rya-display-flex: flex;
+   --rya-display-inline-flex: inline-flex;
+   --rya-display-block: block;
+   --rya-display-inline-block: inline-block;
+   --rya-display-none: none;
+
+   /* * Shadows */
+   --rya-shadow-default: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px 0px rgba(0, 0, 0, 0.14);
+   --rya-shadow-active: #a71b08;
+}
+
+/*
+   * Dark Mode 
+   * ========================================
+*/
+@media (prefers-color-scheme: dark) {
+   :root {
+      --rya-text-primary: #f8f8f8;
+   }
+}
+
+/*
+   * Font Sizes 
+   * ========================================
+*/
+.rya-text--xxs /* Extra-extra-small */ {
+   font-size: 10px;
+}
+.rya-text--xs /* Extra-small */ {
+   font-size: 12px;
+}
+.rya-text--sm /* Small */ {
+   font-size: 14px;
+}
+.rya-text--base /* Base */ {
+   font-size: 16px;
+}
+.rya-text--lg /* Large */ {
+   font-size: 18px;
+}
+.rya-text--xl /* Extra-large */ {
+   font-size: 20px;
+}
+.rya-text--xxl /* Extra-extra-large */ {
+   font-size: 24px;
+}
+.rya-text--xxxl /* Extra-extra-extra-large */ {
+   font-size: 32px;
+}
+
+/*
+   * Font Families
+   * ========================================
+*/
+.rya-ff-inter {
+   font-family: 'Inter', sans-serif;
+}
+.rya-ff-sans {
+   font-family: sans-serif;
+}
+.rya-ff-mono {
+   font-family: monospace;
+}
+
+/*
+   * Font Weights
+   * ========================================
+*/
+.rya-font--thin /* Thin */ {
+   font-weight: 200;
+}
+.rya-font--light /* Light */ {
+   font-weight: 300;
+}
+.rya-font--normal /* Normal */ {
+   font-weight: 400;
+}
+.rya-font--medium /* Medium */ {
+   font-weight: 500;
+}
+.rya-font--semibold /* Semi-bold */ {
+   font-weight: 600;
+}
+.rya-font--bold /* Bold */ {
+   font-weight: 700;
+}
+.rya-font--extrabold /* Extra-bold */ {
+   font-weight: 800;
+}
+.rya-font--black /* Black */ {
+   font-weight: 900;
+}
+
+/*
+   * Text Colors
+   * ========================================
+*/
+.rya-text--primary {
+   color: var(--rya-text-primary);
+}
+.rya-text--secondary {
+   color: var(--rya-text-secondary);
+}
+.rya-text--tertiary {
+   color: var(--rya-text-secondary);
+}
+
+/*
+   * Text Alignments
+   * ========================================
+*/
+.rya-text-align--left {
+   text-align: left;
+}
+.rya-text-align--center {
+   text-align: center;
+}
+.rya-text-align--right {
+   text-align: right;
+}
+
+/*
+   * Justifty Content
+   * ========================================
+*/
+.rya-justify--space-between {
+   justify-content: space-between;
+}
+.rya-justify--space-around {
+   justify-content: space-around;
+}
+.rya-justify--center {
+   justify-content: center;
+}
+
+/*
+   * Border Radius
+   * ========================================
+*/
+.rya-radius--none {
+   border-radius: 0;
+}
+.rya-radius--small {
+   border-radius: 3px;
+}
+.rya-radius--medium {
+   border-radius: 5px;
+}
+.rya-radius--large {
+   border-radius: 8px;
+}
+.rya-radius--extra-large {
+   border-radius: 16px;
+}
+.rya-radius--pill {
+   border-radius: 50px;
+}
+
+/*
+   * Position
+   * ========================================
+*/
+
+.rya-position--relative {
+   position: relative;
+}
+
+.rya-position--absolute {
+   position: absolute;
+}
+
+.rya-position--fixed {
+   position: fixed;
+}
+
+.rya-position--sticky {
+   position: sticky;
+}

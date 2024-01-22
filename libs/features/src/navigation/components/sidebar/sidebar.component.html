@@ -1,0 +1,36 @@
+<aside class="sidebar--sticky">
+   <div ryaLayout layoutType="sidebar" class="sidebar">
+      <div class="sidebar__logo">
+         <img class="sidebar__logo__full" [src]="logo.category | icon : logo.name : logo.mode" [alt]="logo.name" />
+         <img class="sidebar__logo__icon" [src]="icon.category | icon : icon.name " [alt]="icon.name" />
+      </div>
+      <div
+         ryaCard
+         borderRadius="none"
+         direction="column"
+         spacing="none"
+         [transparent]="true"
+         [shadow]="false"
+      >
+         @for (item of items; track idx; let idx = $index) {
+            <button
+               ryaButton
+               size="full"
+               alignment="left"
+               [routerLink]="item.route"
+               #refRouter="routerLinkActive"
+               routerLinkActive="rya-button--appearance-primary"
+               [appearance]="refRouter.isActive ? 'primary' : 'transparent'"
+            >
+               <img
+                  [src]="item.icon.category | icon : item.icon.name : item.icon.mode"
+                  [alt]="item.label"
+               />
+               <p>
+                  {{ item.label }}
+               </p>
+            </button>
+         }
+      </div>
+   </div>
+</aside>

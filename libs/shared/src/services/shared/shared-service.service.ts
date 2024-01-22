@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class SharedService {
    searchModalActive = false;
 
+   // TODO: Delete this method
    toggleSearchModal(): void {
       this.searchModalActive = !this.searchModalActive;
    }
-
 }

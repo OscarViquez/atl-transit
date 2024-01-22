@@ -1,14 +1,31 @@
+/* 
+* Flexbox direction is row, because the sidebar, has to render on the side of the page.
+* The overall layout that the page needs to follow is:
+* <sidebar> | <page> | <map> (Map will show depending on the page)
+*/
 .app {
    display: flex;
    flex-direction: row;
    position: relative;
 }
-
-.app-pages {
-   width: 100%;
+.app__navigation {
+   position: relative;
+   z-index: 1;
+}
+.app__routes {
+   position: relative;
+   flex-grow: 1;
+   z-index: 2;
+   box-shadow: -1px 0px 5px 0px rgba(0, 0, 0, 0.15);
 }
 
-@media (max-width: 992px) {
+/* 
+* Flexbox direction is column, because the sidebar will disappear and the navbar will take over.
+* The navbar has to be at the very top of the page, so by making it a column, 
+* We can assure that navbar can never render on the side of the page.
+*/
+
+@media (max-width: 812px) {
    .app {
       flex-direction: column;
    }

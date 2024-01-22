@@ -1,3 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+// * File: reset.css
+// * - CSS rules that reset default browser styling.
+// * - This helps to ensure consistency across different browsers.
+@import '../libs/assets/styles/reset.css';
 
-@import "../libs/assets/main.scss"
+// * File: base.css
+// * - All CSS Variables and base styles.
+// * - Utility Classes
+@import '../libs/assets/styles/base.css';
+
+// * Files: All CSS Styling for Directives
+@import '../libs/assets/styles/directives/badge-directive.css';
+@import '../libs/assets/styles/directives/button-directive.css';
+@import '../libs/assets/styles/directives/card-directive.css';
+@import '../libs/assets/styles/directives/layout-directive.css';
+@import '../libs/assets/styles/directives/read-more-directive.css';

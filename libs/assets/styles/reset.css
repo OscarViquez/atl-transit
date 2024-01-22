@@ -1,0 +1,36 @@
+/* * File: reset.css
+ * - CSS rules that reset default browser styling. 
+ * - This helps to ensure consistency across different browsers.
+*/
+
+/* Default Styling Properties */
+* {
+   font-family: 'Inter', sans-serif;
+   box-sizing: border-box;
+   margin: 0;
+}
+
+html {
+   background-color: #fefefe;
+}
+
+/* Default Styling Properties for Anchor Tags <a> </a> */
+a {
+   color: inherit;
+   text-decoration: none;
+}
+
+button {
+   border: none;
+   background: none;
+   cursor: pointer;
+}
+
+/* Default Styling Properties for List Elements <li> </li> */
+li {
+   list-style: none;
+}
+
+ul {
+   padding: 0;
+}

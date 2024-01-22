@@ -1,93 +1,50 @@
 .search-bar {
    font-family: 'Inter', sans-serif;
    display: flex;
-   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+   padding: 8px 12px;
    height: 48px;
-   border: 1px solid #c5c7d0;
    border-radius: 5px;
+   border: 1px solid #ddd;
+   background: #fff;
+   box-shadow: 0px 2px 2px 0px rgba(22, 22, 22, 0.15);
+   font-size: 12px;
+   font-weight: 500;
+   color: var(--rya-text-secondary);
 
-   &__input {
+   &__placeholder {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--rya-space-3);
+
+      & > img {
+         width: var(--rya-space-4); /* 16px */
+         height: var(--rya-space-4); /* 16px */
+      }
+   }
+
+   & > input {
       flex: 1;
       border-radius: inherit;
       height: 100%;
       border: none;
       outline: none;
       padding: 0 16px;
-      font-size: 16px;
-      font-weight: 400;
-      font-style: normal;
       letter-spacing: 0.24px;
-      font-family: inherit;
-      color: #676879;
 
       &::placeholder {
          font-family: inherit;
-         font-size: 12px;
-         font-weight: 500;
-         color: #676879;
+         font-size: inherit;
+         font-weight: inherit;
+         color: inherit;
       }
 
       &[type='text'] {
          font-family: inherit;
-         font-size: 12px;
-         font-weight: 500;
-         color: #676879;
-      }
-   }
-
-   &__button {
-      display: grid;
-      place-content: center;
-      width: 46px;
-      height: 100%;
-      outline: none;
-      cursor: pointer;
-      background: none;
-      border-radius: 5px;
-      border: #ffffff solid 2px;
-      transition: background 0.2s ease-in-out;
-
-      &:hover {
-         background: #ecedf5;
-         transition: background 0.2s ease-in-out;
-      }
-   }
-
-   &--primary {
-      .search-bar {
-         &__input,
-         &__button {
-            border: 1px solid #f7f8fb;
-            background: #f7f8fb;
-         }
-      }
-   }
-
-   &--secondary {
-      border: 1px solid #eff1f7;
-
-      .search-bar {
-         &__input {
-            display: flex;
-            align-items: center;
-            font-family: inherit;
-            font-size: 12px;
-            font-weight: 500;
-            cursor: pointer;
-            box-shadow: 0px 4px 10px 0px rgba(57, 57, 57, 0.05);
-         }
-         &__input,
-         &__button {
-            border: 1px solid #fff;
-            background: #fff;
-
-            &::placeholder {
-               font-family: inherit;
-               font-size: 12px;
-               font-weight: 500;
-               color: #000;
-            }
-         }
+         font-size: inherit;
+         font-weight: inherit;
+         color: inherit;
       }
    }
 }

@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Theme, BorderColor, BorderRadius, Padding } from './types/tile.types';
+import { Theme, BorderColor } from './types/tile.types';
+import { Padding } from '../../../models';
+
+type BorderRadius = 'small' | 'medium' | 'large';
 
 @Component({
    selector: 'rya-tile',
@@ -11,7 +14,8 @@ import { Theme, BorderColor, BorderRadius, Padding } from './types/tile.types';
 })
 export class TileComponent implements OnInit {
    @Input() theme: Theme = 'light';
-   @Input() spacing: Padding = 'auto';
+   // TODO: Delete this component
+   @Input() spacing: Padding | 'xs'  = 'xs';
    @Input() borderRadius: BorderRadius = 'medium';
    @Input() borderColor: BorderColor = 'default';
 

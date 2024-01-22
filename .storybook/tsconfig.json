@@ -7,6 +7,7 @@
    "include": [
       "stories/shared/**/*.stories.ts",
       "stories/navigation/**/*.stories.ts",
+      "stories/directives/**/*.stories.ts",
       "search/**/*.stories.ts",
       "../src/**/*.stories.ts",
       "../src/**/*.stories.js",

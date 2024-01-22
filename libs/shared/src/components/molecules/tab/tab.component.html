@@ -1,0 +1,16 @@
+<div class="tabs">
+   @for (label of labels; track idx; let idx = $index) {
+   <button
+      ryaButton
+      [size]="'full'"
+      [animation]="false"
+      [appearance]="'transparent'"
+      (click)="setActiveTab(idx)"
+      [ngClass]="{
+         'rya-button--appearance-tertiary': idx === activeTab
+      }"
+   >
+      {{ label }}
+   </button>
+   }
+</div>

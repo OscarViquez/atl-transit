@@ -1,0 +1,79 @@
+/*
+   * Styling for Sidebar
+   * ========================================
+*/
+.sidebar--sticky {
+   background: var(--rya-bg-secondary);
+   width: 15.625rem;
+   height: 100vh;
+}
+.sidebar {
+   /* * Layout and Spacing */
+   display: var(--rya-display-flex);
+   flex-direction: column;
+   gap: var(--rya-space-7);
+   padding: var(--rya-space-8) var(--rya-space-4);
+
+   /* * Dimensions */
+   width: 15.625rem;
+   height: 100vh;
+
+   /* * Positioning and Background */
+   background: var(--rya-bg-secondary);
+   overflow: hidden;
+   position: fixed;
+   top: 0;
+
+   &__logo {
+      display: block;
+      padding: var(--rya-space-0) var(--rya-space-2);
+
+      &__full {
+         width: 130px;
+      }
+
+      &__icon {
+         display: none;
+      }
+   }
+}
+
+/*
+   * Media Queries: Layout & Size for Sidebar
+   * ========================================
+*/
+@media (max-width: 81.188em) /* 1300px */ {
+   .sidebar--sticky {
+      width: 12rem;
+   }
+   .sidebar {
+      width: 12rem;
+   }
+}
+
+@media (max-width: 74em) /* 1184px */ {
+   .sidebar--sticky {
+      width: 5.25rem;
+   }
+   .sidebar {
+      width: 5.25rem;
+      padding: var(--rya-space-8) var(--rya-space-2);
+
+      button {
+         flex-direction: column;
+      }
+
+      &__logo {
+         padding: var(--rya-space-0);
+         text-align: center;
+
+         &__full {
+            display: none;
+         }
+
+         &__icon {
+            display: inline-block;
+         }
+      }
+   }
+}

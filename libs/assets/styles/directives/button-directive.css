@@ -1,0 +1,206 @@
+/*
+ * Default Button Styling
+ * ========================================
+*/
+.rya-button {
+   display: var(--rya-display-inline-flex);
+   gap: var(--rya-space-3); /* 12px */
+   align-items: center;
+   justify-content: center;
+   transition: all 0.2s ease-in-out;
+   cursor: pointer;
+}
+
+/*
+ * Size
+ * ========================================
+*/
+.rya-button--size-small {
+   padding: 6px 14px;
+   min-width: 96px;
+   font-size: 12px;
+   font-weight: 500;
+}
+.rya-button--size-medium {
+   padding: 10px 14px;
+   min-width: 96px;
+   font-size: 12px;
+   font-weight: 500;
+}
+
+.rya-button--size-large {
+   padding: 14px 16px;
+   min-width: 96px;
+   font-size: 14px;
+   font-weight: 600;
+}
+.rya-button--size-full {
+   padding: 14px 16px;
+   width: 100%;
+   font-size: 12px;
+   font-weight: 500;
+   letter-spacing: 0.24px;
+}
+
+/* * Icon ONLY Sizes */
+.rya-button--size-small.rya-button--icon-only,
+.rya-button--size-medium.rya-button--icon-only {
+   min-width: 24px;
+}
+.rya-button--size-large.rya-button--icon-only {
+   min-width: 32px;
+}
+
+.rya-button--size-small > img,
+.rya-button--size-medium > img {
+   width: 20px;
+   height: 20px;
+}
+.rya-button--size-large > img {
+   width: 24px;
+   height: 24px;
+}
+
+.rya-button--appearance-primary > img {
+   filter: invert(1) grayscale(1) brightness(9);
+}
+
+/*
+ * Appearance
+ * ========================================
+*/
+.rya-button--appearance-secondary {
+   background: var(--rya-button-bg-secondary);
+   border: 1px solid var(--rya-border-primary);
+   color: var(--rya-text-primary);
+}
+.rya-button--appearance-subtle {
+   background: var(--rya-button-bg-subtle);
+   color: var(--rya-text-primary);
+   border: 1px solid var(--rya-border-primary);
+}
+.rya-button--appearance-transparent {
+   background: var(--rya-button-bg-transparent);
+   color: var(--rya-text-primary);
+}
+
+/*
+ * These are placed after the other styles so it does not get overwritten 
+ * Since CSS works in a cascading manner. ( aka from top to bottom. )   
+ */
+.rya-button--appearance-primary {
+   background: var(--rya-button-bg-primary);
+   color: var(--rya-text-tertiary);
+}
+.rya-button--appearance-tertiary {
+   background: var(--rya-button-bg-secondary);
+   border: 1px solid var(--rya-button-bg-secondary);
+   color: var(--rya-text-primary);
+   transition: none;
+}
+
+/* * Hover */
+.rya-button--appearance-secondary:hover {
+   background: var(--rya-button-secondary-hover);
+}
+.rya-button--appearance-subtle:hover {
+   background: var(--rya-button-subtle-hover);
+}
+.rya-button--appearance-transparent:hover {
+   background: var(--rya-button-transparent-hover);
+}
+.rya-button--appearance-primary:hover {
+   background: var(--rya-button-primary-hover);
+   transition: none;
+}
+.rya-button--appearance-tertiary:hover {
+   background: var(--rya-button-bg-secondary);
+   transition: none;
+}
+
+/*
+ * Pop Style
+ * ========================================
+*/
+
+.rya-button--appearance-primary.rya-button--pop-style-true {
+   box-shadow: 0 4px 0 var(--rya-shadow-active);
+}
+
+.rya-button--appearance-secondary.rya-button--pop-style-true {
+   box-shadow: 0 4px 0 var(--rya-border-primary);
+}
+
+.rya-button--appearance-subtle.rya-button--pop-style-true {
+   box-shadow: 0 4px 0 var(--rya-border-primary);
+}
+
+/* * Active */
+.rya-button--appearance-primary.rya-button--pop-style-true:active,
+.rya-button--appearance-subtle.rya-button--pop-style-true:active,
+.rya-button--appearance-secondary.rya-button--pop-style-true:active {
+   box-shadow: none;
+   transform: translateY(4px);
+}
+
+/*
+   * Shape
+   * ========================================
+*/
+.rya-button--shape-square {
+   border-radius: 0;
+}
+.rya-button--shape-rounded {
+   border-radius: 5px;
+}
+.rya-button--shape-pill {
+   border-radius: 50px;
+}
+
+/*
+   * Icon Position
+   * ========================================
+*/
+.rya-button--icon-position-before {
+   flex-direction: row;
+}
+.rya-button--icon-position-after {
+   flex-direction: row-reverse;
+}
+
+/*
+ * Alignment Position
+ * ========================================
+*/
+.rya-button--align-center {
+   justify-content: center;
+}
+.rya-button--align-left {
+   justify-content: left;
+}
+.rya-button--align-right {
+   justify-content: right;
+}
+
+/*
+ * Direction
+ * ========================================
+*/
+
+.rya-button--direction-column {
+   flex-direction: column;
+}
+.rya-button--direction-row-reverse {
+   flex-direction: row-reverse;
+}
+.rya-button--direction-column-reverse {
+   flex-direction: column-reverse;
+}
+
+/*
+ * Animation - Disable
+ * ========================================
+*/
+.rya-button--animation-false {
+   transition: none;
+}

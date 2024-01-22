@@ -28,7 +28,7 @@ import { FooterComponent } from '@atl-transit/navigation';
       TrainSectionComponent,
       ResourceSectionComponent,
       FooterComponent,
-      TrainJourneyComponent
+      TrainJourneyComponent,
    ],
    templateUrl: './train-page.component.html',
    styleUrls: ['./train-page.component.scss']

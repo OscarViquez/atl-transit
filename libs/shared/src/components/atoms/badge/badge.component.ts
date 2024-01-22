@@ -1,6 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BadgeVariant } from './types/badge.type';
+
+export type BadgeColors =
+   | 'gold'
+   | 'red'
+   | 'green'
+   | 'blue'
+   | 'purple'
+   | 'orange'
+   | 'yellow'
+   | 'black'
+   | 'white';
 @Component({
    selector: 'rya-badge',
    standalone: true,

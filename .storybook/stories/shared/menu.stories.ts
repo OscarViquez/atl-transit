@@ -18,54 +18,6 @@ type Story = StoryObj<MenuComponent>;
 
 export const MenuLight: Story = {
    args: {
-      content: {
-         title: 'Main Menu',
-         mode: 'light',
-         divider: true,
-         items: [
-            {
-               content: {
-                  label: 'Overview',
-                  id: 'myButton'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'dark',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'dark'
-               }
-            }
-         ]
-      }
-   }
-};
 
-export const MenuDark: Story = {
-   args: {
-      content: {
-         title: 'Main Menu',
-         mode: 'dark',
-         divider: true,
-         items: [
-            {
-               content: {
-                  label: 'Overview',
-                  id: 'myButton'
-               },
-               type: 'menu',
-               variant: 'primary',
-               mode: 'dark',
-               align: 'left',
-               icon: {
-                  category: 'navigation',
-                  name: 'overview',
-                  mode: 'dark'
-               }
-            }
-         ]
-      }
    }
 };
