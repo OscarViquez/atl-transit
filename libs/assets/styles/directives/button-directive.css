@@ -5,6 +5,7 @@
 .rya-button {
    display: var(--rya-display-inline-flex);
    gap: var(--rya-space-3); /* 12px */
+   color: var(--rya-text-primary);
    align-items: center;
    justify-content: center;
    transition: all 0.2s ease-in-out;
