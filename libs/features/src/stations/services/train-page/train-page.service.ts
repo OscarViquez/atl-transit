@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { Injectable } from '@angular/core';
-import { AppFacadeService } from '@atl-transit/global-state';
+import { AppFacadeService } from 'libs/data-access/src';
 import { combineLatest, map } from 'rxjs';
 import { TrainContentInit, TrainPageContentMocks, TrainPageContent } from '../../shared';
 

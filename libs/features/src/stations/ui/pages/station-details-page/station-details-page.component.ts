@@ -7,7 +7,7 @@ import {
 } from '@atl-transit/shared';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TrainUiAdapter } from '@atl-transit/global-state';
+import { TrainUiAdapter } from 'libs/data-access/src';
 import { StationCardComponent } from '../../components';
 import { StationDetailsService } from '../../../services/station-details/station-details.service';
 import { Observable } from 'rxjs';

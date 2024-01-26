@@ -6,8 +6,7 @@ import { of } from 'rxjs';
 import {
    AppFacadeService,
    AppState
-} from '@atl-transit/global-state';
-import { ButtonInputType } from '@atl-transit/shared';
+} from '@atl-transit/data-access';
 import { SearchResults } from '../shared';
 import { GeneralStationResponse } from '../../stations/shared';
 
