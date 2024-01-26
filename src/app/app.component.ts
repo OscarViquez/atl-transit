@@ -1,7 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AppFacadeService } from '@atl-transit/global-state';
+// TODO: Edit config for scoped packages and libraries
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { AppFacadeService } from '@atl-transit/data-access';
 import { SharedService } from '@atl-transit/shared';
 import { NavigationComponent, SearchModalComponent } from '@atl-transit/features-ui';
 import { SwUpdate } from '@angular/service-worker';
