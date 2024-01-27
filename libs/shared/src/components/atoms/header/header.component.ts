@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GenericHeader } from '../../../models/index';
+import { Header } from '../../../models/index';
 
 type HeaderVariant = 'main' | 'section';
 
@@ -11,12 +11,12 @@ type HeaderVariant = 'main' | 'section';
    template: `
       <div class="header {{ variant }}">
          <h2>{{ content.title }}</h2>
-         <p>{{ content.subtitle }}</p>
+         <p>{{ content.description }}</p>
       </div>
    `,
    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-   @Input() content!: GenericHeader;
+   @Input() content!: Header;
    @Input() variant: HeaderVariant = 'section';
 }

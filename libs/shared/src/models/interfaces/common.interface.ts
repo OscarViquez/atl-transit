@@ -1,30 +1,37 @@
-import { UiModes, ButtonSize } from '../types';
+import { Badges } from '../types';
 
-export interface GenericHeader {
+export interface Header {
    title: string;
-   subtitle?: string;
+   description?: string;
+   badges?: Badges[];
 }
 
+/**
+ * ComponentState is an interface that defines the state of a component.
+ * @property isLoading - A boolean indicating whether the component is in a loading state.
+ * @property systemMode - A string that can be either 'light' or 'dark', indicating the system mode for the component.
+ * @property error - An optional boolean indicating whether the component is in an error state.
+ * @example 
+ * const exampleComponentState: ComponentState = {
+ *   isLoading: false,
+ *   systemMode: 'light',
+ *   error: true
+ * };
+ * This would create a state where the component is not loading, is in light mode, and is in an error state.
+ */
 export interface ComponentState {
    isLoading: boolean; // loading state for the component
-   systemMode: UiModes; // system mode for the component
+   systemMode: 'light' | 'dark' ; // system mode for the component
    error?: boolean; // error state for the component
 }
 
-export interface NavigationUI {
-   pageName: string;
-   index: number;
-}
-
-
-
-export interface Button {
+// TODO: Remove @interface Button after removing this interface from methods // REMOVE THIS ❌
+// * NOTE: Added Legacy suffix to the name to avoid conflict with the new button types
+export interface ButtonLegacy {
    /* text content for button */
    text: string;
    /* Size for button */
-   size?: ButtonSize;
-   /* text content for button */
-   mode?: UiModes;
+   size?: 'small' | 'medium' | 'large';
    /* icon content for button */
    icon?: string;
    /* links button */
@@ -35,25 +42,4 @@ export interface Button {
    id?: string;
    /* whether button should be disabled */
    disabled?: boolean;
-}
-
-
-export interface AdvisoryCard {
-   /* Card Title */
-   header: GenericHeader
-   /* Content For Dropdown */
-   dropdown: Dropdown[];
-   /* Content For Button */
-   button: Button;
-}
-
-export interface Dropdown {
-   /* Path of Image */
-   imagePath: string;
-   /* Alt text for Image */
-   imageAlt: string;
-   /* title of card */
-   title: string;
-   /* Path of Image */
-   subtitle: string;
 }

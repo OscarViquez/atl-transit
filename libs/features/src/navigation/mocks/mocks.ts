@@ -1,15 +1,15 @@
 import { Icon } from '@atl-transit/shared';
 import { NavigationItem } from '../models/interfaces';
 
-/**
- * * Content for sidebar, navbar, or any other navigation component
- * * is stored in this file.
+/*
+ * This file stores content for sidebar, navbar, or any other navigation component.
  *
- * * RULES:
- * * Variables should be named in all caps and end with _MOCKS
- * * All Mocks should be exported at the bottom of the file,
- * * @ the NAVIGATION_FEATURE_MOCKS object.
- * * If the content is static, it CAN be stored in mocks.ts
+ * ==================================================================
+ *
+ * Best Practices for Mocks:
+ * 1. Variables should be named in all caps and end with _MOCKS.
+ * 2. All Mocks should be exported at the bottom of the file in the NAVIGATION_FEATURE_MOCKS object.
+ * 3. If the content is static, it should be stored in mocks.ts.
  */
 
 const LOGO_MOCKS: Icon = {
