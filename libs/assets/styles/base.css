@@ -24,6 +24,7 @@
    --rya-bg-secondary: #f8f8f8;
    --rya-bg-tertiary: #dddddd;
    --rya-bg-quaternary: #ebebeb;
+   --rya-bg-app: #fefefe;
 
    /* * Border Color */
    --rya-border-primary: #e0e0e0;
@@ -47,7 +48,7 @@
    --rya-border-primary: #d1d1d1;
 
    /* * Button Hover */
-   --rya-button-primary-hover: #D82108;
+   --rya-button-primary-hover: #d82108;
    --rya-button-secondary-hover: #ebebeb;
    --rya-button-subtle-hover: #fefefe;
    --rya-button-transparent-hover: #ebebeb;
@@ -91,7 +92,25 @@
 */
 @media (prefers-color-scheme: dark) {
    :root {
+      /* * Text Color */
       --rya-text-primary: #f8f8f8;
+      --rya-text-secondary: #dddddd;
+      --rya-text-tertiary: #1b1b1b;
+
+      /* * Background Color */
+      --rya-bg-primary: #1b1b1b;
+      --rya-bg-secondary: #111111;
+      --rya-bg-tertiary: #484848;
+      --rya-bg-quaternary: #383838;
+      --rya-bg-app: #111111;
+
+      /* * Border Color */
+      --rya-border-primary: #e0e0e0;
+      --rya-border-secondary: #dddddd;
+
+      /* * Tabs Color */
+      --rya-tab: #18181A;
+      --rya-tab-active: #292929;
    }
 }
 

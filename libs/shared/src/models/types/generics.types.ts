@@ -50,7 +50,7 @@ export type GenericCard<H, C> = {
  *   ],
  *   columns: ['name', 'age']
  * };
- * This would create a table with two columns ('name' and 'age') and two rows of data.
+ * // This would create a table with two columns ('name' and 'age') and two rows of data.
  */
 export interface TableProps<T> {
    data: T[];
@@ -64,6 +64,6 @@ export interface TableProps<T> {
  * const clickHandler: EventHandler<MouseEvent> = (event) => {
  *   console.log(`Mouse was clicked at coordinates: ${event.clientX}, ${event.clientY}`);
  * };
- * This would create an event handler for mouse click events. The handler logs the coordinates of the mouse click.
+ * // This would create an event handler for mouse click events. The handler logs the coordinates of the mouse click.
  */
 export type EventHandler<E extends Event> = (event: E) => void;
