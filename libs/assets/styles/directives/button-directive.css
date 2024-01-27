@@ -204,3 +204,20 @@
 .rya-button--animation-false {
    transition: none;
 }
+
+/*
+ * Dark Mode
+ * ========================================
+*/
+@media (prefers-color-scheme: dark) {
+   .rya-button > img {
+      filter: invert(1) grayscale(1) brightness(9);
+   }
+   .rya-button--appearance-primary {
+      color: var(--rya-text-primary);
+      background: #2f323d;
+   }
+   .rya-button:hover {
+      background: var(--rya-bg-tertiary);
+   }
+}
