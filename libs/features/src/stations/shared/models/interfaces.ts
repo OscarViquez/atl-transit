@@ -26,8 +26,8 @@ import {
  */
 export interface TrainPage {
    header: Header;
-   nearest: StationArrival[] | Card;
-   saved: StationArrival[] | Card;
+   nearest: StationArrival[] | Card[];
+   saved: StationArrival[] | Card[];
    resource: StationResources;
    map: StationMap;
 }
@@ -70,6 +70,8 @@ export interface StationArrival {
    _id: number;
    header: Header;
    arrivals: StationArrivalSlot[];
+   url: string;
+   label: string;
 }
 
 /**
@@ -84,6 +86,8 @@ export interface StationArrivalSlot {
    destination: string;
    direction: string;
    line: string;
+   url?: string;
+   label?: string;
 }
 
 /**

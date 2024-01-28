@@ -37,8 +37,9 @@ export type Icon = {
  */
 export type Card = {
    title: string;
-   description: string;
-   icon?: Icon;
+   description?: string;
+   icon?: Icon | string;
+   url?: string;
    action?: Link[];
    badges?: Badges[];
 };

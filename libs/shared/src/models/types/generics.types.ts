@@ -31,7 +31,7 @@
 
 export type GenericCard<H, C> = {
    header: H;
-   content: C[];
+   content: C;
 };
 
 /**
