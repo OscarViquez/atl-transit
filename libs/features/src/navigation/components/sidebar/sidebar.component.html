@@ -20,10 +20,9 @@
                routerLinkActive="rya-button--appearance-primary"
                [appearance]="refRouter.isActive ? 'primary' : 'transparent'"
             >
-               <img
-                  [src]="item.icon.category | icon : item.icon.name : item.icon.mode"
-                  [alt]="item.label"
-               />
+               <div class="sidebar__icon sidebar__icon--{{item.icon}}">
+                  <!-- * icon will appear here via css background * -->
+               </div>
                <p>
                   {{ item.label }}
                </p>

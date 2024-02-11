@@ -1,3 +1,4 @@
 export * from './pages';
 export * from './components';
-export * from './shared';
+export * from './mocks';
+export * from './models';

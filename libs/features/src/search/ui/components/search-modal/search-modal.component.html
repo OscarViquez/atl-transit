@@ -5,17 +5,17 @@
    [element]="'.overlay'"
    [duration]="0.3"
    class="overlay"
-   (keydown.escape)="shared.toggleSearchModal()"
+   (keydown.escape)="shared.isSearchModalOpen = false"
 >
    <div class="search-modal">
-      <rya-icon [category]="'navigation'" [name]="'close'" (click)="shared.toggleSearchModal()" />
-      <rya-search-bar [color]="'primary'" (queryEmitter)="processSearchQuery($event)" />
-      <rya-divider [showDivider]="true" label="Results" />
+      <rya-icon [category]="'navigation'" [name]="'close'" (click)="shared.isSearchModalOpen = false" />
+      <!-- <rya-search-bar [color]="'primary'" (queryEmitter)="processSearchQuery($event)" /> -->
       @if(searchResults$ | async; as searchResults) {
          <rya-search-results [results]="searchResults" />
       } 
-      @if(true) {
+      <!-- TODO: Implement this loading animation later later -->
+      <!-- @if(true) {
          <rya-loading-skeleton [loadingItem]="'search'"></rya-loading-skeleton>
-      }
+      } -->
    </div>
 </div>

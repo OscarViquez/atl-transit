@@ -23,23 +23,44 @@ const ICON_MOCKS: Icon = {
    name: 'icon'
 };
 
-const SIDEBAR_MOCKS: NavigationItem[] = [
+const BOTTOM_BAR_MOCKS: NavigationItem[] = [
    {
-      label: 'Home',
-      icon: {
-         category: 'navigation',
-         name: 'overview',
-         mode: 'light'
-      },
+      label: 'Overview',
+      icon: 'overview',
       route: '/overview'
    },
    {
       label: 'Trains',
-      icon: {
-         category: 'navigation',
-         name: 'trains',
-         mode: 'light'
-      },
+      icon: 'train',
+      route: '/trains'
+   },
+   {
+      label: 'Bus',
+      icon: 'bus',
+      route: '/bus'
+   },
+   {
+      label: 'Breeze',
+      icon: 'breezecard',
+      route: '/breeze'
+   }
+   // * Menu has no route because it is a modal.
+   // * Menu will be disabled until other features are created
+   // {
+   //    label: 'Menu',
+   //    icon: 'menu'
+   // }
+];
+
+const SIDEBAR_MOCKS: NavigationItem[] = [
+   {
+      label: 'Overview',
+      icon: 'overview',
+      route: '/overview'
+   },
+   {
+      label: 'Trains',
+      icon: 'train',
       route: '/trains'
    }
 ];
@@ -47,5 +68,6 @@ const SIDEBAR_MOCKS: NavigationItem[] = [
 export const NAVIGATION_FEATURE_MOCKS = {
    sidebar: SIDEBAR_MOCKS,
    logo: LOGO_MOCKS,
-   icon: ICON_MOCKS
+   icon: ICON_MOCKS,
+   bottomBar: BOTTOM_BAR_MOCKS
 };

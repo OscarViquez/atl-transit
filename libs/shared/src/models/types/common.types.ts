@@ -32,15 +32,14 @@ export type Icon = {
  * @property title - The title of the card.
  * @property description - The description of the card.
  * @property icon - The icon of the card. This property is optional.
- * @property action - Associated with the action a user my take such as Link, Open Modal or Sheet. This property is optional.
+ * @property link - Associated with the action a user my take such as Link, Open Modal or Sheet. This property is optional.
  * @property badges - Associated with showing a user status or badges to describe the data, represented as an array of Badges. This property is optional.
  */
 export type Card = {
    title: string;
    description?: string;
    icon?: Icon | string;
-   url?: string;
-   action?: Link[];
+   link?: Link[];
    badges?: Badges[];
 };
 
@@ -70,6 +69,14 @@ export type Link = {
    url: string;
 };
 
+export type ActionTrigger = {
+   _id: string;
+   icon: Icon | string;
+   label: string;
+   url?: string;
+   disabled?: boolean;
+};
+
 /**
  *
  *
@@ -90,7 +97,7 @@ export type UiModes = 'light' | 'dark';
 export type BorderRadius = Size | 'none' | 'x-large' | 'pill';
 export type Padding = Size | 'x-large' | 'none' | 'x-small' | 'xx-large' | 'xxx-large';
 export type BadgeColor = Color | 'info';
-
+export type BadgeSize = Size | 'auto';
 /**
  *
  *

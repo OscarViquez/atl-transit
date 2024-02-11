@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, ElementRef, Input, Renderer2 } from '@angular/core';
-import { BadgeColor, BorderRadius } from '../../models';
+import { BadgeColor, BadgeSize, BorderRadius } from '../../models';
 
 @Directive({
    selector: '[ryaBadge]',
@@ -12,6 +12,7 @@ export class BadgeDirective implements AfterViewInit {
     */
    @Input() color: BadgeColor = 'info';
    @Input() radius: BorderRadius = 'none';
+   @Input() size: BadgeSize = 'auto';
 
    constructor(private render: Renderer2, private element: ElementRef) {}
 
@@ -32,6 +33,7 @@ export class BadgeDirective implements AfterViewInit {
       //* Add these badge classes to the element, based on @Inputs
       this.addClassWithPrefix('rya-badge--color', this.color);
       this.addClassWithPrefix('rya-badge--radius', this.radius);
+      this.addClassWithPrefix('rya-badge--size', this.size);
    }
 
    private addClassWithPrefix(prefix: string, value: string | boolean): void {

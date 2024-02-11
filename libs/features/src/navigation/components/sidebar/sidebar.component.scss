@@ -34,6 +34,24 @@
       width: 130px;
       height: 32px;
    }
+
+   &__icon {
+      &--overview {
+         content: url('/assets/icons/navigation/overview.svg');
+      }
+
+      &--train {
+         content: url('/assets/icons/navigation/train.svg');
+      }
+
+      &--bus {
+         content: url('/assets/icons/navigation/bus.svg');
+      }
+
+      &--menu {
+         content: url('/assets/icons/navigation/overview.svg');
+      }
+   }
 }
 
 /*

@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
    styleUrls: ['./loading-skeleton.component.scss']
 })
 export class LoadingSkeletonComponent {
-@Input() loadingItem!: string;
+   @Input() loadingItem!: string;
 }

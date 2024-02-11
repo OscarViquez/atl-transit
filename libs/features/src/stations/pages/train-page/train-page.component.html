@@ -1,3 +1,16 @@
-<main class="train">
-
+<main ryaLayout layoutType="page">
+   <rya-search-bar (click)="shared.isSearchModalOpen = true" />
+   <section ryaLayout layoutType="section">
+      <rya-header [content]="content.header" />
+      <rya-tab [labels]="content.tabs" (currentTabEmitter)="currentTabSetter($event)" />
+      <rya-station-arrival-list
+         [content]="{ nearest: content.nearest, saved: content.saved }"
+         [currentTabIndex]="currentTabIndex"
+      />
+   </section>
+   <rya-divider />
+   <section ryaLayout layoutType="section">
+      <rya-header [content]="content.resource.header" />
+      <rya-station-resources [content]="content.resource.content" />
+   </section>
 </main>

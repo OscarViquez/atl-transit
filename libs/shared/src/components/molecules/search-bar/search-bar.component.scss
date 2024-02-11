@@ -1,50 +1,101 @@
-.search-bar {
-   font-family: 'Inter', sans-serif;
+.search {
+   /* Layout & Spacing */
    display: flex;
    justify-content: space-between;
    align-items: center;
-   padding: 8px 12px;
-   height: 48px;
-   border-radius: 5px;
-   border: 1px solid #ddd;
-   background: #fff;
-   box-shadow: 0px 2px 2px 0px rgba(22, 22, 22, 0.15);
+   padding: var(--rya-space-2) var(--rya-space-3);
+   cursor: pointer;
+
+   /* Spacing */
+   height: 3rem;
+
+   /* Typography */
    font-size: 12px;
    font-weight: 500;
    color: var(--rya-text-secondary);
+
+   /* Styling */
+   background: var(--rya-bg-primary);
+   border: 1px solid var(--rya-bg-tertiary);
+   box-shadow: 0px 2px 2px 0px #17171726;
 
    &__placeholder {
       display: inline-flex;
       align-items: center;
       gap: var(--rya-space-3);
 
-      & > img {
-         width: var(--rya-space-4); /* 16px */
-         height: var(--rya-space-4); /* 16px */
+      &__icon {
+         content: url('/assets/icons/search/search.svg');
+      }
+      &__text {
+         font-size: 14px;
+         font-weight: 500;
+      }
+      & > input {
+         /* Layout & Spacing */
+         flex: 1;
+         background: none;
+
+         /* Typography */
+         letter-spacing: 0.24px;
+
+         /* Styling */
+         border-radius: inherit;
+         height: 100%;
+         border: none;
+         outline: none;
+
+         &::placeholder {
+            font-family: var(--rya-ff-inter);
+            font-size: 14px;
+            font-weight: 500;
+            color: inherit;
+         }
+
+         &[type='text'] {
+            font-family: var(--rya-ff-inter);
+            font-size: 14px;
+            font-weight: 500;
+            color: inherit;
+         }
       }
    }
 
-   & > input {
-      flex: 1;
-      border-radius: inherit;
-      height: 100%;
-      border: none;
-      outline: none;
-      padding: 0 16px;
-      letter-spacing: 0.24px;
+   &__badge {
+      &__icon {
+         &--apple {
+            content: url('/assets/icons/search/commandkey.svg');
+         }
+         &--windows {
+            content: url('/assets/icons/search/commandkey.svg');
+         }
+      }
+      &__text {
+         font-size: 12px;
+         font-weight: 600;
+         color: var(--rya-text-secondary);
+      }
+   }
+}
 
-      &::placeholder {
-         font-family: inherit;
-         font-size: inherit;
-         font-weight: inherit;
-         color: inherit;
+@media (prefers-color-scheme: dark) {
+   .search {
+      border: 1px solid #1c1c1e;
+      background: #1c1c1e;
+      box-shadow: 0px 2px 2px 0px rgba(22, 22, 22, 0.15);
+
+      &__placeholder {
+         &__icon {
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(82deg) brightness(111%)
+               contrast(95%);
+         }
       }
 
-      &[type='text'] {
-         font-family: inherit;
-         font-size: inherit;
-         font-weight: inherit;
-         color: inherit;
+      &__badge {
+         &__icon {
+            filter: invert(100%) sepia(2%) saturate(1845%) hue-rotate(171deg) brightness(91%)
+               contrast(90%);
+         }
       }
    }
 }

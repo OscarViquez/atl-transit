@@ -1,6 +1,10 @@
 <div class="search-results">
    <ng-container *ngFor="let result of results; let i = index">
-      <a class="search-results-card" [routerLink]="result.action" (click)="shared.toggleSearchModal()">
+      <a
+         class="search-results-card"
+         [routerLink]="result.action"
+         (click)="shared.isSearchModalOpen = false"
+      >
          <div class="search-results-card__label">
             {{ result.label }}
          </div>

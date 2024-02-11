@@ -17,30 +17,5 @@ export default {
 type Story = StoryObj<TabComponent>;
 
 export const Default: Story = {
-   render: () => ({
-      template: `
-      <rya-tab [tabs]="[
-         {
-            content: {
-               label: 'Overview',
-               id: 'myButton'
-            },
-            type: 'default',
-            variant: 'primary',
-            mode: 'light',
-            align: 'center',
-         },
-         {
-            content: {
-               label: 'Overview',
-               id: 'myButton'
-            },
-            type: 'default',
-            variant: 'secondary',
-            mode: 'light',
-            align: 'center',
-         }
-      ]"/>
-     `
-   })
+   args: {}
 };

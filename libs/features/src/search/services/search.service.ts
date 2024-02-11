@@ -8,7 +8,7 @@ import {
    AppState
 } from '@atl-transit/data-access';
 import { SearchResults } from '../shared';
-import { GeneralStationResponse } from '../../stations/shared';
+import { GeneralStationResponse } from '../../stations/models';
 
 @Injectable({
    providedIn: 'root'
