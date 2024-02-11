@@ -1,4 +1,4 @@
-.tabs {
+.tab-group {
    border-radius: var(--rya-space-2);
    border: 1px solid var(--rya-tab-active);
    background: var(--rya-tab);
@@ -6,4 +6,28 @@
    display: var(--rya-display-flex);
    flex-direction: row;
    gap: var(--rya-space-1);
+}
+
+.tab-button {
+   /* Spacing */
+   width: 100%;
+   padding: 14px 16px;
+   width: 100%;
+
+   /* Typography */
+   font-size: 12px;
+   font-weight: 500;
+   letter-spacing: 0.24px;
+
+   /* Styling */
+   background: var(--rya-tab);
+   color: var(--rya-text-primary);
+   transition: all 0.3s linear;
+
+   &--active {
+      /* Styling */
+      background: var(--rya-tab-active);
+      color: var(--rya-text-primary);
+      box-shadow: 0 15px 10px #3939390d;
+   }
 }

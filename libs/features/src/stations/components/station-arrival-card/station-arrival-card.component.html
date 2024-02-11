@@ -1,0 +1,9 @@
+<div ryaCard gap="large" borderRadius="large" [shadow]="false" [border]="true" class="stn-arrival-card">
+   <div class="stn-arrival-card__header">
+      <rya-header [content]="content.header" headerType="sub-header" />
+   </div>
+   <rya-station-arrival-item [content]="content.arrivals" />
+   <div ryaButton appearance="secondary" size="full" class="stn-arrival-card__button">
+      {{ content.link?.label }}
+   </div>
+</div>

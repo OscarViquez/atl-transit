@@ -4,12 +4,15 @@
 */
 
 :root {
+   /* * Font Family */
+   --rya-ff-inter: 'Inter', sans-serif;
+
    /* * Text Color */
    --rya-text-primary: #161616;
    --rya-text-secondary: #484848;
    --rya-text-tertiary: #fefefe;
 
-   /* * Badge Color */
+   /* * Theme Color */
    --rya-color-red: #950f22;
    --rya-color-orange: #d92209;
    --rya-color-gold: #f1b82d;
@@ -24,28 +27,25 @@
    --rya-bg-secondary: #f8f8f8;
    --rya-bg-tertiary: #dddddd;
    --rya-bg-quaternary: #ebebeb;
+   --rya-bg-card: #fefefe;
    --rya-bg-app: #fefefe;
+   --rya-bg-ios: hsla(0, 0%, 98%, 0.94);
 
    /* * Border Color */
-   --rya-border-primary: #e0e0e0;
+   --rya-border-primary: #d1d1d1;
    --rya-border-secondary: #dddddd;
+   --rya-border-tertiary: #e0e0e0;
 
    /* * Tabs Color */
    --rya-tab: #eaebef;
-   --rya-tab-active: #eff1f8;
+   --rya-tab-active: #fefefe;
 
    /* * Button Colors */
    --rya-button-bg-primary: linear-gradient(90deg, #e6431f 11.43%, #d92209 62.86%);
    --rya-button-bg-secondary: #fff;
+   --rya-buttton-by-tertiary: #f6f6f6;
    --rya-button-bg-subtle: #ebebeb;
    --rya-button-bg-transparent: transparent;
-
-   --rya-button-text-primary: var(--rya-color-black);
-   --rya-button-text-secondary: var(--rya-color-black);
-   --rya-button-text-subtle: var(--rya-color-black);
-   --rya-button-text-transparent: var(--rya-color-black);
-
-   --rya-border-primary: #d1d1d1;
 
    /* * Button Hover */
    --rya-button-primary-hover: #d82108;
@@ -82,6 +82,7 @@
    --rya-display-none: none;
 
    /* * Shadows */
+   --rya-shadow-top: 0px -4px 8px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px 0px rgba(0, 0, 0, 0.14);
    --rya-shadow-default: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px 0px rgba(0, 0, 0, 0.14);
    --rya-shadow-active: #a71b08;
 }
@@ -97,20 +98,37 @@
       --rya-text-secondary: #dddddd;
       --rya-text-tertiary: #1b1b1b;
 
+      /* * Theme Color */
+      --rya-color-red: #950f22;
+      --rya-color-orange: #d92209;
+      --rya-color-gold: #f1b82d;
+      --rya-color-green: #258D3F;
+      --rya-color-blue: #205493;
+      --rya-color-pink: #fd7272;
+      --rya-color-white: #f8f8f8;
+      --rya-color-black: #1f1f1f;
+
       /* * Background Color */
       --rya-bg-primary: #1b1b1b;
       --rya-bg-secondary: #111111;
       --rya-bg-tertiary: #484848;
       --rya-bg-quaternary: #383838;
+      --rya-bg-card: #181818;
       --rya-bg-app: #111111;
+      --rya-bg-ios: hsla(0, 0%, 2%, 0.94);
 
       /* * Border Color */
-      --rya-border-primary: #e0e0e0;
-      --rya-border-secondary: #dddddd;
+      --rya-border-primary: #484848;
+      --rya-border-secondary: #181818;
+      --rya-border-tertiary: #0f1829;
 
       /* * Tabs Color */
-      --rya-tab: #18181A;
+      --rya-tab: #18181a;
       --rya-tab-active: #292929;
+
+      /* * Button Colors */
+      --rya-button-bg-primary: linear-gradient(90deg, #e6431f 11.43%, #d92209 62.86%);
+      --rya-button-bg-secondary: #111111;
    }
 }
 
@@ -198,6 +216,10 @@
 }
 .rya-text--tertiary {
    color: var(--rya-text-secondary);
+}
+
+.rya-text--success {
+   color: var(--rya-color-green);
 }
 
 /*

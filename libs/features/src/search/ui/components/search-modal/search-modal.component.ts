@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
@@ -12,7 +12,7 @@ import {
 import { SearchResultsComponent } from '..';
 import { SearchResults } from '../../../shared';
 import { SearchService } from '../../../services';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
    selector: 'rya-search-modal',
@@ -33,7 +33,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class SearchModalComponent implements OnInit {
    @Output() closeSearch = new EventEmitter<boolean>();
    searchResults$ = new BehaviorSubject<SearchResults[]>([]);
-   isModalActive = this.shared.searchModalActive;
+   isModalActive = this.shared.isSearchModalOpen;
 
    constructor(private service: SearchService, public shared: SharedService) {}
 

@@ -22,7 +22,14 @@ const HERO_MOCKS: Header = {
    description: 'View arrival times of rail lines in the area.'
 };
 
+const SEARCHBAR_MOCKS = {
+   placeholder: 'Search',
+   icon: 'search',
+   keyboardShortcut: '+ K'
+};
+
 export const SHARED_MOCKS = {
    card: CARDHEADER_MOCKS,
-   hero: HERO_MOCKS
+   hero: HERO_MOCKS,
+   search: SEARCHBAR_MOCKS
 };

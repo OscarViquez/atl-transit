@@ -1,22 +1,18 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Header } from '../../../models/index';
+import { BadgeDirective } from '../../../directives';
 
-type HeaderVariant = 'main' | 'section';
+type HeaderType = 'page' | 'header' | 'sub-header' | 'card';
 
 @Component({
    selector: 'rya-header',
    standalone: true,
-   imports: [CommonModule],
-   template: `
-      <div class="header {{ variant }}">
-         <h2>{{ content.title }}</h2>
-         <p>{{ content.description }}</p>
-      </div>
-   `,
+   imports: [CommonModule, BadgeDirective],
+   templateUrl: './header.component.html',
    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
    @Input() content!: Header;
-   @Input() variant: HeaderVariant = 'section';
+   @Input() headerType: HeaderType = 'header';
 }
