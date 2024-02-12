@@ -83,7 +83,7 @@ export const getNearestStationArrivals = (
 ): StationArrival[] => {
    try {
       // Find the two nearest stations
-      const nearestStations = setNearestStations(userLocation, stationInfo);
+      const nearestStations = getStationByUserCoordinates(userLocation, stationInfo);
 
       // If no station was found, return an empty array
       if (nearestStations.length === 0) return [];
@@ -108,7 +108,7 @@ export const getNearestStationArrivals = (
    }
 };
 
-const setNearestStations = (
+const getStationByUserCoordinates = (
    userLocation: Coordinates,
    stations: Station[]
 ): Station[] => {
@@ -132,34 +132,6 @@ const setNearestStations = (
    } catch (error) {
       console.error('Failed to set nearest stations:', error);
       return [];
-   }
-};
-
-const findClosestStation = (
-   userLocation: Coordinates,
-   stations: Station[]
-): Station | null => {
-   try {
-      /* Calculate the distance between the user's location and each station */
-      const stationDistances = stations.map(station => {
-         const distance = Math.sqrt(
-            Math.pow(station.x - userLocation.x, 2) +
-            Math.pow(station.y - userLocation.y, 2)
-         );
-         return {
-            ...station,
-            distance
-         };
-      });
-
-      /* Sort the stations by distance (ascending order) */
-      stationDistances.sort((a, b) => a.distance - b.distance);
-
-      /*  Return the closest station */
-      return stationDistances[0] || null;
-   } catch (error) {
-      console.error('Failed to find closest station:', error);
-      return null;
    }
 };
 
