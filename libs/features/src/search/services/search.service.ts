@@ -7,7 +7,7 @@ import {
    AppFacadeService,
    AppState
 } from '@atl-transit/data-access';
-import { SearchResults } from '../shared';
+import { SearchResults } from '../models/interfaces';
 import { GeneralStationResponse } from '../../stations/models';
 
 @Injectable({

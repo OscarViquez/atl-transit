@@ -1,3 +1,4 @@
+// TODO: Refactor Search Modal Component
 .overlay {
    overflow: hidden;
    position: fixed;
@@ -40,6 +41,7 @@
       background: #f7f8fb;
       border-radius: 5px;
       cursor: pointer;
+      margin-bottom: 2rem;
    }
 
    rya-search-bar {

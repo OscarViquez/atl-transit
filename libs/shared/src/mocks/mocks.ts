@@ -9,7 +9,6 @@ import { Header } from '../models';
  * 1. Variables should be named in all caps and end with _MOCKS.
  * 2. All Mocks should be exported at the bottom of the file in the NAVIGATION_FEATURE_MOCKS object.
  * 3. If the content is static, it should be stored in mocks.ts.
- * @var SHARED_MOCKS .
  */
 
 const CARDHEADER_MOCKS: Header = {

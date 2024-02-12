@@ -62,6 +62,16 @@ const SIDEBAR_MOCKS: NavigationItem[] = [
       label: 'Trains',
       icon: 'train',
       route: '/trains'
+   },
+   {
+      label: 'Bus',
+      icon: 'bus',
+      route: '/bus'
+   },
+   {
+      label: 'Breeze',
+      icon: 'breezecard',
+      route: '/breeze'
    }
 ];
 

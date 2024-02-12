@@ -27,11 +27,16 @@ export const appRoutes: Route[] = [
       pathMatch: 'full'
    },
    {
+      // Test: Test route for Station Details
       path: ':id',
       component: StationDetailsPageComponent,
       pathMatch: 'full'
    },
-
+   {
+      // Test: Test route for Station Details
+      path: 'station/:name',
+      component: StationDetailsPageComponent
+   },
    {
       path: '**', // fallback router must in the last
       redirectTo: 'overview' // this is optional depends of your needs
