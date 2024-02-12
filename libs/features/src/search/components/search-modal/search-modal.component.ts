@@ -10,8 +10,8 @@ import {
    LoadingSkeletonComponent
 } from '@atl-transit/shared';
 import { SearchResultsComponent } from '..';
-import { SearchResults } from '../../../shared';
-import { SearchService } from '../../../services';
+import { SearchResults } from '../../models/interfaces';
+import { SearchService } from '../../services';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -40,11 +40,15 @@ export class SearchModalComponent implements OnInit {
    ngOnInit(): void {
       this.service.initializeData();
       this.processSearchQuery('') 
-   }
+   }  
 
    processSearchQuery(event: string) {
       this.service.processQuery(event.toLowerCase()).subscribe((results) => {
          this.searchResults$.next(results);
       });
+   }
+
+   log(): void {
+      console.log('search modal open');
    }
 }

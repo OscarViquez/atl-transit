@@ -1,8 +1,8 @@
 <div class="search-results">
-   <ng-container *ngFor="let result of results; let i = index">
+   <ng-container *ngFor="let result of mockResults; let i = index">
       <a
          class="search-results-card"
-         [routerLink]="result.action"
+         [routerLink]="result.link"
          (click)="shared.isSearchModalOpen = false"
       >
          <div class="search-results-card__label">
