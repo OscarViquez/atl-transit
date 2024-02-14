@@ -1,5 +1,5 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { Button, GenericHeader } from '@atl-transit/shared';
+import { ButtonLegacy, Header } from '@atl-transit/shared';
 import { StationDetails, TrainStation } from '@atl-transit/stations';
 
 export class TrainUiAdapter {
@@ -9,9 +9,10 @@ export class TrainUiAdapter {
       stations.forEach((station) => {
          const header = this.MapStationToHeader(station);
 
-         const button: Button = {
+         // TODO: Remove button after removing this interface from methods // REMOVE THIS ❌
+         // * EITHER WAY WE WILL REFACTOR ALL OF THESE ADAPTERS
+         const button: ButtonLegacy = {
             text: 'More details',
-            mode: 'light',
             hyperLink: '/' + station.stationKey
          };
 
@@ -53,7 +54,7 @@ export class TrainUiAdapter {
       }
       return spaceIndices;
    }
-   static MapStationToHeader(station: StationDetails): GenericHeader {
+   static MapStationToHeader(station: StationDetails): Header {
       const linesCount: string[] = [];
 
       station.allArrivals.forEach((arrival) => {
@@ -62,29 +63,29 @@ export class TrainUiAdapter {
          }
       });
 
-      let subtitle = '';
+      let description = '';
 
       switch (linesCount.length) {
          case 4:
-            subtitle = 'All lines currently available';
+            description = 'All lines currently available';
             break;
          case 3:
-            subtitle = 'Three lines currently available';
+            description = 'Three lines currently available';
             break;
          case 2:
-            subtitle = 'Two lines currently available';
+            description = 'Two lines currently available';
             break;
          case 1:
-            subtitle = 'One line currently available';
+            description = 'One line currently available';
             break;
          default:
-            subtitle = 'No lines currently available';
+            description = 'No lines currently available';
             break;
       }
 
-      const header: GenericHeader = {
+      const header: Header = {
          title: this.MapHeaderToUiView(station.header.title),
-         subtitle: subtitle
+         description: description
       };
 
       return header;

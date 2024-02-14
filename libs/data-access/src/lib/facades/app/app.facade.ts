@@ -7,8 +7,6 @@ import {
    stationLoadingSelector,
    userLoadingSelector,
    userLocationAction,
-   userStationsSelector,
-   userTrainStations,
    userTrainUiSelector
 } from '../../state';
 import { StationState, UserState } from '../../models';

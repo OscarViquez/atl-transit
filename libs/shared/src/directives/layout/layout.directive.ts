@@ -3,7 +3,7 @@ import { AfterViewInit, Directive, ElementRef, Input, Renderer2 } from '@angular
 /**
  * * Types for Layout Directive
  */
-type LayoutType = 'page' | 'section' | 'subsection'  | 'container' | 'sidebar';
+type LayoutType = 'page' | 'section' | 'subsection'  | 'container' | 'sidebar' | 'header';
 
 @Directive({
    selector: '[ryaLayout]',

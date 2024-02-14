@@ -57,3 +57,24 @@
 .rya-badge--radius-pill {
    border-radius: 50px;
 }
+
+/*
+   * Radius
+   * ========================================
+*/
+.rya-badge--size-small {
+   width: 3.5rem ; /* 56px */
+}
+.rya-badge--size-medium {
+   width: 4rem; /* 64px */
+}
+.rya-badge--size-large {
+   width: 4.5rem; /* 72px */
+}
+
+.rya-badge--size-small,
+.rya-badge--size-medium,
+.rya-badge--size-large {
+   text-align: center;
+   justify-content: center;
+}

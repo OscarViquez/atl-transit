@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
 
       if (commandOrCtrl && kKey) {
          console.log('Command + K was pressed');
-         this.shared.searchModalActive = true;
+         this.shared.isSearchModalOpen = true;
          event.preventDefault();
       }
    }

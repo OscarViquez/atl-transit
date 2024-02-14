@@ -5,7 +5,7 @@ import { FlexDirection, Shape, Size } from '../../models';
  * * Types for Button Directive ONLY
  */
 type ButtonSize = Size | 'full';
-type ButtonAppearance = 'subtle' | 'secondary' | 'primary' | 'transparent' | 'tertiary' | 'square';
+type ButtonAppearance = 'subtle' | 'secondary' | 'primary' | 'transparent' | 'tertiary' | 'square' | 'quaternary';
 type IconPosition = 'before' | 'after';
 type ButtonAlignment = 'left' | 'center' | 'right';
 

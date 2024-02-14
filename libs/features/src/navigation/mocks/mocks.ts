@@ -1,15 +1,15 @@
 import { Icon } from '@atl-transit/shared';
 import { NavigationItem } from '../models/interfaces';
 
-/**
- * * Content for sidebar, navbar, or any other navigation component
- * * is stored in this file.
+/*
+ * This file stores content for sidebar, navbar, or any other navigation component.
  *
- * * RULES:
- * * Variables should be named in all caps and end with _MOCKS
- * * All Mocks should be exported at the bottom of the file,
- * * @ the NAVIGATION_FEATURE_MOCKS object.
- * * If the content is static, it CAN be stored in mocks.ts
+ * ==================================================================
+ *
+ * Best Practices for Mocks:
+ * 1. Variables should be named in all caps and end with _MOCKS.
+ * 2. All Mocks should be exported at the bottom of the file in the NAVIGATION_FEATURE_MOCKS object.
+ * 3. If the content is static, it should be stored in mocks.ts.
  */
 
 const LOGO_MOCKS: Icon = {
@@ -23,29 +23,61 @@ const ICON_MOCKS: Icon = {
    name: 'icon'
 };
 
-const SIDEBAR_MOCKS: NavigationItem[] = [
+const BOTTOM_BAR_MOCKS: NavigationItem[] = [
    {
-      label: 'Home',
-      icon: {
-         category: 'navigation',
-         name: 'overview',
-         mode: 'light'
-      },
+      label: 'Overview',
+      icon: 'overview',
       route: '/overview'
    },
    {
       label: 'Trains',
-      icon: {
-         category: 'navigation',
-         name: 'trains',
-         mode: 'light'
-      },
+      icon: 'train',
       route: '/trains'
+   },
+   {
+      label: 'Bus',
+      icon: 'bus',
+      route: '/bus'
+   },
+   {
+      label: 'Breeze',
+      icon: 'breezecard',
+      route: '/breeze'
+   }
+   // * Menu has no route because it is a modal.
+   // * Menu will be disabled until other features are created
+   // {
+   //    label: 'Menu',
+   //    icon: 'menu'
+   // }
+];
+
+const SIDEBAR_MOCKS: NavigationItem[] = [
+   {
+      label: 'Overview',
+      icon: 'overview',
+      route: '/overview'
+   },
+   {
+      label: 'Trains',
+      icon: 'train',
+      route: '/trains'
+   },
+   {
+      label: 'Bus',
+      icon: 'bus',
+      route: '/bus'
+   },
+   {
+      label: 'Breeze',
+      icon: 'breezecard',
+      route: '/breeze'
    }
 ];
 
 export const NAVIGATION_FEATURE_MOCKS = {
    sidebar: SIDEBAR_MOCKS,
    logo: LOGO_MOCKS,
-   icon: ICON_MOCKS
+   icon: ICON_MOCKS,
+   bottomBar: BOTTOM_BAR_MOCKS
 };

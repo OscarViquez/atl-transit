@@ -1,0 +1,18 @@
+<div ryaLayout layoutType="container" class="stn-arrival-list">
+  @if(currentTabIndex === 0) { 
+        @for (nearestStations of content.nearest; track idx; let idx = $index) {
+            <rya-station-arrival-card  
+                [content]="nearestStations" 
+                class="stn-arrival-card" 
+            />
+        } 
+    } 
+    @if(currentTabIndex === 1) { 
+        @for (savedStations of content.saved; track idx; let idx = $index) {
+            <rya-station-arrival-card 
+                [content]="savedStations" 
+                class="stn-arrival-card" 
+            />
+        } 
+    }   
+</div>

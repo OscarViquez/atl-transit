@@ -1,0 +1,58 @@
+.bottom-bar--sticky {
+   /* *  Background Styling */
+   background: var(--rya-bg-primary);
+   border-top: 1px solid var(--rya-border-tertiary);
+
+   /* * Layout and Position */
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   z-index: 2;
+
+   /* * Animation */
+   transition: -ms-transform 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+      -webkit-transform 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),
+      transform 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955), visibility 0.2s !important;
+}
+
+.bottom-bar {
+   /* * Layout and Spacing */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   align-self: stretch;
+
+   /* * Layout for Buttons */
+   & > button {
+      flex-direction: column;
+   }
+
+   /* * icons for button */
+   &__icon {
+      &--overview {
+         content: url('/assets/icons/navigation/overview.svg');
+      }
+
+      &--train {
+         content: url('/assets/icons/navigation/train.svg');
+      }
+
+      &--bus {
+         content: url('/assets/icons/navigation/bus.svg');
+      }
+
+      &--breezecard {
+         content: url('/assets/icons/navigation/breezecard.svg');
+      }
+
+
+      &--menu {
+         content: url('/assets/icons/navigation/menu.svg');
+
+         &:hover {
+            background: none;
+         }
+      }
+   }
+}

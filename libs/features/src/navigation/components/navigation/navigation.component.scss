@@ -2,8 +2,15 @@ rya-sidebar {
    display: inline-block;
 }
 
-@media (max-width: 812px){
+rya-bottom-bar, rya-nav-bar {
+   display: none;
+}
+
+@media (max-width: 51.25em){
    rya-sidebar {
       display: none;
+   }
+   rya-bottom-bar, rya-nav-bar {
+      display: block;
    }
 }

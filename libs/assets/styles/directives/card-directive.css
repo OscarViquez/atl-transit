@@ -1,6 +1,6 @@
 .rya-card {
    display: var(--rya-display-flex);
-   background: var(--rya-bg-primary);
+   background: var(--rya-bg-card);
    flex-wrap: wrap;
    flex-grow: 1;
 }
@@ -23,7 +23,6 @@
    padding: var(--rya-space-3) var(--rya-space-4);
 }
 .rya-card--spacing-medium {
-   /* Default */
    padding: var(--rya-space-4);
 }
 .rya-card--spacing-large {
@@ -69,7 +68,6 @@
    gap: var(--rya-space-1);
 }
 .rya-card--gap-small {
-   /* Default */
    gap: var(--rya-space-2);
 }
 .rya-card--gap-medium {
@@ -77,4 +75,18 @@
 }
 .rya-card--gap-large {
    gap: var(--rya-space-4);
+}
+
+
+/*
+   * Dark Mode
+   * ========================================
+*/
+@media (prefer-color-scheme: dark) {
+   .rya-card--border-true {
+      box-shadow: none;
+   }
+   .rya-card--border-true {
+      border: 1px solid var(--rya-border-tertiary);
+   }
 }

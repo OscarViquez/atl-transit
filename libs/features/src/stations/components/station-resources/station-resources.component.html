@@ -1,1 +1,19 @@
-<p>station-resources works!</p>
+<div class="resources">
+   @for (card of content; track idx; let idx = $index){
+   <a
+      ryaCard
+      gap="medium"
+      borderRadius="medium"
+      [border]="true"
+      [shadow]="false"
+      class="resrouces__card"
+   >
+      <h2 class="rya-text--primary rya-text--base rya-font--medium">
+         {{ card.title }}
+      </h2>
+      <p class="rya-text--secondary rya-text--xs rya-font--normal">
+         {{ card.description }}
+      </p>
+   </a>
+   }
+</div>

@@ -12,7 +12,7 @@ import { ButtonDirective } from '../../../directives';
 export class TabComponent {
    /**
     * * Component Properties
-    * @var tabs: ButtonProps[] - Array of ButtonProps
+    * @var labels: Labels for all Tabs
     * @var activeTab: number - Index of the active tab
     * @var currentTabEmitter: EventEmitter<number> - Emits the index of the active tab
     */

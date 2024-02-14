@@ -1,26 +1,34 @@
-import { GenericHeader } from '../models';
+import { Header } from '../models';
 
 /**
- * * Content for Any Shared Components
- * * is stored in this file.
+ * Store Mocks for the Shared Folder
  *
- * * RULES:
- * * Variables should be named in all caps and end with _MOCKS
- * * All Mocks should be exported at the bottom of the file,
- * @var SHARED_MOCKS .
+ * ==================================================================
+ *
+ * Best Practices for Mocks:
+ * 1. Variables should be named in all caps and end with _MOCKS.
+ * 2. All Mocks should be exported at the bottom of the file in the NAVIGATION_FEATURE_MOCKS object.
+ * 3. If the content is static, it should be stored in mocks.ts.
  */
 
-const CARDHEADER_MOCKS: GenericHeader = {
+const CARDHEADER_MOCKS: Header = {
    title: 'Advisories',
-   subtitle: 'and Alerts Notifications'
+   description: 'and Alerts Notifications'
 };
 
-const HERO_MOCKS: GenericHeader = {
+const HERO_MOCKS: Header = {
    title: 'Train Arrivals',
-   subtitle: 'View arrival times of rail lines in the area.'
+   description: 'View arrival times of rail lines in the area.'
+};
+
+const SEARCHBAR_MOCKS = {
+   placeholder: 'Search',
+   icon: 'search',
+   keyboardShortcut: '+ K'
 };
 
 export const SHARED_MOCKS = {
    card: CARDHEADER_MOCKS,
-   hero: HERO_MOCKS
+   hero: HERO_MOCKS,
+   search: SEARCHBAR_MOCKS
 };

@@ -15,8 +15,10 @@
       "skipDefaultLibCheck": true,
       "baseUrl": ".",
       "paths": {
-         "@atl-transit/features-ui": ["libs/features/src/index.ts"],
          "@atl-transit/data-access": ["libs/data-access/src/index.ts"],
+         "@atl-transit/features-ui": ["libs/features/src/index.ts"],
+         "@atl-transit/alternative": ["libs/features/src/index.ts"],
+         "@atl-transit/overview": ["libs/features/src/index.ts"],
          "@atl-transit/navigation": ["libs/features/src/navigation/index.ts"],
          "@atl-transit/search": ["libs/features/src/search/index.ts"],
          "@atl-transit/shared": ["libs/shared/src/index.ts"],

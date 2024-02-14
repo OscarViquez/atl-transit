@@ -52,17 +52,33 @@
 }
 
 .rya-button--size-small > img,
-.rya-button--size-medium > img {
+.rya-button--size-small > div,
+.rya-button--size-medium > img,
+.rya-button--size-medium > div {
    width: 20px;
    height: 20px;
 }
-.rya-button--size-large > img {
+
+.rya-button--size-full > img,
+.rya-button--size-full > div {
+   width: 16px;
+   height: 16px;
+}
+.rya-button--size-large > img,
+.rya-button--size-large > div {
    width: 24px;
    height: 24px;
 }
 
-.rya-button--appearance-primary > img {
-   filter: invert(1) grayscale(1) brightness(9);
+.rya-button--appearance-primary > img,
+.rya-button--appearance-primary > div {
+   /* adds orange color onto the image */
+   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(88deg) brightness(102%) contrast(102%);
+}
+
+.rya-button--appearance-quaternary > div {
+     /* adds gray color onto the image */
+   filter: invert(13%) sepia(70%) saturate(7073%) hue-rotate(14deg) brightness(96%) contrast(94%);
 }
 
 /*
@@ -70,7 +86,7 @@
  * ========================================
 */
 .rya-button--appearance-secondary {
-   background: var(--rya-button-bg-secondary);
+   background: var(--rya-bg-primary);
    border: 1px solid var(--rya-border-primary);
    color: var(--rya-text-primary);
 }
@@ -93,10 +109,14 @@
    color: var(--rya-text-tertiary);
 }
 .rya-button--appearance-tertiary {
-   background: var(--rya-button-bg-secondary);
+   background: var(--rya-buttton-by-tertiary);
    border: 1px solid var(--rya-button-bg-secondary);
    color: var(--rya-text-primary);
    transition: none;
+}
+.rya-button--appearance-quaternary {
+   background: none;
+   color: var(--rya-button-primary-hover);
 }
 
 /* * Hover */
@@ -117,6 +137,11 @@
    background: var(--rya-button-bg-secondary);
    transition: none;
 }
+.rya-button--appearance-quaternary:hover {
+   background: var(--rya-button-bg-secondary);
+   transition: none;
+}
+
 
 /*
  * Pop Style
@@ -203,4 +228,41 @@
 */
 .rya-button--animation-false {
    transition: none;
+}
+
+/*
+ * Dark Mode
+ * ========================================
+*/
+@media (prefers-color-scheme: dark) {
+   .rya-button > img,
+   .rya-button > div {
+      filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(88deg) brightness(102%)
+         contrast(102%);
+   }
+   .rya-button--appearance-primary,
+   .rya-button--appearance-quaternary {
+      color: var(--rya-text-primary);
+      background: #2f323d;
+   }
+   .rya-button:hover {
+      background: var(--rya-bg-tertiary);
+   }
+}
+
+/*
+ * For Tablet Devices and Phones
+ * ========================================
+*/
+@media (max-width: 51.25em) {
+   .rya-button--appearance-secondary {
+      border: 1px solid var(--rya-border-primary);
+      color: var(--rya-text-primary);
+   }
+
+   .rya-button--size-full > img,
+   .rya-button--size-full > div {
+      width: 16px;
+      height: 16px;
+   }
 }

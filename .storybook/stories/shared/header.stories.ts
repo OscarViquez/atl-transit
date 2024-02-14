@@ -20,7 +20,7 @@ export const Default: Story = {
    args: {
       content: {
          title: 'Train arrivals',
-         subtitle: 'Real-time information on the scheduled arrival times of trains.'
+         description: 'Real-time information on the scheduled arrival times of trains.'
       }
    }
 };
@@ -29,7 +29,7 @@ export const MainHeader: Story = {
    args: {
       content: {
          title: 'Train arrivals',
-         subtitle: 'Real-time information on the scheduled arrival times of trains.'
+         description: 'Real-time information on the scheduled arrival times of trains.'
       },
       variant: 'main'
    }
@@ -39,7 +39,7 @@ export const SectionHeader: Story = {
    args: {
       content: {
          title: 'Explore Station Resources',
-         subtitle: 'Discover Maps, Parking, and Ticket Information'
+         description: 'Discover Maps, Parking, and Ticket Information'
       },
       variant: 'section'
    }

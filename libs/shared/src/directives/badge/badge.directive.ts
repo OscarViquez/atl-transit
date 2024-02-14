@@ -1,10 +1,5 @@
 import { AfterViewInit, Directive, ElementRef, Input, Renderer2 } from '@angular/core';
-import { Color, BorderRadius } from '../../models';
-
-/**
- * * Types for Badge Directive
- */
-type BadgeColor = Color | 'info';
+import { BadgeColor, BadgeSize, BorderRadius } from '../../models';
 
 @Directive({
    selector: '[ryaBadge]',
@@ -17,6 +12,7 @@ export class BadgeDirective implements AfterViewInit {
     */
    @Input() color: BadgeColor = 'info';
    @Input() radius: BorderRadius = 'none';
+   @Input() size: BadgeSize = 'auto';
 
    constructor(private render: Renderer2, private element: ElementRef) {}
 
@@ -37,9 +33,10 @@ export class BadgeDirective implements AfterViewInit {
       //* Add these badge classes to the element, based on @Inputs
       this.addClassWithPrefix('rya-badge--color', this.color);
       this.addClassWithPrefix('rya-badge--radius', this.radius);
+      this.addClassWithPrefix('rya-badge--size', this.size);
    }
 
-   public addClassWithPrefix(prefix: string, value: string | boolean): void {
+   private addClassWithPrefix(prefix: string, value: string | boolean): void {
       if (value) {
          const className = this.setClassName([prefix, value.toString()]);
          this.render.addClass(this.element.nativeElement, className);
@@ -54,7 +51,7 @@ export class BadgeDirective implements AfterViewInit {
     * @returns the class name + the delimiter
     * * e.g. 'rya-badge--color-'
     */
-   public setClassName(className: string[], delimiter = '-'): string {
+   private setClassName(className: string[], delimiter = '-'): string {
       // * Join the class parts with the delimiter
       return className.join(delimiter);
    }

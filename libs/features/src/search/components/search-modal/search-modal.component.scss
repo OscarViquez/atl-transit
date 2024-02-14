@@ -1,0 +1,80 @@
+// TODO: Refactor Search Modal Component
+.overlay {
+   overflow: hidden;
+   position: fixed;
+   height: 100vh;
+   width: 100%;
+   top: 0;
+   z-index: 3;
+
+   display: flex;
+   align-items: flex-start;
+   justify-content: center;
+   background: rgba(0, 0, 0, 0.1);
+}
+
+.search-modal {
+   background: #ffffff;
+   padding-bottom: 24px;
+   overflow: auto;
+   height: 100vh;
+   width: 100%;
+   padding: 16px 24px 24px;
+   border-radius: 0;
+   box-shadow: 0px 4px 10px 0px rgba(57, 57, 57, 0.1);
+   scrollbar-color: #eff1f8 #f7f8fb;
+   scrollbar-width: thin;
+   -ms-overflow-style: none; /* IE and Edge */
+   scrollbar-width: none; /* Firefox */
+
+   &::-webkit-scrollbar {
+      width: 8px;
+      // display: none;
+   }
+
+   rya-icon {
+      display: block;
+      width: max-content;
+      margin-left: auto;
+      padding: 6px 8px;
+      border: 1px solid #eff1f8;
+      background: #f7f8fb;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 2rem;
+   }
+
+   rya-search-bar {
+      display: block;
+      margin: 24px 0 32px 0;
+   }
+
+   rya-divider {
+      display: block;
+      margin-bottom: 16px;
+   }
+
+   &__results {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: calc(55vh);
+   }
+}
+
+// TODO: might need to change media query
+@media (min-width: 992px) {
+   .overlay {
+      margin: 0 auto;
+      width: 100%;
+      width: 100%;
+      left: 0;
+      background: rgba(0, 0, 0, 0.1);
+
+      .search-modal {
+         max-width: 797px;
+         height: 610px;
+         padding: 24px 32px 32px;
+         border-radius: 16px;
+      }
+   }
+}

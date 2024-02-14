@@ -13,6 +13,7 @@
    z-index: 1;
 }
 .app__routes {
+   background: var(--rya-bg-app);
    position: relative;
    flex-grow: 1;
    z-index: 2;
@@ -25,8 +26,13 @@
 * We can assure that navbar can never render on the side of the page.
 */
 
-@media (max-width: 812px) {
+@media (max-width: 51.25em /* 820px */) {
    .app {
       flex-direction: column;
+   }
+   .app__routes {
+      padding-bottom: var(--rya-space-14);
+      box-shadow: none;
+      z-index: 0;
    }
 }

@@ -1,0 +1,14 @@
+.preview-page {
+   display: grid;
+   place-items: center;
+   height: 80vh;
+
+   &__card {
+      // Adding custom spacing
+      max-width: 340px;
+      padding-top: var(--rya-space-6);
+      padding-bottom: var(--rya-space-6);
+      gap: var(--rya-space-6);
+      text-align: center;
+   }
+}
