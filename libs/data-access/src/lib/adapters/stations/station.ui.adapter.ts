@@ -2,12 +2,11 @@
 import { ButtonLegacy, Header } from '@atl-transit/shared';
 import { StationDetails, TrainStation } from '@atl-transit/stations';
 
-export class TrainUiAdapter {
    // This is to map for static content
-   static MapStationsToUi(stations: StationDetails[]): TrainStation[] {
+export const setStationsUi = (stations: StationDetails[]): TrainStation[] => {
       const uiStations: TrainStation[] = [];
       stations.forEach((station) => {
-         const header = this.MapStationToHeader(station);
+         const header = setStationHeaderUi(station);
 
          // TODO: Remove button after removing this interface from methods // REMOVE THIS ❌
          // * EITHER WAY WE WILL REFACTOR ALL OF THESE ADAPTERS
@@ -28,10 +27,10 @@ export class TrainUiAdapter {
       return uiStations;
    }
 
-   static MapHeaderToUiView(name: string): string {
+export const setHeaderUi = (name: string): string => {
       const reducedName = name.replace('STATION', '').trim();
       let lowerCasedName = reducedName.toLowerCase();
-      const spaceLocations = this.findSpacesIndices(lowerCasedName);
+      const spaceLocations = isSpacesIndices(lowerCasedName);
 
       lowerCasedName = lowerCasedName.charAt(0).toUpperCase() + lowerCasedName.slice(1);
 
@@ -45,7 +44,7 @@ export class TrainUiAdapter {
       return lowerCasedName;
    }
 
-   static findSpacesIndices(inputString: string): number[] {
+export const isSpacesIndices = (inputString: string): number[] => {
       const spaceIndices: number[] = [];
       for (let i = 0; i < inputString.length; i++) {
          if (inputString[i] === ' ') {
@@ -54,7 +53,8 @@ export class TrainUiAdapter {
       }
       return spaceIndices;
    }
-   static MapStationToHeader(station: StationDetails): Header {
+
+export const setStationHeaderUi = (station: StationDetails): Header =>  {
       const linesCount: string[] = [];
 
       station.allArrivals.forEach((arrival) => {
@@ -84,10 +84,10 @@ export class TrainUiAdapter {
       }
 
       const header: Header = {
-         title: this.MapHeaderToUiView(station.header.title),
+         title: setHeaderUi(station.header.title),
          description: description
       };
 
       return header;
    }
-}
+
