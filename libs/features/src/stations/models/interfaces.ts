@@ -108,6 +108,8 @@ export interface StationArrivalList {
  * @property line - The line that the train is on. This is typically identified by a color (e.g., "Red", "Gold", "Blue").
  */
 export interface StationArrivalItem {
+   date: Date;
+   is_arriving: boolean;
    time: string;
    destination: string;
    direction: string;
@@ -250,8 +252,8 @@ export interface AmenityData {
 
 export interface StationSchedule {
    _id: string;
-   _schedule_key: number;
-   alllines: TrainLineSchedule[];
+   _station_key: number;
+   lines: TrainLineSchedule[];
 }
 
 export interface TrainLineSchedule {

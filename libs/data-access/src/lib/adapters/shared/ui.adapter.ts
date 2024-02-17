@@ -1,5 +1,5 @@
 import { Header } from '@atl-transit/shared';
-import { TrainUiAdapter } from '../train-arrivals';
+import { setHeaderUi } from '../stations';
 
 export class UiAdapter {
    static TextToGenericHeader(
@@ -7,7 +7,7 @@ export class UiAdapter {
       description: string
    ): Header {
       return {
-         title: TrainUiAdapter.MapHeaderToUiView(title),
+         title: setHeaderUi(title),
          description: description
       };
    }

@@ -1,8 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationState } from '../../models';
 import { getRouterSelectors } from '@ngrx/router-store';
-import { AmenityData } from '@atl-transit/stations';
-import { StationAdapter, TrainUiAdapter } from '../../adapters';
+import { getAllArrivalStationItems, getAllStationDetails } from '../../adapters';
 
 export const stationFeatureSelector = createFeatureSelector<StationState>('stations');
 
@@ -13,7 +12,7 @@ export const stationGeneralSelector = createSelector(
 
 export const stationArrivalResponseSelector = createSelector(
    stationFeatureSelector,
-   (stationState) => StationAdapter.MartaResponseToTrainArrival(stationState.arrivalData)
+   (stationState) => getAllArrivalStationItems(stationState.arrivalData)
 );
 
 export const stationLoadingSelector = createSelector(
@@ -30,7 +29,7 @@ export const stationDetailsSelector = createSelector(
    stationFeatureSelector,
    stationArrivalResponseSelector,
    (stationState, arrivalData) =>
-      StationAdapter.GeneralResponseToStationDetails(
+         getAllStationDetails(
          stationState.allStations,
          arrivalData,
          stationState.amenities

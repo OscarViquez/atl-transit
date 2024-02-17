@@ -1,2 +1,2 @@
-export * from './train-arrivals/index'
+export * from './stations/index'
 export * from './user-location/index'

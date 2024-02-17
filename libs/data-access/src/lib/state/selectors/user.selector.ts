@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { UserState } from '../../models';
-import { TrainUiAdapter, UserAdapter } from '../../adapters';
+import { setStationsUi, UserAdapter } from '../../adapters';
 import {
    stationDetailsByIdSelector,
    stationDetailsSelector
@@ -34,7 +34,7 @@ export const userLoadingSelector = createSelector(
 
 //UI
 export const userTrainUiSelector = createSelector(userStationsSelector, (stationDetails) =>
-   TrainUiAdapter.MapStationsToUi(stationDetails)
+setStationsUi(stationDetails)
 );
 
 export const trainUiByIdSelector = createSelector(

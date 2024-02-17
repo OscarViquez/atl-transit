@@ -43,24 +43,31 @@ const STATION_DETAILS_SCHEDULE_INFO_MOCKS: Card = {
 
 const STATION_DETAILS_ARRIVALS_SLOTS_MOCKS: StationArrivalItem[] = [
    {
+      date: new Date(),
+      is_arriving: true,
       time: 'Arriving',
       destination: 'Airport',
       direction: 'South',
       line: 'gold'
    },
-   {
+   {  date: new Date(),
+      is_arriving: true,
       time: '5 min',
       destination: 'Airport',
       direction: 'South',
       line: 'gold'
    },
    {
+      date: new Date(),
+      is_arriving: true,
       time: '11 min',
       destination: 'Airport',
       direction: 'South',
       line: 'gold'
    },
    {
+      date: new Date(),
+      is_arriving: true,
       time: '33 min',
       destination: 'Airport',
       direction: 'South',

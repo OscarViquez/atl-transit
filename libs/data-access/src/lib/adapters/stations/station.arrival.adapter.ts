@@ -1,8 +1,51 @@
 /* eslint-disable @nx/enforce-module-boundaries */
-import { TrainArrival, RailDirection, StationDetails } from '@atl-transit/stations';
+import { TrainArrival, RailDirection, StationDetails, TrainDaySchedule } from '@atl-transit/stations';
 import { MartaArrivalResponse } from '../../models';
+import { StationArrivalItem, StationSchedule } from '@atl-transit/stations';
+import { BadgeColor } from '@atl-transit/shared';
 
-export const getAllTrainArrivals = (arrivalResponse: MartaArrivalResponse[]): TrainArrival[] => {
+export const getStationArrivalItems = (station_schedule: StationSchedule): StationArrivalItem[] => {
+   const day_of_week = new Date().toLocaleString("en-US", { weekday: 'long' });
+   let station_arrival_items: StationArrivalItem[] = []
+   station_schedule.lines.forEach((line) => {
+      line.schedules.forEach((schedule_item) => {
+         if(day_of_week == "Saturday" && schedule_item.day == "saturday"){
+            station_arrival_items =  mapArrivalItem(schedule_item, line.line as BadgeColor)
+         }
+         if(day_of_week == "Sunday" && schedule_item.day == "sunday")
+         {
+            station_arrival_items = mapArrivalItem(schedule_item, line.line as BadgeColor)
+         }
+         else
+         {
+            station_arrival_items = mapArrivalItem(schedule_item, line.line as BadgeColor)
+         }
+      })
+   })
+
+   return station_arrival_items
+};
+
+export const mapArrivalItem = (schedule_item: TrainDaySchedule, line: BadgeColor): StationArrivalItem[]  => {
+   const arrival_items: StationArrivalItem[] = []
+   schedule_item.schedule.forEach((item) => {
+      const station_arrival = {
+         date: new Date(item), 
+         is_arriving: false,
+         time: "",
+         destination: schedule_item.direction,
+         direction: schedule_item.direction,
+         line: line 
+   }
+      arrival_items.push(station_arrival)
+   })
+
+   return arrival_items
+}
+
+export const getAllArrivalStationItems = (
+   arrivalResponse: MartaArrivalResponse[]
+): TrainArrival[] => {
    const mappedTrainArrivals: TrainArrival[] = [];
 
    arrivalResponse.forEach((item) => {
@@ -42,15 +85,11 @@ export const getTrainArrivalGroups = (
    arrival: TrainArrival[],
    currentStation: StationDetails
 ): StationDetails => {
-   // sort based on arrival time
    arrival.sort((a, b) => a.secondsToArrive - b.secondsToArrive);
 
    arrival.forEach((trainArrival) => {
-      // step one: define the looking we are looking for
       const locationToFind = trainArrival.station;
-      //step two: loop through the stations and find the station we want
       if (currentStation.header.title.toUpperCase() + ' STATION' === locationToFind.toUpperCase()) {
-         //step three: set the arrivals to that station
          currentStation.allArrivals.push(trainArrival);
       }
    });
