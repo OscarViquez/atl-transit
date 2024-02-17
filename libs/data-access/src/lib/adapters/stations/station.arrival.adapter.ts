@@ -6,19 +6,19 @@ import { BadgeColor } from '@atl-transit/shared';
 
 export const getStationArrivalItems = (station_schedule: StationSchedule): StationArrivalItem[] => {
    const day_of_week = new Date().toLocaleString("en-US", { weekday: 'long' });
-   let station_arrival_items: StationArrivalItem[] = []
-   station_schedule.lines.forEach((line) => {
+   const station_arrival_items: StationArrivalItem[] = [];
+   station_schedule.lines.forEach((line) => {line.schedules
       line.schedules.forEach((schedule_item) => {
          if(day_of_week == "Saturday" && schedule_item.day == "saturday"){
-            station_arrival_items =  mapArrivalItem(schedule_item, line.line as BadgeColor)
+            station_arrival_items.concat(mapArrivalItem(schedule_item, line.line as BadgeColor))
          }
          if(day_of_week == "Sunday" && schedule_item.day == "sunday")
          {
-            station_arrival_items = mapArrivalItem(schedule_item, line.line as BadgeColor)
+            station_arrival_items.concat(mapArrivalItem(schedule_item, line.line as BadgeColor))
          }
          else
          {
-            station_arrival_items = mapArrivalItem(schedule_item, line.line as BadgeColor)
+            station_arrival_items.concat(mapArrivalItem(schedule_item, line.line as BadgeColor))
          }
       })
    })
@@ -27,7 +27,7 @@ export const getStationArrivalItems = (station_schedule: StationSchedule): Stati
 };
 
 export const mapArrivalItem = (schedule_item: TrainDaySchedule, line: BadgeColor): StationArrivalItem[]  => {
-   const arrival_items: StationArrivalItem[] = []
+   const arrival_items: StationArrivalItem[] = [];
    schedule_item.schedule.forEach((item) => {
       const station_arrival = {
          date: new Date(item), 
@@ -38,9 +38,9 @@ export const mapArrivalItem = (schedule_item: TrainDaySchedule, line: BadgeColor
          line: line 
    }
       arrival_items.push(station_arrival)
-   })
+   });
 
-   return arrival_items
+   return arrival_items;
 }
 
 export const getAllArrivalStationItems = (

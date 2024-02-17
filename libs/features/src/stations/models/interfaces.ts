@@ -264,5 +264,5 @@ export interface TrainLineSchedule {
 export interface TrainDaySchedule {
    direction: string;
    day: string;
-   schedule: number[];
+   schedule: string[];
 }
