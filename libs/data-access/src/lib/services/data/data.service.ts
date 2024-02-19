@@ -32,8 +32,8 @@ export class DataService {
       );
    }
 
-   getStationSchedule(): Observable<StationSchedule[]> {
-      return this.http.get<StationSchedule[]>(DevEndPointResponse.STATION_SCHEDULE_RESPONSE);
+   getStationSchedule(url: string): Observable<StationSchedule[]> {
+      return this.http.get<StationSchedule[]>(DevEndPointResponse.STATION_SCHEDULE_RESPONSE + url);
    }
 
    getArrivalPredictionData(): Observable<object[]> {

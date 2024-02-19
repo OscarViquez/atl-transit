@@ -44,6 +44,10 @@ export const stationDetailsByIdSelector = createSelector(
    (allStations, { id }) => allStations.find((station) => station.stationKey == id)
 );
 
+export const selectRouteKey = createSelector(
+   selectRouteParams,
+   ({ id }) => id
+)
 export const amenitiesSelector = createSelector(
    stationFeatureSelector,
    (stationState) => stationState.amenities

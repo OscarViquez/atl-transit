@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { catchError, map, concatMap, withLatestFrom } from 'rxjs/operators';
-import { StationState } from '../../models';
 import { DataService } from '../../services/data/data.service';
+import { selectRouteKey } from '../selectors';
 import {
    amenitiesActions,
    arrivalResponseActions,
@@ -13,7 +13,6 @@ import {
    userLocationAction
 } from '../actions';
 // TODO: Delete this after refactoring or reorganizing adapters. Adapter method should be used in selectors
-import { stationArrivalResponseSelector, stationGeneralSelector } from '../selectors';
 
 @Injectable({
    providedIn: 'root'
@@ -70,8 +69,9 @@ export class StationEffects {
    loadStationSchedule$ = createEffect(() =>
       this.actions$.pipe(
          ofType(generalStationActions.generalStationSuccess),
-         concatMap(() =>
-            this.dataService.getStationSchedule().pipe(
+         withLatestFrom(this.store.select(selectRouteKey)),
+         concatMap(([action, routeParams]) => 
+            this.dataService.getStationSchedule(routeParams.id).pipe(
                map((scheduleData) =>
                   stationScheduleActions.stationScheduleResponseSuccess({
                      stationSchedule: scheduleData
@@ -89,6 +89,6 @@ export class StationEffects {
    constructor(
       private actions$: Actions,
       private dataService: DataService,
-      private stationStore: Store<StationState>
+      private store: Store
    ) {}
 }
