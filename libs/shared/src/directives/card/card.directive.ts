@@ -20,7 +20,7 @@ export class CardDirective implements AfterViewInit {
    @Input() direction: FlexDirection = 'column';
    @Input() gap: FlexGap = 'small';
    // * These bools Based on Figma design
-   @Input() shadow = true;
+   @Input() shadow = false;
    @Input() border = false;
    @Input() transparent = false;
 

@@ -1,19 +1,18 @@
 @for (arrival of content; track $index) {
-<div class="stn-arrival-item rya-font--medium">
-   <div class="stn-arrival-item__badges">
-      <span ryaBadge [color]="arrival.line" radius="small" size="medium">
-         {{ arrival.line }}
+   <div class="stn-arrival-item rya-font--medium">
+      <div class="stn-arrival-item__badges">
+         <span ryaBadge [color]="arrival.line" radius="small" size="small">
+            {{ arrival.line }}
+         </span>
+         <span class="rya-text--primary">
+            {{ arrival.destination }}
+         </span>
+      </div>
+      <span class="stn-arrival-item__direction rya-text--secondary">
+         {{ arrival.direction}}<span class="stn-arrival-item__direction--suffix">{{ directionSuffix }}</span>
       </span>
-      <span class="rya-text--primary">
-         {{ arrival.destination }}
+      <span class="stn-arrival-item__time rya-text--primary">
+         {{ arrival.time }}
       </span>
    </div>
-   <span class="stn-arrival-item__direction rya-text--secondary">
-      {{ arrival.direction
-      }}<span class="stn-arrival-item__direction--suffix">{{ directionSuffix }}</span>
-   </span>
-   <span class="stn-arrival-item__time rya-text--primary">
-      {{ arrival.time }}
-   </span>
-</div>
 }

@@ -3,6 +3,7 @@
    background: var(--rya-bg-card);
    flex-wrap: wrap;
    flex-grow: 1;
+   border-radius: 8px;
 }
 
 .rya-card--transparent-true {
@@ -34,7 +35,8 @@
    * ========================================
 */
 .rya-card--shadow-true {
-   box-shadow: var(--rya-shadow-default);
+   /* Elevation 03 */
+   box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.12);
 }
 .rya-card--border-true {
    border: 1px solid var(--rya-border-secondary);
@@ -76,7 +78,6 @@
 .rya-card--gap-large {
    gap: var(--rya-space-4);
 }
-
 
 /*
    * Dark Mode

@@ -31,3 +31,11 @@
       box-shadow: 0 15px 10px #3939390d;
    }
 }
+
+@media (prefers-color-scheme: dark) {
+    .tab-button {
+        &--active {
+            background: #2f323d;
+        }
+    }
+}
