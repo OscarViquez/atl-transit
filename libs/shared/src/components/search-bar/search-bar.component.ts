@@ -1,9 +1,9 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { BadgeDirective } from '../../../directives';
-import { IconPathPipe } from '../../../pipes';
-import { SHARED_MOCKS } from '../../../mocks';
+import { BadgeDirective } from '../../directives';
+import { IconPathPipe } from '../../pipes';
+import { SHARED_MOCKS } from '../../mocks';
 
 @Component({
    selector: 'rya-search-bar',

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconPathPipe } from '../../../pipes/index';
+import { IconPathPipe } from '../../pipes/index';
 @Component({
    selector: 'rya-icon',
    standalone: true,
