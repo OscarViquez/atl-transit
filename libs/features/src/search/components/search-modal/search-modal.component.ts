@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import {
    DividerComponent,
-   ModalAnimationDirective,
    IconComponent,
    SearchBarComponent,
    SharedService,
@@ -23,7 +22,6 @@ import { BehaviorSubject } from 'rxjs';
       DividerComponent,
       SearchResultsComponent,
       IconComponent,
-      ModalAnimationDirective,
       SearchBarComponent,
       LoadingSkeletonComponent
    ],

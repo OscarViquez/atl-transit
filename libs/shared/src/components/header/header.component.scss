@@ -1,0 +1,47 @@
+.header {
+   display: flex;
+   flex-direction: column;
+   gap: var(--rya-space-2); /* 8px */
+
+   /*
+      *  Base Styles for component
+      * ========================================
+   */
+
+   &__title {
+      font-weight: var(--rya-font-weight-semibold);
+      color: var(--rya-text-primary);
+   }
+
+   &__subtitle {
+      font-weight: var(rya-font-weight-medium);
+      color: var(--rya-text-secondary);
+   }
+
+   /*
+      * Header Types Variations
+      * ========================================
+   */
+
+   &--type-page {
+      // Override the default font weight
+      font-weight: var(rya-font-weight-bold);
+      font-size: var(--rya-font-size-xxl);
+   }
+
+   &--type-header {
+      font-size: var(--rya-font-size-xl);
+   }
+
+   &--type-sub-header {
+      font-size: var(--rya-font-size-lg);
+   }
+
+   &--type-section {
+      font-size: var(--rya-font-size-base);
+   }
+
+   &--type-card {
+      font-size: var(--rya-font-size-sm);
+   }
+}

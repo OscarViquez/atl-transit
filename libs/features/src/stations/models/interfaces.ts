@@ -74,6 +74,7 @@ export interface StationArrival {
    header: Header;
    arrivals: StationArrivalItem[];
    link?: Link;
+   isSaved?: boolean;
 }
 
 /**

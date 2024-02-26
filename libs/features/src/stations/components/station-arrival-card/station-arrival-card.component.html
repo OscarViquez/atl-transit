@@ -1,9 +1,16 @@
-<div ryaCard gap="large" borderRadius="large" [shadow]="false" [border]="true" class="stn-arrival-card">
-   <div class="stn-arrival-card__header">
-      <rya-header [content]="content.header" headerType="sub-header" />
+<div ryaCard class="arrival-card" [border]="true">
+   <div class="arrival-card__header">
+      <rya-header [content]="content.header" headerType="card" />
+      <div (click)="(content.isSaved === !content.isSaved)">
+         <button ryaButton size="full">
+            {{ content.isSaved ? '' : 'Save' }}
+         </button>
+      </div>
    </div>
+
    <rya-station-arrival-item [content]="content.arrivals" />
-   <div ryaButton appearance="secondary" size="full" class="stn-arrival-card__button">
+
+   <a href="station/doraville" class="arrival-card__button">
       {{ content.link?.label }}
-   </div>
+   </a>
 </div>

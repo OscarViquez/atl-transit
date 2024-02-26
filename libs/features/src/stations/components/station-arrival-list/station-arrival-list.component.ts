@@ -12,6 +12,24 @@ import { StationArrivalCardComponent } from '../station-arrival-card/station-arr
    styleUrl: './station-arrival-list.component.scss'
 })
 export class StationArrivalListComponent {
+/**
+ * content is a generic interface that defines the properties for a table component.
+ * @property data - An array of items of type T that the table will display.
+ * @property columns - An array of keys of type T that the table will use to create columns.
+ * @example
+ * interface User {
+ *   name: string;
+ *   age: number;
+ * }
+ * const exampleTableProps: TableProps<User> = {
+ *   data: [
+ *     { name: 'Marta Aria', age: 25 },
+ *     { name: 'John Smith', age: 30 }
+ *   ],
+ *   columns: ['name', 'age']
+ * };
+ * // This would create a table with two columns ('name' and 'age') and two rows of data.
+ */
    @Input() content!: StationArrivalList;
    @Input() currentTabIndex!: number;
 }

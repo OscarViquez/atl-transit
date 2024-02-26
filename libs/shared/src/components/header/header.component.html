@@ -1,0 +1,11 @@
+<div class="header header--type-{{ headerType }}">
+   <h2 class="header__title">{{ content.title }}</h2>
+   <p class="header__subtitle">{{ content.description }}</p>
+   <div class="header__badges">
+      @for (badge of content.badges; track $index) {
+        <span ryaBadge [color]="badge.color" radius="small" size="medium">
+            {{ badge.label }}
+        </span>
+      }
+   </div>
+</div>
