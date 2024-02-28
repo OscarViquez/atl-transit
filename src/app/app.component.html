@@ -1,11 +1,13 @@
-<main class="app">
-   <div class="app__navigation">
-      <rya-navigation />
-   </div>
-   <div class="app__routes">
-      <router-outlet></router-outlet>
-   </div>
-   @if(shared.isSearchModalOpen) {
-      <rya-search-modal/>
-   }
-</main>
+<div class="wrapper">
+   <main class="app">
+      <div class="app__navigation">
+         <rya-navigation />
+      </div>
+      <div class="app__routes">
+         <router-outlet></router-outlet>
+      </div>
+      @if(shared.isSearchModalOpen) {
+         <rya-search-modal />
+      }
+   </main>
+</div>

@@ -3,10 +3,16 @@
 * The overall layout that the page needs to follow is:
 * <sidebar> | <page> | <map> (Map will show depending on the page)
 */
+
+.wrapper {
+   background: var(--rya-bg-secondary);
+}
 .app {
    display: flex;
    flex-direction: row;
    position: relative;
+   margin: 0 auto;
+   max-width: 1440px;
 }
 .app__navigation {
    position: relative;
