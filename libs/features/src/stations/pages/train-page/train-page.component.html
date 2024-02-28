@@ -1,4 +1,4 @@
-<main ryaLayout layoutType="page">
+<main ryaLayout layoutType="page" class="train-page">
    <rya-search-bar (click)="shared.isSearchModalOpen = true" />
    <section ryaLayout layoutType="section">
       <rya-header [content]="content.header" headerType="sub-header" />
@@ -9,8 +9,4 @@
       />
    </section>
    <rya-divider />
-   <section ryaLayout layoutType="section">
-      <rya-header [content]="content.header" headerType="sub-header" />
-      <rya-station-resources [content]="content.resource.content" />
-   </section>
 </main>

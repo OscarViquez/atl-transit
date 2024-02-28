@@ -36,6 +36,7 @@ export class TrainPageComponent {
    currentTabIndex = 0;
 
    constructor(public shared: SharedService) {}
+   
    currentTabSetter(index: number): void {
       this.currentTabIndex = index;
    }
