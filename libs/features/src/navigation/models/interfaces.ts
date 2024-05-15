@@ -1,7 +1,5 @@
-import { Icon } from "@atl-transit/shared";
-
-export interface NavigationItem {
+export interface PageNavigationItem {
+   icon: string;
    label: string;
-   icon: Icon | string;
-   route?: string;
+   routerLink: string;
 }

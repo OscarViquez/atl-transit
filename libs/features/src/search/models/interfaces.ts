@@ -1,9 +1,7 @@
-import { ButtonInputType } from "@atl-transit/shared";
-import { SearchModalStates } from "./types";
+import { SearchModalStates } from './types';
 
 export interface SearchResults {
    label: string;
-   action: ButtonInputType;
    disabled?: boolean;
    description?: string;
    link?: string;

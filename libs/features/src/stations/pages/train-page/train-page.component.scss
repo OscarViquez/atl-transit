@@ -1,5 +1,12 @@
-@media (max-width: 51.25em) {
-   rya-search-bar {
-      display: none;
+.train-page {
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+   gap: 2rem;
+
+   .train-page__section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
    }
 }

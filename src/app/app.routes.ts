@@ -3,7 +3,7 @@ import {
    PreviewPageComponent,
    StationDetailsPageComponent,
    TrainPageComponent
-} from '@atl-transit/features-ui';
+} from '@atl-transit/features';
 
 export const appRoutes: Route[] = [
    {

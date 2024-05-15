@@ -1,11 +1,5 @@
 import { Header } from '@atl-transit/shared';
-import {
-   StationArrival,
-   StationArrivalItem,
-   StationMap,
-   StationResources,
-   TrainPage
-} from '../models';
+import { StationArrival, StationArrivalItem, TrainPage } from '../models';
 
 /**
  *
@@ -147,72 +141,9 @@ const SAVED_STATION_ARRIVAL_MOCKS: StationArrival[] = [
    }
 ];
 
-const STATION_RESOURCE_MOCKS: StationResources = {
-   header: {
-      title: 'Explore Resources',
-      description: 'Discover Maps, Parking, and Ticket Information'
-   },
-   content: [
-      {
-         title: 'Parking',
-         description: 'View the station map',
-         icon: 'map',
-         link: [
-            {
-               label: 'View Details',
-               url: 'https://github.com'
-            }
-         ]
-      },
-      {
-         title: 'Breeze Card',
-         description: 'View the station parking',
-         icon: 'parking',
-         link: [
-            {
-               label: 'View Details',
-               url: 'https://github.com'
-            }
-         ]
-      },
-      {
-         title: 'Rail Map',
-         description: 'View the station amenities',
-         icon: 'amenities',
-         link: [
-            {
-               label: 'View Details',
-               url: 'https://github.com'
-            }
-         ]
-      },
-      {
-         title: 'Schedules',
-         description: 'View the station bus routes',
-         icon: 'bus',
-         link: [
-            {
-               label: 'View Details',
-               url: 'https://github.com'
-            }
-         ]
-      }
-   ]
-};
-
-const MAP_MOCKS: StationMap = {
-   image: {
-      category: 'station',
-      name: 'map'
-   },
-   description: 'Map feature is currently unavailable. Please check back later.'
-};
-
 export const TRAIN_PAGE_MOCKS: TrainPage = {
    header: TRAIN_PAGE_HEADER,
    tabs: TAB_MOCKS,
    nearest: NEAREST_STATION_ARRIVAL_MOCKS,
-   saved: SAVED_STATION_ARRIVAL_MOCKS,
-   resource: STATION_RESOURCE_MOCKS,
-   map: MAP_MOCKS
+   saved: SAVED_STATION_ARRIVAL_MOCKS
 };

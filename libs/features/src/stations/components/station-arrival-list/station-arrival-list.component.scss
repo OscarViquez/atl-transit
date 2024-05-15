@@ -1,0 +1,10 @@
+.arrival-list {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+
+//    @media (min-width: 96rem) {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, calc(49% - 10.6666px));
+//    }
+}

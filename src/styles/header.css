@@ -1,0 +1,34 @@
+@tailwind components;
+
+@layer components {
+   .header {
+      @apply flex flex-col space-y-1;
+   }
+   .header__title {
+      @apply text-neutral03 tracking-tighter;
+   }
+   .header__subtitle {
+      @apply text-neutral02;
+   }
+   .header--page .header__title {
+      @apply text-7 font-semibold;
+   }
+   .header--page .header__subtitle {
+      @apply text-4 font-normal;
+   }
+   .header--section .header__title {
+      @apply text-7 font-medium;
+   }
+   .header--section .header__subtitle {
+      @apply text-3 font-normal;
+   }
+   .header--card {
+      @apply text-3;
+   }
+   .header--card .header__title {
+      @apply text-6 font-medium;
+   }
+   .header--card .header__subtitle {
+      @apply text-3 font-normal;
+   }
+}

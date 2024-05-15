@@ -16,7 +16,7 @@
             "polyfills": ["zone.js"],
             "tsConfig": "./tsconfig.app.json",
             "stylePreprocessorOptions": {
-               "includePaths": ["libs/assets/styles/main.scss"]
+               "includePaths": ["libs/assets/styles/styles.scss"]
             },
             "assets": [
                {

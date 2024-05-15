@@ -45,10 +45,6 @@ export class AppFacadeService {
       // * This helps Locates buses
    }
 
-   dispatchTrainMap(): void {
-      // * Methods associated with Map Feature goes here
-   }
-
    dispatchSearchModal(): void {
       // * This helps Locates stations based on the user's location
       this.station.dispatch(generalStationActions.stationLocate());

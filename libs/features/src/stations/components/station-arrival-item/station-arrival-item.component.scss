@@ -1,55 +1,61 @@
-.stn-arrival-item {
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
+.arrival-item {
+   display: flex;
    align-items: center;
-   gap: 0.5rem;
-   padding: 0.5rem 0;
+   justify-content: space-between;
+   padding: 1rem 0;
 
-   &__direction {
-      text-align: center;
+   &__train {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      &-destination {
+         font-size: 1rem;
+         font-weight: 500;
+         color: #111;
+      }
+
+      &-direction {
+         display: inline-flex;
+         gap: 0.5rem;
+
+         font-size: 1rem;
+         font-weight: 400;
+         color: #484848;
+      }
    }
-   &__time {
-      color: var(--rya-color-green);
-      text-align: right;
-   }
-   &__badges {
+
+   &__times {
       display: inline-flex;
       align-items: center;
-      gap: 1rem;
+      justify-content: center;
+      gap: 1.5rem;
 
-      span:last-child {
-         white-space: nowrap;
-         overflow: hidden;
-         text-overflow: ellipsis;
+      @media (max-width: 600px) {
+         gap: 0.5rem;
+       }
+
+      &-scheduled,
+      &-estimated {
+         text-align: right;
+
+         &-title {
+            font-size: 0.87rem;
+            font-weight: 400;
+            color: #484848;
+            margin-bottom: 0.5rem;
+         }
+
+         &-time {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #111;
+         }
       }
-   }
-}
-
-@media (max-width: 37.5em) {
-   .stn-arrival-item {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(1, 1fr);
-      grid-template-areas:
-         'destination time'
-         'direction time';
-      gap: 0.4rem;
-      border-bottom: var(--rya-border-primary);
-
-      &__badges {
-         grid-area: destination;
-         flex-direction: column;
-         align-items: flex-start;
-         gap: 0.6rem;
-      }
-
-      &__direction {
-         grid-area: direction;
-         text-align: left;
-      }
-
-      &__time {
-         grid-area: time;
+      &-estimated {
+         &-time {
+            color: #1c8617;
+         }
       }
    }
 }

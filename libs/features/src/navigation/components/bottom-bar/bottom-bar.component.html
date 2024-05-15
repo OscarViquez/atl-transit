@@ -1,22 +1,36 @@
-<div class="bottom-bar--sticky">
-   <nav class="bottom-bar">
-    @for (item of content; track $index) { 
-        <button
-        ryaButton
-        size="full"
-        alignment="left"
-        [routerLink]="item?.route"
-        #refRouter="routerLinkActive"
-        routerLinkActive="rya-button--appearance-quaternary"
-        [appearance]="refRouter.isActive? 'quaternary' : 'transparent'"
-        >
-            <div class="bottom-bar__icon bottom-bar__icon--{{item.icon}}">
-                <!-- * icon will appear here via css background * -->
-            </div>
-            <p class="rya-font--semibold">
-                {{ item.label }}
-            </p>
-        </button>
-        }
+<div class="bg-black fixed bottom-0 z-30 w-full pb-4 border-t">
+   <nav class="flex justify-between w-full">
+      @for (route of routes; track idx; let idx = $index) {
+         <a
+            class="flex flex-col gap-2 items-center justify-center w-full py-2 text-sm"
+            [routerLink]="route.routerLink"
+         >
+            @switch (route.icon) {
+               @case ('bus') {
+                  <shared-icon-bus [presetColor]="'#ffffff'" [bold]="true" />
+               }
+               @case ('train') {
+                  <shared-icon-train [presetColor]="'#ffffff'" [bold]="true" />
+               }
+               @case ('search') {
+                  <shared-icon-search [presetColor]="'#ffffff'" [bold]="true" />
+               }
+               @case ('cards') {
+                  <shared-icon-card [presetColor]="'#ffffff'" [bold]="true" />
+               }
+               @default {
+                  <shared-icon-card [presetColor]="'#ffffff'" [bold]="true" />
+               }
+            }
+
+            <span
+               class="flex items-center justify-center text-1 text-white dark:text-white h-4 px-2 rounded-lg"
+               #refRouter="routerLinkActive"
+               routerLinkActive="bg-primary"
+            >
+               {{ route.label }}
+            </span>
+         </a>
+      }
    </nav>
 </div>

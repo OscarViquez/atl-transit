@@ -8,7 +8,7 @@ import {
    AmenityData,
    GeneralStationResponse,
    StationSchedule
-} from '@atl-transit/stations';
+} from '@atl-transit/features/stations';
 
 @Injectable({
    providedIn: 'root'

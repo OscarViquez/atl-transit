@@ -1,14 +1,4 @@
-import {
-   ComponentState,
-   Icon,
-   Header,
-   Link,
-   Card,
-   GenericCard,
-   ButtonLegacy,
-   ActionTrigger,
-   BadgeColor
-} from '@atl-transit/shared';
+import { ComponentState, Header, Link, Card, ButtonLegacy, BadgeColor } from '@atl-transit/shared';
 
 /**
  *
@@ -29,10 +19,8 @@ import {
 export interface TrainPage {
    header: Header;
    tabs: string[];
-   nearest: StationArrival[]
-   saved: StationArrival[]
-   resource: StationResources;
-   map: StationMap;
+   nearest: StationArrival[];
+   saved: StationArrival[];
 }
 
 /**
@@ -49,10 +37,6 @@ export interface StationDetailsPage {
    header: Header;
    scheduleInfo: Card;
    arrivals: StationDetailsArrival | Card;
-   amenity: StationAmenity;
-   bus: StationBusRoute;
-   map: StationMap;
-   parking: StationParking;
 }
 
 /**
@@ -86,10 +70,8 @@ export interface StationArrival {
 // TODO: This interface might not be necessary. We can use StationArrival instead. We need to further Analyze this.
 export interface StationDetailsArrival {
    header: Header;
-   actions: ActionTrigger[];
    arrivals: StationArrivalItem[];
 }
-
 
 /**
  * * StationArrivalList is an interface that defines the structure of a list station arrival cards. used in the StationArrivalList component.
@@ -97,8 +79,8 @@ export interface StationDetailsArrival {
  * @property saved - will contain data for stations saved by the user. They can have up to 7 saved Stations.
  */
 export interface StationArrivalList {
-   nearest: StationArrival[]
-   saved: StationArrival[]
+   nearest: StationArrival[];
+   saved: StationArrival[];
 }
 
 /**
@@ -135,46 +117,11 @@ export interface StationBusRoute {
  * @property link - The link to more information about the bus route.
  */
 export interface BusRoutesItem {
-   image: Icon | string;
+   image: string;
    route: string;
    description: string;
    link: Link;
 }
-
-/**
- * StationMap is an interface that defines the structure of a bus route at a station.
- * @property image - The icon for the map.
- * @property description - Message for map.
- * * NOTE: all of these properties are placeholders and will be replaced with the actual properties once the design is finalized.
- */
-export interface StationMap {
-   image: Icon | string;
-   description: string;
-}
-
-/**
- * StationAmenity is a type based on the GenericCard type, with specific types for its generic parameters:
- * @property Header - The type for the header of the station amenity card.
- * @property Card[] - The type for the content of the station amenity card, (e.g The Ride Store, Restrooms, Offering ways to reload your card and get snacks, and buy toiletries.)
- *  * This Type will be used for Station Amenity Component
- */
-export type StationAmenity = GenericCard<Header, Card[]>;
-
-/**
- * StationParking is a type based on the GenericCard type, with specific types for its generic parameters:
- * @property Header - The type for the header of the station parking card.
- * @property Card[] - The type for the content of the station parking card,
- *  * This Type will be used for Station Parking Component
- */
-export type StationParking = GenericCard<Header, Card>;
-
-/**
- * StationResources is a type based on the GenericCard type, with specific types for its generic parameters:
- * @property Header - The type for the header of the station resources card.
- * @property Card[] - The type for the content of the station resources card,
- * * This Type will be used for Station Resources / Explore Resources
- */
-export type StationResources = GenericCard<Header, Card[]>;
 
 /**
  *

@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-   ButtonDirective,
-   CardDirective,
    HeaderComponent,
-   LayoutDirective
+   LoadingSkeletonComponent,
+   ModalComponent,
+   SearchBarComponent,
+   ToastComponent
 } from '@atl-transit/shared';
 import { RouterModule } from '@angular/router';
-import { PREVIEW_PAGE_MOCKS } from '../../mocks/mocks';
-import { PreviewPage } from '../../models';
 
 @Component({
    selector: 'rya-preview-page',
@@ -17,13 +16,18 @@ import { PreviewPage } from '../../models';
       CommonModule,
       RouterModule,
       HeaderComponent,
-      LayoutDirective,
-      ButtonDirective,
-      CardDirective
+      ModalComponent,
+      SearchBarComponent,
+      LoadingSkeletonComponent,
+      ToastComponent
    ],
    templateUrl: './preview-page.component.html',
    styleUrl: './preview-page.component.scss'
 })
 export class PreviewPageComponent {
-   content: Partial<PreviewPage> = PREVIEW_PAGE_MOCKS;
+   openModal = false;
+
+   onModalChange(open: boolean) {
+      this.openModal = open;
+   }
 }

@@ -1,5 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { TrainStation } from '@atl-transit/stations';
+import { TrainStation } from '@atl-transit/features/stations';
 import { UserActionTypes } from '../../types';
 import { Coordinates } from '../../models';
 

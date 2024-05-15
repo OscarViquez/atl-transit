@@ -1,16 +1,74 @@
-// * File: reset.css
-// * - CSS rules that reset default browser styling.
-// * - This helps to ensure consistency across different browsers.
-@import '../libs/assets/styles/reset.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-// * File: base.css
-// * - All CSS Variables and base styles.
-// * - Utility Classes
-@import '../libs/assets/styles/base.css';
+/*
+ * Varibles.css
+ * ================================================================================
+ * This file contains all the design tokens used in the project.
+*/
+@import './styles/variables.css';
 
-// * Files: All CSS Styling for Directives
-@import '../libs/assets/styles/directives/badge-directive.css';
-@import '../libs/assets/styles/directives/button-directive.css';
-@import '../libs/assets/styles/directives/card-directive.css';
-@import '../libs/assets/styles/directives/layout-directive.css';
-@import '../libs/assets/styles/directives/read-more-directive.css';
+/*
+ * Base <Button> Styling
+ * 
+*/
+@import './styles/button.css';
+/*
+ * Base <Badge> Styling
+ * 
+*/
+@import './styles/badge.css';
+/*
+ * Base <Card> Styling
+ * 
+*/
+@import './styles/card.css';
+
+/*
+ * Base <Modal> Styling
+ * 
+*/
+@import './styles/modal.css';
+
+/*
+ * Base <Link> Styling
+ * 
+*/
+@import './styles/link.css';
+
+/*
+ * Base <Input> Styling
+ * 
+*/
+@import './styles/input.css';
+
+/*
+ * Base <Focus Element State> Stylings
+ * 
+*/
+@import './styles/focus-state.css';
+
+/*
+ * Base <shared-search-bar> Stylings
+ * 
+*/
+@import './styles/search-bar.css';
+
+/*
+ * Base <shared-tab-list> Stylings
+ * 
+*/
+@import './styles/tab-list.css';
+
+/*
+ * Base <shared-loading-skeleton> Stylings
+ * 
+*/
+@import './styles/skeleton-loader.css';
+
+/*
+ * Base <shared-header> Stylings
+ * 
+*/
+@import './styles/header.css';
