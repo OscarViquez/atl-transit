@@ -1,6 +1,6 @@
 import { createAction, createActionGroup, emptyProps, props  } from '@ngrx/store';
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import { StationDetails, GeneralStationResponse, AmenityData, StationSchedule } from '@atl-transit/stations';
+import { StationDetails, GeneralStationResponse, AmenityData, StationSchedule } from '@atl-transit/features/stations';
 import { ArrivalActionTypes, StationActionTypes} from '../../types';
 import { MartaArrivalResponse } from '../../models';
 

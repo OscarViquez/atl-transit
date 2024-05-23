@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { ButtonLegacy, Header } from '@atl-transit/shared';
-import { StationDetails, TrainStation } from '@atl-transit/stations';
+import { StationDetails, TrainStation } from '@atl-transit/features/stations';
 
 export class TrainUiAdapter {
    // This is to map for static content

@@ -1,6 +1,6 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 
-import { GeneralStationResponse, StationDetails } from '@atl-transit/stations';
+import { GeneralStationResponse, StationDetails } from '@atl-transit/features/stations';
 import { Coordinates } from '../../models';
 
 export class UserAdapter {

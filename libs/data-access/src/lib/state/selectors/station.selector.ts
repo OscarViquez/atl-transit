@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { StationState } from '../../models';
 import { getRouterSelectors } from '@ngrx/router-store';
-import { AmenityData } from '@atl-transit/stations';
+import { AmenityData } from '@atl-transit/features/stations';
 import { StationAdapter, TrainUiAdapter } from '../../adapters';
 
 export const stationFeatureSelector = createFeatureSelector<StationState>('stations');

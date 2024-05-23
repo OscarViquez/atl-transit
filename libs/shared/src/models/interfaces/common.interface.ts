@@ -1,27 +1,14 @@
-import { Badges } from '../types';
+import { Badge } from '../types';
 
 export interface Header {
    title: string;
    description?: string;
-   badges?: Badges[];
+   badges?: Badge[];
 }
 
-/**
- * ComponentState is an interface that defines the state of a component.
- * @property isLoading - A boolean indicating whether the component is in a loading state.
- * @property systemMode - A string that can be either 'light' or 'dark', indicating the system mode for the component.
- * @property error - An optional boolean indicating whether the component is in an error state.
- * @example 
- * const exampleComponentState: ComponentState = {
- *   isLoading: false,
- *   systemMode: 'light',
- *   error: true
- * };
- * This would create a state where the component is not loading, is in light mode, and is in an error state.
- */
 export interface ComponentState {
    isLoading: boolean; // loading state for the component
-   systemMode: 'light' | 'dark' ; // system mode for the component
+   systemMode: 'light' | 'dark'; // system mode for the component
    error?: boolean; // error state for the component
 }
 

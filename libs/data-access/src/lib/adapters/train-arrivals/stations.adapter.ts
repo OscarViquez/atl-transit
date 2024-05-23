@@ -7,13 +7,13 @@ import {
    StationDetails,
    AmenityData,
    StationInformation
-} from '@atl-transit/stations';
+} from '@atl-transit/features/stations';
 import { GenericItem, MartaArrivalResponse } from '../../models';
 import { UiAdapter } from '../shared';
 
 export class StationAdapter {
    static MartaResponseToTrainArrival(arrivalResponse: MartaArrivalResponse[]): TrainArrival[] {
-      let mappedTrainArrivals: TrainArrival[] = [];
+      const mappedTrainArrivals: TrainArrival[] = [];
 
       arrivalResponse.forEach((item) => {
          let direction: RailDirection = 'North';

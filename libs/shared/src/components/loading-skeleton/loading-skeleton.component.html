@@ -1,30 +1,42 @@
 @switch (loadingItem) {
-    @case ('card') { 
-        <div class="skeleton-custom">
-            <div class="skeleton-custom__loader skeleton-loader"></div> 
-            <div class="skeleton-custom__loader skeleton-loader"></div> 
-            <div class="skeleton-custom__loader skeleton-loader"></div> 
-            <div class="skeleton-custom__loader skeleton-loader"></div> 
-        </div>
-    }
-    @case ('text') {
-        <div class="skeleton-custom">
-            <div class="skeleton-custom__loader skeleton-loader"></div> 
-            <div class="skeleton-custom__loader skeleton-loader"></div> 
-        </div>
-    }
-    @case('search') {
-        <div class="loader column">
-            <div class="row bouncer left">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            Loading Results..
-        </div>
-    }
-    @default { 
-        <div class="skeleton-default skeleton-loader"></div>
-    }
-  }
+   @case ('search') {
+      <div class="loader column">
+         <div class="row bouncer left">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+         </div>
+         Loading Results..
+      </div>
+   }
+   @case ('card') {
+      <div class="flex flex-col p-4 space-y-4">
+         <div class="skeleton-loader"></div>
+         <div class="skeleton-loader"></div>
+         <div class="skeleton-loader"></div>
+         <div class="skeleton-loader"></div>
+      </div>
+   }
+   @case ('text') {
+      <div class="flex flex-col p-4 space-y-4">
+         <div class="skeleton-loader"></div>
+         <div class="skeleton-loader"></div>
+      </div>
+   }
+   @case ('list') {
+      <div class="flex gap-3">
+         <div class="w-6 skeleton-loader"></div>
+         <div class="skeleton-loader"></div>
+      </div>
+   }
+   @case ('image') {
+      <div class="w-full h-[10rem] skeleton-loader-imaage"></div>
+   }
+   @case ('icon') {
+      <div class="w-5 skeleton-loader"></div>
+   }
+   @default {
+      <div class="skeleton-loader"></div>
+   }
+}

@@ -1,29 +1,34 @@
 import { Route } from '@angular/router';
-import {
-   PreviewPageComponent,
-   StationDetailsPageComponent,
-   TrainPageComponent
-} from '@atl-transit/features-ui';
+import { StationDetailsPageComponent, TrainPageComponent } from '@atl-transit/features/stations';
+import { BusComponent } from './test/bus.component';
+import { CardTestComponent } from './test/card.component';
+import { MapComponent } from './test/map.component';
+import { ExploreComponent } from './test/explore.component';
 
 export const appRoutes: Route[] = [
-   {
-      path: 'overview',
-      component: PreviewPageComponent,
-      pathMatch: 'full'
-   },
    {
       path: 'trains',
       component: TrainPageComponent,
       pathMatch: 'full'
    },
    {
-      path: 'bus',
-      component: PreviewPageComponent,
+      path: 'buses',
+      component: BusComponent,
+      pathMatch: 'full'
+   },
+   {
+      path: 'explore',
+      component: ExploreComponent,
       pathMatch: 'full'
    },
    {
       path: 'breeze',
-      component: PreviewPageComponent,
+      component: CardTestComponent,
+      pathMatch: 'full'
+   },
+   {
+      path: 'maps',
+      component: MapComponent,
       pathMatch: 'full'
    },
    {

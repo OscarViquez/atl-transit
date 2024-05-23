@@ -1,0 +1,83 @@
+@tailwind components;
+
+@layer components {
+   /*
+    * Base <Modal> Styling
+    * ================================================================================
+    * This section contains the base styles for the modals.
+    * It includes the default modal styles, modal sizes and animation.
+    */
+
+   .overlay-full {
+      @apply fixed inset-0 z-30 grid place-content-center overflow-hidden bg-black bg-opacity-60;
+   }
+
+   .overlay-shadow {
+      box-shadow: 0px 14px 28px 0px rgba(0, 0, 0, 0.24);
+   }
+
+   /* You have to decide what is the z-index when you use the component, default is z-30 */
+   .modal {
+      @apply fixed inset-0 z-30 mx-auto my-0 flex h-full w-full flex-col md:rounded-2xl sm:rounded-none bg-white p-6 shadow-lg md:top-10;
+   }
+
+   /*
+    * Base <Tooltip> Styling
+    * ================================================================================
+    * This section contains the base styles for the modals.
+    * It includes the default modal styles, modal sizes and animation.
+    */
+
+   .tooltip {
+      @apply absolute p-6 max-w-[320px] bg-[#ffffff] text-[#0b1f66] font-medium text-3 rounded-sm  shadow-2xl;
+   }
+
+   .tip::after {
+      content: '';
+      margin-left: -5px;
+      top: 100%;
+      left: 50%;
+      border-color: #ffffff transparent transparent transparent;
+      @apply absolute border-[10px] shadow-2xl;
+   }
+
+   /* BOTTOM */
+
+   .tooltip.tip-bottom-center::after {
+      top: 100%;
+      left: 50%;
+   }
+
+   .tooltip.tip-bottom-right::after {
+      top: 100%;
+      left: 90%;
+   }
+
+   .tooltip.tip-bottom-left::after {
+      top: 100%;
+      left: 10%;
+   }
+
+   /* TOP */
+
+   .tooltip.tip-top-center::after {
+      top: -20px;
+      left: 50%;
+      rotate: 180deg;
+   }
+
+   .tooltip.tip-top-right::after {
+      top: -20px;
+      left: 90%;
+      rotate: 180deg;
+   }
+
+   .tooltip.tip-top-left::after {
+      top: -20px;
+      left: 10%;
+      rotate: 180deg;
+   }
+
+   /* BOTTOM SHEET */
+   /*  md:bottom-0 md:rounded-t-2xl md:max-h-[80vh] */
+}

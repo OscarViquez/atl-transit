@@ -1,0 +1,14 @@
+<!-- Toast component -->
+<article
+   class="flex rounded-md min-w-80 overlay-shadow bg-white animate-accordion-up"
+   [ngClass]="{ '': float }"
+>
+   <!-- Toast header -->
+   <div class="h-6 flex items-center justify-center rounded-t-md">
+      <span class="text-1 text-neutral01 text-center"></span>
+   </div>
+   <!-- Toast body -->
+   <div class="p-4 pb-3 text-neutral03 text-1">
+      <ng-content> </ng-content>
+   </div>
+</article>
