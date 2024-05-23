@@ -1,57 +1,26 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2022",
-    "module": "esnext",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@atl-transit/alternative": [
-        "libs/features/src/index.ts"
-      ],
-      "@atl-transit/data-access": [
-        "libs/data-access/src/index.ts"
-      ],
-      "@atl-transit/features": [
-        "libs/features/src/index.ts"
-      ],
-      "@atl-transit/features/navigation": [
-        "libs/features/src/navigation/index.ts"
-      ],
-      "@atl-transit/features/overview": [
-        "libs/features/src/index.ts"
-      ],
-      "@atl-transit/features/search": [
-        "libs/features/src/search/index.ts"
-      ],
-      "@atl-transit/features/stations": [
-        "libs/features/src/stations/index.ts"
-      ],
-      "@atl-transit/shared": [
-        "libs/shared/src/index.ts"
-      ],
-      "assets": [
-        "libs/assets/src/index.ts"
-      ],
-      "pages": [
-        "libs/pages/src/index.ts"
-      ]
-    }
-  },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+   "compileOnSave": false,
+   "compilerOptions": {
+      "rootDir": ".",
+      "sourceMap": true,
+      "declaration": false,
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "importHelpers": true,
+      "target": "es2022",
+      "module": "esnext",
+      "lib": ["es2020", "dom"],
+      "skipLibCheck": true,
+      "skipDefaultLibCheck": true,
+      "baseUrl": ".",
+      "paths": {
+         "@atl-transit/data-access": ["libs/data-access/src/index.ts"],
+         "@atl-transit/features/navigation": ["libs/features/navigation/src/index.ts"],
+         "@atl-transit/features/stations": ["libs/features/stations/src/index.ts"],
+         "@atl-transit/shared": ["libs/shared/src/index.ts"],
+         "assets": ["libs/assets/src/index.ts"]
+      }
+   },
+   "exclude": ["node_modules", "tmp"]
 }

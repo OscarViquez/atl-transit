@@ -5,9 +5,8 @@ import { CommonModule } from '@angular/common';
    selector: 'shared-loading-skeleton',
    standalone: true,
    imports: [CommonModule],
-   templateUrl: './loading-skeleton.component.html',
-   styleUrls: ['./loading-skeleton.component.scss']
+   templateUrl: './loading-skeleton.component.html'
 })
 export class LoadingSkeletonComponent {
-   @Input() loadingItem: string = 'card';
+   @Input() loadingItem: string = '';
 }

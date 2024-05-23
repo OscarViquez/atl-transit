@@ -19,7 +19,7 @@ export type Card = {
    description?: string;
    icon?: string;
    link?: Link[];
-   badges?: Badges[];
+   badge?: Badge[];
 };
 
 /**
@@ -27,7 +27,7 @@ export type Card = {
  * @property label - The text displayed on the badge.
  * @property color - The color of the badge.
  */
-export type Badges = {
+export type Badge = {
    label: string;
    color: BadgeColor;
 };
@@ -68,7 +68,8 @@ export type UiModes = 'light' | 'dark';
 // * Types with extended values
 export type BorderRadius = Size | 'none' | 'x-large' | 'pill';
 export type Padding = Size | 'x-large' | 'none' | 'x-small' | 'xx-large' | 'xxx-large';
-export type BadgeColor = 'gold' | 'red' | 'green' | 'blue' | 'gray' | 'white';
+export type BadgeColor = 'gold' | 'red' | 'green' | 'blue' | 'gray' | 'white' | 'black';
+export type BadgeRadius = 'default' | 'pill' | 'icon-pill';
 export type BadgeSize = Size | 'auto';
 
 //! REMOVE THIS ❌

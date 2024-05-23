@@ -1,9 +1,9 @@
-import { Badges } from '../types';
+import { Badge } from '../types';
 
 export interface Header {
    title: string;
    description?: string;
-   badges?: Badges[];
+   badges?: Badge[];
 }
 
 export interface ComponentState {

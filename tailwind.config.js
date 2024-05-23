@@ -55,6 +55,9 @@ module.exports = {
          animation: {
             'accordion-down': 'accordion-down 0.2s ease-out',
             'accordion-up': 'accordion-up 0.2s ease-out'
+         },
+         boxShadow: {
+            bottomBar: '0px -1px 32px 0px rgba(72, 72, 72, 0.12)'
          }
       },
       fontSize: {

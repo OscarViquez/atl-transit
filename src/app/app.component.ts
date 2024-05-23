@@ -2,10 +2,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 // TODO: Edit config for scoped packages and libraries
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import { AppFacadeService } from '@atl-transit/data-access';
-import { BottomBarComponent, SidebarComponent } from '@atl-transit/features';
 import { SwUpdate } from '@angular/service-worker';
+import { BottomBarComponent, SidebarComponent } from '@atl-transit/features/navigation';
 @Component({
    standalone: true,
    imports: [CommonModule, RouterModule, SidebarComponent, BottomBarComponent],
@@ -14,10 +12,7 @@ import { SwUpdate } from '@angular/service-worker';
    styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-   constructor(private facade: AppFacadeService) {}
-
    ngOnInit(): void {
-      this.facade.dispatchAppData();
       this.handleThemeChange();
    }
 

@@ -1,0 +1,35 @@
+<aside class="bg-white fixed z-20 h-screen flex flex-col gap-8 py-10">
+   <!-- * App Logo  -->
+   @defer {
+      <shared-logo class="w-[130px] ml-auto mr-8"></shared-logo>
+   } @placeholder (minimum 500ms) {
+      <div class="w-[130px] h-8 ml-auto mr-8">
+         <shared-loading-skeleton [loadingItem]="'list'" />
+      </div>
+   }
+
+   <!-- * Nav Routes List  -->
+   <nav class="flex flex-col md:ml-6 lg:ml-auto">
+      @for (route of routes; track idx; let idx = $index) {
+         @defer {
+            <a
+               *ngIf="route.label !== 'Search'"
+               class="flex gap-3 h-12 w-[10.75rem] p-[0.875rem] text-3 font-medium mt-auto rounded-md"
+               #refRouter="routerLinkActive"
+               routerLinkActive="bg-gradient-to-r from-gradient-orange-0 to-gradient-orange-100 text-white"
+               [routerLink]="route.routerLink"
+            >
+               {{ route.label }}
+            </a>
+         } @placeholder (minimum 500ms) {
+            <div *ngIf="idx < 4" class="h-12 w-[10.75rem] p-[0.875rem]">
+               <shared-loading-skeleton [loadingItem]="'list'" />
+            </div>
+         } @error {
+            <div class="h-12 w-[10.75rem] p-[0.875rem]">
+               <shared-loading-skeleton [loadingItem]="'list'" />
+            </div>
+         }
+      }
+   </nav>
+</aside>

@@ -17,8 +17,7 @@ import { CommonModule } from '@angular/common';
             </button>
          }
       </div>
-   `,
-   styleUrls: ['./tab-list.component.scss']
+   `
 })
 export class TabListComponent {
    /**
@@ -29,17 +28,17 @@ export class TabListComponent {
    @Input() labels!: string[];
 
    /**
-    * The `activeTab` property determines the current active tab.
-    * It can be used by a parent component to set the initial active tab.
-    */
-   activeTab = 0;
-
-   /**
     * The `currentTabEmitter` event is emitted whenever the active tab is changed.
     * It emits a number value representing the index of the new active tab.
     * It is an @Output property, meaning a parent component can listen for this event.
     */
    @Output() currentTabEmitter = new EventEmitter<number>();
+
+   /**
+    * The `activeTab` property determines the current active tab.
+    * It can be used by a parent component to set the initial active tab.
+    */
+   activeTab = 0;
 
    /**
     * The `setActiveTab` method is called when a tab is clicked.
