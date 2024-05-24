@@ -14,7 +14,7 @@ export const NAV_ROUTES: PageNavigationItem[] = [
    {
       icon: 'Search',
       label: 'Search',
-      routerLink: '/explore'
+      routerLink: ''
    },
    {
       icon: 'cards',

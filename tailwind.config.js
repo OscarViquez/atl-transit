@@ -54,7 +54,23 @@ module.exports = {
       extend: {
          animation: {
             'accordion-down': 'accordion-down 0.2s ease-out',
-            'accordion-up': 'accordion-up 0.2s ease-out'
+            'accordion-up': 'accordion-up 0.2s ease-out',
+            'bottom-sheet-up': 'bottom-sheet-up 0.5s cubic-bezier(0.0, 0.0, 0.2, 1)',
+            modal: 'modal-scale-up 400ms cubic-bezier(0.55, 0, 0.15, 1) 0ms 1 normal both running, modal-fade-in 400ms cubic-bezier(0.55, 0, 0.15, 1) 0ms 1 normal both running'
+         },
+         keyframes: {
+            'modal-scale-up': {
+               '0%': { transform: 'scale(0.9)' },
+               '100%': { transform: 'scale(1)' }
+            },
+            'modal-fade-in': {
+               '0%': { opacity: '0' },
+               '100%': { opacity: '1' }
+            },
+            'bottom-sheet-up': {
+               '0%': { transform: 'translateY(100%)' },
+               '100%': { transform: 'translateY(0)' }
+            }
          },
          boxShadow: {
             bottomBar: '0px -1px 32px 0px rgba(72, 72, 72, 0.12)'

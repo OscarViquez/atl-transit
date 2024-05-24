@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ElementRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CloseIconComponent } from '../../icons/close-icon.component';
 
@@ -8,17 +8,21 @@ import { CloseIconComponent } from '../../icons/close-icon.component';
    imports: [CommonModule, CloseIconComponent],
    template: `
       @if (isOpen) {
-         <div class="overlay-full">
+         <div class="overlay-full z-50 overflow" tabindex="1">
             <section
-               class="modal md:h-4/5 md:max-w-[736px] rounded-none"
-               [ngClass]="{ 'top-10 sm:rounded-2xl': isBottomSheet }"
+               class="modal md:h-4/5 md:max-w-[736px] overflow-hidden"
+               [ngClass]="{
+                  'top-10 rounded-2xl': isBottomSheet,
+                  'animate-modal': !isBottomSheet && isOpen,
+                  'animate-bottom-sheet-up md:animate-modal': isBottomSheet && isOpen
+               }"
             >
                <div class="ml-auto pb-6">
                   <button (click)="closeModal()">
                      <shared-icon-close />
                   </button>
                </div>
-               <div class="overflow-y-auto scrollbar-hide pb-8">
+               <div class="overflow-y-scroll scrollbar-hide pb-8">
                   <ng-content>
                      <!-- This is where the modal content goes -->
                   </ng-content>
@@ -48,23 +52,6 @@ export class ModalComponent {
     * It is an @Output property, meaning a parent component can listen for this event.
     */
    @Output() modalChange = new EventEmitter<boolean>();
-
-   /**
-    * The `elementRef` property is used to access the DOM element of this component.
-    * It is injected into the constructor by Angular's dependency injection system.
-    */
-   constructor(private elementRef: ElementRef) {}
-
-   /**
-    * The `ngOnChanges` method is called whenever the value of an @Input property changes.
-    * It is used to detect when the `isOpen` property changes and to fade in the modal.
-    * It uses the `fadeIn` function from `modal.interactions.ts` to animate the modal.
-    */
-   // ngOnChanges(changes: SimpleChanges): void {
-   //    if (changes['isOpen'] && changes['isOpen'].currentValue) {
-   //       fadeIn(this.elementRef.nativeElement);
-   //    }
-   // }
 
    /**
     * The `closeModal` method is called to close the modal.

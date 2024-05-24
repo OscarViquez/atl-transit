@@ -3,7 +3,6 @@ import { StationDetailsPageComponent, TrainPageComponent } from '@atl-transit/fe
 import { BusComponent } from './test/bus.component';
 import { CardTestComponent } from './test/card.component';
 import { MapComponent } from './test/map.component';
-import { ExploreComponent } from './test/explore.component';
 
 export const appRoutes: Route[] = [
    {
@@ -17,12 +16,7 @@ export const appRoutes: Route[] = [
       pathMatch: 'full'
    },
    {
-      path: 'explore',
-      component: ExploreComponent,
-      pathMatch: 'full'
-   },
-   {
-      path: 'breeze',
+      path: 'cards',
       component: CardTestComponent,
       pathMatch: 'full'
    },
@@ -39,11 +33,11 @@ export const appRoutes: Route[] = [
    },
    {
       // Test: Test route for Station Details
-      path: 'station/:name',
+      path: 'stations/:name',
       component: StationDetailsPageComponent
    },
    {
       path: '**', // fallback router must in the last
-      redirectTo: 'overview' // this is optional depends of your needs
+      redirectTo: '' // this is optional depends of your needs
    }
 ];
