@@ -1,26 +1,39 @@
 <div class="bg-white fixed bottom-0 z-30 w-full pb-4 border-t border-t-neutral01 lg:hidden">
    <nav class="flex justify-between w-full">
       @for (route of routes; track idx; let idx = $index) {
-         <a
-            class="flex flex-col gap-2 items-center justify-center w-full py-2 text-sm"
-            [routerLink]="route.routerLink"
-         >
-            @defer {
-               <navigation-plaeholder-icon />
-            } @placeholder (minimum 500ms) {
-               <shared-loading-skeleton [loadingItem]="'icon'" />
-            } @error {
-               <shared-loading-skeleton [loadingItem]="'icon'" />
-            }
-
-            <span
-               class="flex items-center text-neutral03 justify-center text-1 font-medium h-4 px-2 rounded-lg"
-               #refRouter="routerLinkActive"
-               routerLinkActive="bg-primary text-white transition-bg ease-linear duration-100"
+         @if (route.routerLink) {
+            <a
+               class="flex flex-col gap-2 items-center justify-center w-full py-2 text-sm"
+               [routerLink]="route.routerLink"
             >
-               {{ route.label }}
-            </span>
-         </a>
+               @defer {
+                  <navigation-placeholder-icon />
+               } @placeholder (minimum 500ms) {
+                  <shared-loading-skeleton [loadingItem]="'icon'" />
+               }
+               <span
+                  class="flex items-center text-neutral03 justify-center text-1 font-medium h-4 px-2 rounded-lg"
+                  #refRouter="routerLinkActive"
+                  routerLinkActive="bg-primary text-white transition-bg ease-linear duration-100"
+               >
+                  {{ route.label }}
+               </span>
+            </a>
+         } @else {
+            <div class="flex flex-col gap-2 items-center justify-center w-full py-2 text-sm">
+               @defer {
+                  <navigation-placeholder-icon />
+               } @placeholder (minimum 500ms) {
+                  <shared-loading-skeleton [loadingItem]="'icon'" />
+               }
+               <span
+                  class="flex items-center text-neutral03 justify-center text-1 font-medium h-4 px-2 rounded-lg"
+                  (click)="showSearchModal()"
+               >
+                  {{ route.label }}
+               </span>
+            </div>
+         }
       }
    </nav>
 </div>

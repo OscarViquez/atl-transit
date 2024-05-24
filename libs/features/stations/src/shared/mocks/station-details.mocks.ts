@@ -1,9 +1,12 @@
 import { Badge, Card, Header } from '@atl-transit/shared';
 import {
+   StationArrivalCard,
+   StationArrivalItem,
    StationDetailsAmenities,
    StationDetailsArrivals,
    StationDetailsBusRoutes,
-   StationDetailsPage
+   StationDetailsPage,
+   StationRailLineInfoBox
 } from '../models';
 
 export const STATION_DETAILS_HEADER_MOCK: Header = {
@@ -40,38 +43,53 @@ export const STATION_DETAILS_SCHEDULE_MOCK: Card = {
    ]
 };
 
-const STATION_DETAILS_ARRIVALS_SECTION_MOCK: StationDetailsArrivals = {
+export const STATION_DETAILS_RAIL_LINES_INFO_BOX_MOCK: StationRailLineInfoBox = {
+   text: 'This station serves these lines',
+   badges: [
+      {
+         label: 'North',
+         color: 'gray'
+      }
+   ]
+};
+
+export const STATION_DETAILS_ALL_ARRIVALS_MOCK: StationArrivalItem[] = [
+   {
+      time: 'Arriving',
+      destination: 'Airport',
+      direction: 'South',
+      line: 'gold'
+   },
+   {
+      time: '5 min',
+      destination: 'North Spring',
+      direction: 'North',
+      line: 'red'
+   },
+   {
+      time: '11 min',
+      destination: 'Airport',
+      direction: 'South',
+      line: 'gold'
+   },
+   {
+      time: '33 min',
+      destination: 'North Spring',
+      direction: 'North',
+      line: 'red'
+   }
+];
+
+export const STATION_DETAILS_ARRIVALS_CARD_MOCK: StationArrivalCard = {
+   infoBox: STATION_DETAILS_RAIL_LINES_INFO_BOX_MOCK,
+   arrivals: STATION_DETAILS_ALL_ARRIVALS_MOCK
+};
+
+export const STATION_DETAILS_ARRIVALS_SECTION_MOCK: StationDetailsArrivals = {
    header: {
       title: 'Real-Time Train Arrivals'
    },
-   data: {
-      arrivals: [
-         {
-            time: 'Arriving',
-            destination: 'Airport',
-            direction: 'South',
-            line: 'gold'
-         },
-         {
-            time: '5 min',
-            destination: 'North Spring',
-            direction: 'North',
-            line: 'red'
-         },
-         {
-            time: '11 min',
-            destination: 'Airport',
-            direction: 'South',
-            line: 'gold'
-         },
-         {
-            time: '33 min',
-            destination: 'North Spring',
-            direction: 'North',
-            line: 'red'
-         }
-      ]
-   }
+   data: STATION_DETAILS_ARRIVALS_CARD_MOCK
 };
 
 export const STATION_DETAILS_BUS_ROUTES_MOCK: StationDetailsBusRoutes = {
@@ -149,4 +167,3 @@ export const STATION_DETAILS_MOCKS: StationDetailsPage = {
    routes: STATION_DETAILS_BUS_ROUTES_MOCK,
    amenities: STATION_DETAILS_AMENITIES_MOCK
 };
-// STATION_ARRIVAL_ITEMS_MOCKS;

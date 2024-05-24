@@ -1,19 +1,45 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 // TODO: Edit config for scoped packages and libraries
 import { SwUpdate } from '@angular/service-worker';
 import { BottomBarComponent, SidebarComponent } from '@atl-transit/features/navigation';
+import { SearchModalComponent } from '@atl-transit/features/search';
 @Component({
    standalone: true,
-   imports: [CommonModule, RouterModule, SidebarComponent, BottomBarComponent],
+   imports: [
+      CommonModule,
+      RouterModule,
+      SidebarComponent,
+      BottomBarComponent,
+      SearchModalComponent
+   ],
    selector: 'app-root',
    templateUrl: './app.component.html',
    styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-   ngOnInit(): void {
-      this.handleThemeChange();
+export class AppComponent {
+   /**
+    * `showSearchModal` is a boolean property that controls the visibility of the search modal.
+    * It is initially set to `false`, meaning the modal is hidden by default.
+    */
+   showSearchModal = false;
+
+   /**
+    * @summary The 'onModalChangeEvent' method updates the visibility of the search modal.
+    *
+    * __Emphasis:__ Medium emphasis – This method is important as it controls the visibility of the search modal.
+    *
+    * __Explanation:__ The 'onModalChangeEvent' method is used to update the 'showSearchModal' property based on the passed value.
+    * If the value is `true`, the modal will be shown; if the value is `false`, the modal will be hidden.
+    *
+    * @param value - A boolean indicating whether the modal should be shown (`true`) or hidden (`false`).
+    *
+    * __Example usages:__
+    * - This method is typically used in the context of a component that needs to control the visibility of a modal based on user interactions.
+    */
+   onModalChangeEvent(value: boolean): void {
+      this.showSearchModal = value;
    }
 
    /**
@@ -32,63 +58,6 @@ export class AppComponent implements OnInit {
       updates.versionUpdates.subscribe((event) => {
          updates.activateUpdate().then(() => document.location.reload());
       });
-   }
-
-   /**
-    * @summary The 'handleThemeChange' method determines the theme of the application.
-    *
-    * __Emphasis:__ High emphasis – This method is crucial as it controls the visual appearance of the application.
-    *
-    * __Explanation:__ The 'handleThemeChange' method is used to switch between a light and dark theme. It checks the theme stored in localStorage
-    * and applies the 'dark' class to the document if the theme is 'dark' or if there is no theme set and the OS preference is 'dark'.
-    *
-    * __Example usages:__
-    * - Call this method when the application is initialized to set the theme based on the user's preference or the OS preference.
-    * - Call this method whenever the user changes the theme to apply the new theme.
-    */
-   handleThemeChange() {
-      const theme = localStorage.getItem('theme');
-      if (
-         theme === 'dark' ||
-         (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-         document.documentElement.classList.add('dark');
-      } else {
-         document.documentElement.classList.remove('dark');
-      }
-   }
-
-   /**
-    * @summary The 'setTheme' method sets the theme of the application.
-    *
-    * __Emphasis:__ High emphasis – This method is crucial as it allows the user to manually set the theme of the application.
-    *
-    * __Explanation:__ The 'setTheme' method is used to set the theme to 'light' or 'dark'. It stores the theme in localStorage
-    *  and then calls 'handleThemeChange' to apply the new theme.
-    *
-    * __Example usages:__
-    * - Call this method with 'light' to set the theme to light.
-    * - Call this method with 'dark' to set the theme to dark.
-    */
-   setTheme(theme: 'light' | 'dark') {
-      localStorage.setItem('theme', theme);
-      this.handleThemeChange();
-   }
-
-   /**
-    * @summary The 'respectOSPreference' method makes the application respect the OS theme preference.
-    *
-    * __Emphasis:__ High emphasis – This method is crucial as it allows the application to automatically adapt to the user's OS theme preference.
-    *
-    * __Explanation:__ The 'respectOSPreference' method is used to remove the theme from localStorage, which makes the application
-    * respect the OS theme preference. It then calls 'handleThemeChange' to apply the new theme.
-    *
-    * __Example usages:__
-    * - Call this method when the user wants the application to automatically adapt to the OS theme preference.
-    */
-   respectOSPreference() {
-      localStorage.removeItem('theme');
-      this.handleThemeChange();
    }
 
    /**

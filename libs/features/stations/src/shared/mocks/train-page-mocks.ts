@@ -1,12 +1,17 @@
 import { Header } from '@atl-transit/shared';
-import { StationArrivalCard, StationArrivalItem, TrainPage } from '../models';
+import {
+   StationArrivalCard,
+   StationArrivalItem,
+   StationRailLineInfoBox,
+   TrainPage
+} from '../models';
 
-const TRAIN_PAGE_HEADER: Header = {
+export const TRAIN_PAGE_HEADER: Header = {
    title: "Station's Train Arrivals",
    description: 'Real-time information on the scheduled arrival times of trains.'
 };
 
-const STATION_ARRIVAL_ITEMS_MOCKS: StationArrivalItem[] = [
+export const STATION_ARRIVAL_ITEMS_MOCKS: StationArrivalItem[] = [
    {
       time: 'Arriving',
       destination: 'Airport',
@@ -33,7 +38,7 @@ const STATION_ARRIVAL_ITEMS_MOCKS: StationArrivalItem[] = [
    }
 ];
 
-const STATION_ARRIVAL_NORTH_LINE_SLOT_MOCKS: StationArrivalItem[] = [
+export const STATION_ARRIVAL_NORTH_LINE_SLOT_MOCKS: StationArrivalItem[] = [
    {
       time: 'Arriving',
       destination: 'Airport',
@@ -60,11 +65,20 @@ const STATION_ARRIVAL_NORTH_LINE_SLOT_MOCKS: StationArrivalItem[] = [
    }
 ];
 
-const TAB_MOCKS: string[] = ['Nearest', 'Saved'];
+export const TRAIN_PAGE_RAIL_LINES_INFO_BOX_MOCK: StationRailLineInfoBox = {
+   text: 'This station serves these lines',
+   badges: [
+      {
+         label: 'North',
+         color: 'gray'
+      }
+   ]
+};
 
-const NEAREST_STATION_ARRIVAL_MOCKS: StationArrivalCard[] = [
+export const TRAIN_PAGE_NEAREST_STATION_ARRIVAL_MOCK: StationArrivalCard[] = [
    {
-      _id: 1,
+      id: 1,
+      infoBox: TRAIN_PAGE_RAIL_LINES_INFO_BOX_MOCK,
       header: {
          title: 'Doraville',
          description: 'All Rail Lines Available'
@@ -72,11 +86,12 @@ const NEAREST_STATION_ARRIVAL_MOCKS: StationArrivalCard[] = [
       arrivals: STATION_ARRIVAL_ITEMS_MOCKS,
       link: {
          label: 'See Station Details',
-         url: '/stations/1'
+         url: '/stations/doraville'
       }
    },
    {
-      _id: 2,
+      id: 2,
+      infoBox: TRAIN_PAGE_RAIL_LINES_INFO_BOX_MOCK,
       header: {
          title: 'Chamblee',
          description: 'All Rail Lines Available'
@@ -84,14 +99,15 @@ const NEAREST_STATION_ARRIVAL_MOCKS: StationArrivalCard[] = [
       arrivals: STATION_ARRIVAL_ITEMS_MOCKS,
       link: {
          label: 'See Station Details',
-         url: '/stations/1'
+         url: '/stations/chamblee'
       }
    }
 ];
 
-const SAVED_STATION_ARRIVAL_MOCKS: StationArrivalCard[] = [
+export const TRAIN_PAGE_SAVED_STATION_ARRIVAL_MOCK: StationArrivalCard[] = [
    {
-      _id: 1,
+      id: 1,
+      infoBox: TRAIN_PAGE_RAIL_LINES_INFO_BOX_MOCK,
       header: {
          title: 'Lindbergh',
          description: 'All Rail Lines Available'
@@ -99,11 +115,12 @@ const SAVED_STATION_ARRIVAL_MOCKS: StationArrivalCard[] = [
       arrivals: STATION_ARRIVAL_NORTH_LINE_SLOT_MOCKS,
       link: {
          label: 'See Station Details',
-         url: '/stations/1'
+         url: '/stations/lindbergh'
       }
    },
    {
-      _id: 2,
+      id: 2,
+      infoBox: TRAIN_PAGE_RAIL_LINES_INFO_BOX_MOCK,
       header: {
          title: 'Brookhaven',
          description: 'All Rail Lines Available'
@@ -111,11 +128,12 @@ const SAVED_STATION_ARRIVAL_MOCKS: StationArrivalCard[] = [
       arrivals: STATION_ARRIVAL_ITEMS_MOCKS,
       link: {
          label: 'See Station Details',
-         url: '/stations/1'
+         url: '/stations/brookhaven'
       }
    },
    {
-      _id: 3,
+      id: 3,
+      infoBox: TRAIN_PAGE_RAIL_LINES_INFO_BOX_MOCK,
       header: {
          title: 'Lenox',
          description: 'All Rail Lines Available'
@@ -123,14 +141,16 @@ const SAVED_STATION_ARRIVAL_MOCKS: StationArrivalCard[] = [
       arrivals: STATION_ARRIVAL_ITEMS_MOCKS,
       link: {
          label: 'See Station Details',
-         url: '/stations/1'
+         url: '/stations/doraville'
       }
    }
 ];
 
+export const TRAIN_PAGE_TAB_MOCK: string[] = ['Nearest', 'Saved'];
+
 export const TRAIN_PAGE_MOCKS: TrainPage = {
    header: TRAIN_PAGE_HEADER,
-   tabs: TAB_MOCKS,
-   nearest: NEAREST_STATION_ARRIVAL_MOCKS,
-   saved: SAVED_STATION_ARRIVAL_MOCKS
+   tabs: TRAIN_PAGE_TAB_MOCK,
+   nearest: TRAIN_PAGE_NEAREST_STATION_ARRIVAL_MOCK,
+   saved: TRAIN_PAGE_SAVED_STATION_ARRIVAL_MOCK
 };

@@ -83,9 +83,10 @@ export interface TrainPage {
 export interface StationArrivalCard {
    arrivals: StationArrivalItem[];
    header?: Header;
+   id?: number;
+   infoBox: StationRailLineInfoBox;
+   isStationSaved?: boolean;
    link?: Link;
-   isSaved?: boolean;
-   _id?: number;
 }
 
 export interface StationArrivalList {
@@ -100,6 +101,11 @@ export interface StationArrivalItem {
    line: BadgeColor;
    url?: string;
    label?: string;
+}
+
+export interface StationRailLineInfoBox {
+   text: string;
+   badges: Badge[];
 }
 
 /**
