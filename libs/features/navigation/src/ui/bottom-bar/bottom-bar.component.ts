@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { NAV_ROUTES, PageNavigationItem } from '../../shared';
 import { PlaceholderIconComponent } from '../placeholder-icon.component';
 import { LoadingSkeletonComponent, ModalComponent } from '@atl-transit/shared';
+import { NavigationLinkComponent } from '../navigation-link/navigation-link.component';
+import { NavigationLaunchButtonComponent } from '../navigation-launch-button/navigation-launch-button.component';
 
 @Component({
    selector: 'navigation-bottom-bar',
@@ -11,10 +13,11 @@ import { LoadingSkeletonComponent, ModalComponent } from '@atl-transit/shared';
    imports: [
       CommonModule,
       RouterModule,
-      BottomBarComponent,
+      ModalComponent,
       LoadingSkeletonComponent,
       PlaceholderIconComponent,
-      ModalComponent
+      NavigationLinkComponent,
+      NavigationLaunchButtonComponent
    ],
    templateUrl: './bottom-bar.component.html'
 })
