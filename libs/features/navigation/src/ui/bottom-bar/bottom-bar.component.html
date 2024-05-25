@@ -1,38 +1,10 @@
 <div class="bg-white fixed bottom-0 z-30 w-full pb-4 border-t border-t-neutral01 lg:hidden">
-   <nav class="flex justify-between w-full">
+   <nav class="flex justify-between w-full px-4 items-center">
       @for (route of routes; track idx; let idx = $index) {
          @if (route.routerLink) {
-            <a
-               class="flex flex-col gap-2 items-center justify-center w-full py-2 text-sm"
-               [routerLink]="route.routerLink"
-            >
-               @defer {
-                  <navigation-placeholder-icon />
-               } @placeholder (minimum 500ms) {
-                  <shared-loading-skeleton [loadingItem]="'icon'" />
-               }
-               <span
-                  class="flex items-center text-neutral03 justify-center text-1 font-medium h-4 px-2 rounded-lg"
-                  #refRouter="routerLinkActive"
-                  routerLinkActive="bg-primary text-white transition-bg ease-linear duration-100"
-               >
-                  {{ route.label }}
-               </span>
-            </a>
+            <navigation-link [content]="route" />
          } @else {
-            <div class="flex flex-col gap-2 items-center justify-center w-full py-2 text-sm">
-               @defer {
-                  <navigation-placeholder-icon />
-               } @placeholder (minimum 500ms) {
-                  <shared-loading-skeleton [loadingItem]="'icon'" />
-               }
-               <span
-                  class="flex items-center text-neutral03 justify-center text-1 font-medium h-4 px-2 rounded-lg"
-                  (click)="showSearchModal()"
-               >
-                  {{ route.label }}
-               </span>
-            </div>
+            <navigation-launch-button [content]="route" (click)="showSearchModal()" />
          }
       }
    </nav>

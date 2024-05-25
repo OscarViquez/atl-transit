@@ -1,11 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CloseIconComponent } from '../../icons/close-icon.component';
 
 @Component({
    selector: 'shared-modal',
    standalone: true,
-   imports: [CommonModule, CloseIconComponent],
+   imports: [CommonModule],
    template: `
       @if (isOpen) {
          <div class="overlay-full z-50 overflow" tabindex="1">
@@ -18,8 +17,11 @@ import { CloseIconComponent } from '../../icons/close-icon.component';
                }"
             >
                <div class="ml-auto pb-6">
-                  <button (click)="closeModal()">
-                     <shared-icon-close />
+                  <button
+                     class="grid place-content-center h-8 w-8 bg-[#F2F2F2] border border-[#F2F2F2] rounded-md"
+                     (click)="closeModal()"
+                  >
+                     <div class="after:content-dismiss-filled w-5 h-5"></div>
                   </button>
                </div>
                <div class="overflow-y-scroll scrollbar-hide pb-8">
