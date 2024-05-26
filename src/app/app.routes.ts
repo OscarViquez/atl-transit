@@ -1,8 +1,9 @@
 import { Route } from '@angular/router';
 import { StationDetailsPageComponent, TrainPageComponent } from '@atl-transit/features/stations';
-import { BusComponent } from './test/bus.component';
-import { CardTestComponent } from './test/card.component';
-import { MapComponent } from './test/map.component';
+import { BusComponent } from './pages/bus.component';
+import { CardTestComponent } from './pages/card.component';
+import { MapComponent } from './pages/map.component';
+import { ShowcaseComponent } from './pages/showcase.component';
 
 export const appRoutes: Route[] = [
    {
@@ -23,6 +24,11 @@ export const appRoutes: Route[] = [
    {
       path: 'maps',
       component: MapComponent,
+      pathMatch: 'full'
+   },
+   {
+      path: 'showcase',
+      component: ShowcaseComponent,
       pathMatch: 'full'
    },
    {

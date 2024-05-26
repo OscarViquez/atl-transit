@@ -43,6 +43,11 @@
    }
 
    .btn-disabled {
-      @apply bg-neutral01 text-neutral02 border-neutral01;
+      @apply bg-neutral01 text-neutral02 border-neutral01 cursor-not-allowed  active:scale-100 transition-none;
+   }
+
+   .btn-disabled:focus-visible,
+   .btn-disabled:hover {
+      @apply outline-none shadow-none;
    }
 }
