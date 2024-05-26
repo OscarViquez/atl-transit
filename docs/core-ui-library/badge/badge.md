@@ -1,13 +1,33 @@
 # Badge
 
-![Buttons Header](./images/badge-hero-banner.svg)
+![Badge Header](./images/badge-hero-banner.svg)
+
+<br/>
+<br/>
+
+# Table of Contents
+
+-  [Overview](#overview)
+-  [Appearance](#appearance)
+   -  [White Badge](#white-badge-default)
+   -  [Black Badge](#black-badge)
+   -  [Red Badge](#red-badge)
+   -  [Orange Badge](#orange-badge)
+   -  [Gold Badge](#gold-badge)
+   -  [Green Badge](#green-badge)
+   -  [Blue Badge](#blue-badge)
+-  [Roundness / Radius / Shape](#roundness--radius--shape)
+   -  [Pill Badge](#pill-badge)
+   -  [Icon Badge](#icon-badge)
+-  [How to Import Component](#how-to-import-component)
+-  [Types & Interfaces](#types--interfaces)
 
 <br/>
 <br/>
 
 # Overview
 
-With a vast selection of over 7.7 million listings, our aim is to simplify the process for guests to discover the perfect accommodation that suits their preferences.
+The badge component is a small UI element used to display information or status. It is commonly used to highlight important or relevant information to the user. Badges can be customized with different colors and shapes.
 
 <br/>
 <br/>
@@ -106,10 +126,11 @@ With a vast selection of over 7.7 million listings, our aim is to simplify the p
 
 <br/>
 <br/>
+<br/>
 
 # How to Import Component
 
-![Pill Badge](./images/badge-imports-banner.svg)
+![Pill Badge](./../../shared-assets/getting-started-imports.svg)
 
 ```typescript
 // * Import component from '@atl-transit/shared' library
@@ -123,4 +144,24 @@ import { BadgeComponent } from '@atl-transit/shared';
    template: ` <shared-badge> Default </shared-badge> `
 })
 export class MyComponent {}
+```
+
+<br/>
+<br/>
+<br/>
+
+# Types & Interfaces
+
+![Pill Badge](./../../shared-assets/getting-stared-types-interfaces.svg)
+
+### Badge Color Type
+
+```typescript
+export type BadgeColor = 'gold' | 'red' | 'orange' | 'green' | 'blue' | 'gray' | 'white' | 'black';
+```
+
+### Badge Radius / Roundness Type
+
+```typescript
+export type BadgeRadius = 'default' | 'pill' | 'icon';
 ```
