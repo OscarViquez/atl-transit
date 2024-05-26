@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModalComponent, SearchBarComponent } from '@atl-transit/shared';
+import { LoadingSkeletonComponent, ModalComponent, SearchBarComponent } from '@atl-transit/shared';
 @Component({
    standalone: true,
-   imports: [CommonModule, ModalComponent, SearchBarComponent],
+   imports: [CommonModule, ModalComponent, SearchBarComponent, LoadingSkeletonComponent],
    selector: 'app-showcase',
    template: `
       <main class="preview-page">
@@ -77,55 +77,22 @@ import { ModalComponent, SearchBarComponent } from '@atl-transit/shared';
                <span class="badge badge-pill">Pill Radius Badge</span>
             </div>
 
-            <button class="btn btn-accent btn-fill" (click)="openModal = true">Open</button>
-
-            <shared-modal
-               [isOpen]="openModal"
-               [isBottomSheet]="false"
-               (modalChange)="onModalChange($event)"
-               class="scrollbar-hide"
-            >
-               <div class="input input-disabled relative">
-                  <input type="text" class="block" placeholder="XXX-XXX-XXX-XXX" />
-                  <label>Label</label>
-               </div>
-
-               <div class="card">
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-               </div>
-               <div class="card">
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-               </div>
-               <div class="card">
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-               </div>
-               <div class="card">
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-               </div>
-
-               <div class="card">
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-                  <div class="skeleton-loader"></div>
-               </div>
-               <button class="btn btn-primary btn-fill">Save</button>
-            </shared-modal>
          </div> -->
+         <button class="btn btn-accent btn-fill" (click)="openModal = true">Open</button>
 
-         <button class="btn btn-primary btn-fill">Fill</button>
+         <shared-modal
+            [isOpen]="openModal"
+            [isBottomSheet]="false"
+            (modalChange)="onModalChange($event)"
+            class="scrollbar-hide"
+         >
+            <div class="input input-disabled relative">
+               <input type="text" class="block" placeholder="XXX-XXX-XXX-XXX" />
+               <label>Label</label>
+            </div>
+
+            <button class="btn btn-primary btn-fill">Save</button>
+         </shared-modal>
       </main>
    `
 })
