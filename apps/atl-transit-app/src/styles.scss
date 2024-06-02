@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Varibles.css
+ * ================================================================================
+ * This file contains all the design tokens used in the project.
+*/
+@import './styles/variables.css';
+
+/*
+ * Base <Button> Styling
+ * 
+*/
+@import './styles/button.css';
+/*
+ * Base <Badge> Styling
+ * 
+*/
+@import './styles/badge.css';
+/*
+ * Base <Card> Styling
+ * 
+*/
+@import './styles/card.css';
+
+/*
+ * Base <Modal> Styling
+ * 
+*/
+@import './styles/modal.css';
+
+/*
+ * Base <Link> Styling
+ * 
+*/
+@import './styles/link.css';
+
+/*
+ * Base <Input> Styling
+ * 
+*/
+@import './styles/input.css';
+
+/*
+ * Base <Focus Element State> Stylings
+ * 
+*/
+@import './styles/focus-state.css';
+
+/*
+ * Base <shared-search-bar> Stylings
+ * 
+*/
+@import './styles/search-bar.css';
+
+/*
+ * Base <shared-tab-list> Stylings
+ * 
+*/
+@import './styles/tab-list.css';
+
+/*
+ * Base <shared-loading-skeleton> Stylings
+ * 
+*/
+@import './styles/skeleton-loader.css';
+
+/*
+ * Base <shared-header> Stylings
+ * 
+*/
+@import './styles/header.css';
+
+/*
+ * Custom Scroll and Scroll Bar Stylings
+ * 
+*/
+@import './styles/scroll.css';
+
+/*
+ * Base <shared-dropdown> Stylings
+ * 
+*/
+// @import './styles/dropdown.css';
+
+/*
+ * Iconography
+ * 
+*/
+@import './styles/icons.css';

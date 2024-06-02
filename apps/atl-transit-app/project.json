@@ -1,0 +1,98 @@
+{
+   "name": "atl-transit-app",
+   "$schema": "../../node_modules/nx/schemas/project-schema.json",
+   "projectType": "application",
+   "prefix": "app",
+   "sourceRoot": "apps/atl-transit-app/src",
+   "tags": [],
+   "targets": {
+      "build": {
+         "executor": "@angular-devkit/build-angular:application",
+         "outputs": ["{options.outputPath}"],
+         "options": {
+            "outputPath": "dist/apps/atl-transit-app",
+            "index": "apps/atl-transit-app/src/index.html",
+            "browser": "apps/atl-transit-app/src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "apps/atl-transit-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+               {
+                  "glob": "**/*",
+                  "input": "./libs/assets",
+                  "output": "/assets/"
+               },
+               {
+                  "glob": "_redirects",
+                  "input": "src",
+                  "output": "/"
+               },
+               {
+                  "glob": "**/*",
+                  "input": "./src/pwa/",
+                  "output": "/pwa/"
+               },
+               {
+                  "glob": "manifest.json",
+                  "input": "src",
+                  "output": "/"
+               }
+            ],
+            "styles": ["apps/atl-transit-app/src/styles.scss"],
+            "scripts": []
+         },
+         "configurations": {
+            "production": {
+               "budgets": [
+                  {
+                     "type": "initial",
+                     "maximumWarning": "500kb",
+                     "maximumError": "1mb"
+                  },
+                  {
+                     "type": "anyComponentStyle",
+                     "maximumWarning": "2kb",
+                     "maximumError": "4kb"
+                  }
+               ],
+               "outputHashing": "all"
+            },
+            "development": {
+               "optimization": false,
+               "extractLicenses": false,
+               "sourceMap": true
+            }
+         },
+         "defaultConfiguration": "production"
+      },
+      "serve": {
+         "executor": "@angular-devkit/build-angular:dev-server",
+         "configurations": {
+            "production": {
+               "buildTarget": "atl-transit-app:build:production"
+            },
+            "development": {
+               "buildTarget": "atl-transit-app:build:development"
+            }
+         },
+         "defaultConfiguration": "development"
+      },
+      "extract-i18n": {
+         "executor": "@angular-devkit/build-angular:extract-i18n",
+         "options": {
+            "buildTarget": "atl-transit-app:build"
+         }
+      },
+      "lint": {
+         "executor": "@nx/eslint:lint",
+         "outputs": ["{options.outputFile}"]
+      },
+      "test": {
+         "executor": "@nx/jest:jest",
+         "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+         "options": {
+            "jestConfig": "apps/atl-transit-app/jest.config.ts"
+         }
+      }
+   }
+}

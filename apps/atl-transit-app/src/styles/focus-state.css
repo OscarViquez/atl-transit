@@ -1,0 +1,17 @@
+@tailwind components;
+
+@layer components {
+   .custom-outline:focus-visible {
+      @apply outline outline-white outline-2;
+      box-shadow:
+         0 0 0 2px var(--color-white),
+         0 0 0 4px var(--color-neutral-300);
+   }
+
+   .custom-outline-visible {
+      @apply outline outline-white outline-2;
+      box-shadow:
+         0 0 0 2px var(--color-white),
+         0 0 0 4px var(--color-neutral-100);
+   }
+}

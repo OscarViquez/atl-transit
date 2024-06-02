@@ -1,0 +1,100 @@
+@tailwind components;
+@tailwind base;
+
+/*
+   * Base <Input> Styling
+   * ================================================================================
+   * This section contains the base styles for the input component.
+   * It includes the default input styles, input sizes, and input colors.
+   */
+
+@layer components {
+   .input {
+      @apply flex-col items-center border border-neutral01 rounded-md px-3 py-3 w-full transition duration-200 ease-in-out;
+   }
+
+   .input:focus-visible {
+      @apply outline outline-white outline-2;
+      box-shadow:
+         0 0 0 2px var(--color-white),
+         0 0 0 4px var(--color-neutral-300);
+   }
+
+   .input-error:focus-visible {
+      @apply outline-white outline-2;
+      box-shadow:
+         0 0 0 2px var(--color-white),
+         0 0 0 4px var(--color-red);
+   }
+
+   input {
+      @apply outline-none focus:ring-0;
+   }
+
+   .input input {
+      @apply pt-2 text-4 text-neutral03 w-full focus:outline-none transition duration-200 ease-in-out;
+   }
+
+   .input input::placeholder {
+      @apply opacity-0;
+   }
+
+   .input input:focus::placeholder,
+   .input input:not(:placeholder-shown) {
+      @apply opacity-100;
+   }
+
+   .input label {
+      @apply absolute px-3 mt-4 top-0 left-0 text-4 font-medium text-neutral02 transition-transform duration-200 ease-in-out pointer-events-none;
+   }
+
+   .input input:not(:placeholder-shown) + label,
+   .input input:focus + label {
+      @apply transform -translate-y-4 scale-95 mt-5  text-1;
+   }
+
+   /*
+   * Error State
+   *
+   * Styling for error state of the input class and element
+   * --------------------------------------------------------------
+   */
+   .input-error {
+      @apply border-red bg-lightRed;
+   }
+
+   .input-error input,
+   .input-error input:focus::placeholder,
+   .input-error input:not(:placeholder-shown) {
+      @apply bg-lightRed text-neutral03;
+   }
+
+   .input-error label {
+      @apply text-red;
+   }
+
+   /*
+   * Disabled State
+   *
+   * For disabling and applying disabled styling of the input class and element
+   * --------------------------------------------------------------
+   */
+
+   /* .input:disabled {
+      @apply bg-neutral01 cursor-not-allowed;
+   }
+
+   .input-disabled {
+      @apply border-neutral01;
+   }
+
+   .input-disabled input,
+   .input-disabled input:focus::placeholder,
+   .input-disabled input:not(:placeholder-shown) {
+      @apply bg-neutral01 text-neutral02;
+   }
+
+   .input-disabled label {
+      @apply text-neutral01;
+   } */
+}

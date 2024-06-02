@@ -1,6 +1,8 @@
 {
    "compilerOptions": {
+      "target": "es2022",
       "useDefineForClassFields": false,
+      "esModuleInterop": true,
       "forceConsistentCasingInFileNames": true,
       "strict": true,
       "noImplicitOverride": true,
@@ -19,21 +21,13 @@
       },
       {
          "path": "./tsconfig.editor.json"
-      },
-      {
-         "path": "./.storybook/tsconfig.json"
       }
    ],
+   "extends": "../../tsconfig.base.json",
    "angularCompilerOptions": {
       "enableI18nLegacyMessageIdFormat": false,
       "strictInjectionParameters": true,
       "strictInputAccessModifiers": true,
       "strictTemplates": true
-   },
-   "extends": "./tsconfig.base.json",
-   "ts-node": {
-      "compilerOptions": {
-         "module": "commonjs"
-      }
    }
 }
