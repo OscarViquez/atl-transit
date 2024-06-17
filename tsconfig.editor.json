@@ -1,7 +1,0 @@
-{
-   "extends": "./tsconfig.json",
-   "include": ["src/**/*.ts", "libs/stations/data/src/data.module.ts"],
-   "compilerOptions": {
-      "types": ["jest", "node"]
-   }
-}
