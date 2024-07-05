@@ -68,8 +68,8 @@ export type UiModes = 'light' | 'dark';
 // * Types with extended values
 export type BorderRadius = Size | 'none' | 'x-large' | 'pill';
 export type Padding = Size | 'x-large' | 'none' | 'x-small' | 'xx-large' | 'xxx-large';
-export type BadgeColor = 'gold' | 'red' | 'green' | 'blue' | 'gray' | 'white' | 'black';
-export type BadgeRadius = 'default' | 'pill' | 'icon-pill';
+export type BadgeColor = 'gold' | 'red' | 'orange' | 'green' | 'blue' | 'gray' | 'white' | 'black';
+export type BadgeRadius = 'default' | 'pill' | 'icon';
 export type BadgeSize = Size | 'auto';
 
 //! REMOVE THIS ❌

@@ -20,7 +20,7 @@ import { BadgeColor, BadgeRadius } from '../../models';
             'badge-black': color === 'black',
             'badge-white': color === 'white',
             'badge-pill': radius === 'pill',
-            'badge-icon-pill': radius === 'icon-pill'
+            'badge-icon-pill': radius === 'icon'
          }"
       >
          <ng-content></ng-content>

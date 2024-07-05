@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, concatMap, withLatestFrom } from 'rxjs/operators';
 import { Coordinates, StationState, UserState } from '../../models';
-import { UserService } from '../../services/user-location/user.service';
+import { UserService } from '../../services/user/user-data.service';
 import { userLocationAction, userTrainStations } from '../actions';
 import { userSelector } from '../selectors';
 

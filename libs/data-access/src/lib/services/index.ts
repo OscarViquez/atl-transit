@@ -1,2 +1,2 @@
-export * from './data/data.service';
-export * from './user-location/user.service';
+export * from './transit/transit.service';
+export * from './user/user-data.service';

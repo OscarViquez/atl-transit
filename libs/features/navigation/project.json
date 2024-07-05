@@ -1,5 +1,5 @@
 {
-   "name": "features--navigation",
+   "name": "features-navigation",
    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
    "sourceRoot": "libs/features/navigation/src",
    "prefix": "navigation",
