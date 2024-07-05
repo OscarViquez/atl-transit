@@ -8,16 +8,17 @@ import {
    LocationIconComponent,
    ModalComponent
 } from '@atl-transit/shared';
-import { STATION_DETAILS_MOCKS, StationDetailsPage } from '../../shared';
 import {
    StationArrivalCardComponent,
    StationArrivalCardMinComponent,
-   StationArrivalItemComponent
-} from '../../ui';
+   StationArrivalItemComponent,
+   STATION_DETAILS_MOCKS,
+   StationDetailsPage
+} from '@atl-transit/features/stations';
 import { PlaceholderIconComponent } from '@atl-transit/features/navigation';
 
 @Component({
-   selector: 'stations-details-page',
+   selector: 'app-stations-details-page',
    standalone: true,
    imports: [
       CommonModule,

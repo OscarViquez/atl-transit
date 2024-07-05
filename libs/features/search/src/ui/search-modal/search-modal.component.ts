@@ -50,3 +50,6 @@ export class SearchModalComponent {
       this.modalChange.emit(value);
    }
 }
+
+
+export type SearchType = 'search' | 'filter' | 'sort';

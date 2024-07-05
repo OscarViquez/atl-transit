@@ -8,11 +8,14 @@ import {
    BadgeComponent,
    LocationIconComponent
 } from '@atl-transit/shared';
-import { TRAIN_PAGE_MOCKS, TrainPage } from '../../shared';
-import { StationArrivalListComponent } from '../../ui'; // import { TrainPage } from '../../models';
+import {
+   TRAIN_PAGE_MOCKS,
+   TrainPage,
+   StationArrivalListComponent
+} from '@atl-transit/features/stations'; // import { TrainPage } from '../../models';
 
 @Component({
-   selector: 'stations-train-page',
+   selector: 'app-train-page',
    standalone: true,
    imports: [
       CommonModule,

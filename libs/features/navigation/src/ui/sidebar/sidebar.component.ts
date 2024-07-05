@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { LogoComponent } from 'libs/shared/src/icons';
+import { LogoComponent } from '@atl-transit/shared';
 import { NAV_ROUTES, PageNavigationItem } from '../../shared';
 import { PlaceholderIconComponent } from '../placeholder-icon.component';
 import { LoadingSkeletonComponent } from '@atl-transit/shared';

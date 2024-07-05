@@ -1,1 +1,1 @@
-export * from './feature/index';
+export * from './ui/index';

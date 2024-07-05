@@ -15,15 +15,11 @@
 
       <!-- --------- Image Banner --------------------------- -->
       <figure class="hidden md:block">
-         @defer {
-            <img
-               class="h-[10rem] xl:h-[13rem] w-full object-cover rounded-lg custom-outline-visible"
-               src="/assets/images/stations/placeholder.png"
-               alt="image of atlanta here"
-            />
-         } @placeholder (minimum 500ms) {
-            <shared-loading-skeleton [loadingItem]="'image'" />
-         }
+         <img
+            class="h-[10rem] xl:h-[13rem] w-full object-cover rounded-lg custom-outline-visible"
+            src="/assets/images/stations/placeholder.png"
+            alt="image of atlanta here"
+         />
       </figure>
 
       <!-- --------- About Station Info --------------------------- -->

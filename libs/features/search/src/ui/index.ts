@@ -1,1 +1,1 @@
-export * from './search-empty-view/search-empty-view.component';
+export * from './search-modal/search-modal.component';

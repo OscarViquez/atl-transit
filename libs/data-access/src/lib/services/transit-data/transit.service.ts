@@ -27,9 +27,7 @@ export class DataService {
    }
 
    getAmenitiesData(): Observable<AmenityData[]> {
-      return this.http.get<AmenityData[]>(
-         DevEndPointResponse.AMENITIES_STATION_RESPONSE
-      );
+      return this.http.get<AmenityData[]>(DevEndPointResponse.AMENITIES_STATION_RESPONSE);
    }
 
    getStationSchedule(): Observable<StationSchedule[]> {

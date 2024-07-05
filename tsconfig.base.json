@@ -20,7 +20,8 @@
          "@atl-transit/features/search": ["libs/features/search/src/index.ts"],
          "@atl-transit/features/stations": ["libs/features/stations/src/index.ts"],
          "@atl-transit/shared": ["libs/shared/src/index.ts"],
-         "assets": ["libs/assets/src/index.ts"]
+         "assets": ["libs/assets/src/index.ts"],
+         "views": ["libs/views/src/index.ts"]
       }
    },
    "exclude": ["node_modules", "tmp"]

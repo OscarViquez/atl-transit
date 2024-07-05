@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, concatMap, withLatestFrom } from 'rxjs/operators';
 import { StationState } from '../../models';
-import { DataService } from '../../services/data/data.service';
+import { DataService } from '../../services/transit/transit.service';
 import {
    amenitiesActions,
    arrivalResponseActions,
@@ -84,7 +84,6 @@ export class StationEffects {
          )
       )
    );
-
 
    constructor(
       private actions$: Actions,
