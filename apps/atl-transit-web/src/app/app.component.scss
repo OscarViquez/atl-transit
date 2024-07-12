@@ -43,11 +43,6 @@
 @media (min-width: 48rem) {
    .app {
       flex-direction: row;
-
-      &__body {
-         max-width: 50rem;
-      }
-
       &__side {
          display: block;
       }

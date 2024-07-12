@@ -15,8 +15,8 @@
    .btn:hover {
       @apply outline outline-white outline-2;
       box-shadow:
-         0 0 0 2px var(--color-white),
-         0 0 0 4px var(--color-black);
+         0 0 0 2px #fff,
+         0 0 0 4px #111;
    }
 
    /* Button Sizes */
@@ -30,11 +30,11 @@
 
    /* Button Colors */
    .btn-primary {
-      @apply bg-neutral03 text-white border-neutral03;
+      @apply bg-neutral-900 text-white border-neutral-900;
    }
 
    .btn-secondary {
-      @apply bg-white text-neutral03  border-neutral03;
+      @apply bg-white text-neutral-900  border-neutral-900;
    }
 
    .btn-accent {
@@ -43,7 +43,7 @@
    }
 
    .btn-disabled {
-      @apply bg-neutral01 text-neutral02 border-neutral01 cursor-not-allowed  active:scale-100 transition-none;
+      @apply bg-neutral-400 text-neutral-800 border-neutral-400 cursor-not-allowed  active:scale-100 transition-none;
    }
 
    .btn-disabled:focus-visible,

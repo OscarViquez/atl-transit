@@ -1,0 +1,117 @@
+<!-- TODO: BREAK THESE INTO SMALLER COMPONENTS IF NEEDED -->
+
+<main class="flex flex-col gap-12 mx-auto mb-8">
+   <!-- --------- Page Header --------------------------- -->
+   <section class="flex flex-col gap-8">
+      <div class="flex flex-col gap-4">
+         <shared-header [content]="content.header" />
+
+         <!-- <div class="flex gap-2 flex-wrap">
+            @for (badge of content.badges; track idx; let idx = $index) {
+               <shared-badge [color]="badge.color"> {{ badge.label }} </shared-badge>
+            }
+         </div> -->
+      </div>
+
+      <!-- --------- Image Banner --------------------------- -->
+      <figure class="hidden md:block">
+         <img
+            class="h-[10rem] xl:h-[13rem] w-full object-cover rounded-lg custom-outline-visible"
+            src="/assets/images/stations/placeholder.png"
+            alt="image of atlanta here"
+         />
+      </figure>
+
+      <!-- --------- About Station Info --------------------------- -->
+      <div class="flex flex-col gap-4">
+         <p class="text-neutral-800 text-3 font-medium">{{ content.about }}</p>
+         <button class="link-secondary text-4">Read More &#8250;</button>
+      </div>
+   </section>
+
+   <hr class="border-t border-neutral-400" />
+
+   <!-- --------- Real Time Arrival Info --------------------------- -->
+   <section class="flex flex-col gap-8">
+      <shared-header [content]="content.arrivals.header" [variant]="'section'" />
+      <stations-arrival-card-min [content]="content.arrivals.data" />
+   </section>
+
+   <hr class="border-t border-neutral-400" />
+
+   <!-- --------- Station Schedule --------------------------- -->
+   <section class="flex flex-col gap-8">
+      <shared-header [content]="content.schedule" [variant]="'section'" />
+      <button
+         class="btn btn-secondary btn-small md:max-w-[192px]"
+         (click)="openStationScheduleModal = true"
+      >
+         View Schedule
+      </button>
+   </section>
+
+   <hr class="border-t border-neutral-400" />
+
+   <!-- --------- Amenities --------------------------- -->
+   <section class="flex flex-col gap-8">
+      <shared-header [content]="content.amenities.header" [variant]="'section'" />
+
+      <!--  List Container that encompasses the Amenities List -->
+      <ul class="grid sm:grid-cols-2 gap-6">
+         @for (amenity of content.amenities.data; track idx; let idx = $index) {
+            <!--  List Item Container that encompasses each Amenity -->
+            <li class="flex items-center gap-4 w-full">
+               <span class="text-6 text-neutral-800">{{ amenity.title }}</span>
+            </li>
+         }
+      </ul>
+   </section>
+
+   <hr class="border-t border-neutral-400" />
+
+   <!-- --------- Bus Routes --------------------------- -->
+   <section class="flex flex-col gap-6">
+      <shared-header [content]="content.routes.header" [variant]="'section'" />
+
+      <!-- --------- List Container that encompasses the Bus Route -->
+      <ul class="flex flex-col">
+         @for (busRoute of content.routes.data; track idx; let idx = $index) {
+            <!--  List Item Container that encompasses the Bus Route -->
+            <li
+               class="py-3"
+               [ngClass]="{
+                  'border-t border-neutral-400': idx > 0
+               }"
+            >
+               <!--  Link Wrapper for Bus Route -->
+               <a href="" class="flex items-center justify-between gap-4">
+                  <!--  Route Name and Number -->
+                  <div class="flex flex-row gap-6">
+                     <span class="text-6 text-neutral-900">{{ busRoute.routeNumber }}</span>
+                     <span class="text-6 text-neutral-900">{{ busRoute.routeName }}</span>
+                  </div>
+                  <!--  Right Arrow Icon -->
+                  <div class="text-9 font-light">&#8250;</div>
+               </a>
+            </li>
+         }
+      </ul>
+   </section>
+</main>
+
+<!-- --------- MODAL --------------------------- -->
+<shared-modal
+   [isOpen]="openStationScheduleModal"
+   [isBottomSheet]="true"
+   (modalChange)="onModalChange($event)"
+>
+   <div class="h-full">
+      <div class="text-center mt-[10rem]">
+         <h2 class="text-6 font-semibold mb-4">We don't have the schedule for this station yet.</h2>
+         <p class="text-4 font-medium text-neutral-800">
+            We are working hard to get the schedule for this station. Please check back later for
+            updates.
+         </p>
+      </div>
+   </div>
+</shared-modal>

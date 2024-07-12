@@ -3,8 +3,8 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 // TODO: Edit config for scoped packages and libraries
 import { SwUpdate } from '@angular/service-worker';
-import { BottomBarComponent, SidebarComponent } from '@atl-transit/features/navigation';
-import { SearchModalComponent } from '@atl-transit/features/search';
+import { BottomBarComponent, SidebarComponent } from './navigation';
+import { SearchModalComponent } from './search';
 import { SearchBarComponent } from '@atl-transit/shared';
 @Component({
    standalone: true,

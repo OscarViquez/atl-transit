@@ -7,8 +7,9 @@ import { CommonModule } from '@angular/common';
    imports: [CommonModule],
    template: `
       @if (isOpen) {
-         <div class="overlay-full z-50 overflow" tabindex="1">
-            <section
+         <div class="overlay-full overflow">
+            <dialog
+               tabindex="1"
                class="modal md:h-4/5 md:max-w-[736px] overflow-hidden"
                [ngClass]="{
                   'top-10 rounded-2xl': isBottomSheet,
@@ -29,7 +30,7 @@ import { CommonModule } from '@angular/common';
                      <!-- This is where the modal content goes -->
                   </ng-content>
                </div>
-            </section>
+            </dialog>
          </div>
       }
    `

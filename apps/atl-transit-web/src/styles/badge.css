@@ -9,11 +9,11 @@
     */
 
    .badge {
-      @apply inline-flex items-center justify-center gap-2 h-5 px-2 rounded-md text-1 font-semibold uppercase border border-solid border-neutral01;
+      @apply inline-flex items-center justify-center gap-2 h-5 px-2 rounded-md text-1 font-semibold uppercase border border-solid border-neutral-400;
    }
 
    .badge-gold {
-      @apply bg-gold text-neutral03 border-gold;
+      @apply bg-gold text-neutral-900 border-gold;
    }
 
    .badge-red {
@@ -29,11 +29,11 @@
    }
 
    .badge-gray {
-      @apply bg-neutral01 text-neutral03 border-neutral01;
+      @apply bg-neutral-400 text-neutral-900 border-neutral-400;
    }
 
    .badge-black {
-      @apply bg-neutral03 text-white border-neutral01;
+      @apply bg-neutral-900 text-white border-neutral-400;
    }
 
    .badge-pill {

@@ -10,21 +10,21 @@
 
 @layer components {
    .input {
-      @apply flex-col items-center border border-neutral01 rounded-md px-3 py-3 w-full transition duration-200 ease-in-out;
+      @apply flex-col items-center border border-neutral-400 rounded-md px-3 py-3 w-full transition duration-200 ease-in-out;
    }
 
    .input:focus-visible {
       @apply outline outline-white outline-2;
       box-shadow:
-         0 0 0 2px var(--color-white),
-         0 0 0 4px var(--color-neutral-300);
+         0 0 0 2px #fff,
+         0 0 0 4px #1f1f1f;
    }
 
    .input-error:focus-visible {
       @apply outline-white outline-2;
       box-shadow:
-         0 0 0 2px var(--color-white),
-         0 0 0 4px var(--color-red);
+         0 0 0 2px #fff,
+         0 0 0 4px #950f22;
    }
 
    input {
@@ -32,7 +32,7 @@
    }
 
    .input input {
-      @apply pt-2 text-4 text-neutral03 w-full focus:outline-none transition duration-200 ease-in-out;
+      @apply pt-2 text-4 text-neutral-900 w-full focus:outline-none transition duration-200 ease-in-out;
    }
 
    .input input::placeholder {
@@ -45,7 +45,7 @@
    }
 
    .input label {
-      @apply absolute px-3 mt-4 top-0 left-0 text-4 font-medium text-neutral02 transition-transform duration-200 ease-in-out pointer-events-none;
+      @apply absolute px-3 mt-4 top-0 left-0 text-4 font-medium text-neutral-800 transition-transform duration-200 ease-in-out pointer-events-none;
    }
 
    .input input:not(:placeholder-shown) + label,
@@ -66,7 +66,7 @@
    .input-error input,
    .input-error input:focus::placeholder,
    .input-error input:not(:placeholder-shown) {
-      @apply bg-lightRed text-neutral03;
+      @apply bg-lightRed text-neutral-900;
    }
 
    .input-error label {
@@ -81,20 +81,20 @@
    */
 
    /* .input:disabled {
-      @apply bg-neutral01 cursor-not-allowed;
+      @apply bg-neutral-400 cursor-not-allowed;
    }
 
    .input-disabled {
-      @apply border-neutral01;
+      @apply border-neutral-400;
    }
 
    .input-disabled input,
    .input-disabled input:focus::placeholder,
    .input-disabled input:not(:placeholder-shown) {
-      @apply bg-neutral01 text-neutral02;
+      @apply bg-neutral-400 text-neutral-800;
    }
 
    .input-disabled label {
-      @apply text-neutral01;
+      @apply text-neutral-400;
    } */
 }

@@ -1,7 +1,7 @@
 import { Route } from '@angular/router';
-import { MapComponent } from './pages/maps/map.component';
-import { TrainPageComponent } from './pages/stations/index';
-import { StationDetailsPageComponent } from './pages/stations/index';
+import { MapComponent } from './maps/map.component';
+import { TrainPageComponent } from './stations/index';
+import { StationDetailsPageComponent } from './stations/index';
 
 export const appRoutes: Route[] = [
    {

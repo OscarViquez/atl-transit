@@ -5,10 +5,10 @@
       @apply flex flex-col space-y-1;
    }
    .header__title {
-      @apply text-neutral03 tracking-tighter;
+      @apply text-neutral-900 tracking-tighter;
    }
    .header__subtitle {
-      @apply text-neutral02;
+      @apply text-neutral-800;
    }
    .header--page .header__title {
       @apply text-7 font-semibold;

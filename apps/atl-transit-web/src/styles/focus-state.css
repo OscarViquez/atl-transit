@@ -4,14 +4,14 @@
    .custom-outline:focus-visible {
       @apply outline outline-white outline-2;
       box-shadow:
-         0 0 0 2px var(--color-white),
-         0 0 0 4px var(--color-neutral-300);
+         0 0 0 2px #fff,
+         0 0 0 4px #1f1f1f;
    }
 
    .custom-outline-visible {
       @apply outline outline-white outline-2;
       box-shadow:
-         0 0 0 2px var(--color-white),
-         0 0 0 4px var(--color-neutral-100);
+         0 0 0 2px #fff,
+         0 0 0 4px #ddd;
    }
 }

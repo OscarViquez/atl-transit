@@ -21,7 +21,7 @@
                "error",
                {
                   "type": "element",
-                  "prefix": "app",
+                  "prefixes": ["app", "stations", "search", "transit-card", "navigation"],
                   "style": "kebab-case"
                }
             ]

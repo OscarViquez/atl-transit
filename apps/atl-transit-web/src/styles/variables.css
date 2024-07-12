@@ -16,7 +16,7 @@
 
 /* Default Styling Properties */
 * {
-   font-family: 'Inter', sans-serif;
+   font-family: 'Satoshi', sans-serif;
    box-sizing: border-box;
 }
 
@@ -42,7 +42,7 @@
    /* * Theme Color */
    --color-neutral-100: hsl(0, 0%, 87%);
    --color-neutral-200: hsl(0, 0%, 28%);
-   --color-neutral-300: hsl(0, 0%, 12%);
+   --color-neutral-300: #1f1f1f;
 
    /* * Theme Color */
    --bg-primary: var(--color-white);
