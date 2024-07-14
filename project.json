@@ -28,16 +28,6 @@
                   "glob": "_redirects",
                   "input": "src",
                   "output": "/"
-               },
-               {
-                  "glob": "**/*",
-                  "input": "./src/pwa/",
-                  "output": "/pwa/"
-               },
-               {
-                  "glob": "manifest.json",
-                  "input": "src",
-                  "output": "/"
                }
             ],
             "styles": ["./src/styles.scss"],

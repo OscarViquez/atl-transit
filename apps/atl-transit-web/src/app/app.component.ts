@@ -6,6 +6,7 @@ import { SwUpdate } from '@angular/service-worker';
 import { BottomBarComponent, SidebarComponent } from './navigation';
 import { SearchModalComponent } from './search';
 import { SearchBarComponent } from '@atl-transit/shared';
+import { TopBarComponent } from './navigation/ui/top-bar/top-bar.component';
 @Component({
    standalone: true,
    imports: [
@@ -14,11 +15,32 @@ import { SearchBarComponent } from '@atl-transit/shared';
       SidebarComponent,
       BottomBarComponent,
       SearchModalComponent,
-      SearchBarComponent
+      SearchBarComponent,
+      TopBarComponent
    ],
    selector: 'app-root',
-   templateUrl: './app.component.html',
-   styleUrls: ['./app.component.scss']
+   template: `
+      <main
+         class="flex flex-col justify-center mx-auto my-auto max-w-[120rem] md:gap-6 md:flex-row"
+      >
+         <navigation-top-bar />
+         <div class="w-full max-w-[12rem] hidden md:block lg:pl-8">
+            <navigation-sidebar />
+         </div>
+         <div class="flex-1 p-6 pt-12 md:p-8 mb-14 mt-10 md:mt-0 xl:max-w-[96rem]">
+            <div class="hidden md:block md:mb-10">
+               <shared-search-bar
+                  [interactive]="true"
+                  [placeholder]="'Try Searching Doraville Station'"
+               />
+               <!-- A bottom search result should appear under the search bar -->
+            </div>
+            <router-outlet></router-outlet>
+         </div>
+         <navigation-bottom-bar (searchModalChange)="onModalChangeEvent($event)" />
+         <search-modal [openModal]="showSearchModal" (modalChange)="onModalChangeEvent($event)" />
+      </main>
+   `
 })
 export class AppComponent {
    /**
@@ -26,7 +48,6 @@ export class AppComponent {
     * It is initially set to `false`, meaning the modal is hidden by default.
     */
    showSearchModal = false;
-   testVar = true;
 
    /**
     * @summary The 'onModalChangeEvent' method updates the visibility of the search modal.

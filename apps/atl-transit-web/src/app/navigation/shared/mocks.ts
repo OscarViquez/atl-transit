@@ -15,7 +15,7 @@ export const NAV_ROUTES: PageNavigationItem[] = [
    },
    {
       label: 'Cards',
-      routerLink: '/card'
+      routerLink: '/cards'
    },
    {
       label: 'Maps',

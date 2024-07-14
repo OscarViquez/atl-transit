@@ -2,6 +2,7 @@ import { Route } from '@angular/router';
 import { MapComponent } from './maps/map.component';
 import { TrainPageComponent } from './stations/index';
 import { StationDetailsPageComponent } from './stations/index';
+import { CardsPageComponent } from './cards/features/cards-page/cards-page.component';
 
 export const appRoutes: Route[] = [
    {
@@ -12,6 +13,11 @@ export const appRoutes: Route[] = [
    {
       path: 'maps',
       component: MapComponent,
+      pathMatch: 'full'
+   },
+   {
+      path: 'cards',
+      component: CardsPageComponent,
       pathMatch: 'full'
    },
    {
