@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 @Component({
+   selector: 'app-add-card-modal',
    standalone: true,
    imports: [CommonModule],
-   selector: 'app-card',
-   template: ` <h1>card</h1> `
+   template: `<p>add-card-modal works!</p>`,
+   styles: ``
 })
-export class CardTestComponent {}
+export class AddCardModalComponent {}

@@ -11,9 +11,9 @@ import {
    StationArrivalCardComponent,
    StationArrivalCardMinComponent,
    StationArrivalItemComponent
-} from '../ui';
+} from '../../ui';
 
-import { STATION_DETAILS_MOCKS, StationDetailsPage } from '../shared';
+import { STATION_DETAILS_MOCKS, StationDetailsPage } from '../../shared';
 
 @Component({
    selector: 'app-stations-details-page',

@@ -14,17 +14,7 @@
    }
 
    .input:focus-visible {
-      @apply outline outline-white outline-2;
-      box-shadow:
-         0 0 0 2px #fff,
-         0 0 0 4px #1f1f1f;
-   }
-
-   .input-error:focus-visible {
-      @apply outline-white outline-2;
-      box-shadow:
-         0 0 0 2px #fff,
-         0 0 0 4px #950f22;
+      @apply outline outline-white outline-2 shadow-focused-state;
    }
 
    input {
@@ -32,7 +22,7 @@
    }
 
    .input input {
-      @apply pt-2 text-4 text-neutral-900 w-full focus:outline-none transition duration-200 ease-in-out;
+      @apply pt-2 text-4 font-medium text-neutral-900 w-full focus:outline-none transition duration-200 ease-in-out;
    }
 
    .input input::placeholder {

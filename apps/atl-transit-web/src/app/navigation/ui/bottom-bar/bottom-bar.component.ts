@@ -19,7 +19,7 @@ import { BottomBarBtnComponent } from '../bottom-bar-btn/bottom-bar-btn.componen
    ],
    template: `
       <div
-         class="bg-white bg-opacity-70 backdrop-blur-base rounded-md fixed bottom-0 z-30 w-full pb-4 lg:hidden"
+         class="bg-white bg-opacity-70 backdrop-blur-base shadow-bottomBar rounded-md fixed bottom-0 z-30 w-full pb-4 md:hidden"
       >
          <nav class="flex justify-between w-full px-4 items-center">
             <navigation-bottom-bar-btn [content]="routes[0]">
