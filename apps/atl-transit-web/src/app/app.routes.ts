@@ -6,6 +6,11 @@ import { CardsPageComponent } from './cards/features/cards-page/cards-page.compo
 
 export const appRoutes: Route[] = [
    {
+      path: '',
+      component: TrainPageComponent,
+      pathMatch: 'full'
+   },
+   {
       path: 'trains',
       component: TrainPageComponent,
       pathMatch: 'full'
@@ -33,6 +38,7 @@ export const appRoutes: Route[] = [
    },
    {
       path: '**', // fallback router must in the last
+      component: TrainPageComponent, // Use TrainPageComponent as the fallback view
       redirectTo: '' // this is optional depends of your needs
    }
 ];

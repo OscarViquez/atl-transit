@@ -1,13 +1,9 @@
-/*  /index.html 200
+/* /index.html 200
 
-/*  /index.html 404
+/* /index.html 404
 
-# Redirect with a 301
-/*  /index.html 301
+/* /index.html 301
 
-# Redirect with a 302
-/*  /index.html 302
+/* /index.html 302
 
-# Show a custom 404 for this path
-/*  /index.html 404
-
+/* /index.html 404
