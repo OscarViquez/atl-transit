@@ -1,0 +1,21 @@
+{
+  "name": "Marta Transit",
+  "short_name": "Marta Concept",
+  "background_color": "#f5f5f5",
+  "theme_color": "#1976d2",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "/trains",
+  "icons": [
+    {
+      "src": "/pwa/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/pwa/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}

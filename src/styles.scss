@@ -1,0 +1,26 @@
+/* Import base layer styles */
+@import 'tailwindcss/base';
+@import './styles/focus-state.css';
+@import './styles/scroll.css';
+@import './styles/icons.css';
+
+/* Import component layer styles */
+@import 'tailwindcss/components';
+@import './styles/button.css';
+@import './styles/badge.css';
+@import './styles/card.css';
+@import './styles/modal.css';
+@import './styles/link.css';
+@import './styles/input.css';
+@import './styles/search-bar.css';
+@import './styles/tab-list.css';
+@import './styles/skeleton-loader.css';
+@import './styles/header.css';
+
+/* Global styles */
+@import 'tailwindcss/utilities';
+
+* {
+  font-family: 'Satoshi', sans-serif;
+  box-sizing: border-box;
+}

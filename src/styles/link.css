@@ -1,0 +1,32 @@
+/*
+    * Base <Link> Styling
+    * ================================================================================
+    * This section contains the base styles for the link component.
+    * It includes the default link styles, link sizes, and link colors.
+   */
+
+.link {
+  @apply basis-0 font-semibold text-4 text-lightBlue rounded-sm hover:underline;
+}
+
+.link:focus-visible {
+  @apply outline outline-lightBlue outline-2 underline;
+  box-shadow:
+    0px 0px 0px 2px rgb(255, 255, 255),
+    0px 0px 0px 4px hsl(210 100% 40%);
+}
+
+.link-secondary {
+  @apply w-fit basis-0 font-semibold text-4 text-neutral-900 rounded-sm hover:underline;
+}
+
+.link-secondary:focus-visible {
+  @apply outline outline-white outline-2 underline;
+  box-shadow:
+    0px 0px 0px 2px rgb(255, 255, 255),
+    0px 0px 0px 4px hsl(0, 0%, 12%);
+}
+
+.link-disabled {
+  @apply w-fit basis-0 font-semibold text-4 text-neutral-800 rounded-sm cursor-not-allowed;
+}
