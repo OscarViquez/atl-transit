@@ -7,19 +7,23 @@ import { ModalComponent } from '@atl-transit/core';
   standalone: true,
   imports: [CommonModule, ModalComponent],
   template: `
-    <!-- <main
-      class="hidden xl:flex flex-col gap-12 mx-auto w-full relative rounded-lg animate-overlay-enter">
-      <div class="sticky top-8 bottom-0 z-10 h-[94vh] w-full rounded-lg bg-primary overflow-hidden">
-        <div class="h-full"></div>
-      </div>
-    </main> -->
-
     <core-modal
       [isOpen]="isModalOpen"
       [hasPadding]="true"
       (modalChange)="this.modalChange.emit($event)">
       <div class="h-dvh">
-        <img src="/assets/images/apple-map-icon.png" class="h-full object-cover" alt="" />
+        <div class="flex flex-col gap-6 text-center mt-[10rem]">
+          <img
+            src="/assets/images/apple-maps-icon.png"
+            class="h-[56px] w-[56px] mx-auto"
+            alt="apple icon" />
+
+          <h2 class="text-6 font-semibold">We don't have the schedule for this station yet.</h2>
+          <p class="text-4 font-medium text-neutral-800">
+            We are working hard to get the schedule for this station. Please check back later for
+            updates.
+          </p>
+        </div>
       </div>
     </core-modal>
   `,
