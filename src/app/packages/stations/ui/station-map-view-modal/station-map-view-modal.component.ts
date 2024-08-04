@@ -11,26 +11,32 @@ import { LoadingSkeletonComponent, ModalComponent } from '@atl-transit/core';
       [isOpen]="isModalOpen"
       [hasPadding]="true"
       (modalChange)="this.modalChange.emit($event)">
-      <div #stationMapModal class="h-dvh">
-        <div class="flex flex-col gap-6 text-center mt-[10rem]">
-          @defer (on viewport(stationMapModal)) {
-            <img
-              src="/assets/images/apple-maps-icon.png"
-              class="h-[56px] w-[56px] mx-auto"
-              alt="apple icon" />
-
-            <h2 class="text-6 font-semibold ">Something went wrong while loading</h2>
+      <div #stationMapModal class="h-dvh grid content-center">
+        @defer (on viewport(stationMapModal)) {
+          <div class="flex flex-col gap-6 text-center px-4 py-12 h-dvh">
+            <h2 class="text-6 font-semibold mt-12">
+              Something went wrong <br />
+              while loading
+            </h2>
             <p class="text-4 font-medium text-neutral-800  animate-fade-up">
               We are working hard to get the maps for this station. Please check back later for
               updates.
             </p>
-          } @loading (minimum 2000ms) {
-            <core-loading-skeleton loadingItem="header" />
-            <div class="px-4">
-              <core-loading-skeleton loadingItem="image" />
-            </div>
-          }
-        </div>
+
+            <button
+              class="btn btn-primary mt-auto animate-fade-up"
+              (click)="this.modalChange.emit(false)">
+              Close
+            </button>
+          </div>
+        } @loading (minimum 2000ms) {
+          <div class="flex flex-col gap-6 text-center px-4 py-12  h-dvh">
+            <core-loading-skeleton class="mt-12" />
+            <core-loading-skeleton />
+            <core-loading-skeleton loadingItem="image" />
+            <button class="btn btn-disabled mt-auto">Loading...</button>
+          </div>
+        }
       </div>
     </core-modal>
   `,

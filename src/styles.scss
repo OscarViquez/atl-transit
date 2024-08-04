@@ -1,26 +1,22 @@
 /* Import base layer styles */
 @import 'tailwindcss/base';
-@import './styles/focus-state.css';
-@import './styles/scroll.css';
-@import './styles/icons.css';
+@import './assets/fonts/fonts.css';
+@import './assets/styles/focus-state.css';
+@import './assets/styles/scroll.css';
+@import './assets/styles/icons.css';
 
 /* Import component layer styles */
 @import 'tailwindcss/components';
-@import './styles/button.css';
-@import './styles/badge.css';
-@import './styles/card.css';
-@import './styles/modal.css';
-@import './styles/link.css';
-@import './styles/input.css';
-@import './styles/search-bar.css';
-@import './styles/tab-list.css';
-@import './styles/skeleton-loader.css';
-@import './styles/header.css';
+@import './assets/styles/button.css';
+@import './assets/styles/badge.css';
+@import './assets/styles/card.css';
+@import './assets/styles/modal.css';
+@import './assets/styles/link.css';
+@import './assets/styles/input.css';
+@import './assets/styles/search-bar.css';
+@import './assets/styles/tab-list.css';
+@import './assets/styles/skeleton-loader.css';
+@import './assets/styles/header.css';
 
 /* Global styles */
 @import 'tailwindcss/utilities';
-
-* {
-  font-family: 'Satoshi', sans-serif;
-  box-sizing: border-box;
-}

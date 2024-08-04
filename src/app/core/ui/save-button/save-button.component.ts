@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-save-button',
@@ -41,4 +41,6 @@ import { Component, Input } from '@angular/core';
 })
 export class SaveButtonComponent {
   @Input() isSaved: boolean = false;
+
+  @Output() savedChange = new EventEmitter<boolean>();
 }

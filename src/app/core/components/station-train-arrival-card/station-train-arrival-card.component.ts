@@ -48,7 +48,7 @@ export class StationTrainArrivalCardComponent {
   constructor(private router: Router) {}
 
   navigateToDetails() {
-    this.router.navigate([this.content.link.url], { fragment: 'top-page' });
+    this.router.navigate([this.content.link.url], { fragment: 'top' });
   }
 
   toggleSaved(event: Event) {

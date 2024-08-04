@@ -5,9 +5,9 @@ import { StationErrorMessagingComponent } from '../../ui/station-error-messaging
 // TODO: Move this into /core/components directory. since it is a shared component across all domains of app
 import { SearchWidgetComponent } from '../../../search';
 import {
-  ListItemComponent,
   LoadingSkeletonComponent,
   SaveButtonComponent,
+  ToastComponent,
   TrainArrivalDetailsComponent,
 } from '@atl-transit/core';
 import {
@@ -25,6 +25,7 @@ import {
   StationMapViewModalComponent,
 } from '../../ui';
 import { StationUpcomingArrivalsComponent } from '../../ui/station-upcoming-arrivals/station-upcoming-arrivals.component';
+import { StationDetailsHeaderComponent } from '../../containers/station-details-header/station-details-header.component';
 
 @Component({
   selector: 'app-stations-details-page',
@@ -36,23 +37,24 @@ import { StationUpcomingArrivalsComponent } from '../../ui/station-upcoming-arri
     TrainArrivalDetailsComponent,
     SaveButtonComponent,
     StationErrorMessagingComponent,
-    ListItemComponent,
     StationMapViewModalComponent,
     StationMapViewButtonComponent,
     StationAmenitiesComponent,
     StationBusRoutesComponent,
     StationUpcomingArrivalsComponent,
+    ToastComponent,
+    StationDetailsHeaderComponent,
   ],
   template: `
     <div class="flex gap-8 pb-[5rem]">
       <!-- Station Details Main Content -->
-      <main class="flex flex-col gap-12 mx-auto xl:max-w-[432px]" id="top-page">
+      <main class="flex flex-col gap-12 mx-auto xl:max-w-[432px]" id="top">
         <div class="hidden md:block">
           <app-search-widget [hasSmallOverlay]="true" />
         </div>
 
         <!-- Station Details Header -->
-        <section class="flex flex-col gap-4">
+        <!-- <section class="flex flex-col gap-4">
           <div class="header header--page gap-6">
             <div class="flex relative pr-12">
               <h2 class="header__title tracking-normal">{{ content.header.title }}</h2>
@@ -63,7 +65,8 @@ import { StationUpcomingArrivalsComponent } from '../../ui/station-upcoming-arri
             </div>
             <p class="header__subtitle">{{ content.header.description }}</p>
           </div>
-        </section>
+        </section> -->
+        <app-station-details-header [isSaved]="content.isSaved" />
 
         <hr class="border-t border-neutral-400" />
 
@@ -81,7 +84,10 @@ import { StationUpcomingArrivalsComponent } from '../../ui/station-upcoming-arri
         class="hidden xl:flex flex-col gap-12 mx-auto w-full relative rounded-lg animate-overlay-enter">
         <div
           class="sticky top-8 bottom-0 z-10 h-[94vh] w-full rounded-lg bg-neutral-300 overflow-hidden">
-          <img src="/assets/images/atlanta-map-view.png" class="h-full object-cover" alt="" />
+          <img
+            src="/assets/images/atlanta-map-view.png"
+            class="h-full object-cover"
+            alt="image of a atlanta on a map " />
         </div>
       </div>
     </div>
@@ -99,9 +105,5 @@ export class StationDetailsPageComponent {
 
   toggleMapViewModal() {
     this.openMapViewModal = !this.openMapViewModal;
-  }
-
-  toggleSaved(): void {
-    this.content.isSaved = !this.content.isSaved;
   }
 }

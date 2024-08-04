@@ -127,6 +127,10 @@ export const colors = {
   },
 };
 
+export const fontFamily = {
+  satoshi: ['Satoshi', 'sans-serif'],
+};
+
 export const icons = {
   'checkmark-circle-filled': 'url("/assets/icons/filled/checkmark-circle.svg")',
   'checkmark-circle-regular': 'url("/assets/icons/regular/checkmark-circle.svg")',
