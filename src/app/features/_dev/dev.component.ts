@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { LoadingSkeletonComponent, ModalComponent } from '@atl-transit/core';
 import { TestModalComponent } from '../../core/ui/modal/test-modal.component';
 import { RouterModule } from '@angular/router';
+import { DevService } from './dev.service';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'navigation-bottom-bar-btn',
+  selector: 'app-dev',
   standalone: true,
   imports: [
     CommonModule,
@@ -24,16 +26,21 @@ import { RouterModule } from '@angular/router';
         </p>
 
         <button class="btn btn-primary mt-8" (click)="onModalChange(true)">Primary</button>
-        aaa
       </div>
 
-      <!-- <div *ngIf="users$ | async as users">
-        <ul>
-          <li *ngFor="let user of users">
-            {{ user.name }}
+      <div class="mt-[100vh]" *ngIf="photos | async as photos">
+        <ul #test>
+          <li *ngFor="let photo of photos">
+            <!-- @defer (on viewport(test)) {
+              <img [src]="photo.url" alt="photo.title" />
+              {{ photo.title }}
+            } @loading (minimum 100ms) {
+              loading names...
+              <core-loading-skeleton />
+            } -->
           </li>
         </ul>
-      </div> -->
+      </div>
 
       <core-modal
         [isOpen]="isModalOpen"
@@ -56,17 +63,17 @@ import { RouterModule } from '@angular/router';
     </div>
   `,
 })
-export class DevPageComponent {
-  // service$ = inject(DevService);
-  // users$ = this.service$.users$;
-  // posts$ = this.service$.posts$;
-  // loading$ = this.service$.loading$.asObservable();
+export class DevComponent {
+  users!: Observable<any[]>;
+  photos!: Observable<any[]>;
 
   isModalOpen = false;
 
-  // ngOnInit(): void {
-  //   this.users$ = this.service$.getUsers();
-  // }
+  constructor(private service: DevService) {}
+
+  ngOnInit(): void {
+    this.users = this.service.getUsers();
+  }
 
   onModalChange(value: boolean) {
     this.isModalOpen = value;

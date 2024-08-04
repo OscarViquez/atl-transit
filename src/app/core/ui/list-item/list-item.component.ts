@@ -8,11 +8,17 @@ import { ListItem } from '../../models';
   standalone: true,
   imports: [CommonModule, BadgeComponent],
   template: `
-    <div class="flex flex-col py-6 border-b border-b-neutral-400">
+    <div
+      class="flex flex-col py-6 border-b border-b-neutral-400"
+      [ngClass]="{
+        'pt-0': first,
+      }">
       <div class="flex gap-2">
         <p class="text-5 font-semibold">{{ content.name }}</p>
-        <span class="text-5 font-semibold"> · </span>
-        <core-badge>{{ content.badgeLabel }}</core-badge>
+        @if (content.badgeLabel) {
+          <span class="text-5 font-semibold"> · </span>
+          <core-badge>{{ content.badgeLabel }}</core-badge>
+        }
       </div>
       <div>
         <p class="text-4 font-normal">{{ content.description }}</p>
@@ -22,4 +28,5 @@ import { ListItem } from '../../models';
 })
 export class ListItemComponent {
   @Input() content: ListItem = {} as ListItem;
+  @Input() first: boolean = false;
 }

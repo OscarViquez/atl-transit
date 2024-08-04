@@ -20,16 +20,18 @@ import { CommonModule } from '@angular/common';
       <!-- * Overlay Background that goes behind the modal -->
       <div class="overlay-full overflow z-40" (click)="closeModal()"></div>
 
-      <!-- * Modal -->
+      <!-- * NOTE & TODO: We need to implement the native dialog functionality -->
       <dialog
         class="modal z-50 h-screen md:h-4/5 md:max-w-[736px] overflow-hidden"
         autofocus
         [ngClass]="{
-          'top-10 rounded-2xl': isBottomSheet,
+          'pt-0': hasPadding,
+          'top-4 rounded-2xl': isBottomSheet,
           'animate-modal': !isBottomSheet && isOpen,
           'animate-bottom-sheet-up md:animate-modal': isBottomSheet && isOpen,
         }">
-        <div class="ml-auto pb-6 pr-6">
+        <!-- NOTE: This close button is ALWAYS fixed to the top-right of the modal -->
+        <div class="fixed z-[60] right-0 ml-auto py-6 pr-6">
           <button
             class="grid place-content-center h-10 w-10
              bg-neutral-100 border border-neutral-100 rounded-full transition-all ease-linear duration-100 
@@ -47,10 +49,9 @@ import { CommonModule } from '@angular/common';
             </svg>
           </button>
         </div>
+        <!-- NOTE: This is where the modal content displays -->
         <div class="overflow-y-scroll scrollbar-hide pb-8">
-          <ng-content>
-            <!-- This is where the modal content goes -->
-          </ng-content>
+          <ng-content></ng-content>
         </div>
       </dialog>
     }
@@ -68,7 +69,14 @@ export class ModalComponent implements OnInit, OnDestroy, OnChanges {
    * The `isBottomSheet` property determines if the modal is a bottom sheet.
    * It can be used by a parent component to set the modal as a bottom sheet.
    */
-  @Input() isBottomSheet = true; // New input property
+  @Input() isBottomSheet = true;
+
+  /**
+   * The `isFullScreen` property, if true, removes any padding around the modal.
+   * but this is usually used to display a map or image in full screen view based on
+   * the design on figma.
+   */
+  @Input() hasPadding = false;
 
   /**
    * The `modalChange` event is emitted whenever the modal is closed.
@@ -80,7 +88,10 @@ export class ModalComponent implements OnInit, OnDestroy, OnChanges {
   // Inject the Renderer2 service to manipulate the DOM
   constructor(private renderer: Renderer2) {}
 
-  // We are calling the `updateBodyClass` method when the component is initialized and when the `isOpen` property changes.
+  /**
+   * We are calling the `updateBodyClass` method when the component is initialized on the page
+   * so we can prevent user from scrolling when the modal is open.
+   */
   ngOnInit() {
     this.updateBodyClass();
   }

@@ -2,11 +2,6 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '',
-    loadComponent: () => import('./features/_dev/dev-page.component').then(c => c.DevPageComponent),
-    pathMatch: 'full',
-  },
-  {
     path: 'trains',
     loadChildren: () => import('./features/trains/trains.routes').then(r => r.TRAINS_ROUTES),
   },
@@ -32,6 +27,11 @@ export const routes: Routes = [
   {
     path: 'search',
     loadChildren: () => import('./features/search/search.routes').then(r => r.SEARCH_ROUTES),
+    pathMatch: 'full',
+  },
+  {
+    path: 'dev',
+    loadComponent: () => import('./features/_dev/dev.component').then(c => c.DevComponent),
     pathMatch: 'full',
   },
 ];

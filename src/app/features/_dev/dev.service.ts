@@ -7,13 +7,11 @@ import { catchError, finalize } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class DevService {
-  loading$ = new BehaviorSubject<boolean>(false);
-
   private usersSubject = new BehaviorSubject<any[]>([]);
   users$ = this.usersSubject.asObservable();
 
-  private postsSubject = new BehaviorSubject<any[]>([]);
-  posts$ = this.postsSubject.asObservable();
+  private photoSubject = new BehaviorSubject<any[]>([]);
+  photos$ = this.photoSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -23,20 +21,12 @@ export class DevService {
         return throwError(() => new Error(error));
       }),
       finalize(() => {
-        this.getLoading();
+        console.log('hello');
       })
     );
   }
 
-  getLoading(): Observable<boolean> {
-    return (this.loading$ = new BehaviorSubject<boolean>(true));
-  }
-
   getUsers(): Observable<any> {
     return this.handleApiCall(this.http.get('https://jsonplaceholder.typicode.com/users'));
-  }
-
-  getPosts(): Observable<any> {
-    return this.handleApiCall(this.http.get('https://jsonplaceholder.typicode.com/posts'));
   }
 }

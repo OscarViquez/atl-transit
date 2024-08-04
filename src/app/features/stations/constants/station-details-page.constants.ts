@@ -39,12 +39,10 @@ export const STATION_AMENITIES: Amenities[] = [
   {
     name: 'Restrooms',
     description: 'Public restrooms are available at this station',
-    costType: 'free',
   },
   {
     name: 'Elevator',
     description: 'Elevator access is available at this station',
-    costType: 'free',
   },
   {
     name: 'Parking',
@@ -59,12 +57,10 @@ export const STATION_AMENITIES: Amenities[] = [
   {
     name: 'Lost & Found',
     description: 'Lost & found is available at this station',
-    costType: 'free',
   },
   {
     name: 'Police',
     description: 'Police are available at this station',
-    costType: 'free',
   },
   {
     name: 'ATM',

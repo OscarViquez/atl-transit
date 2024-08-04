@@ -22,11 +22,11 @@ export interface Amenities {
   name: string; // Name of the amenity. e.g. "Restrooms"
   description: string; // Description of the amenity. e.g. "Public restrooms are available at this station"
   link?: string; // Link to the amenity page
-  costType: 'free' | 'paid'; // Indicates whether the amenity is free or paid
+  costType?: 'free' | 'paid'; // Indicates whether the amenity is free or paid
 }
 
 export interface ListItem {
   name: string;
-  badgeLabel: string;
+  badgeLabel?: string;
   description: string;
 }
