@@ -1,0 +1,10 @@
+.custom-outline:focus-visible {
+  @apply outline outline-white outline-2;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #1f1f1f;
+}
+
+.focus-state-secondary {
+  @apply hover:outline hover:outline-white hover:outline-2 hover:shadow-focused-state focus:outline focus:outline-white focus:outline-2 focus:shadow-focused-state;
+}

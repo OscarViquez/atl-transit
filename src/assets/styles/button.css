@@ -1,0 +1,49 @@
+.btn {
+  @apply px-5 py-4 min-w-[192px] max-w-full rounded-lg font-semibold text-4 border-2 border-solid active:scale-95 transition-all ease-linear duration-100;
+}
+
+.btn:focus-visible,
+.btn:hover {
+  @apply outline outline-white outline-2 shadow-focused-state;
+}
+
+/* Button Sizes */
+.btn-small {
+  @apply px-6 py-3 min-w-max text-3;
+}
+
+.btn-fill {
+  @apply min-w-full active:scale-100;
+}
+
+/* Button Colors */
+.btn-primary {
+  @apply bg-neutral-900 text-white border-neutral-800;
+}
+
+.btn-secondary {
+  @apply bg-white text-neutral-900  border-neutral-900;
+}
+
+.btn-tertiary {
+  @apply bg-white text-neutral-900  border-neutral-900;
+}
+
+.btn-disabled {
+  @apply bg-neutral-400 text-neutral-800 border-neutral-400 cursor-not-allowed  active:scale-100 transition-none;
+}
+
+.btn-disabled:focus-visible,
+.btn-disabled:hover {
+  @apply outline-none shadow-none;
+}
+
+/*
+    * Base <Tile> Styling
+    * ================================================================================
+    * This section contains the base styles for the tiles.
+    */
+
+.tile {
+  @apply w-full border border-neutral-400 rounded-lg text-left p-4 h-[9.5rem] active:scale-[.98] transition-all ease-linear duration-100 hover:border-neutral-900;
+}

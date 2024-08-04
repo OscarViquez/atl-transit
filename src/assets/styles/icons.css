@@ -1,0 +1,35 @@
+.icon-color-black {
+  filter: invert(0%) sepia(78%) saturate(4388%) hue-rotate(50deg) brightness(93%) contrast(87%);
+}
+
+.icon-color-white {
+  filter: invert(36%) sepia(98%) saturate(459%) hue-rotate(70deg) brightness(92%) contrast(96%);
+}
+
+.icon-color-neutral-900 {
+  filter: invert(0%) sepia(65%) saturate(8%) hue-rotate(321deg) brightness(106%) contrast(76%);
+}
+
+.icon-color-neutral-800 {
+  filter: invert(28%) sepia(2%) saturate(0%) hue-rotate(139deg) brightness(94%) contrast(94%);
+}
+
+.icon-color-neutral-400 {
+  filter: invert(88%) sepia(41%) saturate(2%) hue-rotate(212deg) brightness(110%) contrast(73%);
+}
+
+.icon-color-primary {
+  filter: invert(32%) sepia(81%) saturate(2160%) hue-rotate(1deg) brightness(104%) contrast(106%);
+}
+
+.icon-color-success {
+  filter: invert(36%) sepia(98%) saturate(459%) hue-rotate(70deg) brightness(92%) contrast(96%);
+}
+
+.icon-color-error {
+  filter: invert(10%) sepia(49%) saturate(7475%) hue-rotate(344deg) brightness(96%) contrast(96%);
+}
+
+.icon-color-blue {
+  filter: invert(17%) sepia(47%) saturate(4981%) hue-rotate(195deg) brightness(100%) contrast(87%);
+}

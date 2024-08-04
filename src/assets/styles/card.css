@@ -1,0 +1,14 @@
+/*
+     * Base <Card> Styling
+     * ================================================================================
+     * This section contains the base styles for the card component.
+     * It includes the default card styles, card sizes, and card colors.
+     */
+
+.card {
+  @apply flex flex-col space-y-4 w-full rounded-lg border border-neutral-400 p-4 md:p-6;
+}
+
+.card--shadow {
+  @apply border-0 shadow-md;
+}

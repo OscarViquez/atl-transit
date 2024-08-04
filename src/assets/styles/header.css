@@ -1,0 +1,30 @@
+.header {
+  @apply flex flex-col space-y-1;
+}
+.header__title {
+  @apply text-neutral-900 tracking-tighter;
+}
+.header__subtitle {
+  @apply text-neutral-800;
+}
+.header--page .header__title {
+  @apply text-8 font-bold;
+}
+.header--page .header__subtitle {
+  @apply text-4 font-medium text-neutral-800;
+}
+.header--section .header__title {
+  @apply text-7 font-medium;
+}
+.header--section .header__subtitle {
+  @apply text-3 font-normal;
+}
+.header--card {
+  @apply text-3;
+}
+.header--card .header__title {
+  @apply text-6 font-bold;
+}
+.header--card .header__subtitle {
+  @apply text-3 font-normal;
+}
