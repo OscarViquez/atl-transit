@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StationErrorMessagingComponent } from '../../ui/station-error-messaging/station-error-messaging.component';
 
 // TODO: Move this into /core/components directory. since it is a shared component across all domains of app
-import { SearchWidgetComponent } from '@atl-transit/feats/search';
+import { SearchWidgetComponent } from '../../../search';
 import {
   ListItemComponent,
   LoadingSkeletonComponent,

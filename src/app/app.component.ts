@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { SearchWidgetComponent } from '@atl-transit/feats/search';
+import { SearchWidgetComponent } from './packages/search';
 import { BottomNavComponent, SidebarComponent, TopNavComponent } from '@atl-transit/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { SearchBarComponent } from '@atl-transit/core';
 import { CommonModule } from '@angular/common';
-import { SearchOverlayComponent } from '../../containers';
+import { SearchOverlayComponent } from '../search-overlay/search-overlay.component';
 
 @Component({
   selector: 'app-search-widget',

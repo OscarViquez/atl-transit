@@ -22,11 +22,11 @@
     "paths": {
       "@atl-transit/core": ["./src/app/core/index"],
       "@atl-transit/shared": ["./src/app/core/index"],
-      "@atl-transit/feats/buses": ["./src/app/features/buses/index"],
-      "@atl-transit/feats/cards": ["./src/app/features/cards/index"],
-      "@atl-transit/feats/maps": ["./src/app/features/maps/index"],
-      "@atl-transit/feats/search": ["./src/app/features/search/index"],
-      "@atl-transit/feats/trains": ["./src/app/features/trains/index"]
+      "@atl-transit/feats/buses": ["./src/app/packages/buses/index"],
+      "@atl-transit/feats/cards": ["./src/app/packages/cards/index"],
+      "@atl-transit/feats/maps": ["./src/app/packages/maps/index"],
+      "@atl-transit/feats/search": ["./src/app/packages/search/index"],
+      "@atl-transit/feats/trains": ["./src/app/packages/trains/index"]
     }
   },
   "angularCompilerOptions": {

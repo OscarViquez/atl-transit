@@ -19,27 +19,15 @@ import { Observable } from 'rxjs';
   template: `
     <div class="h-full">
       <div class="text-center mt-[10rem]">
-        <h2 class="text-6 font-semibold mb-4">We don't have the schedule for this station yet.</h2>
+        <h2 class="text-6 font-semibold mb-4">
+          Welcome to the Beta version of the atlanta transit page!
+        </h2>
         <p class="text-4 font-medium text-neutral-800">
-          We are working hard to get the schedule for this station. Please check back later for
-          updates.
+          Home page is under construction. Please check back later for updates. In the mean time,
+          you can visit the trains page or search for a station.
         </p>
 
         <button class="btn btn-primary mt-8" (click)="onModalChange(true)">Primary</button>
-      </div>
-
-      <div class="mt-[100vh]" *ngIf="photos | async as photos">
-        <ul #test>
-          <li *ngFor="let photo of photos">
-            <!-- @defer (on viewport(test)) {
-              <img [src]="photo.url" alt="photo.title" />
-              {{ photo.title }}
-            } @loading (minimum 100ms) {
-              loading names...
-              <core-loading-skeleton />
-            } -->
-          </li>
-        </ul>
       </div>
 
       <core-modal
@@ -49,7 +37,7 @@ import { Observable } from 'rxjs';
         <div class="h-full">
           <div class="text-center mt-[10rem]">
             <h2 class="text-6 font-semibold mb-4">
-              We don't have the schedule for this station yet.
+              Welcome to the Beta version of the atlanta transit page!
             </h2>
             <p class="text-4 font-medium text-neutral-800">
               We are working hard to get the schedule for this station. Please check back later for
@@ -58,8 +46,6 @@ import { Observable } from 'rxjs';
           </div>
         </div>
       </core-modal>
-
-      <core-test-modal> My Test Modal </core-test-modal>
     </div>
   `,
 })
