@@ -31,18 +31,6 @@ export class TrainsService {
     });
   }
 
-  SaveStationToLocalStorage(stationName: string): void {
-    const savedStations = this.getSavedStations();
-    savedStations.push(stationName);
-    localStorage.setItem('savedStations', JSON.stringify(savedStations));
-  }
-
-  RemoveStationFromLocalStorage(stationName: string): void {
-    const savedStations = this.getSavedStations();
-    const updatedStations = savedStations.filter(station => station !== stationName);
-    localStorage.setItem('savedStations', JSON.stringify(updatedStations));
-  }
-
   private fetchAllTrainArrivals(): Observable<TrainArrivalInfo[]> {
     return this.api.getTrainArrivals().pipe(
       catchError(err => {
@@ -60,7 +48,6 @@ export class TrainsService {
       };
       const nearestStations = this.getNearestStations({ ...geoLocation });
       const savedStations = this.getSavedStations();
-
       const filteredStationsArrivals = filterArrivals(arrivals, nearestStations, savedStations);
 
       this.userStationTrainArrivalDataSubject.next({
@@ -82,6 +69,18 @@ export class TrainsService {
     // Sorting by Closest to farthest distance
     distances.sort((a, b) => a.distance - b.distance);
     return distances.slice(0, 2).map(station => station.id);
+  }
+
+  SaveStationToLocalStorage(stationName: string): void {
+    const savedStations = this.getSavedStations();
+    savedStations.push(stationName);
+    localStorage.setItem('savedStations', JSON.stringify(savedStations));
+  }
+
+  RemoveStationFromLocalStorage(stationName: string): void {
+    const savedStations = this.getSavedStations();
+    const updatedStations = savedStations.filter(station => station !== stationName);
+    localStorage.setItem('savedStations', JSON.stringify(updatedStations));
   }
 
   private getSavedStations(): string[] {

@@ -7,19 +7,31 @@ export function filterArrivals(
   stations: string[],
   savedStations: string[]
 ): UserStationTrainArrivalData {
+  const captilizedSaveStations = savedStations.map(station => station.toUpperCase());
+
   // Filter all arrivals that are ONLY shown in the stations array list
   const filteredArrivals = arrivals.filter(arrival => stations.includes(arrival.STATION));
+  const filterSavedArrivals = arrivals.filter(arrival =>
+    captilizedSaveStations.includes(arrival.STATION)
+  );
 
   const trainArrivalDetailsList: TrainArrivalDetails[] =
     transformToTrainArrivalDetails(filteredArrivals);
 
+  const savedTrainArrivalDetailsList: TrainArrivalDetails[] =
+    transformToTrainArrivalDetails(filterSavedArrivals);
+
   const stationTrainArrivalCardList = transformToStationTrainArrivalCard(
     stations,
     trainArrivalDetailsList,
-    savedStations
+    captilizedSaveStations
   );
 
-  const savedStationTrainArrivalCardList = stationTrainArrivalCardList.filter(card => card.isSaved);
+  const savedStationTrainArrivalCardList = transformToStationTrainArrivalCard(
+    captilizedSaveStations,
+    savedTrainArrivalDetailsList,
+    captilizedSaveStations
+  );
 
   return {
     nearestStations: stationTrainArrivalCardList,
@@ -94,14 +106,18 @@ export function transformLineToBadgeColor(line: string): BadgeColor {
   }
 }
 
-export function formatStationName(station: string): string {
-  return station.toUpperCase()[0] + station.slice(1).toLowerCase().replace('station', 'Station');
-}
-
 export function generateStationUrl(station: string): string {
   return `/stations/${station.toLowerCase().replace('station', '')}`;
 }
 
-function isStationSaved(station: string, savedStations: string[]): boolean {
-  return savedStations.includes(formatStationName(station));
+export function formatStationName(station: string): string {
+  return station
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+export function isStationSaved(station: string, savedStations: string[]): boolean {
+  return savedStations.includes(station.toUpperCase());
 }

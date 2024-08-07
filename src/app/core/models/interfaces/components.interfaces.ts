@@ -3,7 +3,7 @@ import { Header } from './ui.interface';
 
 export interface StationTrainArrivalCard {
   header: Header; // Will be used to display the station name
-  arrivals: TrainArrivalDetails[]; // Array of Upcoming Train Arrivals
+  arrivals: TrainArrivalDetails[]; // Array of Upcoming Train Arrivals e.g. '5 mins', '10 mins', '15 mins', 'Arriving', 'Delayed'
   // serviceLines: StationServiceLine[]; // Array of service lines that stop at the station
   link: Link; // Link to the station page
   isSaved: boolean; // Boolean property to indicate if the station is saved

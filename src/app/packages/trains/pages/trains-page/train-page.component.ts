@@ -5,6 +5,7 @@ import {
   BadgeComponent,
   HeaderComponent,
   InfoMessageComponent,
+  LoadingSkeletonComponent,
   StationTrainArrivalCardComponent,
   TabListComponent,
 } from '@atl-transit/core';
@@ -21,6 +22,7 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
     CommonModule,
     TabListComponent,
     HeaderComponent,
+    LoadingSkeletonComponent,
     InfoMessageComponent,
     StationTrainArrivalCardComponent,
     BadgeComponent,
@@ -36,11 +38,9 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
                 <core-badge class="animate-fade-up" [color]="isLocationOn ? 'blue' : 'gray'">
                   Location {{ isLocationOn ? 'On' : 'Off' }}
                 </core-badge>
-              } @loading (minimum 1000ms) {
+              } @loading (minimum 2000ms) {
                 <core-badge class="animate-fade-up" color="gray"> Loading Location... </core-badge>
               }
-            } @else {
-              <core-badge class="animate-fade-up"> Error when fetching location </core-badge>
             }
           </div>
         </section>
@@ -53,24 +53,27 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
           @if (facade.trainPageArrivals$ | async; as arrivals) {
             @if (currentTabIndex === 0) {
               @for (nearestStations of arrivals.nearestStations; track idx; let idx = $index) {
-                <app-station-train-arrival-card
-                  [content]="nearestStations"
-                  (saveEmitter)="onSaveStation($event)" />
+                <div class="animate-fade-up">
+                  <app-station-train-arrival-card
+                    [content]="nearestStations"
+                    (saveEmitter)="onSaveStation($event)" />
+                </div>
               }
             }
+
             @if (currentTabIndex === 1) {
-              @for (savedStation of arrivals.savedStations; track idx; let idx = $index) {
-                @if (savedStation.isSaved) {
+              @defer {
+                @for (savedStation of arrivals.savedStations; track idx; let idx = $index) {
                   <app-station-train-arrival-card
                     [content]="savedStation"
                     (saveEmitter)="onSaveStation($event)" />
+                } @empty {
+                  <core-info-message [content]="messaging.noSavedStations" />
                 }
-              } @empty {
-                <core-info-message [content]="messaging.noSavedStations" />
+              } @loading {
+                <core-loading-skeleton />
               }
             }
-          } @else {
-            <core-info-message [content]="messaging.errorFetchingStations" />
           }
         </section>
       </div>
