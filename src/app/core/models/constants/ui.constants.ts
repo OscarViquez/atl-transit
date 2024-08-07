@@ -22,3 +22,8 @@ export const NAV_MENU_ITEMS: NavMenuItem[] = [
     routerLink: '/maps',
   },
 ];
+
+export const STATION_TRAIN_ARRIVAL_CARD_MESSAGING = {
+  title: 'No upcoming arrivals',
+  description: 'Please check back later to see upcoming train arrivals.',
+};

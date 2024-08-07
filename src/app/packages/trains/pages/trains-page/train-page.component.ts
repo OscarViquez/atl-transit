@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FacadeService } from '@atl-transit/data-access';
 import {
   BadgeComponent,
   HeaderComponent,
+  InfoMessageComponent,
   StationTrainArrivalCardComponent,
   TabListComponent,
 } from '@atl-transit/core';
-import { TrainPage, TrainPageMessaging } from '../../interfaces/train-page.interfaces';
-import { TRAIN_PAGE_CONTENT, TRAIN_PAGE_MESSAGING } from '../../constants/train-page.constants';
+import {
+  TRAIN_PAGE_MESSAGING,
+  TRAIN_PAGE_STATIC_CONTENT,
+} from '../../constants/train-page.constants';
+import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/train-page.interfaces';
 
 @Component({
   selector: 'app-train-page',
@@ -16,6 +21,7 @@ import { TRAIN_PAGE_CONTENT, TRAIN_PAGE_MESSAGING } from '../../constants/train-
     CommonModule,
     TabListComponent,
     HeaderComponent,
+    InfoMessageComponent,
     StationTrainArrivalCardComponent,
     BadgeComponent,
   ],
@@ -23,53 +29,75 @@ import { TRAIN_PAGE_CONTENT, TRAIN_PAGE_MESSAGING } from '../../constants/train-
     <main class="flex flex-col gap-8 mx-auto pb-8">
       <div class="flex flex-col gap-8">
         <section class="flex flex-col gap-4">
-          <core-header [content]="content.header" />
+          <core-header [content]="staticContent.header" />
           <div>
-            <core-badge [color]="isLocationOn ? 'blue' : 'gray'">
-              Location {{ isLocationOn ? 'On' : 'Off' }}
-            </core-badge>
+            @if (facade.isLocationOn$ | async; as isLocationOn) {
+              @defer {
+                <core-badge class="animate-fade-up" [color]="isLocationOn ? 'blue' : 'gray'">
+                  Location {{ isLocationOn ? 'On' : 'Off' }}
+                </core-badge>
+              } @loading (minimum 1000ms) {
+                <core-badge class="animate-fade-up" color="gray"> Loading Location... </core-badge>
+              }
+            } @else {
+              <core-badge class="animate-fade-up"> Error when fetching location </core-badge>
+            }
           </div>
         </section>
 
-        <core-tab-list [labels]="content.tabs" (currentTabEmitter)="currentTabSetter($event)" />
+        <core-tab-list
+          [labels]="staticContent.tabs"
+          (currentTabEmitter)="currentTabSetter($event)" />
 
         <section class="flex flex-col gap-8">
-          @if (currentTabIndex === 0) {
-            @for (nearestStations of content.nearestStations; track idx; let idx = $index) {
-              <app-station-train-arrival-card [content]="nearestStations" />
-            }
-          }
-          @if (currentTabIndex === 1) {
-            @for (savedStation of content.savedStations; track idx; let idx = $index) {
-              @if (savedStation.isSaved) {
-                <app-station-train-arrival-card [content]="savedStation" />
+          @if (facade.trainPageArrivals$ | async; as arrivals) {
+            @if (currentTabIndex === 0) {
+              @for (nearestStations of arrivals.nearestStations; track idx; let idx = $index) {
+                <app-station-train-arrival-card
+                  [content]="nearestStations"
+                  (saveEmitter)="onSaveStation($event)" />
               }
-            } @empty {
-              <div class="text-center mt-[10rem]">
-                <h2 class="text-6 font-semibold mb-4">
-                  {{ messages.noSavedStations.title }}
-                </h2>
-                <p class="text-4 font-medium text-neutral-800">
-                  {{ messages.noSavedStations.description }}
-                </p>
-              </div>
             }
+            @if (currentTabIndex === 1) {
+              @for (savedStation of arrivals.savedStations; track idx; let idx = $index) {
+                @if (savedStation.isSaved) {
+                  <app-station-train-arrival-card
+                    [content]="savedStation"
+                    (saveEmitter)="onSaveStation($event)" />
+                }
+              } @empty {
+                <core-info-message [content]="messaging.noSavedStations" />
+              }
+            }
+          } @else {
+            <core-info-message [content]="messaging.errorFetchingStations" />
           }
         </section>
       </div>
     </main>
   `,
 })
-export class TrainPageComponent {
-  content: TrainPage = TRAIN_PAGE_CONTENT;
+export class TrainPageComponent implements OnInit {
+  facade = inject(FacadeService);
 
-  messages: TrainPageMessaging = TRAIN_PAGE_MESSAGING;
+  messaging: TrainPageMessaging = TRAIN_PAGE_MESSAGING;
 
-  isLocationOn = false;
+  staticContent: TrainPageStaticContent = TRAIN_PAGE_STATIC_CONTENT;
 
   currentTabIndex = 0;
 
+  ngOnInit(): void {
+    this.facade.getGeolocationState();
+    this.facade.getAllTrainArrivals();
+  }
+
   currentTabSetter(index: number): void {
     this.currentTabIndex = index;
+  }
+
+  onSaveStation(station: { isSaved: boolean; name: string }): void {
+    station.isSaved
+      ? this.facade.saveStation(station.name)
+      : this.facade.removeStation(station.name);
   }
 }

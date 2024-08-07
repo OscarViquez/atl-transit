@@ -26,7 +26,7 @@ import { NAV_MENU_ITEMS, NavMenuItem } from '../../models';
           @defer {
             <a
               *ngIf="item.label !== 'Search'"
-              class="flex gap-3 h-12 w-[10.75rem] p-[0.875rem] text-3 font-medium mt-auto rounded-md"
+              class="flex gap-3 h-12 w-[10.75rem] p-[0.875rem] text-3 font-medium mt-auto rounded-md transition-all ease-linear duration-100"
               #refRouter="routerLinkActive"
               routerLinkActive="bg-primary bg-opacity-10 text-primary"
               [routerLink]="item.routerLink">

@@ -109,6 +109,7 @@ export const colors = {
   gold: 'hsl(43, 87%, 56%)',
   green: 'hsl(117, 71%, 31%)',
   lightBlue: 'hsl(210, 100%, 40%)',
+  pastelBlue: 'hsl(220, 73%, 37%)',
   blue: 'hsl(213, 64%, 35%)',
   purple: 'hsl(256, 82%, 34%)',
   pink: 'hsl(0, 97%, 72%)',

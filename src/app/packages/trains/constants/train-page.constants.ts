@@ -1,5 +1,5 @@
 import { Header, StationTrainArrivalCard, TrainArrivalDetails } from '@atl-transit/core';
-import { TrainPageMessaging } from '../interfaces/train-page.interfaces';
+import { TrainPageMessaging, TrainPageStaticContent } from '../interfaces/train-page.interfaces';
 
 export const TRAIN_PAGE_HEADER: Header = {
   title: 'Trains',
@@ -7,25 +7,14 @@ export const TRAIN_PAGE_HEADER: Header = {
     'Real-time information on the arrival times of trains. Either based on the stations near your location or saved stations',
 };
 
-export const TRAIN_PAGE_TABS: string[] = ['Nearest', 'Saved'];
-
 export const STATION_TRAIN_ARRIVAL_CARD: StationTrainArrivalCard[] = [
   {
     header: {
       title: 'Lenox Station',
     },
-    serviceLines: [
-      {
-        lineColor: 'gold',
-        lineName: 'Gold Line',
-      },
-      {
-        lineColor: 'red',
-        lineName: 'Red Line',
-      },
-    ],
     arrivals: [
       {
+        id: 'Lenox',
         arrivalTime: '5 mins',
         destination: 'Doraville',
         cardinalDirection: 'North',
@@ -35,6 +24,7 @@ export const STATION_TRAIN_ARRIVAL_CARD: StationTrainArrivalCard[] = [
         },
       },
       {
+        id: 'Lenox',
         arrivalTime: '10 mins',
         destination: 'Airport',
         cardinalDirection: 'South',
@@ -48,26 +38,14 @@ export const STATION_TRAIN_ARRIVAL_CARD: StationTrainArrivalCard[] = [
       url: '/stations/doraville#top-page',
     },
     isSaved: false,
-    onSave: () => {
-      console.log('Station saved!');
-    },
   },
   {
     header: {
       title: 'Brookhaven Station',
     },
-    serviceLines: [
-      {
-        lineColor: 'gold',
-        lineName: 'Gold Line',
-      },
-      {
-        lineColor: 'red',
-        lineName: 'Red Line',
-      },
-    ],
     arrivals: [
       {
+        id: 'Brookhaven',
         arrivalTime: '5 mins',
         destination: 'Doraville',
         cardinalDirection: 'North',
@@ -77,6 +55,7 @@ export const STATION_TRAIN_ARRIVAL_CARD: StationTrainArrivalCard[] = [
         },
       },
       {
+        id: 'Brookhaven',
         arrivalTime: '10 mins',
         destination: 'Airport',
         cardinalDirection: 'South',
@@ -90,9 +69,6 @@ export const STATION_TRAIN_ARRIVAL_CARD: StationTrainArrivalCard[] = [
       url: '/stations/brookhaven',
     },
     isSaved: false,
-    onSave: () => {
-      console.log('Station saved!');
-    },
   },
 ];
 
@@ -101,18 +77,9 @@ export const SAVED_STATION_TRAIN_ARRIVAL_CARD: StationTrainArrivalCard[] = [
     header: {
       title: 'Lenox Station',
     },
-    serviceLines: [
-      {
-        lineColor: 'gold',
-        lineName: 'Gold Line',
-      },
-      {
-        lineColor: 'red',
-        lineName: 'Red Line',
-      },
-    ],
     arrivals: [
       {
+        id: 'Lenox',
         arrivalTime: '5 mins',
         destination: 'Doraville',
         cardinalDirection: 'North',
@@ -122,6 +89,7 @@ export const SAVED_STATION_TRAIN_ARRIVAL_CARD: StationTrainArrivalCard[] = [
         },
       },
       {
+        id: 'Lenox',
         arrivalTime: '10 mins',
         destination: 'Airport',
         cardinalDirection: 'South',
@@ -135,26 +103,14 @@ export const SAVED_STATION_TRAIN_ARRIVAL_CARD: StationTrainArrivalCard[] = [
       url: '/stations/doraville',
     },
     isSaved: true,
-    onSave: () => {
-      console.log('Station saved!');
-    },
   },
   {
     header: {
       title: 'Brookhaven Station',
     },
-    serviceLines: [
-      {
-        lineColor: 'gold',
-        lineName: 'Gold Line',
-      },
-      {
-        lineColor: 'red',
-        lineName: 'Red Line',
-      },
-    ],
     arrivals: [
       {
+        id: 'Brookhaven',
         arrivalTime: '5 mins',
         destination: 'Doraville',
         cardinalDirection: 'North',
@@ -164,6 +120,7 @@ export const SAVED_STATION_TRAIN_ARRIVAL_CARD: StationTrainArrivalCard[] = [
         },
       },
       {
+        id: 'Brookhaven',
         arrivalTime: '10 mins',
         destination: 'Airport',
         cardinalDirection: 'South',
@@ -177,13 +134,11 @@ export const SAVED_STATION_TRAIN_ARRIVAL_CARD: StationTrainArrivalCard[] = [
       url: '/stations/brookhaven',
     },
     isSaved: true,
-    onSave: () => {
-      console.log('Station saved!');
-    },
   },
 ];
 
 export const TRAIN_ARRIVAL_DETAILS: TrainArrivalDetails = {
+  id: 'Brookhaven',
   arrivalTime: '10 mins',
   destination: 'Doraville',
   cardinalDirection: 'NORTH',
@@ -202,11 +157,21 @@ export const TRAIN_PAGE_MESSAGING: TrainPageMessaging = {
     description:
       'You have not saved any stations yet. Save your favorite stations to quickly access their upcoming train arrivals.',
   },
+  errorFetchingStations: {
+    title: 'Error loading stations',
+    description:
+      'An error occurred while loading the stations. Please try again later or refresh the page.',
+  },
 };
 
-export const TRAIN_PAGE_CONTENT = {
+export const TRAIN_PAGE_LOCATION_STATUS = {
+  on: 'Location On',
+  off: 'Location Off',
+  loading: 'Loading Location...',
+  error: 'Error when fetching location',
+};
+
+export const TRAIN_PAGE_STATIC_CONTENT: TrainPageStaticContent = {
   header: TRAIN_PAGE_HEADER,
-  tabs: TRAIN_PAGE_TABS,
-  nearestStations: STATION_TRAIN_ARRIVAL_CARD,
-  savedStations: SAVED_STATION_TRAIN_ARRIVAL_CARD,
+  tabs: ['Nearest', 'Saved'],
 };

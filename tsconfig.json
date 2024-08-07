@@ -22,11 +22,13 @@
     "paths": {
       "@atl-transit/core": ["./src/app/core/index"],
       "@atl-transit/shared": ["./src/app/core/index"],
+      "@atl-transit/data-access": ["./src/app/data-access/index"],
       "@atl-transit/feats/buses": ["./src/app/packages/buses/index"],
       "@atl-transit/feats/cards": ["./src/app/packages/cards/index"],
       "@atl-transit/feats/maps": ["./src/app/packages/maps/index"],
       "@atl-transit/feats/search": ["./src/app/packages/search/index"],
-      "@atl-transit/feats/trains": ["./src/app/packages/trains/index"]
+      "@atl-transit/feats/trains": ["./src/app/packages/trains/index"],
+      "@atl-transit/env": ["./src/environments/index"]
     }
   },
   "angularCompilerOptions": {

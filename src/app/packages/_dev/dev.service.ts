@@ -20,9 +20,7 @@ export class DevService {
       catchError(error => {
         return throwError(() => new Error(error));
       }),
-      finalize(() => {
-        console.log('hello');
-      })
+      finalize(() => {})
     );
   }
 
