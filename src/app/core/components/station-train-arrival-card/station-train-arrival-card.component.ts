@@ -2,8 +2,17 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { TrainArrivalDetailsComponent } from '../train-arrival-details/train-arrival-details.component';
-import { HeaderComponent, SaveButtonComponent } from '../../ui';
-import { StationTrainArrivalCard } from '../../models';
+import {
+  HeaderComponent,
+  InfoMessageComponent,
+  LoadingSkeletonComponent,
+  SaveButtonComponent,
+} from '../../ui';
+import {
+  Header,
+  STATION_TRAIN_ARRIVAL_CARD_MESSAGING,
+  StationTrainArrivalCard,
+} from '../../models';
 
 @Component({
   selector: 'app-station-train-arrival-card',
@@ -13,21 +22,35 @@ import { StationTrainArrivalCard } from '../../models';
     RouterModule,
     TrainArrivalDetailsComponent,
     HeaderComponent,
+    InfoMessageComponent,
     SaveButtonComponent,
+    LoadingSkeletonComponent,
   ],
   template: `
-    <article role="link" class="card cursor-pointer" (click)="navigateToDetails()" tabindex="0">
+    <article
+      role="link"
+      class="card cursor-pointer animate-fade-up"
+      (click)="navigateToDetails()"
+      tabindex="0">
       <div class="flex justify-between items-center">
         <core-header [content]="content.header" variant="card" />
         <app-save-button [isSaved]="content.isSaved" (click)="toggleSaved($event)" />
       </div>
-      @for (arrival of content.arrivals; track idx; let idx = $index) {
-        <app-train-arrival-details [content]="arrival" />
-      } @empty {
-        <div class="text-center mt-4">
-          <p class="text-4 font-medium text-neutral-800">No upcoming arrivals</p>
-        </div>
+      @defer {
+        @for (arrival of content.arrivals; track idx; let idx = $index) {
+          @if (idx < 3) {
+            <app-train-arrival-details [content]="arrival" />
+          }
+        } @empty {
+          <div class="pb-12 px-4 bg-neutral-100 rounded-md">
+            <core-info-message [content]="messaging" />
+          </div>
+        }
+      } @loading (minimum 2000ms) {
+        <core-loading-skeleton loadingItem="header" />
+        <core-loading-skeleton loadingItem="header" />
       }
+
       <div class="sr-only">
         <a [routerLink]="content.link.url">View {{ content.header.title }} station details</a>
       </div>
@@ -36,7 +59,10 @@ import { StationTrainArrivalCard } from '../../models';
 })
 export class StationTrainArrivalCardComponent {
   @Input() content: StationTrainArrivalCard = {} as StationTrainArrivalCard;
-  @Output() saveEmitter = new EventEmitter<boolean>();
+
+  @Output() saveEmitter = new EventEmitter<{ name: string; isSaved: boolean }>();
+
+  messaging: Header = STATION_TRAIN_ARRIVAL_CARD_MESSAGING;
 
   /**
    * Rather than using [routerLink]="content.link.url" on the actual card, we are
@@ -54,6 +80,7 @@ export class StationTrainArrivalCardComponent {
   toggleSaved(event: Event) {
     event.stopPropagation();
     this.content.isSaved = !this.content.isSaved;
+    this.saveEmitter.emit({ name: this.content.header.title, isSaved: this.content.isSaved });
   }
 
   // TODO: Add logic to delay the saveEmitter event...

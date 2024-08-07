@@ -28,7 +28,7 @@ import { TrainArrivalDetails } from '../../models';
           <span class="badge badge-gray"> {{ content.cardinalDirection }} </span>
         </div>
         <strong class="text-3 font-medium text-neutral-800">
-          {{ content.arrivalTimestamp | date }}
+          <!-- {{ content.arrivalTimestamp | date: 'shortTime' }} -->
         </strong>
       </div>
     </div>
