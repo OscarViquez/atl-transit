@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, onErrorResumeNext } from 'rxjs';
 import { GeolocationState } from '../../models/state.interfaces';
 
 @Injectable({
@@ -8,13 +8,26 @@ import { GeolocationState } from '../../models/state.interfaces';
 export class GeolocationService {
   public isLocationOnSubject = new BehaviorSubject<boolean>(false);
 
+  public userSelectionMade$ = new BehaviorSubject<boolean>(false);
+
   public geolocationStateSubject = new BehaviorSubject<GeolocationState>({
     location: { latitude: 0, longitude: 0 },
     error: null,
+    userSelectionMade: false,
   });
 
   initialize() {
-    this.getCurrentPosition()
+    this.checkPermissionStatus()
+      .then(permissionStatus => {
+        if (permissionStatus === 'granted' || permissionStatus === 'denied') {
+          this.geolocationStateSubject.next({
+            ...this.geolocationStateSubject.value,
+            userSelectionMade: true,
+          });
+          this.userSelectionMade$.next(true);
+        }
+        return this.getCurrentPosition();
+      })
       .then(position => {
         this.geolocationStateSubject.next({
           ...this.geolocationStateSubject.value,
@@ -33,6 +46,10 @@ export class GeolocationService {
         });
         this.isLocationOnSubject.next(false);
       });
+  }
+
+  public checkPermissionStatus(): Promise<PermissionState> {
+    return navigator.permissions.query({ name: 'geolocation' }).then(result => result.state);
   }
 
   private getCurrentPosition(): Promise<GeolocationPosition> {

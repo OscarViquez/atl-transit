@@ -35,16 +35,15 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
           <div>
             @if (facade.isLocationOn$ | async; as isLocationOn) {
               @defer {
-                <core-badge class="animate-fade-up" [color]="isLocationOn ? 'blue' : 'gray'">
-                  Location {{ isLocationOn ? 'On' : 'Off' }}
-                </core-badge>
+                <core-badge class="animate-fade-up" color="blue"> Location On </core-badge>
               } @loading (minimum 2000ms) {
                 <core-badge class="animate-fade-up" color="gray"> Loading Location... </core-badge>
               }
+            } @else {
+              <core-badge class="animate-fade-up" color="gray"> Loading Off </core-badge>
             }
           </div>
         </section>
-
         <core-tab-list
           [labels]="staticContent.tabs"
           (currentTabEmitter)="currentTabSetter($event)" />
@@ -81,7 +80,7 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
   `,
 })
 export class TrainPageComponent implements OnInit {
-  facade = inject(FacadeService);
+facade = inject(FacadeService);
 
   messaging: TrainPageMessaging = TRAIN_PAGE_MESSAGING;
 

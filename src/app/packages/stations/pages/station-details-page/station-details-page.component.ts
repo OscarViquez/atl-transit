@@ -52,28 +52,11 @@ import { StationDetailsHeaderComponent } from '../../containers/station-details-
         <div class="hidden md:block">
           <app-search-widget [hasSmallOverlay]="true" />
         </div>
-
-        <!-- Station Details Header -->
-        <!-- <section class="flex flex-col gap-4">
-          <div class="header header--page gap-6">
-            <div class="flex relative pr-12">
-              <h2 class="header__title tracking-normal">{{ content.header.title }}</h2>
-              <app-save-button
-                class="absolute right-0"
-                [isSaved]="content.isSaved"
-                (click)="toggleSaved()" />
-            </div>
-            <p class="header__subtitle">{{ content.header.description }}</p>
-          </div>
-        </section> -->
         <app-station-details-header [isSaved]="content.isSaved" />
-
         <hr class="border-t border-neutral-400" />
-
         <app-station-upcoming-arrivals [arrivals]="content.arrivals" />
         <app-station-bus-routes [busRoutes]="content.busRoutes" />
         <app-station-amenities [amenities]="content.amenities" />
-
         <app-station-map-view-modal
           [isModalOpen]="openMapViewModal"
           (modalChange)="openMapViewModal = false" />
