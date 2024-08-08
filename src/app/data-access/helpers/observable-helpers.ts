@@ -1,4 +1,4 @@
-import { distinctUntilChanged, filter, Observable } from 'rxjs';
+import { combineLatest, distinctUntilChanged, filter, map, Observable } from 'rxjs';
 
 /**
  * Filters out invalid items from an observable stream.
@@ -13,4 +13,19 @@ export function filterValidItems<T>(
   predicate: (item: T) => boolean
 ): Observable<T> {
   return observable.pipe(filter(predicate), distinctUntilChanged());
+}
+
+/**
+ * Filters and maps train arrivals based on the user's location.
+ * @param currentData$ e.g Pass in the user's station train arrival data observable.
+ * @param booleanFlag$ e,g pass in isLocationOn$ observable.
+ */
+export function filterAndMapArrivalsFromFlag<T>(
+  currentData$: Observable<T>,
+  booleanFlag$: Observable<boolean>
+): Observable<T> {
+  return combineLatest([currentData$, booleanFlag$]).pipe(
+    filter(([_, booleanFlag]) => booleanFlag), // Only allow through when booleanFlag is true
+    map(([data]) => data) // Map to the data part of the tuple
+  );
 }

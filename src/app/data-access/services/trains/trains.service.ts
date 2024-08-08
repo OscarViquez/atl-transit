@@ -12,7 +12,7 @@ import { STATIONS_INFO_CONSTANTS } from '../../constants/station-geolocation.con
   providedIn: 'root',
 })
 export class TrainsService {
-  private userStationTrainArrivalDataSubject = new Subject<UserStationTrainArrivalData>();
+  public userStationTrainArrivalDataSubject = new Subject<UserStationTrainArrivalData>();
 
   userStationTrainArrivalData$: Observable<UserStationTrainArrivalData> =
     this.userStationTrainArrivalDataSubject.asObservable();
