@@ -57,6 +57,8 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
                     [content]="nearestStations"
                     (saveEmitter)="onSaveStation($event)" />
                 </div>
+              } @empty {
+                <core-info-message [content]="messaging.noSavedStations" />
               }
             }
 
@@ -71,6 +73,8 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
                 }
               } @loading {
                 <core-loading-skeleton />
+              } @error {
+                An error has occured
               }
             }
           }
@@ -80,7 +84,7 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
   `,
 })
 export class TrainPageComponent implements OnInit {
-facade = inject(FacadeService);
+  facade = inject(FacadeService);
 
   messaging: TrainPageMessaging = TRAIN_PAGE_MESSAGING;
 

@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { catchError, Observable, of, Subject } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { catchError, Observable, of, Subject, Subscription } from 'rxjs';
 import { ApiService } from '../api/api.service';
 import { GeoLocation, TrainArrivalInfo } from '../../models/api.interfaces';
 import { UserStationTrainArrivalData } from '../../models/state.interfaces';
@@ -7,53 +7,64 @@ import { GeolocationService } from '../geolocation/geolocation.service';
 import { calculateDistanceBetweenCoordinates } from '../../helpers/calculation-helpers';
 import { filterArrivals } from '../../helpers/trains-helpers';
 import { STATIONS_INFO_CONSTANTS } from '../../constants/station-geolocation.constants';
+import { LocalStorageService } from '../local-storage/local-storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TrainsService {
-  public userStationTrainArrivalDataSubject = new Subject<UserStationTrainArrivalData>();
+export class TrainsService implements OnDestroy {
+  private userStationTrainArrivalDataSubject = new Subject<UserStationTrainArrivalData>();
+
+  private geolocationSubscription!: Subscription;
+
+  private trainArrivalSubscription!: Subscription;
 
   userStationTrainArrivalData$: Observable<UserStationTrainArrivalData> =
     this.userStationTrainArrivalDataSubject.asObservable();
 
   constructor(
     private api: ApiService,
-    private geolocationService: GeolocationService
+    private geolocationService: GeolocationService,
+    private localStorageService: LocalStorageService
   ) {}
 
-  initialize(): void {
-    this.fetchAllTrainArrivals().subscribe({
+  fetchTrainPageArrivals(): void {
+    this.trainArrivalSubscription = this.api.getTrainArrivals().subscribe({
       next: arrivals => {
-        this.getUserTrainArrivals(arrivals);
+        this.geolocationService.geolocationStateSubject.subscribe(geoLocation => {
+          this.mapNearAndSavedTrainArrivals(arrivals, geoLocation.location);
+        });
+      },
+      error: err => {
+        this.geolocationService.geolocationStateSubject.subscribe(geoLocation => {
+          this.mapNearAndSavedTrainArrivals([], geoLocation.location);
+        });
+        console.error('Failed to fetch train arrivals', err);
+      },
+    });
+  }
+
+  fetchStationDetailsArrivals(station: string): void {
+    this.trainArrivalSubscription = this.api.getTrainArrivals().subscribe({
+      next: arrivals => {
+        this.geolocationService.geolocationStateSubject.subscribe(geoLocation => {
+          this.mapNearAndSavedTrainArrivals(arrivals, geoLocation.location);
+        });
       },
       error: err => console.error('Failed to fetch train arrivals', err),
     });
   }
 
-  private fetchAllTrainArrivals(): Observable<TrainArrivalInfo[]> {
-    return this.api.getTrainArrivals().pipe(
-      catchError(err => {
-        console.error('Failed to fetch train arrivals', err);
-        return of([]);
-      })
-    );
-  }
-
-  private getUserTrainArrivals(arrivals: TrainArrivalInfo[]): void {
-    this.geolocationService.geolocationStateSubject.subscribe(state => {
-      const geoLocation: GeoLocation = {
-        latitude: state.location.latitude ?? 0,
-        longitude: state.location.longitude ?? 0,
-      };
-      const nearestStations = this.getNearestStations({ ...geoLocation });
-      const savedStations = this.getSavedStations();
-      const filteredStationsArrivals = filterArrivals(arrivals, nearestStations, savedStations);
-
-      this.userStationTrainArrivalDataSubject.next({
-        nearestStations: filteredStationsArrivals.nearestStations,
-        savedStations: filteredStationsArrivals.savedStations,
-      });
+  private mapNearAndSavedTrainArrivals(
+    arrivals: TrainArrivalInfo[],
+    geoLocation: GeoLocation
+  ): void {
+    const nearestStations = this.getNearestStations({ ...geoLocation });
+    const savedStations = this.localStorageService.getFromLocalStorage<string[]>('savedStations');
+    const filteredStationsArrivals = filterArrivals(arrivals, nearestStations, savedStations);
+    this.userStationTrainArrivalDataSubject.next({
+      nearestStations: filteredStationsArrivals.nearestStations,
+      savedStations: filteredStationsArrivals.savedStations,
     });
   }
 
@@ -66,28 +77,16 @@ export class TrainsService {
       }),
     }));
 
-    // Sorting by Closest to farthest distance
     distances.sort((a, b) => a.distance - b.distance);
     return distances.slice(0, 2).map(station => station.id);
   }
 
-  SaveStationToLocalStorage(stationName: string): void {
-    const savedStations = this.getSavedStations();
-    savedStations.push(stationName);
-    localStorage.setItem('savedStations', JSON.stringify(savedStations));
-  }
-
-  RemoveStationFromLocalStorage(stationName: string): void {
-    const savedStations = this.getSavedStations();
-    const updatedStations = savedStations.filter(station => station !== stationName);
-    localStorage.setItem('savedStations', JSON.stringify(updatedStations));
-  }
-
-  private getSavedStations(): string[] {
-    const savedStations = localStorage.getItem('savedStations');
-    if (!savedStations) {
-      return [];
+  ngOnDestroy(): void {
+    if (this.geolocationSubscription) {
+      this.geolocationSubscription.unsubscribe();
     }
-    return JSON.parse(savedStations);
+    if (this.trainArrivalSubscription) {
+      this.trainArrivalSubscription.unsubscribe();
+    }
   }
 }
