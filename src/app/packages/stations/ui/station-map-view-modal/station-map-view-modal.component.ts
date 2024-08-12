@@ -7,10 +7,7 @@ import { LoadingSkeletonComponent, ModalComponent } from '@atl-transit/core';
   standalone: true,
   imports: [CommonModule, ModalComponent, LoadingSkeletonComponent],
   template: `
-    <core-modal
-      [isOpen]="isModalOpen"
-      [hasPadding]="true"
-      (modalChange)="this.modalChange.emit($event)">
+    <core-modal [isOpen]="isModalOpen" (modalChange)="this.modalChange.emit($event)">
       <div #stationMapModal class="h-dvh grid content-center">
         @defer (on viewport(stationMapModal)) {
           <div class="flex flex-col gap-6 text-center px-4 py-12 h-dvh">

@@ -1,13 +1,14 @@
 export const animations = {
   'accordion-down': 'accordion-down 0.2s ease-out',
   'accordion-up': 'accordion-up 0.2s ease-out',
+
   'bottom-sheet-up': 'bottom-sheet-up 0.5s cubic-bezier(0.0, 0.0, 0.2, 1)',
   modal:
-    'modal-scale-up 400ms cubic-bezier(0.55, 0, 0.15, 1) 0ms 1 normal both running, modal-fade-in 400ms cubic-bezier(0.55, 0, 0.15, 1) 0ms 1 normal both running',
-  'modal-close':
-    'modal-scale-down 400ms cubic-bezier(0.55, 0, 0.15, 1) 0ms 1 reverse both running, modal-fade-out 400ms cubic-bezier(0.55, 0, 0.15, 1) 0ms 1 normal both running',
+    'modal-scale-up 400ms cubic-bezier(0.55, 0, 0.15, 1) 0ms 1 normal both running, fade-in 400ms cubic-bezier(0.55, 0, 0.15, 1) 0ms 1 normal both running',
   'fade-up': 'fade-up 0.3s ease-out',
   'fade-down': 'fade-down 0.3s ease-out',
+  'fade-out': ' fade-out 300ms ease 0ms 1 normal forwards running',
+  // 'fade-out': ' fade-out 0.3s forwards',
   'overlay-enter':
     'overlay-enter-view 1200ms linear(0,0.00506 1.18%,0.02044 2.46%,0.08322 5.391%,0.46561 17.652%,0.63901 24.342%,0.76663 31.093%,0.85981 38.454%,0.89862 42.934%,0.92965 47.845%,0.95366 53.305%,0.97154 59.516%,0.99189 74.867%,0.9991) both 1',
 };
@@ -21,11 +22,11 @@ export const keyframes = {
     '0%': { transform: 'scale(1)' },
     '100%': { transform: 'scale(0.9)' },
   },
-  'modal-fade-in': {
+  'fade-in': {
     '0%': { opacity: '0' },
     '100%': { opacity: '1' },
   },
-  'modal-fade-out': {
+  'fade-out': {
     '0%': { opacity: '1' },
     '100%': { opacity: '0' },
   },
