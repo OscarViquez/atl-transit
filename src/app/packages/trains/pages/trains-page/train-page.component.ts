@@ -73,8 +73,6 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
                 }
               } @loading {
                 <core-loading-skeleton />
-              } @error {
-                An error has occured
               }
             }
           }

@@ -1,13 +1,14 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { catchError, Observable, of, Subject, Subscription } from 'rxjs';
-import { ApiService } from '../api/api.service';
+import { Observable, Subject, Subscription } from 'rxjs';
+
 import { GeoLocation, TrainArrivalInfo } from '../../models/api.interfaces';
 import { UserStationTrainArrivalData } from '../../models/state.interfaces';
+
 import { GeolocationService } from '../geolocation/geolocation.service';
-import { calculateDistanceBetweenCoordinates } from '../../helpers/calculation-helpers';
-import { filterArrivals } from '../../helpers/trains-helpers';
-import { STATIONS_INFO_CONSTANTS } from '../../constants/station-geolocation.constants';
+import { filterArrivals, getNearestStations } from '../../helpers/trains-helpers';
+
 import { LocalStorageService } from '../local-storage/local-storage.service';
+import { ApiService } from '../api/api.service';
 
 @Injectable({
   providedIn: 'root',
@@ -59,26 +60,13 @@ export class TrainsService implements OnDestroy {
     arrivals: TrainArrivalInfo[],
     geoLocation: GeoLocation
   ): void {
-    const nearestStations = this.getNearestStations({ ...geoLocation });
+    const nearestStations = getNearestStations({ ...geoLocation });
     const savedStations = this.localStorageService.getFromLocalStorage<string[]>('savedStations');
     const filteredStationsArrivals = filterArrivals(arrivals, nearestStations, savedStations);
     this.userStationTrainArrivalDataSubject.next({
       nearestStations: filteredStationsArrivals.nearestStations,
       savedStations: filteredStationsArrivals.savedStations,
     });
-  }
-
-  private getNearestStations(userLocation: GeoLocation): string[] {
-    const distances = STATIONS_INFO_CONSTANTS.map(station => ({
-      id: station.id,
-      distance: calculateDistanceBetweenCoordinates(userLocation, {
-        latitude: station.latitude,
-        longitude: station.longitude,
-      }),
-    }));
-
-    distances.sort((a, b) => a.distance - b.distance);
-    return distances.slice(0, 2).map(station => station.id);
   }
 
   ngOnDestroy(): void {

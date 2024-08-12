@@ -1,6 +1,8 @@
 import { BadgeColor, StationTrainArrivalCard, TrainArrivalDetails } from '@atl-transit/core';
-import { TrainArrivalInfo } from '../models/api.interfaces';
+import { GeoLocation, TrainArrivalInfo } from '../models/api.interfaces';
 import { UserStationTrainArrivalData } from '../models/state.interfaces';
+import { calculateDistanceBetweenCoordinates } from './calculation-helpers';
+import { STATIONS_INFO_CONSTANTS } from '../constants/station-geolocation.constants';
 
 export function filterArrivals(
   arrivals: TrainArrivalInfo[],
@@ -37,6 +39,19 @@ export function filterArrivals(
     nearestStations: stationTrainArrivalCardList,
     savedStations: savedStationTrainArrivalCardList,
   };
+}
+
+export function getNearestStations(userLocation: GeoLocation): string[] {
+  const distances = STATIONS_INFO_CONSTANTS.map(station => ({
+    id: station.id,
+    distance: calculateDistanceBetweenCoordinates(userLocation, {
+      latitude: station.latitude,
+      longitude: station.longitude,
+    }),
+  }));
+
+  distances.sort((a, b) => a.distance - b.distance);
+  return distances.slice(0, 2).map(station => station.id);
 }
 
 export function transformToTrainArrivalDetails(
