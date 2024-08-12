@@ -42,7 +42,8 @@ import {
             <app-train-arrival-details [content]="arrival" />
           }
         } @empty {
-          <div class="pb-12 px-4 bg-neutral-100 rounded-md">
+          <hr class="border-t border-neutral-400" />
+          <div class="pb-12 px-4rounded-md">
             <core-info-message [content]="messaging" />
           </div>
         }

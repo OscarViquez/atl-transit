@@ -33,14 +33,16 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
         <section class="flex flex-col gap-4">
           <core-header [content]="staticContent.header" />
           <div>
-            @if (facade.isLocationOn$ | async; as isLocationOn) {
+            @if (facade.isLocationOn$ || !facade.isLocationOn$ | async; as isLocationOn) {
               @defer {
-                <core-badge class="animate-fade-up" color="blue"> Location On </core-badge>
+                <core-badge class="animate-fade-up" color="blue">
+                  Location {{ isLocationOn ? 'On' : 'Off' }}
+                </core-badge>
               } @loading (minimum 2000ms) {
                 <core-badge class="animate-fade-up" color="gray"> Loading Location... </core-badge>
               }
             } @else {
-              <core-badge class="animate-fade-up" color="gray"> Loading Off </core-badge>
+              <core-badge class="animate-fade-up" color="gray"> Loading Location... </core-badge>
             }
           </div>
         </section>
@@ -57,6 +59,8 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
                     [content]="nearestStations"
                     (saveEmitter)="onSaveStation($event)" />
                 </div>
+              } @empty {
+                <core-info-message [content]="messaging.noSavedStations" />
               }
             }
 
@@ -80,7 +84,7 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
   `,
 })
 export class TrainPageComponent implements OnInit {
-facade = inject(FacadeService);
+  facade = inject(FacadeService);
 
   messaging: TrainPageMessaging = TRAIN_PAGE_MESSAGING;
 

@@ -32,7 +32,7 @@ import { Observable } from 'rxjs';
 
       <core-modal
         [isOpen]="isModalOpen"
-        [isBottomSheet]="true"
+        [isBottomSheet]="false"
         (modalChange)="onModalChange($event)">
         <div class="h-full">
           <div class="text-center mt-[10rem]">

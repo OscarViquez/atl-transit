@@ -26,7 +26,7 @@ export const STATIONS_INFO_CONSTANTS: StationGeolocation[] = [
     longitude: -84.35631,
   },
   {
-    id: 'LINDBERGH CENTER STATION',
+    id: 'LINDBERGH STATION',
     name: 'Lindbergh Center',
     latitude: 33.821995,
     longitude: -84.367447,
@@ -86,7 +86,7 @@ export const STATIONS_INFO_CONSTANTS: StationGeolocation[] = [
     longitude: -84.4252,
   },
   {
-    id: 'LAKEWOOD FORT MCPHERSON STATION',
+    id: 'LAKEWOOD STATION',
     name: 'Lakewood Fort McPherson',
     latitude: 33.700457,
     longitude: -84.428859,
@@ -128,7 +128,7 @@ export const STATIONS_INFO_CONSTANTS: StationGeolocation[] = [
     longitude: -84.352797,
   },
   {
-    id: 'EDGWEOOD CANDLER PARK STATION',
+    id: 'EDGWEOOD STATION',
     name: 'Edgewood Candler Park',
     latitude: 33.762001,
     longitude: -84.339579,
