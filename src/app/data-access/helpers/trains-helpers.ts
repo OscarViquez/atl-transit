@@ -4,34 +4,40 @@ import { UserStationTrainArrivalData } from '../models/state.interfaces';
 import { calculateDistanceBetweenCoordinates } from './calculation-helpers';
 import { STATIONS_INFO_CONSTANTS } from '../constants/station-geolocation.constants';
 
+/**
+ * We are filtering the train arrivals to only show the stations that are in either the nearestStations or savedStations array.
+ * We figured that this is an efficient way to identify the  arrivals of stations that are close to the user or the user has saved,
+ * rather than calling multiple API requests to get the arrivals of each station. (e.g what if user has saved 10 stations, we should avoid
+ * making 10 API requests to get the arrivals of each station)
+ */
 export function filterArrivals(
   arrivals: TrainArrivalInfo[],
-  stations: string[],
+  nearStations: string[],
   savedStations: string[]
 ): UserStationTrainArrivalData {
   const captilizedSaveStations = savedStations.map(station => station.toUpperCase());
 
   // Filter all arrivals that are ONLY shown in the stations array list
-  const filteredArrivals = arrivals.filter(arrival => stations.includes(arrival.STATION));
+  const filteredArrivals = arrivals.filter(arrival => nearStations.includes(arrival.STATION));
   const filterSavedArrivals = arrivals.filter(arrival =>
     captilizedSaveStations.includes(arrival.STATION)
   );
 
-  const trainArrivalDetailsList: TrainArrivalDetails[] =
+  const mapToTrainArrivalDetailsList: TrainArrivalDetails[] =
     transformToTrainArrivalDetails(filteredArrivals);
 
-  const savedTrainArrivalDetailsList: TrainArrivalDetails[] =
+  const mapTosavedTrainArrivalDetailsList: TrainArrivalDetails[] =
     transformToTrainArrivalDetails(filterSavedArrivals);
 
   const stationTrainArrivalCardList = transformToStationTrainArrivalCard(
-    stations,
-    trainArrivalDetailsList,
+    nearStations,
+    mapToTrainArrivalDetailsList,
     captilizedSaveStations
   );
 
   const savedStationTrainArrivalCardList = transformToStationTrainArrivalCard(
     captilizedSaveStations,
-    savedTrainArrivalDetailsList,
+    mapTosavedTrainArrivalDetailsList,
     captilizedSaveStations
   );
 
@@ -41,6 +47,10 @@ export function filterArrivals(
   };
 }
 
+/**
+ * We compare the user's location to the latitude and longitude of each station to get the distance between the user and the station.
+ * We then sort the distances in ascending order and return the first two stations in the list.
+ */
 export function getNearestStations(userLocation: GeoLocation): string[] {
   const distances = STATIONS_INFO_CONSTANTS.map(station => ({
     id: station.id,
@@ -54,6 +64,10 @@ export function getNearestStations(userLocation: GeoLocation): string[] {
   return distances.slice(0, 2).map(station => station.id);
 }
 
+/**
+ * Only use this function if you want to transform the TrainArrivalInfo[] to TrainArrivalDetails[]
+ * for the TrainArrivalDetails UI Component
+ */
 export function transformToTrainArrivalDetails(
   trainArrivals: TrainArrivalInfo[]
 ): TrainArrivalDetails[] {
@@ -70,6 +84,10 @@ export function transformToTrainArrivalDetails(
   }));
 }
 
+/**
+ * Only use this function if you want to transform the TrainArrivalDetails[] to StationTrainArrivalCard[]
+ * for the StationTrainArrivalCard UI Component. ( Idealy, this function will only be used on train page unless figma design changes )
+ */
 export function transformToStationTrainArrivalCard(
   stations: string[],
   trainArrivalDetails: TrainArrivalDetails[],
@@ -121,16 +139,20 @@ export function transformLineToBadgeColor(line: string): BadgeColor {
   }
 }
 
-export function generateStationUrl(station: string): string {
-  return `/stations/${station.toLowerCase().replace('station', '')}`;
-}
-
+/**
+ * Output the station name in the format the design requires,
+ *  e.g "PEACHTREE CENTER" => "Peachtree Center" or "north springs" => "North Springs"
+ */
 export function formatStationName(station: string): string {
   return station
     .toLowerCase()
     .split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+}
+
+export function generateStationUrl(station: string): string {
+  return `/stations/${station.toLowerCase().replace('station', '')}`;
 }
 
 export function isStationSaved(station: string, savedStations: string[]): boolean {
