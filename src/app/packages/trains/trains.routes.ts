@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { TrainPageComponent } from './pages/trains-page/train-page.component';
+import { TrainPageComponent } from './components/trains-page/train-page.component';
 
 export const TRAINS_ROUTES: Routes = [
   {

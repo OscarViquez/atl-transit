@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { SearchPageComponent } from './pages';
+import { SearchPageComponent } from './components';
 
 export const SEARCH_ROUTES: Routes = [
   {

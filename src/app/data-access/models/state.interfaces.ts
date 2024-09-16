@@ -1,10 +1,10 @@
 import { StationTrainArrivalCard } from '@atl-transit/core';
-import { GeoLocation, TrainArrivalInfo } from './api.interfaces';
+import { GeoLocationCoord } from './api.interfaces';
 
 export interface GeolocationState {
-  location: GeoLocation;
-  error: string | null;
-  userSelectionMade: boolean; // New property
+  location: GeoLocationCoord;
+  isLocationAllowed: boolean;
+  error?: string;
 }
 
 export interface UserStationTrainArrivalData {

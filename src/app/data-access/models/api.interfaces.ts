@@ -1,18 +1,11 @@
 // GEO-LOCATION ( BROWSER & SERVER API )
-export interface GeoLocation {
-  latitude: number;
-  longitude: number;
-}
-
-export interface StationGeolocation {
-  id: string;
-  name: string;
+export interface GeoLocationCoord {
   latitude: number;
   longitude: number;
 }
 
 // TRAINS SERVER API
-export interface TrainArrivalInfo {
+export interface TrainArrivalEndpointResponse {
   DESTINATION: string;
   DIRECTION: string;
   EVENT_TIME: string;
@@ -30,3 +23,23 @@ export interface TrainArrivalInfo {
   TRACK_CIRCUIT: string;
   TRIP_ID: string;
 }
+
+// STATIONS SERVER API
+export interface StationDetailsEndpointResponse {
+  name: string;
+  description: string;
+  routes: StationEndpointBusRoute[];
+  amenities: StationEndpointAmenity[];
+  arrivals: TrainArrivalEndpointResponse[];
+}
+
+export interface StationEndpointBusRoute {
+  routeNumber: string;
+  routeName: string;
+}
+
+export interface StationEndpointAmenity {
+  amenityName: string;
+}
+
+export type TrainStatus = number | 'Arriving' | 'Delayed';

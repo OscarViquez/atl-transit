@@ -1,1 +1,1 @@
-export * from './pages/trains-page/train-page.component';
+export * from './components/trains-page/train-page.component';

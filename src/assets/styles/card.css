@@ -9,6 +9,10 @@
   @apply flex flex-col space-y-4 w-full rounded-lg border border-neutral-400 p-4 md:p-6;
 }
 
+.card > :not([hidden]) ~ :not([hidden]) {
+  @apply m-0;
+}
+
 .card--shadow {
   @apply border-0 shadow-md;
 }

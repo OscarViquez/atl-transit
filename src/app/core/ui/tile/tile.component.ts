@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <button
-      class="tile  focus:outline focus:outline-white focus:outline-2 focus:shadow-focused-state">
+      class="tile focus:outline focus:outline-white focus:outline-2 focus:shadow-focused-state">
       <p class="block text-5 font-medium max-w-[12ch]">
         <ng-content>
           <!-- Add Tile label here -->

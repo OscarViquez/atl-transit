@@ -1,5 +1,7 @@
-import { Amenities, BusRoutes, Header, StationTrainArrivalCard } from '@atl-transit/core';
+import { Header, StationTrainArrivalCard } from '@atl-transit/core';
 import {
+  StationDetailsAmenity,
+  StationDetailsBusRoute,
   StationDetailsPage,
   StationDetailsPageMessaging,
 } from '../interfaces/station-details-page.interfaces';
@@ -12,60 +14,50 @@ export const STATION_DETAILS_PAGE_HEADER: Header = {
   `,
 };
 
-export const STATION_BUS_ROUTES: BusRoutes[] = [
+export const STATION_BUS_ROUTES: StationDetailsBusRoute[] = [
   {
-    name: 'Route 123',
+    routeNumber: 'Route 123',
     street: 'Marietta Blvd / Joseph E Lowery Blvd',
     serviceOperator: 'MARTA',
   },
   {
-    name: 'Route 456',
+    routeNumber: 'Route 456',
     street: 'Marietta Blvd / Joseph E Lowery Blvd',
     serviceOperator: 'MARTA',
   },
   {
-    name: 'Route 789',
+    routeNumber: 'Route 789',
     street: 'Marietta Blvd / Joseph E Lowery Blvd',
     serviceOperator: 'MARTA',
   },
   {
-    name: 'Route 101',
+    routeNumber: 'Route 101',
     street: 'Marietta Blvd / Joseph E Lowery Blvd',
     serviceOperator: 'MARTA',
   },
 ];
 
-export const STATION_AMENITIES: Amenities[] = [
+export const STATION_AMENITIES: StationDetailsAmenity[] = [
   {
     name: 'Restrooms',
-    description: 'Public restrooms are available at this station',
   },
   {
     name: 'Elevator',
-    description: 'Elevator access is available at this station',
   },
   {
     name: 'Parking',
-    description: 'Parking is available at this station',
-    costType: 'paid',
   },
   {
     name: 'Bike Repair',
-    description: 'Bike repair is available at this station',
-    costType: 'paid',
   },
   {
     name: 'Lost & Found',
-    description: 'Lost & found is available at this station',
   },
   {
     name: 'Police',
-    description: 'Police are available at this station',
   },
   {
     name: 'ATM',
-    description: 'ATM is available at this station',
-    costType: 'paid',
   },
 ];
 
@@ -115,7 +107,7 @@ export const STATION_TRAIN_ARRIVAL_TIMES: StationTrainArrivalCard[] = [
       },
     ],
     link: {
-      url: '/stations/doraville#top-page',
+      url: '/stations/doraville#',
     },
     isSaved: false,
   },

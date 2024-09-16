@@ -29,8 +29,8 @@ import {
   template: `
     <article
       role="link"
-      class="card cursor-pointer animate-fade-up"
-      (click)="navigateToDetails()"
+      class="card gap-4 border-none shadow-card bg-white cursor-pointer transition-all duration-200 animate-fade-up"
+      (click)="navigateToStationDetails()"
       tabindex="0">
       <div class="flex justify-between items-center">
         <core-header [content]="content.header" variant="card" />
@@ -38,32 +38,35 @@ import {
       </div>
       @defer {
         @for (arrival of content.arrivals; track idx; let idx = $index) {
-          @if (idx < 3) {
+          @if (idx < 5) {
             <app-train-arrival-details [content]="arrival" />
           }
         } @empty {
-          <hr class="border-t border-neutral-400" />
-          <div class="pb-12 px-4rounded-md">
+          <div class="pb-12 px-4 rounded-md">
             <core-info-message [content]="messaging" />
           </div>
         }
-      } @loading (minimum 2000ms) {
+      } @loading (minimum 800ms) {
         <core-loading-skeleton loadingItem="header" />
         <core-loading-skeleton loadingItem="header" />
       }
 
-      <div class="sr-only">
-        <a [routerLink]="content.link.url">View {{ content.header.title }} station details</a>
+      <div class="pt-4 border-t border-t-neutral-400">
+        <p class="text-center text-neutral-900 underline font-semibold text-4">
+          View Arrivals & Station Details
+        </p>
       </div>
     </article>
   `,
 })
 export class StationTrainArrivalCardComponent {
   @Input() content: StationTrainArrivalCard = {} as StationTrainArrivalCard;
-
   @Output() saveEmitter = new EventEmitter<{ name: string; isSaved: boolean }>();
 
   messaging: Header = STATION_TRAIN_ARRIVAL_CARD_MESSAGING;
+  expand: boolean = false;
+
+  constructor(private router: Router) {}
 
   /**
    * Rather than using [routerLink]="content.link.url" on the actual card, we are
@@ -71,11 +74,8 @@ export class StationTrainArrivalCardComponent {
    * clickable anywhere on the card, and we want to avoid the card being clickable when
    * the user clicks on the bookmark / saved button.
    **/
-
-  constructor(private router: Router) {}
-
-  navigateToDetails() {
-    this.router.navigate([this.content.link.url], { fragment: 'top' });
+  navigateToStationDetails() {
+    this.router.navigate([this.content.link.url]);
   }
 
   toggleSaved(event: Event) {
@@ -83,8 +83,4 @@ export class StationTrainArrivalCardComponent {
     this.content.isSaved = !this.content.isSaved;
     this.saveEmitter.emit({ name: this.content.header.title, isSaved: this.content.isSaved });
   }
-
-  // TODO: Add logic to delay the saveEmitter event...
-  // Because we want to give users a chance to cancel the save action
-  // This can also provide a smoother, less choppy experience
 }
