@@ -33,7 +33,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   template: `
     <div class="flex flex-col mx-auto  pb-12">
       <!-- Station Details Main Content -->
-      <div class="w-full h-[309px] bg-neutral-200 animate-overlay-enter"></div>
+      <img
+        src="assets/images/station-details-placeholder.jpg"
+        alt="Station Details Hero Image"
+        class="w-full h-[309px] object-cover lg:rounded-lg bg-neutral-600 animate-overlay-enter" />
 
       @if (facade.stationDetails$ | async; as content) {
         <section class="flex flex-col gap-10 pt-10 px-6 lg:px-0">
