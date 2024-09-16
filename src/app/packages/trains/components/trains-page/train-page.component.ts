@@ -65,6 +65,12 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
                 <core-info-message [content]="messaging.noSavedStations" />
               }
             }
+          } @else {
+            <div class="flex flex-col gap-6 animate-fade-up">
+              <core-loading-skeleton loadingItem="card" />
+              <core-loading-skeleton loadingItem="card" />
+              <core-loading-skeleton loadingItem="card" />
+            </div>
           }
 
           @if (facade.savedStations$ | async; as arrivals) {
@@ -78,7 +84,7 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
                   <core-info-message [content]="messaging.noSavedStations" />
                 }
               } @loading {
-                <core-loading-skeleton />
+                <core-loading-skeleton loadingItem="card" />
               }
             }
           }

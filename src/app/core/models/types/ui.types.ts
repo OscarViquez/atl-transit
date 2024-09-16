@@ -14,6 +14,7 @@ export type Color = 'red' | 'orange' | 'gold' | 'green' | 'blue' | 'pink' | 'whi
 
 export type BadgeColor = 'gold' | 'red' | 'orange' | 'green' | 'blue' | 'gray' | 'white' | 'black';
 
+export type LoadingItem = 'search' | 'card' | 'header' | 'icon' | 'list' | 'image' | 'icon';
 /**
  * Card is a type that defines the structure of a card.
  * @property title - The title of the card.
