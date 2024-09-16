@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { STATION_DETAILS_ERROR_MESSAGING } from '../../constants/station-details-page.constants';
 import {
+  BadgeComponent,
   Header,
   InfoMessageComponent,
   LoadingSkeletonComponent,
@@ -17,10 +18,17 @@ import {
     TrainArrivalDetailsComponent,
     LoadingSkeletonComponent,
     InfoMessageComponent,
+    BadgeComponent,
   ],
   template: `
     <section class="flex flex-col gap-8" id="upcoming-arrivals">
-      <h2 class="text-7 font-bold">Upcoming Arrivals</h2>
+      <div class="flex items-center justify-between">
+        <h2 class="text-7 font-bold">Upcoming Arrivals</h2>
+        <div class="flex items-center gap-2">
+          <core-badge> {{ arrivals.length }} </core-badge>
+          <span> Total </span>
+        </div>
+      </div>
 
       <div class="card gap-4 border-none shadow-card bg-white cursor-pointer animate-fade-up">
         @defer (on timer(500ms)) {

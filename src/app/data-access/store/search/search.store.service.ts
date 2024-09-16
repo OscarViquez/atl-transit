@@ -14,7 +14,7 @@ export class SearchStoreService {
       list: STATIONS_INFO_CONSTANTS.map((station: StationMetadata) => {
         return {
           name: formatStationName(station.name),
-          url: generateStationUrl(station.name),
+          url: generateStationUrl(station.id.toLowerCase()),
         };
       }),
     };

@@ -69,7 +69,6 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
             <div class="flex flex-col gap-6 animate-fade-up">
               <core-loading-skeleton loadingItem="card" />
               <core-loading-skeleton loadingItem="card" />
-              <core-loading-skeleton loadingItem="card" />
             </div>
           }
 

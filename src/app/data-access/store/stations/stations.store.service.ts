@@ -11,7 +11,12 @@ import {
   StationEndpointAmenity,
   StationEndpointBusRoute,
 } from '../../models/api.interfaces';
-import { isStationSaved, transformToTrainArrivalDetails } from '../../utils/trains-utils';
+import {
+  formatStationName,
+  isStationSaved,
+  sortTrainArrivalDetails,
+  transformToTrainArrivalDetails,
+} from '../../utils/trains-utils';
 import { LocalStorageService } from '../../services/local-storage/local-storage.service';
 
 @Injectable({
@@ -43,12 +48,12 @@ export class StationsStoreService {
     const captilizedSavedStations = savedStations.map(station => station.toUpperCase());
     return {
       header: {
-        title: response.name,
+        title: formatStationName(response.name),
         description: response.description,
       },
       busRoutes: this.mapStationDetailsBusRoutes(response.routes),
       amenities: this.mapStationDetailsAmenities(response.amenities),
-      arrivals: transformToTrainArrivalDetails(response.arrivals),
+      arrivals: sortTrainArrivalDetails(transformToTrainArrivalDetails(response.arrivals)),
       isSaved: isStationSaved(response.name, captilizedSavedStations),
     };
   }

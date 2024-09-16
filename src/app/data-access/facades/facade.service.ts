@@ -56,4 +56,12 @@ export class FacadeService {
     this.stationsStore.setStationDetails(stationName);
     this.stationDetails$ = this.stationsStore.stationDetailsPageSubject.asObservable();
   }
+
+  addStationToSaved(stationName: string): void {
+    this.storageService.saveToLocalStorage<string>('savedStations', stationName);
+  }
+
+  removeStationFromSaved(stationName: string): void {
+    this.storageService.removeFromLocalStorage<string>('savedStations', stationName);
+  }
 }

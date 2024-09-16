@@ -37,7 +37,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 
       @if (facade.stationDetails$ | async; as content) {
         <section class="flex flex-col gap-10 pt-10 px-6 lg:px-0">
-          <app-station-details-header [content]="content.header" [isSaved]="content.isSaved" />
+          <app-station-details-header
+            [content]="content.header"
+            [isSaved]="content.isSaved"
+            (saveEmitter)="onSaveStation($event)" />
           <div class="h-[1px] w-full bg-neutral-400"></div>
           <app-station-upcoming-arrivals [arrivals]="content.arrivals" />
           <app-station-bus-routes [busRoutes]="content.busRoutes" />
@@ -54,11 +57,10 @@ export class StationDetailsPageComponent implements OnInit {
 
   constructor(
     public facade: FacadeService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) {
-    this.stationName = this.route.snapshot.paramMap.get('stationName') || 'dunwoody';
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.stationName = this.route.snapshot.paramMap.get('stationName') || 'five-points';
+    // TODO: Add a fallback to an error page if the station name is not found
   }
 
   ngOnInit(): void {
@@ -67,5 +69,11 @@ export class StationDetailsPageComponent implements OnInit {
 
   toggleMapViewModal() {
     this.openMapViewModal = !this.openMapViewModal;
+  }
+
+  onSaveStation(station: { isSaved: boolean; name: string }): void {
+    station.isSaved
+      ? this.facade.addStationToSaved(station.name)
+      : this.facade.removeStationFromSaved(station.name);
   }
 }
