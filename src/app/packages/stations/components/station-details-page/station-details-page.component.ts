@@ -45,6 +45,11 @@ import { ActivatedRoute, Router } from '@angular/router';
           <app-station-upcoming-arrivals [arrivals]="content.arrivals" />
           <app-station-bus-routes [busRoutes]="content.busRoutes" />
         </section>
+      } @else {
+        <section class="flex flex-col gap-10 pt-10 px-6 lg:px-0">
+          <core-loading-skeleton loadingItem="header" />
+          <core-loading-skeleton loadingItem="card" />
+        </section>
       }
     </div>
   `,
