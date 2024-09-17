@@ -18,7 +18,8 @@ import { StationDetailsBusRoute } from '../../interfaces/station-details-page.in
               name: busRoute.routeNumber,
               badgeLabel: busRoute.serviceOperator,
               description: busRoute.street,
-            }" />
+            }"
+            [isFirstIndex]="f" />
         } @empty {
           <core-info-message [content]="messaging" />
         }

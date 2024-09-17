@@ -2,9 +2,8 @@
   @apply px-5 py-4 min-w-[192px] max-w-full rounded-lg font-semibold text-4 border-2 border-solid active:scale-95 transition-all ease-linear duration-100;
 }
 
-.btn:focus-visible,
-.btn:hover {
-  @apply outline outline-white outline-2 shadow-focused-state;
+.btn-focused-hover {
+  @apply focus-visible:outline focus-visible:outline-white focus-visible:outline-2 focus-visible:shadow-focused-state;
 }
 
 /* Button Sizes */

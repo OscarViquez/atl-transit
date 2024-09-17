@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy, importProvidersFrom } from '@angular/core
 import { Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { Subject, Subscription } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
 import { SearchWidgetComponent } from './packages/search';
 import { BottomNavComponent, SidebarComponent, TopNavComponent } from '@atl-transit/core';
 
@@ -20,11 +20,11 @@ import { BottomNavComponent, SidebarComponent, TopNavComponent } from '@atl-tran
   ],
   template: `
     <main class="flex flex-col justify-center mx-auto my-auto max-w-[84rem] md:gap-6 lg:flex-row">
-      <core-top-nav />
+      <core-top-nav [ngClass]="{ hidden: !showTopBar }" />
       <div class="w-full max-w-[12rem] hidden lg:block lg:pl-8">
         <core-sidebar />
       </div>
-      <div class="flex-1 lg:p-8 mb-14 mt-10 lg:mt-0 xl:max-w-[96rem]">
+      <div class="flex-1 mb-14 lg:p-8 lg:mt-0 xl:max-w-[96rem]">
         @if (showSearchWidget) {
           <div class="hidden lg:block lg:mb-10">
             <app-search-widget />
@@ -38,8 +38,9 @@ import { BottomNavComponent, SidebarComponent, TopNavComponent } from '@atl-tran
 })
 export class AppComponent implements OnInit, OnDestroy {
   showSearchWidget = true;
+  showTopBar = true;
 
-  private routerSubscription!: Subscription;
+  private _destroy$ = new Subject<void>();
 
   /**
    * Inject the Router service to listen to the router events.
@@ -49,8 +50,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // Check the current route and hide the search widget if the route is '/stations/'
   ngOnInit() {
-    this.routerSubscription = this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        takeUntil(this._destroy$)
+      )
       .subscribe(() => {
         this.checkRoute();
       });
@@ -62,11 +66,12 @@ export class AppComponent implements OnInit, OnDestroy {
    * */
   private checkRoute() {
     const currentRoute = this.router.url;
-    this.showSearchWidget = !currentRoute.includes('/cards/');
+    // this.showTopBar = !currentRoute.includes('/stations/');
   }
 
   // Unsubscribe from the router events to prevent memory leaks
   ngOnDestroy() {
-    this.routerSubscription.unsubscribe();
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 }

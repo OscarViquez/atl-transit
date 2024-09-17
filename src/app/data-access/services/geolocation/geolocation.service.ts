@@ -3,60 +3,76 @@ import { BROWSER_AGENT, BROWSER_PERMISSION_STATE } from '../../constants/browser
 import { GeolocationState } from '../../models/state.interfaces';
 import { DEFAULT_USER_GEO_POSITION_CONSTANT } from '../../constants/geolocation.constants';
 import { GeoLocationCoord } from '../../models/api.interfaces';
+import { catchError, from, map, Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GeolocationService {
-  async getUserLocation(): Promise<GeolocationState> {
-    try {
-      const permissionStatus = await this.getBrowserLocationPermission();
-      const isLocationAllowed = (await this.getBrowserLocationPermission()) === 'granted';
-      const userPosition = await this.getCurrentUserPosition(permissionStatus);
-      return { location: userPosition, isLocationAllowed };
-    } catch (error) {
-      return {
-        location: DEFAULT_USER_GEO_POSITION_CONSTANT,
-        isLocationAllowed: false,
-        error: 'Error getting user location. We have set your location to the default.',
-      };
-    }
+
+  getUserLocation(): Observable<GeolocationState> {
+    return this.getBrowserLocationPermission().pipe(
+      switchMap((permissionStatus: PermissionState) => {
+        const isLocationAllowed = permissionStatus === 'granted';
+        return this.getCurrentUserPosition(permissionStatus).pipe(
+          map((userPosition: GeoLocationCoord) => ({
+            location: userPosition,
+            isLocationAllowed,
+          })),
+          catchError((error: any) =>
+            of({
+              location: DEFAULT_USER_GEO_POSITION_CONSTANT,
+              isLocationAllowed: false,
+              error: this.handleLocationError(error),
+            })
+          )
+        );
+      }),
+      catchError((error: any) =>
+        of({
+          location: DEFAULT_USER_GEO_POSITION_CONSTANT,
+          isLocationAllowed: false,
+          error: this.handleLocationError(error),
+        })
+      )
+    );
   }
 
-  getCurrentUserPosition(permission: PermissionState): Promise<GeoLocationCoord> {
-    return new Promise((resolve, reject) => {
+  getCurrentUserPosition(permission: PermissionState): Observable<GeoLocationCoord> {
+    return new Observable(observer => {
       navigator.geolocation.getCurrentPosition(
         position => {
           if (permission === BROWSER_PERMISSION_STATE.DENIED) {
-            resolve({ ...DEFAULT_USER_GEO_POSITION_CONSTANT });
+            observer.next({ ...DEFAULT_USER_GEO_POSITION_CONSTANT });
           } else {
-            resolve({
+            observer.next({
               latitude: position.coords.latitude,
               longitude: position.coords.longitude,
             });
           }
+          observer.complete();
         },
-        error => reject(this.handleLocationError(error))
+        error => {
+          observer.error(this.handleLocationError(error));
+        }
       );
     });
   }
 
-  getBrowserLocationPermission(): Promise<PermissionState> {
-    return new Promise((resolve, reject) => {
-      navigator.permissions
-        .query({ name: 'geolocation' as PermissionName })
-        .then(permissionStatus => {
-          if (permissionStatus.state === BROWSER_PERMISSION_STATE.PROMPT) {
-            // Fallback for safari Browsers
-            resolve(BROWSER_PERMISSION_STATE.DENIED);
-          } else {
-            resolve(permissionStatus.state);
-          }
-        })
-        .catch(error => {
-          reject(this.handleLocationError(error));
-        });
-    });
+  getBrowserLocationPermission(): Observable<PermissionState> {
+    return from(navigator.permissions.query({ name: 'geolocation' as PermissionName })).pipe(
+      map(permissionStatus => {
+        if (permissionStatus.state === BROWSER_PERMISSION_STATE.PROMPT) {
+          // Fallback for safari Browsers
+          return BROWSER_PERMISSION_STATE.DENIED;
+        } else {
+          return permissionStatus.state;
+        }
+      }),
+      catchError(error => {
+        throw this.handleLocationError(error);
+      })
+    );
   }
 
   handleLocationError(error: GeolocationPositionError): string {

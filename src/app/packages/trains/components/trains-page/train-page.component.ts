@@ -29,7 +29,7 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
     DatePipe,
   ],
   template: `
-    <main class="px-6 pt-12 lg:pt-0 lg:px-0 pb-12">
+    <main class="mt-10 px-6 pt-12 lg:pt-0 lg:px-0 pb-12">
       <div class="flex flex-col gap-10">
         <section class="flex flex-col gap-4">
           <core-header [content]="staticContent.header" />
@@ -52,42 +52,40 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
           [labels]="staticContent.tabs"
           (currentTabEmitter)="currentTabSetter($event)" />
 
-        <section class="flex flex-col gap-6">
-          @if (facade.nearbyStations$ | async; as arrivals) {
-            @if (currentTabIndex === 0) {
+        @if (facade.nearbyStations$ | async; as arrivals) {
+          @if (currentTabIndex === 0) {
+            @for (arrival of arrivals; track idx; let idx = $index) {
+              <div class="animate-fade-up">
+                <app-station-train-arrival-card
+                  [content]="arrival"
+                  (saveEmitter)="onSaveStation($event)" />
+              </div>
+            } @empty {
+              <core-info-message [content]="messaging.noSavedStations" />
+            }
+          }
+        } @else {
+          <div class="flex flex-col gap-6 animate-fade-up">
+            <core-loading-skeleton loadingItem="card" />
+            <core-loading-skeleton loadingItem="card" />
+          </div>
+        }
+
+        @if (facade.savedStations$ | async; as arrivals) {
+          @if (currentTabIndex === 1) {
+            @defer {
               @for (arrival of arrivals; track idx; let idx = $index) {
-                <div class="animate-fade-up">
-                  <app-station-train-arrival-card
-                    [content]="arrival"
-                    (saveEmitter)="onSaveStation($event)" />
-                </div>
+                <app-station-train-arrival-card
+                  [content]="arrival"
+                  (saveEmitter)="onSaveStation($event)" />
               } @empty {
                 <core-info-message [content]="messaging.noSavedStations" />
               }
-            }
-          } @else {
-            <div class="flex flex-col gap-6 animate-fade-up">
+            } @loading {
               <core-loading-skeleton loadingItem="card" />
-              <core-loading-skeleton loadingItem="card" />
-            </div>
-          }
-
-          @if (facade.savedStations$ | async; as arrivals) {
-            @if (currentTabIndex === 1) {
-              @defer {
-                @for (arrival of arrivals; track idx; let idx = $index) {
-                  <app-station-train-arrival-card
-                    [content]="arrival"
-                    (saveEmitter)="onSaveStation($event)" />
-                } @empty {
-                  <core-info-message [content]="messaging.noSavedStations" />
-                }
-              } @loading {
-                <core-loading-skeleton loadingItem="card" />
-              }
             }
           }
-        </section>
+        }
       </div>
     </main>
   `,
@@ -109,7 +107,7 @@ export class TrainPageComponent implements OnInit {
 
   onSaveStation(station: { isSaved: boolean; name: string }): void {
     station.isSaved
-      ? this.facade.addSavedStation(station.name)
-      : this.facade.removeSavedStation(station.name);
+      ? this.facade.addStationToSaved(station.name)
+      : this.facade.removeStationFromSaved(station.name);
   }
 }

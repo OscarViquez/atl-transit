@@ -38,7 +38,7 @@ import {
       </div>
       @defer {
         @for (arrival of content.arrivals; track idx; let idx = $index) {
-          @if (idx < 5) {
+          @if (idx < maxArrivalsShown) {
             <app-train-arrival-details [content]="arrival" />
           }
         } @empty {
@@ -65,6 +65,7 @@ export class StationTrainArrivalCardComponent {
 
   messaging: Header = STATION_TRAIN_ARRIVAL_CARD_MESSAGING;
   expand: boolean = false;
+  maxArrivalsShown = 5;
 
   constructor(private router: Router) {}
 
@@ -75,7 +76,7 @@ export class StationTrainArrivalCardComponent {
    * the user clicks on the bookmark / saved button.
    **/
   navigateToStationDetails() {
-    this.router.navigate([this.content.link.url]);
+    this.router.navigate([this.content.link.url], { fragment: 'top' });
   }
 
   toggleSaved(event: Event) {

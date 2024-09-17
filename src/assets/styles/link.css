@@ -5,26 +5,23 @@
     * It includes the default link styles, link sizes, and link colors.
    */
 
+/* link.css */
 .link {
-  @apply basis-0 font-semibold text-4 text-lightBlue rounded-sm hover:underline;
+  @apply basis-0 font-semibold text-4 text-lightBlue transition-all ease-linear duration-100 rounded-sm hover:underline;
 }
 
 .link:focus-visible {
   @apply outline outline-lightBlue outline-2 underline;
-  box-shadow:
-    0px 0px 0px 2px rgb(255, 255, 255),
-    0px 0px 0px 4px hsl(210 100% 40%);
+  @apply shadow-[0px_0px_0px_2px_rgb(255,255,255),0px_0px_0px_4px_hsl(210,100%,40%)] focus:outline-none;
 }
 
 .link-secondary {
-  @apply w-fit basis-0 font-semibold text-4 text-neutral-900 rounded-sm hover:underline;
+  @apply w-fit basis-0 font-semibold text-4 text-neutral-900 rounded-sm transition-all ease-linear duration-100 hover:underline;
 }
 
 .link-secondary:focus-visible {
   @apply outline outline-white outline-2 underline;
-  box-shadow:
-    0px 0px 0px 2px rgb(255, 255, 255),
-    0px 0px 0px 4px hsl(0, 0%, 12%);
+  @apply shadow-[0px_0px_0px_2px_rgb(255,255,255),0px_0px_0px_4px_hsl(0,0%,12%)] focus:outline-none;
 }
 
 .link-disabled {

@@ -17,7 +17,7 @@ import { FacadeService } from '@atl-transit/data-access';
     LoadingSkeletonComponent,
   ],
   template: `
-    <div class="md:hidden pt-10 px-6">
+    <div class="md:hidden mt-10 pt-10 px-6">
       <core-search-bar
         [interactive]="true"
         [placeholder]="'Try Searching Doraville Station'"

@@ -12,7 +12,7 @@
 body {
   @apply overflow-y-scroll;
 }
-
+/* 
 body.scroll-locked {
   overflow: hidden;
   overscroll-behavior: contain;
@@ -23,4 +23,8 @@ body.scroll-locked {
   margin-left: 0;
   margin-top: 0;
   margin-right: 15px;
+} */
+
+body.scroll-locked {
+  @apply overflow-hidden overscroll-contain relative p-0 m-0 pr-4;
 }

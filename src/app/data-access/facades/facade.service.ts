@@ -38,16 +38,6 @@ export class FacadeService {
     this.savedStations$ = this.trainsStore.savedStationsSubject.asObservable();
   }
 
-  addSavedStation(stationName: string): void {
-    this.trainsStore.updateOnSaveTrainArrivals();
-    this.storageService.saveToLocalStorage<string>('savedStations', stationName);
-  }
-
-  removeSavedStation(stationName: string): void {
-    this.trainsStore.updateOnSaveTrainArrivals();
-    this.storageService.removeFromLocalStorage<string>('savedStations', stationName);
-  }
-
   fetchSearchResultsList(): SearchResults[] {
     return [this.searchStore.mapAllStationsList()];
   }
