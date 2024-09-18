@@ -20,11 +20,13 @@ import { BottomNavComponent, SidebarComponent, TopNavComponent } from '@atl-tran
   ],
   template: `
     <main class="flex flex-col justify-center mx-auto my-auto max-w-[84rem] md:gap-6 lg:flex-row">
-      <core-top-nav [ngClass]="{ hidden: !showTopBar }" />
       <div class="w-full max-w-[12rem] hidden lg:block lg:pl-8">
         <core-sidebar />
       </div>
       <div class="flex-1 mb-14 lg:p-8 lg:mt-0 xl:max-w-[96rem]">
+        @if (showTopBar) {
+          <core-top-nav />
+        }
         @if (showSearchWidget) {
           <div class="hidden lg:block lg:mb-10">
             <app-search-widget />
@@ -66,7 +68,7 @@ export class AppComponent implements OnInit, OnDestroy {
    * */
   private checkRoute() {
     const currentRoute = this.router.url;
-    // this.showTopBar = !currentRoute.includes('/stations/');
+    this.showTopBar = !currentRoute.includes('/stations/');
   }
 
   // Unsubscribe from the router events to prevent memory leaks

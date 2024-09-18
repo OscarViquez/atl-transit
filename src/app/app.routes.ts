@@ -14,4 +14,18 @@ export const routes: Routes = [
     loadChildren: () => import('./packages/search/search.routes').then(r => r.SEARCH_ROUTES),
     pathMatch: 'full',
   },
+  {
+    path: 'alerts',
+    loadComponent: () =>
+      import('./pages/under-construction-page/under-construction-page.component').then(
+        c => c.UnderConstructionPageComponent
+      ),
+  },
+  {
+    path: 'menu',
+    loadComponent: () =>
+      import('./pages/under-construction-page/under-construction-page.component').then(
+        c => c.UnderConstructionPageComponent
+      ),
+  },
 ];

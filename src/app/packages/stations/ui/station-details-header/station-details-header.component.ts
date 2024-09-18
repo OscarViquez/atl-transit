@@ -21,7 +21,7 @@ import { Header, LoadingSkeletonComponent, SaveButtonComponent } from '@atl-tran
       </div>
 
       <button
-        class="px-6 py-3 w-full lg:w-fit font-medium text-4 text-center bg-neutral-200 rounded-lg transition-all ease-linear duration-100 hover:bg-neutral-500 active:scale-[.97]"
+        class="mt-2 px-6 py-3 w-full lg:w-fit font-medium text-4 text-center bg-neutral-200 rounded-lg transition-all ease-linear duration-100 hover:bg-neutral-500 active:scale-[.97]"
         (click)="expandDescription()">
         Read
         {{ expand ? 'Less' : 'More' }}

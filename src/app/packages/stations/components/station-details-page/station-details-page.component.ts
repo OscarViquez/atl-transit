@@ -1,14 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InfoMessageComponent, LoadingSkeletonComponent, ToastComponent } from '@atl-transit/core';
-import {
-  StationDetailsPage,
-  StationDetailsPageMessaging,
-} from '../../interfaces/station-details-page.interfaces';
-import {
-  STATION_DETAILS_ERROR_MESSAGING,
-  STATION_DETAILS_PAGE,
-} from '../../constants/station-details-page.constants';
+import { StationDetailsPageMessaging } from '../../interfaces/station-details-page.interfaces';
+import { STATION_DETAILS_ERROR_MESSAGING } from '../../constants/station-details-page.constants';
 import {
   StationAmenitiesComponent,
   StationBusRoutesComponent,
@@ -16,7 +10,6 @@ import {
   StationDetailsHeaderComponent,
 } from '../../ui';
 import { FacadeService } from '@atl-transit/data-access';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-stations-details-page',
@@ -33,7 +26,6 @@ import { ActivatedRoute } from '@angular/router';
   ],
   template: `
     <div class="flex flex-col mx-auto pb-12">
-      <!-- Station Details Main Content -->
       @defer {
         <img
           src="assets/images/atlanta-piedmont-park.jpg"
@@ -50,44 +42,29 @@ import { ActivatedRoute } from '@angular/router';
             [content]="content.header"
             [isSaved]="content.isSaved"
             (saveEmitter)="onSaveStation($event)" />
-
           <div class="h-[1px] w-full bg-neutral-400"></div>
-
           <app-station-upcoming-arrivals [arrivals]="content.arrivals" />
           <app-station-bus-routes [busRoutes]="content.busRoutes" />
-
           <app-station-amenities [amenities]="content.amenities" />
         </section>
       } @else {
         <section class="flex flex-col gap-10 pt-10 px-6 lg:px-0">
           <core-loading-skeleton loadingItem="header" />
+          <core-loading-skeleton loadingItem="button" />
           <core-loading-skeleton loadingItem="card" />
         </section>
       }
     </div>
   `,
 })
-export class StationDetailsPageComponent implements OnInit {
-  content: StationDetailsPage = STATION_DETAILS_PAGE;
+/**
+ * The data for the Station Details page is being dynamically loaded from the store,
+ * via the resolver. Check the `station-details-page.resolver.ts` file to see how
+ * the data is being fetched.
+ */
+export class StationDetailsPageComponent {
+  facade = inject(FacadeService);
   messaging: StationDetailsPageMessaging = STATION_DETAILS_ERROR_MESSAGING;
-  openMapViewModal = false;
-  stationName = '';
-
-  constructor(
-    public facade: FacadeService,
-    private route: ActivatedRoute
-  ) {
-    this.stationName = this.route.snapshot.paramMap.get('stationName') || 'stationName';
-    // TODO: Add a fallback to an error page if the station name is not found
-  }
-
-  ngOnInit(): void {
-    this.facade.fetchStationDetails(this.stationName);
-  }
-
-  toggleMapViewModal() {
-    this.openMapViewModal = !this.openMapViewModal;
-  }
 
   onSaveStation(station: { isSaved: boolean; name: string }): void {
     station.isSaved

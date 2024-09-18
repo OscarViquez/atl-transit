@@ -54,4 +54,8 @@ export class FacadeService {
   removeStationFromSaved(stationName: string): void {
     this.storageService.removeFromLocalStorage<string>('savedStations', stationName);
   }
+
+  updateTrainPageCards(): void {
+    this.trainsStore.updateOnSaveTrainArrivals();
+  }
 }

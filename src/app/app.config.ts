@@ -1,6 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import {
   provideRouter,
+  RouteReuseStrategy,
   withInMemoryScrolling,
   withRouterConfig,
   withViewTransitions,
@@ -17,7 +18,8 @@ export const appConfig: ApplicationConfig = {
       withRouterConfig({
         onSameUrlNavigation: 'reload',
       }),
-      withInMemoryScrolling({ scrollPositionRestoration: 'top' })
+      withViewTransitions(),
+      withInMemoryScrolling({ scrollPositionRestoration: 'top' }),
     ),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),

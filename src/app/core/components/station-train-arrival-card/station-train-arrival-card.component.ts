@@ -76,7 +76,7 @@ export class StationTrainArrivalCardComponent {
    * the user clicks on the bookmark / saved button.
    **/
   navigateToStationDetails() {
-    this.router.navigate([this.content.link.url], { fragment: 'top' });
+    this.router.navigate([this.content.link.url]);
   }
 
   toggleSaved(event: Event) {

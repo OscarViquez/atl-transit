@@ -29,7 +29,7 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
     DatePipe,
   ],
   template: `
-    <main class="mt-10 px-6 pt-12 lg:pt-0 lg:px-0 pb-12">
+    <main class="mt-10 mx-auto pb-12 px-6 pt-12 lg:pt-0 lg:px-0">
       <div class="flex flex-col gap-10">
         <section class="flex flex-col gap-4">
           <core-header [content]="staticContent.header" />
@@ -44,6 +44,8 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
               } @loading (minimum 800ms) {
                 <core-badge class="animate-fade-up" color="gray"> Loading Location... </core-badge>
               }
+            } @else {
+              <div class="skeleton-loader w-[8rem] animate-fade-up"></div>
             }
           </div>
         </section>
@@ -106,8 +108,11 @@ export class TrainPageComponent implements OnInit {
   }
 
   onSaveStation(station: { isSaved: boolean; name: string }): void {
-    station.isSaved
-      ? this.facade.addStationToSaved(station.name)
-      : this.facade.removeStationFromSaved(station.name);
+    if (station.isSaved) {
+      this.facade.addStationToSaved(station.name);
+    } else {
+      this.facade.removeStationFromSaved(station.name);
+    }
+    this.facade.updateTrainPageCards();
   }
 }

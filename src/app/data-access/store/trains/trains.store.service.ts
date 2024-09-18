@@ -34,7 +34,6 @@ export class TrainsStoreService {
         this._userCoordinates = userGeolocation.location;
         this._allTrainsArrivalInfo$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
           next: arrivals => {
-            console.log('fetchAllArrivals');
             this.mapAllTrainArrivals(arrivals, this._userCoordinates);
           },
           error: () => {

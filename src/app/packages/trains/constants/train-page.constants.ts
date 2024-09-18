@@ -35,7 +35,7 @@ export const STATION_TRAIN_ARRIVAL_CARD: StationTrainArrivalCard[] = [
       },
     ],
     link: {
-      url: '/stations/doraville#top-page',
+      url: '/stations/doraville',
     },
     isSaved: false,
   },
@@ -173,5 +173,5 @@ export const TRAIN_PAGE_LOCATION_STATUS = {
 
 export const TRAIN_PAGE_STATIC_CONTENT: TrainPageStaticContent = {
   header: TRAIN_PAGE_HEADER,
-  tabs: ['Nearest', 'Saved'],
+  tabs: ['Nearby', 'Saved'],
 };
