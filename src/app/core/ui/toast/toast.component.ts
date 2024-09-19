@@ -11,8 +11,11 @@ type ToastPosition = 'top' | 'bottom';
   template: `
     <!-- Toast component -->
     <article
-      class="flex rounded-md min-w-80 overlay-shadow bg-white animate-accordion-up"
-      [ngClass]="{ '': float }">
+      class="fixed z-50 flex mx-auto rounded-md w-full max-w-80 overlay-shadow bg-white"
+      [ngClass]="{
+        'bottom-24': position === 'bottom',
+        'top-14': position === 'top',
+      }">
       <!-- Toast header -->
       <div class="h-6 flex items-center justify-center rounded-t-md">
         <span class="text-1 text-neutral-400 text-center"></span>
@@ -26,15 +29,6 @@ type ToastPosition = 'top' | 'bottom';
 })
 export class ToastComponent {
   /**
-   * @summary The 'float' input determines whether the toast message will float above the content or not.
-   * __Example usages:__
-   * - Displaying error messages
-   * - Showing success messages after form submission
-   *
-   */
-  @Input() float: boolean = true;
-
-  /**
    * @summary The 'position' input determines the position of the toast message on the screen.
    * __Example usages:__
    * - 'top' for important notifications that need immediate attention
@@ -43,5 +37,13 @@ export class ToastComponent {
    */
   @Input() position: ToastPosition = 'bottom';
 
+  /**
+   * @summary The 'variant' input determines the color of the toast message.
+   * __Example usages:__
+   * - 'default' for general information
+   * - 'success' for successful operations
+   * - 'error' for error messages
+   *
+   */
   @Input() variant: ToastVariant = 'default';
 }
