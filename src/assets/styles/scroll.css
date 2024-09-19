@@ -10,7 +10,7 @@
 }
 
 body {
-  @apply overflow-y-scroll;
+  @apply overflow-y-scroll overflow-x-hidden;
 }
 /* 
 body.scroll-locked {
@@ -26,5 +26,5 @@ body.scroll-locked {
 } */
 
 body.scroll-locked {
-  @apply overflow-hidden overscroll-contain relative p-0 m-0 pr-4;
+  @apply overflow-hidden overscroll-contain relative p-0 m-0;
 }

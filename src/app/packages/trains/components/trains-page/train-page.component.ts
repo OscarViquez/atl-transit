@@ -8,12 +8,16 @@ import {
   LoadingSkeletonComponent,
   StationTrainArrivalCardComponent,
   TabListComponent,
+  ToastComponent,
 } from '@atl-transit/core';
 import {
   TRAIN_PAGE_MESSAGING,
   TRAIN_PAGE_STATIC_CONTENT,
 } from '../../constants/train-page.constants';
-import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/train-page.interfaces';
+import {
+  TrainPageMessaging,
+  TrainPageStaticContent,
+} from '../../interfaces/train-page.interfaces';
 
 @Component({
   selector: 'app-train-page',
@@ -42,7 +46,9 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
                   Location {{ location.isLocationAllowed ? 'On' : 'Off' }}
                 </core-badge>
               } @loading (minimum 800ms) {
-                <core-badge class="animate-fade-up" color="gray"> Loading Location... </core-badge>
+                <core-badge class="animate-fade-up" color="gray">
+                  Loading Location...
+                </core-badge>
               }
             } @else {
               <div class="skeleton-loader w-[8rem] animate-fade-up"></div>
