@@ -28,6 +28,7 @@
       "@atl-transit/maps": ["./src/app/packages/maps/index"],
       "@atl-transit/search": ["./src/app/packages/search/index"],
       "@atl-transit/trains": ["./src/app/packages/trains/index"],
+      "@atl-transit/errors": ["./src/app/packages/errors/index"],
       "@atl-transit/env": ["./src/environments/index"]
     }
   },
