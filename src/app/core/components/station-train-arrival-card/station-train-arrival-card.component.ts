@@ -52,9 +52,22 @@ import {
       }
 
       <div class="pt-4 border-t border-t-neutral-400">
-        <p class="text-center text-neutral-900 underline font-semibold text-4">
-          View Arrivals & Station Details
-        </p>
+        <div class="flex justify-end text-center ">
+          <span class="ml-0 text-neutral-900  font-medium text-4"> View All Arrivals </span>
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="w-5"
+              fill="none">
+              <path
+                d="M8.29289 4.29289C7.90237 4.68342 7.90237 5.31658 8.29289 5.70711L14.5858 12L8.29289 18.2929C7.90237 18.6834 7.90237 19.3166 8.29289 19.7071C8.68342 20.0976 9.31658 20.0976 9.70711 19.7071L16.7071 12.7071C17.0976 12.3166 17.0976 11.6834 16.7071 11.2929L9.70711 4.29289C9.31658 3.90237 8.68342 3.90237 8.29289 4.29289Z"
+                class="fill-neutral-900" />
+            </svg>
+          </div>
+        </div>
       </div>
     </article>
   `,

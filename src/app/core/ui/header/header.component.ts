@@ -14,17 +14,6 @@ import { Header } from '../../models';
   `,
 })
 export class HeaderComponent {
-  /**
-   * `content` is an object that represents the content of the header.
-   * This property is decorated with `@Input()`, which means it's a property that can be set by a parent component.
-   */
   @Input() content!: Header;
-
-  /**
-   * `variant` is a string that represents the variant of the header.
-   * It can be 'page', 'section', or 'card'.
-   * This property is decorated with `@Input()`, which means it's a property that can be set by a parent component.
-   * If not provided, it defaults to 'page'.
-   */
   @Input() variant: 'page' | 'section' | 'card' = 'page';
 }

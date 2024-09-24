@@ -10,21 +10,9 @@
 }
 
 body {
-  @apply overflow-y-scroll overflow-x-hidden;
+  @apply overflow-y-scroll overflow-x-hidden p-0 m-0;
 }
-/* 
-body.scroll-locked {
-  overflow: hidden;
-  overscroll-behavior: contain;
-  position: relative;
-  padding-left: 0px;
-  padding-top: 0px;
-  padding-right: 0px;
-  margin-left: 0;
-  margin-top: 0;
-  margin-right: 15px;
-} */
 
 body.scroll-locked {
-  @apply overflow-hidden overscroll-contain relative p-0 m-0;
+  @apply overflow-hidden overscroll-contain relative p-0 mt-0 mr-4;
 }

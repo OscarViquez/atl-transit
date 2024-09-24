@@ -8,7 +8,6 @@ export const animations = {
   'fade-up': 'fade-up 0.3s ease-out',
   'fade-down': 'fade-down 0.3s ease-out',
   'fade-out': ' fade-out 300ms ease 0ms 1 normal forwards running',
-  // 'fade-out': ' fade-out 0.3s forwards',
   'overlay-enter':
     'overlay-enter-view 1200ms linear(0,0.00506 1.18%,0.02044 2.46%,0.08322 5.391%,0.46561 17.652%,0.63901 24.342%,0.76663 31.093%,0.85981 38.454%,0.89862 42.934%,0.92965 47.845%,0.95366 53.305%,0.97154 59.516%,0.99189 74.867%,0.9991) both 1',
 };

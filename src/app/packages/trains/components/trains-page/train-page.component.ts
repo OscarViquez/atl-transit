@@ -14,10 +14,7 @@ import {
   TRAIN_PAGE_MESSAGING,
   TRAIN_PAGE_STATIC_CONTENT,
 } from '../../constants/train-page.constants';
-import {
-  TrainPageMessaging,
-  TrainPageStaticContent,
-} from '../../interfaces/train-page.interfaces';
+import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/train-page.interfaces';
 
 @Component({
   selector: 'app-train-page',
@@ -46,9 +43,7 @@ import {
                   Location {{ location.isLocationAllowed ? 'On' : 'Off' }}
                 </core-badge>
               } @loading (minimum 800ms) {
-                <core-badge class="animate-fade-up" color="gray">
-                  Loading Location...
-                </core-badge>
+                <core-badge class="animate-fade-up" color="gray"> Loading Location... </core-badge>
               }
             } @else {
               <div class="skeleton-loader w-[8rem] animate-fade-up"></div>
@@ -60,12 +55,22 @@ import {
           [labels]="staticContent.tabs"
           (currentTabEmitter)="currentTabSetter($event)" />
 
-        @if (facade.nearbyStations$ | async; as arrivals) {
+        @if (facade.trainFeatureState$ | async; as state) {
           @if (currentTabIndex === 0) {
-            @for (arrival of arrivals; track idx; let idx = $index) {
+            @for (arrivals of state.nearestStations; track idx; let idx = $index) {
               <div class="animate-fade-up">
                 <app-station-train-arrival-card
-                  [content]="arrival"
+                  [content]="arrivals"
+                  (saveEmitter)="onSaveStation($event)" />
+              </div>
+            } @empty {
+              <core-info-message [content]="messaging.noSavedStations" />
+            }
+          } @else if (currentTabIndex === 1) {
+            @for (arrivals of state.savedStations; track idx; let idx = $index) {
+              <div class="animate-fade-up">
+                <app-station-train-arrival-card
+                  [content]="arrivals"
                   (saveEmitter)="onSaveStation($event)" />
               </div>
             } @empty {
@@ -77,22 +82,6 @@ import {
             <core-loading-skeleton loadingItem="card" />
             <core-loading-skeleton loadingItem="card" />
           </div>
-        }
-
-        @if (facade.savedStations$ | async; as arrivals) {
-          @if (currentTabIndex === 1) {
-            @defer {
-              @for (arrival of arrivals; track idx; let idx = $index) {
-                <app-station-train-arrival-card
-                  [content]="arrival"
-                  (saveEmitter)="onSaveStation($event)" />
-              } @empty {
-                <core-info-message [content]="messaging.noSavedStations" />
-              }
-            } @loading {
-              <core-loading-skeleton loadingItem="card" />
-            }
-          }
         }
       </div>
     </main>
@@ -106,7 +95,7 @@ export class TrainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.facade.updateGeolocation();
-    this.facade.fetchAllArrivals();
+    this.facade.getTrainFeatureState();
   }
 
   currentTabSetter(index: number): void {
@@ -119,6 +108,6 @@ export class TrainPageComponent implements OnInit {
     } else {
       this.facade.removeStationFromSaved(station.name);
     }
-    this.facade.updateTrainPageCards();
+    this.facade.refreshSavedStations();
   }
 }

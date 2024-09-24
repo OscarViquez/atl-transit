@@ -1,83 +1,88 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../../services/api/api.service';
-import { Observable, Subject, takeUntil } from 'rxjs';
-import {
-  StationDetailsAmenity,
-  StationDetailsBusRoute,
-  StationDetailsPage,
-} from '../../../packages/stations/interfaces/station-details-page.interfaces';
-import {
-  StationDetailsEndpointResponse,
-  StationEndpointAmenity,
-  StationEndpointBusRoute,
-} from '../../models/api.interfaces';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { Header } from '@atl-transit/core';
+import { ApiService, LocalStorageService } from '../../services';
+import { StationFeatureState, StationDetailsEndpointResponse } from '../../models';
 import {
   formatStationName,
   isStationSaved,
   sortTrainArrivalDetails,
-  transformToTrainArrivalDetails,
-} from '../../utils/trains-utils';
-import { LocalStorageService } from '../../services/local-storage/local-storage.service';
+  getTrainArrivalDetails,
+  getStationBusRoutes,
+} from '../../utils';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StationsStoreService {
-  public stationDetailsPageSubject = new Subject<StationDetailsPage>();
+  /**
+   * This state is used to initialize the stateSubject and provides a default structure for the state.
+   * It ensures that the state has a consistent shape and default values before any data is loaded.
+   */
+  private initialState: StationFeatureState = {
+    header: {} as Header,
+    arrivals: [],
+    busRoutes: [],
+    amenities: [],
+    isSaved: false,
+  };
 
-  private _stationDetailsEndpointResponse$!: Observable<StationDetailsEndpointResponse>;
-  private _destroy$ = new Subject<void>();
+  /**
+   * This subject allows for state management and reactive updates.
+   * Components can subscribe to this subject to get the latest state and react to changes.
+   */
+  private stateSubject: BehaviorSubject<StationFeatureState> = new BehaviorSubject(
+    this.initialState
+  );
 
   constructor(
     private api: ApiService,
     private localStorage: LocalStorageService
   ) {}
 
-  setStationDetails(stationName: string): void {
-    this._stationDetailsEndpointResponse$ = this.api.getStationDetails(stationName);
-
-    this._stationDetailsEndpointResponse$.pipe(takeUntil(this._destroy$)).subscribe({
-      next: stationDetails => {
-        this.stationDetailsPageSubject.next(this.mapStationDetails(stationDetails));
-      },
-    });
+  /**
+   * Initializes the feature state by fetching station details from the API.
+   * The state is reset with the new data fetched from the API.
+   * @param station The name of the station for which details are to be fetched.
+   * @returns An observable of the new station feature state.
+   */
+  public initializeFeatureState(station: string): Observable<StationFeatureState> {
+    return this.api.getStationDetails(station).pipe(
+      map(station => {
+        const stationArrivals = this.mapStationDetails(station);
+        return {
+          ...stationArrivals,
+        };
+      }),
+      tap(newState => this.setState(newState))
+    );
   }
 
-  private mapStationDetails(response: StationDetailsEndpointResponse): StationDetailsPage {
+  /**
+   * Maps the station details from the API response to the StationDetailsPage format.
+   * @param details The station details fetched from the API.
+   * @returns The mapped station details in the StationDetailsPage format.
+   */
+  private mapStationDetails(details: StationDetailsEndpointResponse): StationFeatureState {
     const savedStations = this.localStorage.getFromLocalStorage<string[]>('savedStations');
     const captilizedSavedStations = savedStations.map(station => station.toUpperCase());
     return {
       header: {
-        title: formatStationName(response.name),
-        description: response.description,
+        title: formatStationName(details.name),
+        description: details.description,
       },
-      busRoutes: this.mapStationDetailsBusRoutes(response.routes),
-      amenities: this.mapStationDetailsAmenities(response.amenities),
-      arrivals: sortTrainArrivalDetails(transformToTrainArrivalDetails(response.arrivals)),
-      isSaved: isStationSaved(response.name, captilizedSavedStations),
+      busRoutes: getStationBusRoutes(details.routes),
+      amenities: details.amenities.map(amenity => ({ name: amenity.amenityName })),
+      arrivals: sortTrainArrivalDetails(getTrainArrivalDetails(details.arrivals)),
+      isSaved: isStationSaved(details.name, captilizedSavedStations),
     };
   }
 
-  private mapStationDetailsBusRoutes(routes: StationEndpointBusRoute[]): StationDetailsBusRoute[] {
-    return routes.map(route => {
-      return {
-        routeNumber: `Route ${route.routeNumber}`,
-        street: route.routeName,
-        serviceOperator: 'MARTA',
-      };
-    });
-  }
-
-  private mapStationDetailsAmenities(amenities: StationEndpointAmenity[]): StationDetailsAmenity[] {
-    return amenities.map(amenity => {
-      return {
-        name: amenity.amenityName,
-      };
-    });
-  }
-
-  ngOnDestroy(): void {
-    this._destroy$.next();
-    this._destroy$.complete();
+  /**
+   * Sets the new state for the station feature.
+   * @param newState The new state to be set.
+   */
+  private setState(newState: StationFeatureState): void {
+    this.stateSubject.next(newState);
   }
 }

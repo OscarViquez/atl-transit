@@ -13,15 +13,6 @@ export const NAV_MENU_ITEMS: NavMenuItem[] = [
     label: 'Search',
     routerLink: '/search',
   },
-  // TODO: Commented out since this feature would not ever be implemented
-  // {
-  //   label: 'Cards',
-  //   routerLink: '/cards',
-  // },
-  // {
-  //   label: 'Maps',
-  //   routerLink: '/maps',
-  // },
   {
     label: 'Alerts',
     routerLink: '/alerts',

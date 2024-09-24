@@ -6,7 +6,7 @@ import { InfoMessageComponent } from '@atl-transit/core';
   standalone: true,
   imports: [InfoMessageComponent],
   template: `
-    <section class="flex flex-col items-center justify-center w-full h-screen">
+    <section class="flex flex-col items-center justify-center w-full h-[60vh]">
       <core-info-message
         [content]="{
           title: 'Under Construction',

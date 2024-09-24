@@ -36,7 +36,7 @@ import { FacadeService } from '@atl-transit/data-access';
         <div class="w-full h-[309px] bg-neutral-500 animate-pulse"></div>
       }
 
-      @if (facade.stationDetails$ | async; as content) {
+      @if (facade.stationFeatureState$ | async; as content) {
         <section class="flex flex-col gap-10 pt-10 px-6 lg:px-0">
           <app-station-details-header
             [content]="content.header"

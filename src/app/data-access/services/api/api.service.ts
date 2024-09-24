@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment.development';
 import { catchError, Observable, throwError } from 'rxjs';
 import {
+  GtfsRealtimeBusResponse,
+  MartaBusFeedResponse,
   StationDetailsEndpointResponse,
   TrainArrivalEndpointResponse,
 } from '../../models/api.interfaces';
@@ -31,5 +33,21 @@ export class ApiService {
           return throwError(() => new Error(error));
         })
       );
+  }
+
+  getMartaBusFeed(): Observable<MartaBusFeedResponse> {
+    return this.http.get<any>(``).pipe(
+      catchError(error => {
+        return throwError(() => new Error(error));
+      })
+    );
+  }
+
+  getBusGtfsFeed(): Observable<GtfsRealtimeBusResponse> {
+    return this.http.get<GtfsRealtimeBusResponse>(`${environment.gtfs}/bus/tracker/gtfs`).pipe(
+      catchError(error => {
+        return throwError(() => new Error(error));
+      })
+    );
   }
 }

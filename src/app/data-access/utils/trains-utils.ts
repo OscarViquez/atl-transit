@@ -13,28 +13,24 @@ export function filterArrivals(
   nearStations: string[],
   savedStations: string[]
 ): UserStationTrainArrivalData {
-  const captilizedSaveStations = savedStations.map(station => station.toUpperCase());
-  // Arr means arrivals
-  const filteredNearbyStnArr = arrivals.filter(arrival => nearStations.includes(arrival.STATION));
-  const filterSavedStnArr = arrivals.filter(arrival =>
-    captilizedSaveStations.includes(arrival.STATION)
-  );
-  const stationTrainArrivalCardList = transformToStationTrainArrivalCard(
-    nearStations,
-    transformToTrainArrivalDetails(filteredNearbyStnArr),
-    captilizedSaveStations
-  );
-  const savedStationTrainArrivalCardList = transformToStationTrainArrivalCard(
-    captilizedSaveStations,
-    transformToTrainArrivalDetails(filterSavedStnArr),
-    captilizedSaveStations
-  );
+  const capitalizeStations = (stations: string[]) => stations.map(station => station.toUpperCase());
+
+  const filterAndTransformArrivals = (stations: string[]) => {
+    const filteredArrivals = arrivals.filter(arrival => stations.includes(arrival.STATION));
+    return getStationTrainArrivalCard(stations, getTrainArrivalDetails(filteredArrivals), stations);
+  };
+  const capitalizedSavedStations = capitalizeStations(savedStations);
+
   return {
-    nearestStations: stationTrainArrivalCardList,
-    savedStations: savedStationTrainArrivalCardList,
+    nearestStations: filterAndTransformArrivals(nearStations),
+    savedStations: filterAndTransformArrivals(capitalizedSavedStations),
   };
 }
 
+/**
+ * Calculates the distance between the user and each station,
+ * sorts the distances, and returns the two nearest stations.
+ */
 export function findNearbyStations(userLocation: GeoLocationCoord): string[] {
   const distances = STATIONS_INFO_CONSTANTS.map(station => ({
     id: station.id,
@@ -46,22 +42,17 @@ export function findNearbyStations(userLocation: GeoLocationCoord): string[] {
 
   distances.sort((a, b) => a.distance - b.distance);
   return distances.slice(0, 3).map(station => station.id);
-  /**
-   * We compare the user's location to the latitude and longitude of each station to
-   * get the distance between the user and the station. We then sort the distances in ascending order
-   * and return the first two stations in the list.
-   */
 }
 
-export function transformToTrainArrivalDetails(
+export function getTrainArrivalDetails(
   trainArrivals: TrainArrivalEndpointResponse[]
 ): TrainArrivalDetails[] {
   return trainArrivals.map(arrival => ({
     id: arrival.STATION,
     arrivalTime: arrival.WAITING_TIME,
     destination: arrival.DESTINATION,
-    cardinalDirection: transformCardinalDirection(arrival.DIRECTION),
-    lineColor: transformRailLineToBadgeColor(arrival.LINE),
+    cardinalDirection: getCardinalDirection(arrival.DIRECTION),
+    lineColor: getRailLineColor(arrival.LINE),
     arrivalTimestamp: new Date(arrival.EVENT_TIME).toISOString(),
     link: {
       url: `/train-tracker/${arrival.STATION.toLowerCase().replace(/\s+/g, '-')}`,
@@ -69,7 +60,7 @@ export function transformToTrainArrivalDetails(
   }));
 }
 
-export function transformToStationTrainArrivalCard(
+export function getStationTrainArrivalCard(
   stations: string[],
   trainArrivalDetails: TrainArrivalDetails[],
   savedStations: string[]
@@ -110,33 +101,28 @@ export function sortTrainArrivalDetails(arrivals: TrainArrivalDetails[]): TrainA
   });
 }
 
-function parseWaitingTime(waitingTime: string): TrainStatus {
-  if (waitingTime === 'Arriving') return 'Arriving';
-  if (waitingTime === 'Delayed') return 'Delayed';
-  return parseInt(waitingTime, 10);
-}
-
 export function formatStationName(station: string): string {
+  // e.g "PEACHTREE CENTER" => "Peachtree Center" or "north springs" => "North Springs"
   return station
     .toLowerCase()
     .split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
-  /**
-   * Output the station name in the format the design requires,
-   *  e.g "PEACHTREE CENTER" => "Peachtree Center" or "north springs" => "North Springs"
-   */
 }
 
 export function generateStationUrl(station: string): string {
-  return `/stations/${station.toLowerCase().replace('station', '').replace(/\s+/g, '-').replace(/-+$/, '')}`;
+  return `/stations/${station
+    .toLowerCase()
+    .replace('station', '')
+    .replace(/\s+/g, '-')
+    .replace(/-+$/, '')}`;
 }
 
 export function isStationSaved(station: string, savedStations: string[]): boolean {
   return savedStations.includes(station.toUpperCase());
 }
 
-export function transformCardinalDirection(direction: string) {
+function getCardinalDirection(direction: string) {
   switch (direction) {
     case 'N':
       return 'North';
@@ -151,7 +137,7 @@ export function transformCardinalDirection(direction: string) {
   }
 }
 
-export function transformRailLineToBadgeColor(line: string): BadgeColor {
+function getRailLineColor(line: string): BadgeColor {
   switch (line) {
     case 'RED':
       return 'red';
@@ -164,4 +150,10 @@ export function transformRailLineToBadgeColor(line: string): BadgeColor {
     default:
       return 'gray';
   }
+}
+
+function parseWaitingTime(waitingTime: string): TrainStatus {
+  if (waitingTime === 'Arriving') return 'Arriving';
+  if (waitingTime === 'Delayed') return 'Delayed';
+  return parseInt(waitingTime, 10);
 }

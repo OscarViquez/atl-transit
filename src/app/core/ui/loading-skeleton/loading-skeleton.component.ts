@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoadingItem } from '../../models';
+import { LoadingSkeleton } from '../../models';
 
 @Component({
   selector: 'core-loading-skeleton',
@@ -9,5 +9,5 @@ import { LoadingItem } from '../../models';
   templateUrl: './loading-skeleton.component.html',
 })
 export class LoadingSkeletonComponent {
-  @Input() loadingItem: LoadingItem = 'header';
+  @Input() loadingItem: LoadingSkeleton = 'header';
 }

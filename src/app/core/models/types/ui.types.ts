@@ -1,20 +1,14 @@
-export type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
-
-export type Alignment = 'left' | 'right' | 'center';
-
-export type Size = 'small' | 'medium' | 'large';
-
-export type BorderRadius = Size | 'none' | 'x-large' | 'pill';
-
-export type BadgeRadius = 'default' | 'pill' | 'icon';
-
-export type BadgeSize = Size | 'auto';
-
-export type Color = 'red' | 'orange' | 'gold' | 'green' | 'blue' | 'pink' | 'white' | 'black';
-
+/**
+ * Represents the color options for badges used in the UI.
+ * These colors can be used to indicate different statuses or categories, even different rail lines for example.
+ */
 export type BadgeColor = 'gold' | 'red' | 'orange' | 'green' | 'blue' | 'gray' | 'white' | 'black';
 
-export type LoadingItem =
+/**
+ * Different types of loading skeletons used in the UI.
+ * These skeletons are used as placeholders while content is being loaded.
+ */
+export type LoadingSkeleton =
   | 'search'
   | 'card'
   | 'header'
@@ -23,45 +17,18 @@ export type LoadingItem =
   | 'image'
   | 'button'
   | 'icon';
-/**
- * Card is a type that defines the structure of a card.
- * @property title - The title of the card.
- * @property description - The description of the card.
- * @property icon - The icon of the card. This property is optional.
- * @property link - Associated with the action a user my take such as Link, Open Modal or Sheet. This property is optional.
- * @property badges - Associated with showing a user status or badges to describe the data, represented as an array of Badges. This property is optional.
- */
-export type Card = {
-  title: string;
-  description?: string;
-  icon?: string;
-  link?: Link[];
-  badge?: Badge[];
-};
 
-/**
- * Badges is a type that defines the structure of a badge.
- * @property label - The text displayed on the badge.
- * @property color - The color of the badge.
- */
-export type Badge = {
-  label: string;
-  color: BadgeColor;
-};
-
-/**
- * Link is a type that defines the structure of a hyperlink.
- * @property label - The text displayed for the hyperlink.
- * @property url - The URL that the hyperlink points to.
- * @example
- * const exampleLink: Link = {
- *   label: 'GitHub',
- *   url: 'https://github.com'
- * };
- *
- */
 export type Link = {
+  /**
+   * The URL that the hyperlink points to
+   */
   url: string;
+  /**
+   * The label of the hyperlink.
+   */
   label?: string;
+  /**
+   * an optional id for the link
+   */
   id?: string;
 };
