@@ -13,17 +13,24 @@ export function filterArrivals(
   nearStations: string[],
   savedStations: string[]
 ): UserStationTrainArrivalData {
-  const capitalizeStations = (stations: string[]) => stations.map(station => station.toUpperCase());
-
-  const filterAndTransformArrivals = (stations: string[]) => {
-    const filteredArrivals = arrivals.filter(arrival => stations.includes(arrival.STATION));
-    return getStationTrainArrivalCard(stations, getTrainArrivalDetails(filteredArrivals), stations);
-  };
-  const capitalizedSavedStations = capitalizeStations(savedStations);
-
+  const captilizedSaveStations = savedStations.map(station => station.toUpperCase());
+  const filteredNearbyStnArr = arrivals.filter(arrival => nearStations.includes(arrival.STATION));
+  const filterSavedStnArr = arrivals.filter(arrival =>
+    captilizedSaveStations.includes(arrival.STATION)
+  );
+  const stationTrainArrivalCardList = getStationTrainArrivalCard(
+    nearStations,
+    getTrainArrivalDetails(filteredNearbyStnArr),
+    captilizedSaveStations
+  );
+  const savedStationTrainArrivalCardList = getStationTrainArrivalCard(
+    captilizedSaveStations,
+    getTrainArrivalDetails(filterSavedStnArr),
+    captilizedSaveStations
+  );
   return {
-    nearestStations: filterAndTransformArrivals(nearStations),
-    savedStations: filterAndTransformArrivals(capitalizedSavedStations),
+    nearestStations: stationTrainArrivalCardList,
+    savedStations: savedStationTrainArrivalCardList,
   };
 }
 

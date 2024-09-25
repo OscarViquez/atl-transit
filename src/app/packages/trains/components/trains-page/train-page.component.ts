@@ -88,9 +88,13 @@ import { TrainPageMessaging, TrainPageStaticContent } from '../../interfaces/tra
   `,
 })
 export class TrainPageComponent implements OnInit {
+  // Entry Point for all data
   facade = inject(FacadeService);
+  // Static Content - Messaging for train page
   messaging: TrainPageMessaging = TRAIN_PAGE_MESSAGING;
+  // Static Content - Copy text for other sections of the page
   staticContent: TrainPageStaticContent = TRAIN_PAGE_STATIC_CONTENT;
+  // Static Content - Copy text for other sections of the page
   currentTabIndex = 0;
 
   ngOnInit(): void {

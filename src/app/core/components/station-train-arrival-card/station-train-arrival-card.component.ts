@@ -36,6 +36,7 @@ import {
         <core-header [content]="content.header" variant="card" />
         <app-save-button [isSaved]="content.isSaved" (click)="toggleSaved($event)" />
       </div>
+
       @defer {
         @for (arrival of content.arrivals; track idx; let idx = $index) {
           @if (idx < maxArrivalsShown) {
@@ -52,8 +53,8 @@ import {
       }
 
       <div class="pt-4 border-t border-t-neutral-400">
-        <div class="flex justify-end text-center ">
-          <span class="ml-0 text-neutral-900  font-medium text-4"> View All Arrivals </span>
+        <div class="flex justify-between text-center">
+          <span class="text-neutral-900  font-medium text-4"> View All Arrivals </span>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
